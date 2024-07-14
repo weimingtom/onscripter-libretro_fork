@@ -1,5 +1,6 @@
 # onscripter-libretro_fork
-[WIP] My onscripter-libretro fork
+[WIP] My onscripter-libretro fork  
+Status: only tested under xubuntu 20, not tested well under MIYOO A30  
 
 ## Xubuntu 20.04 64bit Ref  
 ```
