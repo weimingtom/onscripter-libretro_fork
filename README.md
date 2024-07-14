@@ -17,4 +17,8 @@ https://www.retroarch.com/index.php?page=linux-instructions
 sudo snap install retroarch  
 ```
 
-* MIYOO A30: ???
+* MIYOO A30: 1.16.0 (for RetroArch32 from 软件应用)    
+```
+/mnt/SDCARD/RetroArch/.retroarch/cores/  
+(not used) /mnt/SDCARD/RetroArch/.retroarch/core_info/  
+```
