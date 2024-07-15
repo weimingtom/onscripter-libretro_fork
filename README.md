@@ -23,7 +23,9 @@ sudo snap install retroarch
 * MIYOO A30: RetroArch 1.16.0 (for RetroArch32 from 软件应用)    
 ```
 /mnt/SDCARD/RetroArch/.retroarch/cores/  
-(not used) /mnt/SDCARD/RetroArch/.retroarch/core_info/  
+(not used) /mnt/SDCARD/RetroArch/.retroarch/core_info/
+Need to put all two files (.info and .so) to cores/  
+Open 0.txt as content using RetroArch32
 ```
 
 * MIYOO MINI Plus: RetroArch 1.10.2 (only for .sh script running with ra32)
