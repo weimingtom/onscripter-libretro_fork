@@ -11,7 +11,7 @@ retroarch->~/snap/retroarch/2879/.config/retroarch
 ```
 
 ## Test RetroArch version  
-* xubuntu 20.04 64bit : RetroArch 1.19.1  
+* xubuntu 20.04 64bit : RetroArch 1.19.1 (open RetroArch with desktop main system menu, not command line)  
 ```
 /snap/retroarch/2879/usr/local/bin/retroarch  
 /home/wmt/snap/retroarch/2879/.config/retroarch/cores  
