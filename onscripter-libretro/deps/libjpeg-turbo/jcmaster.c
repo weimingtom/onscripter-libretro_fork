@@ -21,6 +21,7 @@
 #include "jpegcomp.h"
 #include "jconfigint.h"
 
+
 /* Private state */
 
 typedef enum {
