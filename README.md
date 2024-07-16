@@ -16,6 +16,7 @@ retroarch->~/snap/retroarch/2879/.config/retroarch
 
 ## Test RetroArch version  
 * xubuntu 20.04 64bit : RetroArch 1.19.1 (open RetroArch with desktop main system menu, not command line)  
+$ make clean && make MIYOO=0  
 ```
 /snap/retroarch/2879/usr/local/bin/retroarch  
 /home/wmt/snap/retroarch/2879/.config/retroarch/cores  
@@ -25,6 +26,7 @@ sudo snap install retroarch
 ```
 
 * MIYOO A30: RetroArch 1.16.0 (for RetroArch32 from 软件应用 / APP)    
+$ make clean && make  
 ```
 /mnt/SDCARD/RetroArch/.retroarch/cores/  
 (not used) /mnt/SDCARD/RetroArch/.retroarch/core_info/
@@ -33,6 +35,7 @@ Open 0.txt as content using RetroArch32
 ```
 
 * MIYOO MINI Plus: RetroArch 1.10.2 (only for .sh script running with ra32)
+$ make clean && make  
 ```
 /mnt/SDCARD/RetroArch/.retroarch/cores/
 It can use same onscripter_libretro.so as MIYOO A30
@@ -43,6 +46,7 @@ Then run this launch2.sh with file explorer in MIYOO MINI Plus
 ```
 
 * (???TODO key mapping not good) RG28XX: RetroArch 1.18.0, 32bit???  
+$ make clean && make  
 ```
 copy to /mnt/vendor/deep/retro/cores
 ```
