@@ -6,8 +6,8 @@ It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and
 MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'),   
 not very sure.  
 
-RG28XX has its good onscripter_libretro.so file (closed sources ?),   
-but it can be replaced with my build, something will be wrong about key mapping.  
+RG28XX has its own prebuilt good onscripter_libretro.so file (closed sources ?),   
+but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
 ## Xubuntu 20.04 64bit Ref  
 ```
