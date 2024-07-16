@@ -1,6 +1,6 @@
 ﻿# onscripter-libretro_fork
 [WIP] My onscripter-libretro fork  
-Status: only tested under xubuntu 20, not tested well under MIYOO A30.    
+Status: only tested under xubuntu 20, and may be tested well under MIYOO A30 and MIYOO Mini Plus.    
 
 It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and   
 MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'),   
