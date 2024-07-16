@@ -1,8 +1,12 @@
 ﻿# onscripter-libretro_fork
 [WIP] My onscripter-libretro fork  
 Status: only tested under xubuntu 20, not tested well under MIYOO A30.    
+
 It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and   
 MIYOO MINI Plus (only for .sh script running with ra32), not very sure.  
+
+RG28XX has its good onscripter_libretro.so file (closed sources ?),   
+but it can be replaced with my build, something will be wrong about key mapping.  
 
 ## Xubuntu 20.04 64bit Ref  
 ```
@@ -38,7 +42,7 @@ HOME=$RA_DIR/ $RA_DIR/ra32.ss -v -L $RA_DIR/.retroarch/cores/$EMU "/mnt/SDCARD/R
 Then run this launch2.sh with file explorer in MIYOO MINI Plus    
 ```
 
-* RG28XX: RetroArch 1.18.0, 32bit???  
+* (???TODO key mapping not good) RG28XX: RetroArch 1.18.0, 32bit???  
 ```
 copy to /mnt/vendor/deep/retro/cores
 ```
