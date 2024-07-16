@@ -42,7 +42,11 @@ It can use same onscripter_libretro.so as MIYOO A30
 launch2.sh (copy folder /mnt/SDCARD/Emu/FC)  
 ...
 HOME=$RA_DIR/ $RA_DIR/ra32.ss -v -L $RA_DIR/.retroarch/cores/$EMU "/mnt/SDCARD/Roms/ONS/tukihime/0.txt"
-Then run this launch2.sh with file explorer in MIYOO MINI Plus    
+Then run this launch2.sh with file explorer in MIYOO MINI Plus
+
+Or
+Toggle Menu: 设置setting-界面ui-菜单项可见性-显示加载核心 and 显示加载游戏
+Then run 0.txt from menu 加载游戏(load content) and select core : ONScripter  
 ```
 
 * (???TODO key mapping not good) RG28XX: RetroArch 1.18.0, 32bit???  
