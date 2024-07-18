@@ -1,6 +1,6 @@
-glsm/
+#glsm/
 *.[od]
-*.dll
-*.so
+#*.dll
+#*.so
 *.dylib
 *.exe

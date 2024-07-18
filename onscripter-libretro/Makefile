@@ -1,5 +1,6 @@
 # xubuntu 20.04 64bit
 MIYOO:=1
+JH:=0
 
 ifeq ($(MIYOO),1)
 CC  := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
@@ -138,7 +139,11 @@ else
    CXXFLAGS += -O3
 endif
 
+ifeq ($(JH),1)
+include Makefile-jh.common
+else
 include Makefile.common
+endif
 
 OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o) $(SOURCES_S:.S=.o)
 
