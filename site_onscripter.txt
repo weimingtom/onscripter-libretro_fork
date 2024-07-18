@@ -1,0 +1,2 @@
+https://github.com/ogapee/onscripter/releases
+https://github.com/weimingtom/wmt_rpi_study/tree/master/onscripter-jh
