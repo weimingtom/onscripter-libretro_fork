@@ -9,6 +9,11 @@ not very sure.
 RG28XX has its own prebuilt good onscripter_libretro.so file (closed sources ?),   
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
+## References  
+* (origin, dead?) https://github.com/iyzsong/onscripter-libretro
+* https://github.com/gouchi/onscripter-libretro
+* https://github.com/madcock/libretro-onscripter  
+
 ## Xubuntu 20.04 64bit Ref  
 ```
 retroarch->~/snap/retroarch/2879/.config/retroarch
