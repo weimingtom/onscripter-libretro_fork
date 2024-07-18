@@ -42,16 +42,16 @@
 #define MESSAGE_OK "OK"
 #define MESSAGE_CANCEL "Cancel"
 #else
-#define MESSAGE_SAVE_EXIST "%s%s@%sŒŽ%s“ú%sŽž%s•ª"
-#define MESSAGE_SAVE_EMPTY "%s%s@||||||||||||"
-#define MESSAGE_SAVE_CONFIRM "%s%s‚ÉƒZ[ƒu‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"
-#define MESSAGE_LOAD_CONFIRM "%s%s‚ðƒ[ƒh‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"
-#define MESSAGE_RESET_CONFIRM "ƒŠƒZƒbƒg‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"
-#define MESSAGE_END_CONFIRM "I—¹‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"
-#define MESSAGE_YES "‚Í‚¢"
-#define MESSAGE_NO "‚¢‚¢‚¦"
-#define MESSAGE_OK "‚n‚j"
-#define MESSAGE_CANCEL "ƒLƒƒƒ“ƒZƒ‹"
+#define MESSAGE_SAVE_EXIST "%s%sã€€%sæœˆ%sæ—¥%sæ™‚%såˆ†"
+#define MESSAGE_SAVE_EMPTY "%s%sã€€ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼"
+#define MESSAGE_SAVE_CONFIRM "%s%sã«ã‚»ãƒ¼ãƒ–ã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"
+#define MESSAGE_LOAD_CONFIRM "%s%sã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"
+#define MESSAGE_RESET_CONFIRM "ãƒªã‚»ãƒƒãƒˆã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"
+#define MESSAGE_END_CONFIRM "çµ‚äº†ã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"
+#define MESSAGE_YES "ã¯ã„"
+#define MESSAGE_NO "ã„ã„ãˆ"
+#define MESSAGE_OK "ï¼¯ï¼«"
+#define MESSAGE_CANCEL "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"
 #endif
 
 #ifdef ANDROID

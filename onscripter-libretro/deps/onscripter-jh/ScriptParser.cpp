@@ -26,9 +26,9 @@
 #define VERSION_STR1 "ONScripter"
 #define VERSION_STR2 "Copyright (C) 2001-2014 Studio O.G.A. All Rights Reserved."
 
-#define DEFAULT_SAVE_MENU_NAME "£º±£¥Ê£æ"
-#define DEFAULT_LOAD_MENU_NAME "£º‘ÿ»Î£æ"
-#define DEFAULT_SAVE_ITEM_NAME " È«©"
+#define DEFAULT_SAVE_MENU_NAME "Ôºú‰øùÂ≠òÔºû"
+#define DEFAULT_LOAD_MENU_NAME "ÔºúËΩΩÂÖ•Ôºû"
+#define DEFAULT_SAVE_ITEM_NAME "‰π¶Á≠æ"
 
 #define DEFAULT_TEXT_SPEED_LOW    40
 #define DEFAULT_TEXT_SPEED_MIDDLE 20

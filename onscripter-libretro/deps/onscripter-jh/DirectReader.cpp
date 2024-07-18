@@ -283,9 +283,9 @@ int DirectReader::getRegisteredCompressionType( const char *file_name )
     
 struct DirectReader::FileInfo DirectReader::getFileByIndex( unsigned int index )
 {
-    DirectReader::FileInfo *fi = 0;
+    DirectReader::FileInfo fi;
     
-    return *fi;
+    return fi;
 }
 
 FILE *DirectReader::getFileHandle( const char *file_name, int &compression_type, size_t *length )
