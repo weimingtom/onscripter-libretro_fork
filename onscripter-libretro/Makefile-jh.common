@@ -177,6 +177,7 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh/,\
   ONScripter_command.cpp \
   ONScripter_effect.cpp \
   ONScripter_effect_breakup.cpp \
+  ONScripter_effect_cascade.cpp \
   ONScripter_event.cpp \
   ONScripter_file.cpp \
   ONScripter_file2.cpp \
@@ -187,6 +188,7 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh/,\
   ONScripter_text.cpp \
   resize_image.cpp \
   sjis2utf16.cpp \
+  Encoding.cpp \
   DirectReader.cpp \
   SarReader.cpp \
   NsaReader.cpp \

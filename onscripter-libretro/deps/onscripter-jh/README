@@ -1,11 +1,52 @@
-ONScripter-Jh
+ONScripter
 
-ONScripteræ˜¯ä¸€ä¸ªå¼€æºçš„NScripterè„šæœ¬è§£é‡Šå·¥å…·ï¼Œä¸»è¦ç”±Ogapeeå¼€å‘ç»´æŠ¤
-åŸç‰ˆçš„Readmeè¯·æŸ¥çœ‹Readme.oldã€‚
+0. ¤Ï¤¸¤á¤Ë
 
-è¿™æ˜¯ä¸€ä¸ªä¿®æ”¹ç‰ˆçš„ONScripteræºç ï¼Œåœ¨GPLv2åè®®ä¸‹å‘å¸ƒï¼Œä½¿ç”¨æ—¶è¯·éµå®ˆã€‚
+	¹â¶¶Ä¾¼ù»áºî¤Î NScripter ÍÑ¤ËºîÀ®¤µ¤ì¤¿¥¹¥¯¥ê¥×¥È¤òÆÈ¼«¤Ë²ò¼á¤·¤Æ¼Â¹Ô¤·¤Ş¤¹¡£
 
-ä¿®æ”¹ç›®æ ‡ï¼š
-	æä¾›æ¯”åŸç‰ˆONScripteræ›´å¥½çš„æ€§èƒ½ï¼Œé€‚å½“å¢åŠ ä¸€äº›åŠŸèƒ½
-	æ·»åŠ ä¸­æ–‡æ”¯æŒ
-	å°½å¯èƒ½çš„å…¼å®¹åŸç‰ˆONSè„šæœ¬
+
+1. Æ°ºî´Ä¶­
+
+	libjpeg 6b, bzip2-1.0.6, SDL-1.2.15, SDL_image-1.2.12, SDL_mixer-1.2.12, SDL_ttf-2.0.11, µÚ¤Ó SMPEG-0.4.5 ¤¬Æ°ºî¤¹¤ë´Ä¶­¤Ç¤¹¡£
+	Linux 4.9.6 + Xvnc4 + g++ (gcc 6.3.0) ¤Ç³«È¯¤·¤Æ¤¤¤Ş¤¹¡£
+	Linux, Windows 8 (Visual Studio 2017 C++), Xperia (Android 8.0.0), iPad2 Air (iOS 12.1) ¾å¤ÇÆ°ºî³ÎÇ§¤ò¤·¤Æ¤¤¤Ş¤¹¡£
+	¤½¤ÎÂ¾¡¢MacOS X, MacOS 9, Android(Nexus One, Emulator), iPhone, iPad, PSP, FreeBSD, Solaris(on SPARC), Tru64 UNIX, OS/Warp, iPod, PocketPC, Playstation3, Wii, GP2X, NetWalker, Dreamcast ¾å¤Ç¤ÎÆ°ºîÊó¹ğ¤ò¤¤¤¿¤À¤¤¤Æ¤¤¤Ş¤¹¡£
+
+
+2. ¥³¥ó¥Ñ¥¤¥ë¡¦µ¯Æ°ÊıË¡
+
+	¥³¥ó¥Ñ¥¤¥ë¡¦µ¯Æ°ÊıË¡¤Ï°Ê²¼¤ÎÄÌ¤ê¤Ç¤¹¡£
+	¤¿¤À¤·¡¢onscripter ¤ò¼Â¹Ô¤¹¤ë¾ì½ê¤Ë default.ttf, ¥¹¥¯¥ê¥×¥È, ¥¢¡¼¥«¥¤¥Ö¤¬¤Ê¤±¤ì¤Ğ¤¤¤±¤Ş¤»¤ó¡£
+	¾Ü¤·¤¯¤ÏÆ±º­¤Î www/onscripter.html ¤ò»²¾È¤·¤Æ¤¯¤À¤µ¤¤¡£
+
+	Linux ¤â¤·¤¯¤Ï FreeBSD, Solaris ¤Î¾ì¹ç
+	$ make -f Makefile.Linux
+	$ onscripter
+
+	Windows ¤Î¾ì¹ç (DOS ¥×¥í¥ó¥×¥È¤Ç)
+	$ https://onscripter.osdn.jp/win/ ¤ò»²¹Í¤Ë SDL, SDL_image, SDL_mixer, SDL_ttf, smpeg, Lua, bzip2 ¤ò¥¤¥ó¥¹¥È¡¼¥ë¤·¤Æ¤¯¤À¤µ¤¤¡£
+	$ ONScripter.sln ¤ò Visual Studio ¤Ç³«¤¤¤Æ¥Ó¥ë¥É¤·¤Æ¤¯¤À¤µ¤¤¡£
+	$ onscripter.exe
+
+	MacOS X ¤Î¾ì¹ç
+	$ make -f Makefile.MacOSX
+	$ onscripter
+
+	Zaurus (SL-5500, SL-A300, SL-B500, SL-C700) ¤Î¾ì¹ç
+	ÊÌ¤Î¥Ş¥·¥ó(Linux Åù)¾å¤Ç¥¯¥í¥¹¥³¥ó¥Ñ¥¤¥ë
+	$ make -f Makefile.ARMLinux
+	Zaurus ¤Î Qtopia ¾å¤«¤é¼Â¹Ô
+	$ onscripter
+
+	¤½¤ì°Ê³°¤Î¥×¥é¥Ã¥È¥Õ¥©¡¼¥à¤Ç¤Ï¡¢Makefile.Linux ¤ò¿÷·Á¤Ë¤·¤Æ Makefile.### ¤òºî¤Ã¤Æ¤¯¤À¤µ¤¤¡£
+
+	ONScripter ¤Ï¡¢¥«¥ì¥ó¥È¥Ç¥£¥ì¥¯¥È¥ê¤Î 0.txt ¤â¤·¤¯¤Ï nscript.dat ¤ò¼«Æ°Åª¤ËÆÉ¤ß¹ş¤ß¡¢¤½¤ì¤Ë¤·¤¿¤¬¤Ã¤Æ¥«¥ì¥ó¥È¥Ç¥£¥ì¥¯¥È¥ê¤Î arc.sar ¤â¤·¤¯¤Ï arc.nsa ¤òÆÉ¤ß¹ş¤ß¤Ş¤¹¡£
+
+
+3. Ï¢ÍíÀè
+
+	ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤¹¤ëÌä¤¤¹ç¤ï¤»¤Ï
+
+	ogapee@aqua.dti2.ne.jp
+
+	¤Ş¤ÇÅÅ»Ò¥á¡¼¥ë¤Ë¤Æ¤ª´ê¤¤¤·¤Ş¤¹¡£

@@ -2,7 +2,7 @@
  *
  *  BaseReader.h - Base class of archive reader
  *
- *  Copyright (c) 2001-2014 Ogapee. All rights reserved.
+ *  Copyright (c) 2001-2022 Ogapee. All rights reserved.
  *
  *  ogapee@aqua.dti2.ne.jp
  *
@@ -25,6 +25,22 @@
 #define __BASE_READER_H__
 
 #include <stdio.h>
+#ifdef ANDROID
+extern "C" int fseek_ons(FILE* stream, long offset, int whence);
+#define fseek fseek_ons
+extern "C" long ftell_ons(FILE* stream);
+#define ftell ftell_ons
+extern "C" int fgetc_ons(FILE* stream);
+#define fgetc fgetc_ons
+extern "C" char* fgets_ons(char* s, int size, FILE* stream);
+#define fgets fgets_ons
+extern "C" size_t fread_ons(void* ptr, size_t size, size_t nmemb, FILE* stream);
+#define fread fread_ons
+extern "C" FILE* fopen_ons(const char* str, const char* mode);
+#define fopen fopen_ons
+extern "C" int mkdir_ons(const char* pathname, mode_t mode);
+#define mkdir mkdir_ons
+#endif
 
 #ifndef SEEK_END
 #define SEEK_END 2
@@ -46,40 +62,40 @@
 #define RELATIVEPATHLENGTH 0
 #endif
 
-struct BaseReader
-{
+struct BaseReader {
     enum {
-        NO_COMPRESSION   = 0,
-        SPB_COMPRESSION  = 1,
+        NO_COMPRESSION = 0,
+        SPB_COMPRESSION = 1,
         LZSS_COMPRESSION = 2,
-        NBZ_COMPRESSION  = 4
-    };
-    
-    enum {
-        ARCHIVE_TYPE_NONE = 0,
-        ARCHIVE_TYPE_SAR  = 1,
-        ARCHIVE_TYPE_NSA  = 2,
-        ARCHIVE_TYPE_NS2  = 4   //new format since NScr2.91, uses ext ".ns2"
+        NBZ_COMPRESSION = 4
     };
 
-    struct FileInfo{
+    enum {
+        ARCHIVE_TYPE_NONE = 0,
+        ARCHIVE_TYPE_SAR = 1,
+        ARCHIVE_TYPE_NSA = 2,
+        ARCHIVE_TYPE_NS2 = 4 // new format since NScr2.91, uses ext ".ns2"
+    };
+
+    struct FileInfo {
         char name[256];
-        int  compression_type;
+        int compression_type;
         size_t offset;
         size_t length;
         size_t original_length;
     };
 
-    struct ArchiveInfo{
-        ArchiveInfo *next;
-        FILE *file_handle;
+    struct ArchiveInfo {
+        ArchiveInfo* next;
+        FILE* file_handle;
         int power_resume_number; // currently only for PSP
-        char *file_name;
-        FileInfo *fi_list;
+        char* file_name;
+        FileInfo* fi_list;
         unsigned int num_of_files;
         unsigned long base_offset;
 
-        ArchiveInfo(){
+        ArchiveInfo()
+        {
             next = NULL;
             file_handle = NULL;
             power_resume_number = 0;
@@ -87,25 +103,26 @@ struct BaseReader
             fi_list = NULL;
             num_of_files = 0;
         }
-        ~ArchiveInfo(){
-            if (file_handle) fclose( file_handle );
-            if (file_name)   delete[] file_name;
-            if (fi_list)     delete[] fi_list;
+        ~ArchiveInfo()
+        {
+            if (file_handle) fclose(file_handle);
+            if (file_name) delete[] file_name;
+            if (fi_list) delete[] fi_list;
         }
     };
 
     virtual ~BaseReader(){};
-    
-    virtual int open( const char *name=NULL ) = 0;
-    virtual int close() = 0;
-    
-    virtual const char *getArchiveName() const = 0;
-    virtual int  getNumFiles() = 0;
-    virtual void registerCompressionType( const char *ext, int type ) = 0;
 
-    virtual FileInfo getFileByIndex( unsigned int index ) = 0;
-    virtual size_t getFileLength( const char *file_name ) = 0;
-    virtual size_t getFile( const char *file_name, unsigned char *buffer, int *location=NULL ) = 0;
+    virtual int open(const char* name = NULL) = 0;
+    virtual int close() = 0;
+
+    virtual const char* getArchiveName() const = 0;
+    virtual int getNumFiles() = 0;
+    virtual void registerCompressionType(const char* ext, int type) = 0;
+
+    virtual FileInfo getFileByIndex(unsigned int index) = 0;
+    virtual size_t getFileLength(const char* file_name) = 0;
+    virtual size_t getFile(const char* file_name, unsigned char* buffer, int* location = NULL) = 0;
 };
 
 #endif // __BASE_READER_H__
