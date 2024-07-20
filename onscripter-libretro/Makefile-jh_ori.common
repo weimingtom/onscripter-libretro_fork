@@ -171,7 +171,7 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
 
 # onscripter
 SOURCES_CXX := $(CORE_DIR)/libretro.cpp
-SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh/,\
+SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
   ONScripter.cpp \
   ONScripter_animation.cpp \
   ONScripter_command.cpp \
