@@ -14,6 +14,14 @@ but it can be replaced with my build .so file, something will be wrong about key
 * https://github.com/gouchi/onscripter-libretro
 * https://github.com/madcock/libretro-onscripter  
 
+## Building ONScripter version and ONScripter-jh merge version for ARM
+* Miyoo A30 (tested) / Miyoo Mini Plus (not tested) / RG28XX (not tested) / x86-64 (not tested)  
+* For ONScripter version: make MIYOO=1 JH=0  
+* For ONScripter and ONScripter-jh merge version: make MIYOO=1 JH=1  
+* For PC xubuntu 20.04 x86-64 ONScripter-jh merge version: make MIYOO=0 JH=1  
+* Also, you can convert 0.txt to UTF-8-BOM charset to use ONScripter version, not JH merge version, because newest version ONScripter may (?) support UTF-8-BOM     
+* JH merge version is for GBK/GB2312 charset 0.txt   
+
 ## Xubuntu 20.04 64bit Ref  
 ```
 retroarch->~/snap/retroarch/2879/.config/retroarch
