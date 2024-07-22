@@ -22,7 +22,9 @@ see https://github.com/weimingtom/onscripter-jh-miyoo-a30
 see https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/  
 * (for miyoo mini, not tested) https://github.com/Yorisoft/HelloMiyoo  
 see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.0.3  
-see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz   
+see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz
+* (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf
+or use gcc on rpi3 / rpi4    
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
 * Status: Miyoo A30 (tested)  
