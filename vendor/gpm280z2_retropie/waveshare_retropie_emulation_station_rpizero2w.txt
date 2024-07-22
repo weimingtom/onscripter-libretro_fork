@@ -1,0 +1,4 @@
+login with: pi, raspberry
+
+copy .so and .info to /home/pi/.config/retroarch/cores
+

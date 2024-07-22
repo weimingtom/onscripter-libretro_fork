@@ -15,7 +15,11 @@ but it can be replaced with my build .so file, something will be wrong about key
 * https://github.com/madcock/libretro-onscripter  
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
-* Miyoo A30 (tested) / Miyoo Mini Plus (not tested) / RG28XX (not tested) / x86-64 (not tested)  
+* Status: Miyoo A30 (tested)  
+* Status: Miyoo Mini Plus (not tested)  
+* Status: RG28XX (tested, key mapping bad)  
+* Status: Xubuntu 20.04 x86-64 (not tested)   
+* Status: Waveshare GPM280Z2 (tested, key mapping bad)  
 * For ONScripter version: make MIYOO=1 JH=0  
 * For ONScripter and ONScripter-jh merge version: make MIYOO=1 JH=1  
 * For PC xubuntu 20.04 x86-64 ONScripter-jh merge version: make MIYOO=0 JH=1  
