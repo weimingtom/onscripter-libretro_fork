@@ -19,8 +19,10 @@ but it can be replaced with my build .so file, something will be wrong about key
 * see https://github.com/weimingtom/miyoo_a30_playground  
 * see https://github.com/weimingtom/onscripter-jh-miyoo-a30
 * (not tested) https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-* (not tested) https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/
-* (not tested) https://github.com/Yorisoft/HelloMiyoo  
+* see https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/
+* (not tested) https://github.com/Yorisoft/HelloMiyoo
+* see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.0.3
+* see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz  
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
 * Status: Miyoo A30 (tested)  
