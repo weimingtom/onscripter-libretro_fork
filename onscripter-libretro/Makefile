@@ -175,3 +175,7 @@ clean:
 
 print-%:
 	@echo '$*=$($*)'
+
+install:
+	cp onscripter_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
+
