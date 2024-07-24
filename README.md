@@ -19,7 +19,7 @@ but it can be replaced with my build .so file, something will be wrong about key
 * https://github.com/gouchi/onscripter-libretro
 * https://github.com/madcock/libretro-onscripter  
 
-## ARM Toolchain (all use one toolchain, include a30 and mini and rg28xx and rpizero2w)  
+## ARM Toolchain (all use one toolchain, include a30 and mini and rg28xx and rpizero2w, not include Trimui Smart Pro aarch64)  
 * (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
 see https://github.com/weimingtom/miyoo_a30_playground  
 see https://github.com/weimingtom/onscripter-jh-miyoo-a30  
@@ -30,6 +30,7 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.
 see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz
 * (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf  
 or use gcc on rpi3 / rpi4    
+* (for Trimui Smart Pro, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
 * Status: Miyoo A30 (tested)  
@@ -37,7 +38,7 @@ or use gcc on rpi3 / rpi4
 * Status: RG28XX (tested)  
 * Status: Xubuntu 20.04 x86-64 (tested)   
 * Status: Waveshare GPM280Z2 (tested)  
-* Status: Trimui Smart Pro (run failed, 64bit not support)  
+* Status: Trimui Smart Pro (tested, 64bit aarch64)  
 * For ONScripter version: make MIYOO=1 JH=0  
 * For ONScripter and ONScripter-jh merge version: make MIYOO=1 JH=1  
 * For PC xubuntu 20.04 x86-64 ONScripter-jh merge version: make MIYOO=0 JH=1  
@@ -52,7 +53,7 @@ retroarch->~/snap/retroarch/2879/.config/retroarch
 
 ## Test RetroArch version  
 * xubuntu 20.04 64bit : RetroArch 1.19.1 (open RetroArch with desktop main system menu, not command line)  
-$ make clean && make MIYOO=0  
+$ make MIYOO=0 clean && make MIYOO=0  
 ```
 /snap/retroarch/2879/usr/local/bin/retroarch  
 /home/wmt/snap/retroarch/2879/.config/retroarch/cores  
@@ -86,8 +87,11 @@ Toggle on Menu: 设置(Settings)-界面(User Interface)-菜单项可见性(Menu 
 Then run 0.txt from menu 加载游戏(load content) and select core : ONScripter  
 ```
 
-* (???TODO key mapping not good) RG28XX: RetroArch 1.18.0, 32bit???  
+* RG28XX: RetroArch 1.18.0, 32bit  
 $ make clean && make  
 ```
 copy to /mnt/vendor/deep/retro/cores
 ```
+
+* Trimui Smart Pro: RetroArch 1.18.0, 64bit  
+$ make MIYOO=2 clean && make MIYOO=2  
