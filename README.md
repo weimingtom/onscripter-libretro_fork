@@ -109,6 +109,6 @@ RetroArch-Win64-setup.exe
 * Windows 32bit, 1.19.1, win10      
 RetroArch.7z, RetroArch-Win32, gcc version 5.1.0 (tdm-1), msys  
 msys_v11_retroarch_build_32.7z  
-$ make MIYOO=0 clean && make MIYOO=0
+$ make MIYOO=0 clean && make MIYOO=0  
 NOTE: don't put two files with same prefix file name in cores folder (like onscripter_libretro.dllxxxx),    
 keep only one dll file in cores  
