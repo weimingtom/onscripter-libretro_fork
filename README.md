@@ -97,7 +97,11 @@ copy to /mnt/vendor/deep/retro/cores
 $ make MIYOO=2 clean && make MIYOO=2  
 
 * Android armeabi-v7a (Retro Arch 32-bit): RetroArch 1.19.1  
+RetroArch_ra32.apk  
 > cd jni  
 > set PATH=%PATH%;D:\android-ndk-r10e  
 > ndk-build  
 (Modify Android.mk, include $(CORE_DIR)/Makefile-jh.common, to build jh version)   
+
+* (TODO) Windows 64bit  
+RetroArch-Win64-setup.exe  
