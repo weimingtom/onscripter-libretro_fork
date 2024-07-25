@@ -105,3 +105,7 @@ RetroArch_ra32.apk
 
 * (TODO) Windows 64bit  
 RetroArch-Win64-setup.exe  
+
+* Windows 32bit, 1.19.1, win10      
+RetroArch.7z, RetroArch-Win32, gcc version 5.1.0 (tdm-1), msys  
+$ make MIYOO=0 clean && make MIYOO=0

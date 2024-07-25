@@ -128,9 +128,13 @@ else ifeq ($(platform), vita)
    CXXFLAGS += -Wl,-q -Wall -O3
 	STATIC_LINKING = 1
 else
-   CC = gcc
+   #CC = gcc
+CC  = gcc
+CXX = g++
+AR  = ar   
    TARGET := $(TARGET_NAME)_libretro.dll
-   SHARED := -shared -static-libgcc -static-libstdc++ -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+#-static-libgcc -static-libstdc++ -s   
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
 endif
 
 LDFLAGS += $(LIBM)
