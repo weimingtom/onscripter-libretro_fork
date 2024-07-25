@@ -95,3 +95,9 @@ copy to /mnt/vendor/deep/retro/cores
 
 * Trimui Smart Pro: RetroArch 1.18.0, 64bit  
 $ make MIYOO=2 clean && make MIYOO=2  
+
+* Android armeabi-v7a (Retro Arch 32-bit): RetroArch 1.19.1  
+> cd jni  
+> set PATH=%PATH%;D:\android-ndk-r10e  
+> ndk-build  
+(Modify Android.mk, include $(CORE_DIR)/Makefile-jh.common, to build jh version)   
