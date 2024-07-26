@@ -129,9 +129,12 @@ else ifeq ($(platform), vita)
 	STATIC_LINKING = 1
 else
    #CC = gcc
-CC  = gcc
-CXX = g++
+CC  = gcc -m64
+CXX = g++ -m64
 AR  = ar   
+#CC  = gcc -m32
+#CXX = g++ -m32
+#AR  = ar   
    TARGET := $(TARGET_NAME)_libretro.dll
 #-static-libgcc -static-libstdc++ -s   
    SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined

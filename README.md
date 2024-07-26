@@ -103,12 +103,20 @@ RetroArch_ra32.apk
 > ndk-build  
 (Modify Android.mk, include $(CORE_DIR)/Makefile-jh.common, to build jh version)   
 
-* (TODO) Windows 64bit  
+* Windows 64bit, 1.19.1, win11    
 RetroArch-Win64-setup.exe  
+TDM-GCC-64_tdm64-gcc-10.3.0-2.7z  
+msys_v11_retroarch_build_64.7z  
+gcc  10.3.0 (tdm64-1), msys  
+$ make MIYOO=0 clean && make MIYOO=0  
+modify Makefile with -m64  
+NOTE: don't put two files with same prefix file name in cores folder (like onscripter_libretro.dllxxxx),    
+keep only one dll file in cores  
 
 * Windows 32bit, 1.19.1, win10      
 RetroArch.7z, RetroArch-Win32, gcc version 5.1.0 (tdm-1), msys  
 msys_v11_retroarch_build_32.7z  
 $ make MIYOO=0 clean && make MIYOO=0  
+modify Makefile with -m32  
 NOTE: don't put two files with same prefix file name in cores folder (like onscripter_libretro.dllxxxx),    
 keep only one dll file in cores  
