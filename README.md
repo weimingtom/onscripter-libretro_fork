@@ -103,6 +103,14 @@ RetroArch_ra32.apk
 > ndk-build  
 (Modify Android.mk, include $(CORE_DIR)/Makefile-jh.common, to build jh version)   
 
+* Android arm64-v8a (Retro Arch AArch64): RetroArch 1.19.1  
+RetroArch_aarch64.apk  
+> cd jni  
+> set PATH=%PATH%;D:\android-ndk-r10e  
+> ndk-build  
+(Modify Android.mk, include $(CORE_DIR)/Makefile-jh.common, to build jh version)   
+(Modify Application.mk, APP_ABI := arm64-v8a)  
+
 * Windows 64bit, 1.19.1, win11    
 RetroArch-Win64-setup.exe  
 TDM-GCC-64_tdm64-gcc-10.3.0-2.7z  
