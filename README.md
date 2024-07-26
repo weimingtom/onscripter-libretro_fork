@@ -10,7 +10,7 @@ RG28XX has its own prebuilt good onscripter_libretro.so file (closed sources ?),
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
 ## Bugs or TODO
-* No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
+* (done) No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
 * ONScripter save menu text is not shown with good charset (JH version ? original vesion ?)  
 * JH version dialog text third line is outside the dialog  
 
