@@ -18,7 +18,12 @@ but it can be replaced with my build .so file, something will be wrong about key
 ```
 [PSP][PC移植版][月姬][中文版].rar      
 ```
-* (TODO) running failed: narcissu for psp β.zip  
+* (TODO) running failed: narcissu for psp β.zip
+* (TODO) running failed: 突然之间发现我已恋上你  
+* (TODO) running failed: 我所希冀的未来  
+* (TODO) running failed: 孤独少女百合物语    
+* (TODO) text or font bug: 水仙1+2  
+* (TODO) text or font bug: 纯白交响曲  
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
