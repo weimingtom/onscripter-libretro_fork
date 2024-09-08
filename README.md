@@ -12,7 +12,9 @@ but it can be replaced with my build .so file, something will be wrong about key
 ## Bugs or TODO
 * (done) No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
 * ONScripter save menu text is not shown with good charset (JH version ? original vesion ?)  
-* JH version dialog text third line is outside the dialog  
+* JH version dialog text third line is outside the dialog
+* (TODO) test ONS游戏整合包.rar, ONS.zip.001  
+* (TODO) running failed: narcissu for psp β.zip  
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
