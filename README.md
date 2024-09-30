@@ -50,6 +50,7 @@ or use gcc on rpi3 / rpi4
 * Status: Xubuntu 20.04 x86-64 (tested)   
 * Status: Waveshare GPM280Z2 (tested)  
 * Status: Trimui Smart Pro (tested, 64bit aarch64)  
+* Status: R36S (tested, 64bit aarch64)  
 * For ONScripter version: make MIYOO=1 JH=0  
 * For ONScripter and ONScripter-jh merge version: make MIYOO=1 JH=1  
 * For PC xubuntu 20.04 x86-64 ONScripter-jh merge version: make MIYOO=0 JH=1  
@@ -106,6 +107,16 @@ copy to /mnt/vendor/deep/retro/cores
 
 * Trimui Smart Pro: RetroArch 1.18.0, 64bit  
 $ make MIYOO=2 clean && make MIYOO=2  
+```
+through sdcard reader, copy to SDCARD:\RetroArch\.retroarch\cores  
+aka: /mnt/SDCARD/RetroArch/.retroarch/cores/onscripter_libretro.so  
+```
+
+* R36S: RetroArch 1.18.0, 64bit  
+$ make MIYOO=2 clean && make MIYOO=2  
+```
+through retropie->file manager (from /roms/), copy to /home/ark/.config/retroarch/cores/onscripter_libretro.so  
+```
 
 * Android armeabi-v7a (Retro Arch 32-bit): RetroArch 1.19.1  
 RetroArch_ra32.apk  
