@@ -83,7 +83,9 @@ Need to put all two files (.info and .so) to cores/
 Open 0.txt as content using RetroArch32
 ```
 
-* MIYOO MINI Plus: RetroArch 1.10.2 (only for .sh script running with ra32)  
+* MIYOO MINI Plus: RetroArch 1.10.2  
+The first method: (not only) for .sh script running with ra32 with -L parameter.  
+The second method: but you can also toggle "Show 'Load Content'" to load 0.txt.  
 $ make clean && make  
 ```
 /mnt/SDCARD/RetroArch/.retroarch/cores/
