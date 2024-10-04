@@ -51,6 +51,7 @@ or use gcc on rpi3 / rpi4
 * Status: Waveshare GPM280Z2 (tested)  
 * Status: Trimui Smart Pro (tested, 64bit aarch64)  
 * Status: R36S (tested, 64bit aarch64)  
+* Status: RGB10X (tested, 64bit aarch64)  
 * For ONScripter version: make MIYOO=1 JH=0  
 * For ONScripter and ONScripter-jh merge version: make MIYOO=1 JH=1  
 * For PC xubuntu 20.04 x86-64 ONScripter-jh merge version: make MIYOO=0 JH=1  
@@ -118,6 +119,17 @@ aka: /mnt/SDCARD/RetroArch/.retroarch/cores/onscripter_libretro.so
 $ make MIYOO=2 clean && make MIYOO=2  
 ```
 through retropie->file manager (from /roms/), copy to /home/ark/.config/retroarch/cores/onscripter_libretro.so  
+Select+X or two joystick press down: retroarch quick menu
+Select+Start: retroarch exit  
+```
+
+* RGB10X: RetroArch 1.19.1, 64bit  
+ArkOS same as R36S  
+$ make MIYOO=2 clean && make MIYOO=2  
+```
+through retropie->file manager (from /roms/), copy to /home/ark/.config/retroarch/cores/onscripter_libretro.so  
+-+X: retroarch quick menu  
+-+Start: retroarch exit  
 ```
 
 * Android armeabi-v7a (Retro Arch 32-bit): RetroArch 1.19.1  
