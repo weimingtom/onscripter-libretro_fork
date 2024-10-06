@@ -169,3 +169,5 @@ keep only one dll file in cores
 $ make clean && make  
 Use WinSCP to copy to /home/pi/.config/retroarch/cores  
 SSH user/pass: pi/raspberry  
+or GPICASE2W, see retropie-buster-4.8-rpi2_3_zero2w.img.gz  
+see GPICASE2W-display-patch-main.zip
