@@ -164,3 +164,8 @@ $ make MIYOO=0 clean && make MIYOO=0
 modify Makefile with -m32  
 NOTE: don't put two files with same prefix file name in cores folder (like onscripter_libretro.dllxxxx),    
 keep only one dll file in cores  
+
+* Waveshare GPM280Z2 32bit, RetroArch 1.10.0, Retropie  
+$ make clean && make  
+Use WinSCP to copy to /home/pi/.config/retroarch/cores  
+SSH user/pass: pi/raspberry  
