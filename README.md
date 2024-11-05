@@ -173,7 +173,7 @@ or GPICASE2W, see retropie-buster-4.8-rpi2_3_zero2w.img.gz
 see GPICASE2W-display-patch-main.zip
 
 ## About loading core so file failed  
-* Make sure info and so are all put into cores/ folder  
+* Make sure .info and .so files are all put into cores/ folder  
 * Try to delete cores/core_info.cache and restart retroarch  
 ```
 我怀疑RA为什么有时候能加载核心文件有时候却不能，可能是RA本身的缓存问题，
