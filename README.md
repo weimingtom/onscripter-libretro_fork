@@ -171,3 +171,15 @@ Use WinSCP to copy to /home/pi/.config/retroarch/cores
 SSH user/pass: pi/raspberry  
 or GPICASE2W, see retropie-buster-4.8-rpi2_3_zero2w.img.gz  
 see GPICASE2W-display-patch-main.zip
+
+## About loading core so file failed  
+* Make sure info and so are all put into cores/ folder  
+* Try to delete cores/core_info.cache and restart retroarch  
+```
+我怀疑RA为什么有时候能加载核心文件有时候却不能，可能是RA本身的缓存问题，
+我之前的解决方法是用--static-libgcc --static-libstdc++ -s来链接so文件，
+不过也有可能不是这个原因。
+我试过可以删除cores目录下的core_info.cache文件再重新启动ra，
+就可以正常加载核心文件了，待考，反正就是很玄乎
+（最好确保同时放入info和so文件）
+```
