@@ -12,7 +12,7 @@ It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and
 MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'),   
 not very sure.  
 
-RG28XX and RGB10X has their own prebuilt good onscripter_libretro.so files  
+RG28XX and RGB10X have their own prebuilt good onscripter_libretro.so files  
 (Closed sources ? May be built from YuriSizuku/OnscripterYuri, not sure),   
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
