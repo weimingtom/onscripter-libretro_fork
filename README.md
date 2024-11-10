@@ -197,3 +197,10 @@ see GPICASE2W-display-patch-main.zip
 就可以正常加载核心文件了，待考，反正就是很玄乎
 （最好确保同时放入info和so文件）
 ```
+
+## Build Android so file  
+* Modify jni/Application.mk to change APP_ABI to armeabi-v7a or arm64-v8a.    
+* Don't make the folder too long path name, it will fail to be compiled.   
+* Execute ndk-build to compile it.  
+* Change the so file name in folder libs.    
+
