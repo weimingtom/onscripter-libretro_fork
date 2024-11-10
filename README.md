@@ -1,5 +1,7 @@
 ﻿# onscripter-libretro_fork
-[WIP] My onscripter-libretro fork  
+[WIP] My onscripter-libretro fork, **NOTE, the latest version original code see: **     
+https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
+
 Status: only tested under xubuntu 20, and may be tested well under MIYOO A30 and MIYOO Mini Plus.    
 
 It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and   
@@ -8,6 +10,13 @@ not very sure.
 
 RG28XX has its own prebuilt good onscripter_libretro.so file (closed sources ?),   
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
+
+```
+NOTE:  
+The original code seems be merged into Onscripter Yuri, Commits on Oct 8, 2024    
+https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
+https://github.com/YuriSizuku/OnscripterYuri/commits/b3aad4f7ced52861fcf570a87d92cfb43522069e/  
+```
 
 ## Bugs or TODO
 * (done) No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
