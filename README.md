@@ -5,7 +5,7 @@ https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro
 Status: tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus, 
 RG28XX, Android 12 (Redmi 12C, 64bit), Windows 10, Trimui Smart Pro (64bit), R36S, RGB10X,   
 Waveshare GPM280Z2 (Retropie)  
-Test binary files (not statable):   
+Test binary files (not stable):   
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
 
 It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and   
