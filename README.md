@@ -2,21 +2,17 @@
 [WIP] My onscripter-libretro fork, **NOTE, the latest version original code see: **     
 https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
-Status: tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus, 
-RG28XX, Android 12 (Redmi 12C, 64bit), Windows 10, Trimui Smart Pro (64bit), R36S, RGB10X,   
-Waveshare GPM280Z2 (Retropie)  
+**Status:**   
+tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus, RG28XX, Android 12 (Redmi 12C, 64bit), Windows 10, Trimui Smart Pro (64bit), R36S, RGB10X,   Waveshare GPM280Z2 (Retropie)  
+
 Test binary files (not stable):   
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
 
-It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and   
-MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'),   
-not very sure.  
+It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'), not very sure.  
 
-RG28XX and RGB10X and R36S have their own prebuilt good onscripter_libretro.so files  
-(Closed sources ? May be built from YuriSizuku/OnscripterYuri, not sure),   
-but it can be replaced with my build .so file, something will be wrong about key mapping.  
+RG28XX and RGB10X and R36S have their own prebuilt good onscripter_libretro.so files (Closed sources ? May be built from YuriSizuku/OnscripterYuri, not sure), but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
-**Branches and Status:**   
+**Branches:**   
 * onscripter-libretro is the SDL1.2 branch, old code, buggy and available, removed by author            
 * onsyuri_libretro is the SDL2 branch, latest code, only runnable and tested in Xubuntu 20, merged into other project by author      
 
