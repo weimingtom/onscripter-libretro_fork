@@ -16,8 +16,9 @@ RG28XX and RGB10X and R36S have their own prebuilt good onscripter_libretro.so f
 (Closed sources ? May be built from YuriSizuku/OnscripterYuri, not sure),   
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
-* onscripter-libretro is the SDL1.2 branch, old code    
-* onsyuri_libretro is the SDL2 branch, latest code   
+**Branches and Status:**   
+* onscripter-libretro is the SDL1.2 branch, old code, buggy and available, removed by author            
+* onsyuri_libretro is the SDL2 branch, latest code, only runnable and tested in Xubuntu 20, merged into other project by author      
 
 **NOTE:**  
 The original code seems be merged into Onscripter Yuri, Commits on Oct 8, 2024    
