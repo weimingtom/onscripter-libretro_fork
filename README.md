@@ -12,16 +12,16 @@ It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and
 MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'),   
 not very sure.  
 
-RG28XX and RGB10X have their own prebuilt good onscripter_libretro.so files  
+RG28XX and RGB10X and R36S have their own prebuilt good onscripter_libretro.so files  
 (Closed sources ? May be built from YuriSizuku/OnscripterYuri, not sure),   
 but it can be replaced with my build .so file, something will be wrong about key mapping.  
 
-```
-NOTE:  
+**NOTE:**  
 The original code seems be merged into Onscripter Yuri, Commits on Oct 8, 2024    
-https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
+https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro    
 https://github.com/YuriSizuku/OnscripterYuri/commits/b3aad4f7ced52861fcf570a87d92cfb43522069e/  
-```
+ONScripter Yuri 0.7.4+1, onsyuri  
+https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/onsyuri_libretro.info  
 
 ## Bugs or TODO  
 * (TODO, IMP) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
