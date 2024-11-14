@@ -23,6 +23,17 @@ https://github.com/YuriSizuku/OnscripterYuri/commits/b3aad4f7ced52861fcf570a87d9
 ONScripter Yuri 0.7.4+1, onsyuri  
 https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/onsyuri_libretro.info  
 
+**Onscripter-yuri build, WIP**
+Onsyuri Test binary files (not stable very much):
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113  
+```
+我测试过，onsyuri_libretro这个新代码库（相当于onscripter_libretro的SDL2版），目前的研究结果是：
+（1）PC、安卓和ARM版都可以编译，但Windows版暂时还不能编译（SDL2代码暂时编译不了）
+（2）手头上大部分掌机都能跑onsyuri新核心，但trimui smart pro和rg28xx不行
+（trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
+我有时间会把目前修改的代码开源到gh上
+```
+
 ## Bugs or TODO  
 * (TODO, IMP) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
 onscripter-libretro_fork_20241112_v2_perfect_run.7z  
