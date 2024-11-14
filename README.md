@@ -23,8 +23,8 @@ https://github.com/YuriSizuku/OnscripterYuri/commits/b3aad4f7ced52861fcf570a87d9
 ONScripter Yuri 0.7.4+1, onsyuri  
 https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/onsyuri_libretro.info  
 
-**Onscripter-yuri build, WIP**
-Onsyuri Test binary files (not stable very much):
+**Onscripter-yuri build, WIP**  
+Onsyuri Test binary files (not stable very much):  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113  
 ```
 我测试过，onsyuri_libretro这个新代码库（相当于onscripter_libretro的SDL2版），目前的研究结果是：
