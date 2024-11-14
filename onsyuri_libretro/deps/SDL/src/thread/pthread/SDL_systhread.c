@@ -70,7 +70,7 @@ static const int sig_list[] = {
 
 static void *RunThread(void *data)
 {
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !BUILD_RETROARCH
     Android_JNI_SetupThread();
 #endif
     SDL_RunThread((SDL_Thread *)data);
@@ -246,7 +246,7 @@ int SDL_SYS_SetThreadPriority(SDL_ThreadPriority priority)
         policy = pri_policy;
     }
 
-#ifdef __LINUX__
+#if 0 //defined(__LINUX__)
     {
         pid_t linuxTid = syscall(SYS_gettid);
         return SDL_LinuxSetThreadPriorityAndPolicy(linuxTid, priority, policy);

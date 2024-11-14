@@ -371,7 +371,7 @@ int ONScripter::playMPEG(const char *filename, bool click_flag, bool loop_flag)
     system(absolute_filename);
 #elif defined(IOS)
     playVideoIOS(absolute_filename, click_flag, loop_flag);
-#elif defined(ANDROID)
+#elif defined(ANDROID) && !BUILD_RETROARCH
     playVideoAndroid(absolute_filename);
 #else
     utils::printError( "mpegplay command is disabled.\n" );
@@ -405,7 +405,7 @@ int ONScripter::playAVI( const char *filename, bool click_flag )
     system(absolute_filename);
 #elif defined(IOS)
     playVideoIOS(absolute_filename, click_flag, loop_flag);
-#elif defined(ANDROID)
+#elif defined(ANDROID) && !BUILD_RETROARCH
     playVideoAndroid(absolute_filename);
 #else
     utils::printError( "avi command is disabled.\n" );

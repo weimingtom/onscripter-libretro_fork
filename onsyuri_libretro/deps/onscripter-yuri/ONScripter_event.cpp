@@ -1194,7 +1194,7 @@ void ONScripter::timerEvent(bool init_flag)
     }
 }
 
-#if (defined(IOS) || defined(ANDROID) || defined(WINRT))
+#if (defined(IOS) || (defined(ANDROID) && !BUILD_RETROARCH) || defined(WINRT))
 SDL_MouseWheelEvent transTouchKey(SDL_TouchFingerEvent &finger) {
     static struct FingerPoint {
         float x, y;
@@ -1249,7 +1249,7 @@ void ONScripter::runEventLoop()
         }
 
         switch (event.type) {
-#if defined(IOS) || defined(ANDROID) || defined(WINRT)
+#if defined(IOS) || (defined(ANDROID) && !BUILD_RETROARCH) || defined(WINRT)
         case SDL_FINGERMOTION:
         {
             if (!btndown_flag && convTouchKey(event.tfinger)) return;
@@ -1313,7 +1313,7 @@ void ONScripter::runEventLoop()
         }
             break;
 #endif
-#if !defined(ANDROID) && !defined(IOS) && !defined(WINRT)
+#if !(defined(ANDROID) && !BUILD_RETROARCH) && !defined(IOS) && !defined(WINRT)
           case SDL_MOUSEMOTION:
             // printf("## SDL_MOUSEMOTION (%d, %d) ", event.button.x, event.button.y);
 #if !defined(WEB)

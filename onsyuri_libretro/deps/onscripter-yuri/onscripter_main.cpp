@@ -30,10 +30,12 @@
 #include "version.h"
 #include "stdlib.h"
 
+#if !BUILD_RETROARCH
 ONScripter ons;
 Coding2UTF16 *coding2utf16 = NULL;
 std::string g_stdoutpath = "stdout.txt";
 std::string g_stderrpath = "stderr.txt";
+#endif
 
 #if defined(IOS)
 #import <Foundation/NSArray.h>
@@ -112,11 +114,13 @@ static jmethodID JavaPlayVideo = NULL;
 static jmethodID JavaGetFD = NULL;
 static jmethodID JavaMkdir = NULL;
 
+#if !BUILD_RETROARCH
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved)
 {
     jniVM = vm;
     return JNI_VERSION_1_2;
 };
+#endif
 
 JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *vm, void *reserved)
 {
@@ -130,6 +134,7 @@ JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *vm, void *reserved)
 #define JAVA_EXPORT_NAME1(name,package) JAVA_EXPORT_NAME2(name,package)
 #define JAVA_EXPORT_NAME(name) JAVA_EXPORT_NAME1(name,SDL_JAVA_PACKAGE_PATH)
 
+#if !BUILD_RETROARCH
 JNIEXPORT jint JNICALL JAVA_EXPORT_NAME(ONScripter_nativeInitJavaCallbacks) (JNIEnv * jniEnv, jobject thiz)
 {
     JavaONScripter = jniEnv->NewGlobalRef(thiz);
@@ -151,6 +156,7 @@ JAVA_EXPORT_NAME(ONScripter_nativeGetHeight) ( JNIEnv*  env, jobject thiz )
 {
     return ons.getHeight();
 }
+#endif
 
 void playVideoAndroid(const char *path)
 {
@@ -337,6 +343,7 @@ FILE *fopen_ons(const char *path, const char *mode)
 }
 #endif
 
+#if !BUILD_RETROARCH
 void parseOption(int argc, char *argv[]) {
     while (argc > 0) {
         if ( argv[0][0] == '-' ){
@@ -560,3 +567,5 @@ int main(int argc, char *argv[])
     ons.executeLabel();
     exit(0);
 }
+
+#endif

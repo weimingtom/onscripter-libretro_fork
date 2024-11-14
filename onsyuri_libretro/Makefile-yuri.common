@@ -33,86 +33,6 @@ INCFLAGS := \
 CFLAGS += $(INCFLAGS)
 CXXFLAGS += $(INCFLAGS)
 
-# bzip2
-CFLAGS += -D_FILE_OFFSET_BITS=64
-SOURCES_C += \
-  $(DEPS_DIR)/bzip2/blocksort.c \
-  $(DEPS_DIR)/bzip2/huffman.c \
-  $(DEPS_DIR)/bzip2/crctable.c \
-  $(DEPS_DIR)/bzip2/randtable.c \
-  $(DEPS_DIR)/bzip2/compress.c \
-  $(DEPS_DIR)/bzip2/decompress.c \
-  $(DEPS_DIR)/bzip2/bzlib.c
-
-# freetype
-CFLAGS += -DFT2_BUILD_LIBRARY=1
-SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
-  base/ftbase.c \
-  base/ftdebug.c \
-  base/ftinit.c \
-  base/ftsystem.c \
-  base/ftbitmap.c \
-  base/ftglyph.c \
-  base/ftstroke.c \
-  autofit/autofit.c \
-  psnames/psnames.c \
-  sfnt/sfnt.c \
-  truetype/truetype.c \
-  raster/raster.c \
-  smooth/smooth.c \
-)
-
-# libjpeg-turbo
-SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\
-  jcapimin.c jcapistd.c jccoefct.c jccolor.c jcdctmgr.c jchuff.c \
-  jcicc.c jcinit.c jcmainct.c jcmarker.c jcmaster.c jcomapi.c jcparam.c \
-  jcphuff.c jcprepct.c jcsample.c jctrans.c jdapimin.c jdapistd.c jdatadst.c \
-  jdatasrc.c jdcoefct.c jdcolor.c jddctmgr.c jdhuff.c jdicc.c jdinput.c \
-  jdmainct.c jdmarker.c jdmaster.c jdmerge.c jdphuff.c jdpostct.c jdsample.c \
-  jdtrans.c jerror.c jfdctflt.c jfdctfst.c jfdctint.c jidctflt.c jidctfst.c \
-  jidctint.c jidctred.c jquant1.c jquant2.c jutils.c jmemmgr.c jmemnobs.c \
-  jaricom.c jcarith.c jdarith.c \
-  jsimd_none.c \
-)
-
-# zlib
-SOURCES_C += $(addprefix $(DEPS_DIR)/zlib/,\
-  adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c \
-  gzread.c gzwrite.c inflate.c infback.c inftrees.c inffast.c \
-  trees.c uncompr.c zutil.c \
-)
-
-# libpng
-SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
-  png.c pngerror.c pngget.c pngmem.c pngpread.c \
-  pngread.c pngrio.c pngrtran.c pngrutil.c \
-  pngset.c pngtrans.c pngwio.c pngwrite.c pngwtran.c pngwutil.c \
-  arm/arm_init.c arm/filter_neon_intrinsics.c arm/palette_neon_intrinsics.c \
-)
-SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
-  arm/filter_neon.S \
-)
-
-# libogg
-SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
-  bitwise.c framing.c \
-)
-
-# libvorbis
-SOURCES_C += $(addprefix $(DEPS_DIR)/libvorbis/lib/,\
-  mdct.c smallft.c block.c envelope.c window.c lsp.c \
-  lpc.c analysis.c synthesis.c psy.c info.c \
-  floor1.c floor0.c \
-  res0.c mapping0.c registry.c codebook.c sharedbook.c \
-  lookup.c bitrate.c vorbisfile.c \
-)
-
-# libmad
-CFLAGS += -DFPM_DEFAULT -DSIZEOF_INT=4
-SOURCES_C += $(addprefix $(DEPS_DIR)/libmad/,\
-  version.c fixed.c bit.c timer.c stream.c frame.c \
-  synth.c decoder.c layer12.c layer3.c huffman.c \
-)
 
 # SDL2
 # FIXME:need to modify src/dynapi/SDL_dynapi.h to comment #error
@@ -224,6 +144,87 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/SDL/src/,\
 SOURCES_C += $(addprefix $(SDL_LIBRETRO_DIR)/, \
   SDL_libretro.c \
 )
+
+# bzip2
+CFLAGS += -D_FILE_OFFSET_BITS=64
+SOURCES_C += \
+  $(DEPS_DIR)/bzip2/blocksort.c \
+  $(DEPS_DIR)/bzip2/huffman.c \
+  $(DEPS_DIR)/bzip2/crctable.c \
+  $(DEPS_DIR)/bzip2/randtable.c \
+  $(DEPS_DIR)/bzip2/compress.c \
+  $(DEPS_DIR)/bzip2/decompress.c \
+  $(DEPS_DIR)/bzip2/bzlib.c
+
+# freetype
+CFLAGS += -DFT2_BUILD_LIBRARY=1
+SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
+  base/ftbase.c \
+  base/ftdebug.c \
+  base/ftinit.c \
+  base/ftsystem.c \
+  base/ftbitmap.c \
+  base/ftglyph.c \
+  base/ftstroke.c \
+  autofit/autofit.c \
+  psnames/psnames.c \
+  sfnt/sfnt.c \
+  truetype/truetype.c \
+  raster/raster.c \
+  smooth/smooth.c \
+)
+
+# libjpeg-turbo
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\
+#  jcapimin.c jcapistd.c jccoefct.c jccolor.c jcdctmgr.c jchuff.c \
+#  jcicc.c jcinit.c jcmainct.c jcmarker.c jcmaster.c jcomapi.c jcparam.c \
+#  jcphuff.c jcprepct.c jcsample.c jctrans.c jdapimin.c jdapistd.c jdatadst.c \
+#  jdatasrc.c jdcoefct.c jdcolor.c jddctmgr.c jdhuff.c jdicc.c jdinput.c \
+#  jdmainct.c jdmarker.c jdmaster.c jdmerge.c jdphuff.c jdpostct.c jdsample.c \
+#  jdtrans.c jerror.c jfdctflt.c jfdctfst.c jfdctint.c jidctflt.c jidctfst.c \
+#  jidctint.c jidctred.c jquant1.c jquant2.c jutils.c jmemmgr.c jmemnobs.c \
+#  jaricom.c jcarith.c jdarith.c \
+#  jsimd_none.c \
+#)
+
+# zlib
+#SOURCES_C += $(addprefix $(DEPS_DIR)/zlib/,\
+#  adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c \
+#  gzread.c gzwrite.c inflate.c infback.c inftrees.c inffast.c \
+#  trees.c uncompr.c zutil.c \
+#)
+
+# libpng
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
+#  png.c pngerror.c pngget.c pngmem.c pngpread.c \
+#  pngread.c pngrio.c pngrtran.c pngrutil.c \
+#  pngset.c pngtrans.c pngwio.c pngwrite.c pngwtran.c pngwutil.c \
+#  arm/arm_init.c arm/filter_neon_intrinsics.c arm/palette_neon_intrinsics.c \
+#)
+#SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
+#  arm/filter_neon.S \
+#)
+
+# libogg
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
+#  bitwise.c framing.c \
+#)
+
+# libvorbis
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libvorbis/lib/,\
+#  mdct.c smallft.c block.c envelope.c window.c lsp.c \
+#  lpc.c analysis.c synthesis.c psy.c info.c \
+#  floor1.c floor0.c \
+#  res0.c mapping0.c registry.c codebook.c sharedbook.c \
+#  lookup.c bitrate.c vorbisfile.c \
+#)
+
+# libmad
+#CFLAGS += -DFPM_DEFAULT -DSIZEOF_INT=4
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libmad/,\
+#  version.c fixed.c bit.c timer.c stream.c frame.c \
+#  synth.c decoder.c layer12.c layer3.c huffman.c \
+#)
 
 # SDL2_image
 #FIXME:

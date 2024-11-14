@@ -56,7 +56,7 @@
 #define HAVE_ALLOCA_H 1
 #define HAVE_CTYPE_H 1
 #define HAVE_FLOAT_H 1
-#define HAVE_ICONV_H 1
+/*#define HAVE_ICONV_H 1*/
 #define HAVE_INTTYPES_H 1
 #define HAVE_LIMITS_H 1
 #define HAVE_MALLOC_H 1
@@ -187,9 +187,14 @@
 #define HAVE_TANF 1
 #define HAVE_TRUNC 1
 #define HAVE_TRUNCF 1
-#define HAVE_FOPEN64 1
+#if defined(__ANDROID__)
+/* #undef HAVE_FOPEN64 */
+/* #undef HAVE_FSEEKO64 */
+#else
+/*#define HAVE_FOPEN64 1*/
+/*#define HAVE_FSEEKO64 1*/
+#endif
 #define HAVE_FSEEKO 1
-#define HAVE_FSEEKO64 1
 #define HAVE_MEMFD_CREATE 1
 #define HAVE_POSIX_FALLOCATE 1
 #define HAVE_SIGACTION 1
@@ -201,15 +206,25 @@
 #define HAVE_CLOCK_GETTIME 1
 /* #undef HAVE_GETPAGESIZE */
 #define HAVE_MPROTECT 1
-#define HAVE_ICONV 1
+/*#define HAVE_ICONV 1*/
 /* #undef SDL_USE_LIBICONV */
 #define HAVE_PTHREAD_SETNAME_NP 1
 /* #undef HAVE_PTHREAD_SET_NAME_NP */
 #define HAVE_SEM_TIMEDWAIT 1
-#define HAVE_GETAUXVAL 1
+#if !defined(__ANDROID__)
+/*#define HAVE_GETAUXVAL 1*/
+/* #undef HAVE_GETAUXVAL */
 /* #undef HAVE_ELF_AUX_INFO */
+#else
+/* #undef HAVE_GETAUXVAL */
+/* #undef HAVE_ELF_AUX_INFO */
+#endif
 #define HAVE_POLL 1
-#define HAVE__EXIT 1
+#if defined(__ANDROID__)
+/* #undef HAVE__EXIT */
+#else
+/*#define HAVE__EXIT 1*/
+#endif
 
 #else
 #define HAVE_STDARG_H 1
@@ -288,7 +303,12 @@
 /* #undef SDL_FILESYSTEM_DISABLED */
 /* #undef SDL_LOCALE_DISABLED */
 /* #undef SDL_MISC_DISABLED */
+#if defined(__ANDROID__)
+/* #undef SDL_HAPTIC_DISABLED */
 #define SDL_HAPTIC_DISABLED 1
+#else
+#define SDL_HAPTIC_DISABLED 1
+#endif
 #define SDL_HIDAPI_DISABLED 1
 #define SDL_SENSOR_DISABLED 1
 #define SDL_POWER_DISABLED 1
@@ -340,7 +360,12 @@
 /* #define SDL_INPUT_LINUXKD 1 */
 /* #undef SDL_INPUT_FBSDKBIO */
 /* #undef SDL_INPUT_WSCONS */
+#if defined(__ANDROID__)
+/*#define SDL_JOYSTICK_ANDROID 1*/
 /* #undef SDL_JOYSTICK_ANDROID */
+#else
+/* #undef SDL_JOYSTICK_ANDROID */
+#endif
 /* #undef SDL_JOYSTICK_HAIKU */
 /* #undef SDL_JOYSTICK_WGI */
 /* #undef SDL_JOYSTICK_DINPUT */
@@ -365,7 +390,12 @@
 /* #undef SDL_HAPTIC_IOKIT */
 /* #undef SDL_HAPTIC_DINPUT */
 /* #undef SDL_HAPTIC_XINPUT */
+#if defined(__ANDROID__)
+/*#define SDL_HAPTIC_ANDROID 1*/
 /* #undef SDL_HAPTIC_ANDROID */
+#else
+/* #undef SDL_HAPTIC_ANDROID */
+#endif
 /* #undef SDL_LIBUSB_DYNAMIC */
 /* #define SDL_UDEV_DYNAMIC "libudev.so.1" */
 
@@ -408,7 +438,12 @@
 /* #undef SDL_TIMER_N3DS */
 
 /* Enable various video drivers */
+#if defined(__ANDROID__)
+/*#define SDL_VIDEO_DRIVER_ANDROID 1*/
 /* #undef SDL_VIDEO_DRIVER_ANDROID */
+#else
+/* #undef SDL_VIDEO_DRIVER_ANDROID */
+#endif
 /* #undef SDL_VIDEO_DRIVER_EMSCRIPTEN */
 /* #undef SDL_VIDEO_DRIVER_HAIKU */
 /* #undef SDL_VIDEO_DRIVER_COCOA */

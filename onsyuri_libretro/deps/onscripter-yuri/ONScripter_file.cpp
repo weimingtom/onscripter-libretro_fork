@@ -63,7 +63,7 @@ void ONScripter::searchSaveFile( SaveFileInfo &save_file_info, int no )
     struct stat buf;
     struct tm *tm;
     // printf("## searchSaveFile %s\n", file_name);
-#if defined(ANDROID)
+#if defined(ANDROID) && !BUILD_RETROARCH
     if ( stat_ons( file_name, &buf ) != 0 ){
 #else
     if ( stat( file_name, &buf ) != 0 ){

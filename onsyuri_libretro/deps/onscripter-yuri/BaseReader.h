@@ -26,7 +26,7 @@
 #define __BASE_READER_H__
 
 #include <stdio.h>
-#if defined(ANDROID)
+#if defined(ANDROID) && !BUILD_RETROARCH
 extern "C" int stat_ons(const char *path, struct stat *statbuf);
 extern "C" FILE *fopen_ons(const char *str, const char *mode);
 #define fopen fopen_ons

@@ -167,7 +167,7 @@ void ONScripter::initSDL()
 
     screen_bpp = 32;
     
-#if (defined(IOS) || defined(ANDROID) || defined(WINRT))
+#if (defined(IOS) || (defined(ANDROID) && !BUILD_RETROARCH) || defined(WINRT))
     SDL_DisplayMode mode;
     SDL_GetDisplayMode(0, 0, &mode);
     int width;
@@ -856,7 +856,7 @@ void ONScripter::flushDirect( SDL_Rect &rect, int refresh_mode )
     SDL_UnlockSurface(accumulation_surface);
 
     screen_dirty_flag = false;
-#if defined(ANDROID) || defined(WEB) // See sdl2 DOCS/README-android.md for more information on this
+#if (defined(ANDROID) && !BUILD_RETROARCH) || defined(WEB) // See sdl2 DOCS/README-android.md for more information on this
     SDL_RenderClear(renderer);
     SDL_Rect *rect_ptr = nullptr;
 #else

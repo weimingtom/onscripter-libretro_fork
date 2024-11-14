@@ -193,6 +193,13 @@ retro_load_game(const struct retro_game_info* game)
     if (ons.openScript() != 0)
         return false;
 
+//2024-11-12 00:15:18.369  6742-6778  ## onsyuri              pid-6742                             
+//E  Couldn't initialize SDL: Application didn't initialize properly, 
+//did you include SDL_main.h in the file containing your main() function?
+#if BUILD_RETROARCH
+SDL_SetMainReady();	
+#endif	
+	
     if (ons.init() != 0) {
         log_cb(RETRO_LOG_ERROR, "Failed to initialize ONScripter.\n");
         return false;
