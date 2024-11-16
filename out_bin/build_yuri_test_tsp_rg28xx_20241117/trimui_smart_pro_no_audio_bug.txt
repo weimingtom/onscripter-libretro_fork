@@ -1,0 +1,156 @@
+[INFO] === Build =======================================
+[INFO] 容量: ASIMD 
+[INFO] Version: 1.18.0
+[INFO] Built: Mar 31 2024
+[INFO] =================================================
+[ERROR] Couldn't find any input driver named "sdl"
+[INFO] Available input drivers are:
+[INFO] 	sdl2
+[INFO] 	udev
+[INFO] 	linuxraw
+[INFO] 	null
+[WARN] Going to default to first input driver...
+[INFO] [Environ]: SET_PIXEL_FORMAT: RGB565.
+[INFO] [Core]: libretro API 版本: 1, 未按照 API 编译: 1
+[INFO] [Core]: Geometry: 320x240, Aspect: 1.333, FPS: 60.00, Sample rate: 48000.00 Hz.
+[INFO] [Audio]: Set audio input rate to: 48000.00 Hz.
+[INFO] [Video]: Set video size to: 960x720.
+[INFO] [Video]: Starting threaded video driver..
+[INFO] GLES version = 2.
+[INFO] [EGL] Falling back to eglGetDisplay
+[INFO] [EGL]: EGL version: 1.4
+[INFO] [EGL]: Created shared context: 0x7f740c9f60.
+[INFO] [EGL]: Current context: 0x7f740560c0.
+[INFO] [GL]: Found GL context: "fbdev_mali".
+[INFO] [GL]: Detecting screen resolution: 1280x720.
+[INFO] [GL]: Vendor: Imagination Technologies, Renderer: PowerVR Rogue GE8300.
+[INFO] [GL]: Version: OpenGL ES 3.2 build 1.19@6345021.
+[INFO] [GL]: Using resolution 1280x720.
+[INFO] [GL]: Default shader backend found: glsl.
+[INFO] [Shader driver]: Using GLSL shader backend.
+[WARN] [GL]: Stock GLSL shaders will be used.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] Shader log: WARNING: 0:13: Calls to any function that may require a gradient calculation inside a conditional block may return undefined results
+1 compilation warnings.
+
+
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GL]: Using 4 textures.
+[INFO] [GL]: Loaded 1 program(s).
+[INFO] [Video]: Graphics driver did not initialize an input driver. Attempting to pick a suitable driver.
+[WARN] [SDL]: Couldn't open haptic device of the joypad #0: Haptic: There are 0 haptic devices available
+[INFO] [SDL]: Falling back to joystick rumble
+[INFO] [Joypad]: Found joypad driver: "sdl2".
+sh: write error: Device or resource busy
+[INFO] [Autoconf]: Xbox 360 Controller 已在端口 1 中配置.
+[INFO] [Video]: Found display server: "null".
+[INFO] [ALSA]: Using ALSA version 1.1.4.1
+[INFO] [ALSA]: Using FLOAT_LE sample format for PLAYBACK device "Playback"
+[INFO] [ALSA]: Period: 3 periods per buffer (1024 frames, 8192 bytes)
+[INFO] [ALSA]: Buffer size: 3072 frames (24576 bytes)
+[INFO] [ALSA]: Can pause: no.
+[INFO] [ALSA]: Initialized PLAYBACK device "Playback"
+[INFO] [Audio]: Started synchronous audio driver.
+[INFO] [Display]: Found display driver: "gl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_history.lpl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_music_history.lpl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_image_history.lpl".
+[INFO] [Playlist]: 正在加载收藏文件: "/mnt/SDCARD/RetroArch/content_favorites.lpl".
+[WARN] [SDL]: Couldn't open haptic device of the joypad #0: Haptic: There are 0 haptic devices available
+[INFO] [SDL]: Falling back to joystick rumble
+[INFO] [Autoconf]: Xbox 360 Controller 已在端口 1 中配置.
+[INFO] [Core]: Using content: "/mnt/SDCARD/Roms/ONS/onscripter-jh/0.txt".
+[INFO] [Core]: Content ran for a total of: 00 hours, 00 minutes, 00 seconds.
+[INFO] [Core]: Unloading core..
+[INFO] [Core]: Unloading core symbols..
+[INFO] [Autoconf]: Xbox 360 Controller 断开了端口 1 的连接.
+[INFO] Threaded video stats: Frames pushed: 392, Frames dropped: 0.
+[INFO] === Build =======================================
+[INFO] 容量: ASIMD 
+[INFO] Version: 1.18.0
+[INFO] Built: Mar 31 2024
+[INFO] =================================================
+[ERROR] Couldn't find any input driver named "sdl"
+[INFO] Available input drivers are:
+[INFO] 	sdl2
+[INFO] 	udev
+[INFO] 	linuxraw
+[INFO] 	null
+[WARN] Going to default to first input driver...
+[INFO] [Core]: Loading dynamic libretro core from: "./.retroarch/cores/onsyuri_libretro.so"
+[INFO] [Overrides]: 重定向游戏存档文件至 "./.retroarch/saves/0.srm".
+[INFO] [Overrides]: 正在重定向状态存储至 "./.retroarch/states/0.state".
+[INFO] [Environ]: GET_LOG_INTERFACE.
+[INFO] [Environ]: GET_CORE_OPTIONS_VERSION.
+[INFO] [Environ]: SET_CORE_OPTIONS.
+[INFO] [Environ]: SET_PIXEL_FORMAT: XRGB8888.
+[INFO] [Content]: 跳过游戏加载。实现将自行加载。
+Couldn't initialize SDL: Audio target 'dsp' not available
+Failed to use accelerated renderer, fallback to software...
+Couldn't open audio device!
+  reason: [Audio target 'dsp' not available].
+[INFO] [Environ]: SET_KEYBOARD_CALLBACK.
+[INFO] [SRAM]: 跳过游戏存档加载。
+ *** plugin jpgplgin.dll|jpg is not available, ignored. ***
+[INFO] [Core]: libretro API 版本: 1, 未按照 API 编译: 1
+[INFO] [Core]: Geometry: 640x480, Aspect: 0.000, FPS: 60.00, Sample rate: 44100.00 Hz.
+[INFO] [Audio]: Set audio input rate to: 44100.00 Hz.
+[INFO] [Video]: Set video size to: 1919x1080.
+[INFO] [Video]: Starting threaded video driver..
+ *** failed to open archive arc.sar, ignored.  ***
+ command [cdfadeout] is not supported yet!!
+ command [killmenu] is not supported yet!!
+ command [killmenu] is not supported yet!!
+ *** can't find file [uoncur.bmp] ***
+ *** can't find file [uoffcur.bmp] ***
+[INFO] [GL]: Found GL context: "fbdev_mali".
+[INFO] [GL]: Detecting screen resolution: 1280x720.
+ *** can't find file [cursor1.bmp] ***
+[INFO] [GL]: Vendor: Imagination Technologies, Renderer: PowerVR Rogue GE8300.
+[INFO] [GL]: Version: OpenGL ES 3.2 build 1.19@6345021.
+[INFO] [GL]: Using resolution 1280x720.
+[INFO] [GL]: Default shader backend found: glsl.
+[INFO] [Shader driver]: Using GLSL shader backend.
+[WARN] [GL]: Stock GLSL shaders will be used.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GLSL]: Found GLSL vertex shader.
+[INFO] [GLSL]: Found GLSL fragment shader.
+[INFO] Shader log: WARNING: 0:13: Calls to any function that may require a gradient calculation inside a conditional block may return undefined results
+1 compilation warnings.
+
+
+[INFO] [GLSL]: Linking GLSL program.
+[INFO] [GL]: Using 4 textures.
+[INFO] [GL]: Loaded 1 program(s).
+[INFO] [Video]: Graphics driver did not initialize an input driver. Attempting to pick a suitable driver.
+[WARN] [SDL]: Couldn't open haptic device of the joypad #0: Haptic: There are 0 haptic devices available
+[INFO] [SDL]: Falling back to joystick rumble
+[INFO] [Joypad]: Found joypad driver: "sdl2".
+[INFO] [Autoconf]: X360 Controller (1118/654) 未配置，使用备用设置.
+sh: write error: Device or resource busy
+[INFO] [Video]: Found display server: "null".
+[INFO] [ALSA]: Using ALSA version 1.1.4.1
+[INFO] [ALSA]: Using FLOAT_LE sample format for PLAYBACK device "Playback"
+[INFO] [ALSA]: Period: 3 periods per buffer (1024 frames, 8192 bytes)
+[INFO] [ALSA]: Buffer size: 3072 frames (24576 bytes)
+[INFO] [ALSA]: Can pause: no.
+[INFO] [ALSA]: Initialized PLAYBACK device "Playback"
+[INFO] [Audio]: Started synchronous audio driver.
+[INFO] [Display]: Found display driver: "gl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_history.lpl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_music_history.lpl".
+[INFO] [Playlist]: 正在读取历史文件: "/mnt/SDCARD/RetroArch/content_image_history.lpl".
+[INFO] [Playlist]: 正在加载收藏文件: "/mnt/SDCARD/RetroArch/content_favorites.lpl".
+Killed
