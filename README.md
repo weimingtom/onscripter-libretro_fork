@@ -249,3 +249,8 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 当然就会没声音了，实际应该是NULL，加载dummy SDL2音频驱动。
 修改方法就是强制跳过或者直接赋值NULL给SDL_AudioInit的driver_name参数即可
 ```
+
+## About onsyuri_libretro/deps/SDL_config.h and SDL_dynapi.h  
+* The *_libretro.so need to overlay SDL_config.h and SDL_dynapi.h in SDL2.
+* SDL_config.h overlay is through Makefile CFLAGS (you can also delete all SDL_config.h files except deps/SDL_config.h)     
+* SDL_dynapi.h overlay is failed, so I have to modify all SDL_dynapi.h everywhere  
