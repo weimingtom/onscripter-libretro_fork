@@ -125,3 +125,43 @@ SDL_SetMainReady();
 
 --------------
 
+./deps/SDL/src/thread/pthread/SDL_systhread.c
+
+#if defined(__LINUX__) && !BUILD_RETROARCH
+    {
+        pid_t linuxTid = syscall(SYS_gettid);
+        return SDL_LinuxSetThreadPriorityAndPolicy(linuxTid, priority, policy);
+    }
+
+------------
+BUILD_TRIMUI_SMART_PRO_AUDIO this modify not good
+
+
+./deps/onscripter-yuri/ONScripter.cpp
+
+void ONScripter::openAudio(int freq)
+{
+    Mix_CloseAudio();
+
+-->    if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
+        utils::printError("Couldn't open audio device!\n"
+            "  reason: [%s].\n", SDL_GetError());
+        audio_open_flag = false;
+    }
+
+
+
+#if BUILD_TRIMUI_SMART_PRO_AUDIO
+    if ( Mix_OpenAudio( (freq<0)?22050:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){  
+#else
+    if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
+#endif
+
+
+-----------------
+
+
+
+
+
+

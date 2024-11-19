@@ -320,7 +320,11 @@ void ONScripter::openAudio(int freq)
 {
     Mix_CloseAudio();
 
+#if BUILD_TRIMUI_SMART_PRO_AUDIO
+    if ( Mix_OpenAudio( (freq<0)?22050:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){  
+#else
     if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
+#endif
         utils::printError("Couldn't open audio device!\n"
             "  reason: [%s].\n", SDL_GetError());
         audio_open_flag = false;

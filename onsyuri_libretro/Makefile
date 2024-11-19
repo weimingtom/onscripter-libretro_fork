@@ -162,6 +162,7 @@ OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o) $(SOURCES_S:.S=.o)
 
 CFLAGS   += -Wall -D__LIBRETRO__ $(fpic)
 CXXFLAGS += -Wall -D__LIBRETRO__ $(fpic)
+#not good: -DBUILD_TRIMUI_SMART_PRO_AUDIO=1
 
 all: $(TARGET)
 
