@@ -38,9 +38,9 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 * (TODO) Fail to compile it (SDL1 version) with old gcc,  
 like RG300X gcw0 opendingux MIPS gcc toolchain   
 (because of libretro-common compiling ?)    
-* (TODO, IMP) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
+* (done) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
 onscripter-libretro_fork_20241112_v2_perfect_run.7z  
-* (TODO, IMP) 我试了一下编译运行trimui smart pro的onsyuri核心，虽然也可以运行，但声音不行  
+* (done) 我试了一下编译运行trimui smart pro的onsyuri核心，虽然也可以运行，但声音不行  
 * (done) No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
 * ONScripter save menu text is not shown with good charset (JH version ? original vesion ?)  
 * JH version dialog text third line is outside the dialog
