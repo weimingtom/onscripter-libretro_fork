@@ -40,7 +40,7 @@ like RG300X gcw0 opendingux MIPS gcc toolchain
 (because of libretro-common compiling ?)    
 * (done) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
 onscripter-libretro_fork_20241112_v2_perfect_run.7z  
-* (TODO) 我试了一下编译运行trimui smart pro的onsyuri核心，虽然也可以运行，但声音不行  
+* (done) 我试了一下编译运行trimui smart pro的onsyuri核心，虽然也可以运行，但声音不行  
 * (done) No ARMv8 64bit support (cannot run on Trimui Smart Pro)  
 * ONScripter save menu text is not shown with good charset (JH version ? original vesion ?)  
 * JH version dialog text third line is outside the dialog
@@ -232,7 +232,7 @@ see GPICASE2W-display-patch-main.zip
 ```
 
 ## Debugging onsyuri_libretro.so on Trimui and RG28XX    
-* BUG: trimui smart pro and rg28xx couldn't load core (fixed), and trimui smart pro no sound (not fixed)    
+* BUG: trimui smart pro and rg28xx couldn't load core (fixed), and trimui smart pro no sound (fixed)    
 ```
 上次我编译的onsyuri_libretro，关于trimui smart pro和rg28xx无法加载这个核心，
 我改了一下，似乎又能用了，虽然trimui无声音问题仍然未解决。
