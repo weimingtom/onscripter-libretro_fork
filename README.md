@@ -242,3 +242,10 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 至于声音，可能是因为dsp设备有问题，但不确定具体位置。
 这部分修改代码未提交，我只提交了测试so文件和一些patch说明
 ```
+```
+我查到为什么onsyuri_libretro在其他设备上都有声音，唯独在trimui smart pro上没有声音，
+是因为SDL2音频驱动被外部环境变量SDL_HINT_AUDIODRIVER干扰了，
+选择加载了dsp音频驱动，然而dsp音频驱动没有实际编译进去代码里，
+当然就会没声音了，实际应该是NULL，加载dummy SDL2音频驱动。
+修改方法就是强制跳过或者直接赋值NULL给SDL_AudioInit的driver_name参数即可
+```
