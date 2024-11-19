@@ -221,6 +221,16 @@ see GPICASE2W-display-patch-main.zip
 * Execute ndk-build to compile it.  
 * Change the so file name in folder libs.    
 
+## Debugging onsyuri_libretro.so on Android  
+* BUG: android couldn't load core (fixed)  
+```
+我大概定位到onsyuri_libretro（onscripter_libretro的SDL2版，
+基于onscripter-yuri）在安卓版RA上显示出问题的地方，
+应该是在ONScripter::initSDL()里头有一段SDL_GetDisplayMode(0, 0, &mode);的代码用于缩放屏幕，
+我怀疑可能这个函数没返回正确的像素大小导致整个屏幕都显示不出内容，和SDL2代码无关。
+我的做法是加上一个宏定义判断跳过这段代码
+```
+
 ## Debugging onsyuri_libretro.so on Trimui and RG28XX    
 * BUG: trimui smart pro and rg28xx couldn't load core (fixed), and trimui smart pro no sound (not fixed)    
 ```
