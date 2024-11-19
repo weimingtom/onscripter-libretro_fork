@@ -3,7 +3,7 @@
 https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 **Status:**   
-tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus, RG28XX, Android 12 (Redmi 12C, 64bit), Windows 10, Trimui Smart Pro (64bit), R36S, RGB10X,   Waveshare GPM280Z2 (Retropie)  
+tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus, RG28XX, Android 12 (Redmi 12C, 64bit), Windows 10, Trimui Smart Pro and Trimui Brick (64bit), R36S, RGB10X, Waveshare GPM280Z2 (Retropie)  
 
 Test binary files (not stable):   
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
@@ -69,7 +69,7 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.
 see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz
 * (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf  
 or use gcc on rpi3 / rpi4    
-* (for Trimui Smart Pro, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
+* (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
 * Status: Miyoo A30 (tested)  
@@ -77,7 +77,7 @@ or use gcc on rpi3 / rpi4
 * Status: RG28XX (tested)  
 * Status: Xubuntu 20.04 x86-64 (tested)   
 * Status: Waveshare GPM280Z2 (tested)  
-* Status: Trimui Smart Pro (tested, 64bit aarch64)  
+* Status: Trimui Smart Pro and Trimui Brick (tested, 64bit aarch64)  
 * Status: R36S (tested, 64bit aarch64)  
 * Status: RGB10X (tested, 64bit aarch64)  
 * For ONScripter version: make MIYOO=1 JH=0  
@@ -136,7 +136,7 @@ $ make clean && make
 copy to /mnt/vendor/deep/retro/cores
 ```
 
-* Trimui Smart Pro: RetroArch 1.18.0, 64bit  
+* Trimui Smart Pro: RetroArch 1.18.0, 64bit (Trimui Brick is RetroArch 1.19.1 64bit)    
 $ make MIYOO=2 clean && make MIYOO=2  
 ```
 through sdcard reader, copy to SDCARD:\RetroArch\.retroarch\cores  
