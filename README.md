@@ -35,6 +35,9 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 ```
 
 ## Bugs or TODO  
+* (TODO) Fail to compile it (SDL1 version) with old gcc,  
+like RG300X gcw0 opendingux MIPS gcc toolchain   
+(because of libretro-common compiling ?)    
 * (TODO, IMP) 安卓版可运行，但需要很长时间整理ANDROID宏替换问题  
 onscripter-libretro_fork_20241112_v2_perfect_run.7z  
 * (TODO, IMP) 我试了一下编译运行trimui smart pro的onsyuri核心，虽然也可以运行，但声音不行  
