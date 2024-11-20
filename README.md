@@ -206,6 +206,9 @@ see GPICASE2W-display-patch-main.zip
 ## About loading core so file failed  
 * Make sure .info and .so files are all put into cores/ folder  
 * Try to delete cores/core_info.cache and restart retroarch  
+**NOTE**: sometimes delete info/core_info.cache and restart.
+* Another method is to change 'Settings->Core->Cache Core Info Files' to 'OFF',  
+and then click 'Main Menu->Configuration File->Save Current Configuration' to save it and then restart it.     
 ```
 我怀疑RA为什么有时候能加载核心文件有时候却不能，可能是RA本身的缓存问题，
 我之前的解决方法是用--static-libgcc --static-libstdc++ -s来链接so文件，
@@ -213,6 +216,12 @@ see GPICASE2W-display-patch-main.zip
 我试过可以删除cores目录下的core_info.cache文件再重新启动ra，
 就可以正常加载核心文件了，待考，反正就是很玄乎
 （最好确保同时放入info和so文件）
+```
+```
+windows版（32位，用mingw编译，我这个是在win11测试运行）的onsyuri_libretro.dll也可以编译出来了和正常运行，
+晚上我可能先把修改过的代码提交到gh，然后等测试好再把所有平台的so和dll插件都重新编译一次。
+可能需要刷新核心信息缓存，我的做法是设置-核心-缓存核心信息文件：设置为关闭，
+然后菜单-配置文件-保存当前配置
 ```
 
 ## Build Android so file  
