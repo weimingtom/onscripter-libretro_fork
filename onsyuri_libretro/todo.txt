@@ -158,6 +158,16 @@ void ONScripter::openAudio(int freq)
 #endif
 
 
+trimui smart pro的无声音问题参考BUILD_ALL_LOG，被SDL_HINT_AUDIODRIVER环境变量干扰，
+onsyuri_libretro\deps\SDL\src\audio\SDL_audio.c, SDL_AudioInit
+-----------------
+
+声音问题未解决：好像不是这个原因 (x)音频问题（ons openaudio频率, not this reason）
+tsp打开插件失败（SDL线程）
+链接的SDL2可能因为机器不同产生差别，而非独立于机器
+tsp只能通过休眠开机按钮唤出系统菜单，按MENU键没用
+
+RG28XX似乎替换info文件后就正常了，不知道原来为什么不能用（可能文件缓存问题）
 -----------------
 
 

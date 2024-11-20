@@ -132,6 +132,10 @@ void ONScripter::initSDL()
 {
     /* ---------------------------------------- */
     /* Initialize SDL */
+#if BUILD_ALL_LOG
+//SDL_LOG_CATEGORY_APPLICATION
+    SDL_LogSetPriority(SDL_LOG_CATEGORY_ERROR, SDL_LOG_PRIORITY_VERBOSE);
+#endif
 
     if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER  ) < 0 ){
         utils::printError("Couldn't initialize SDL: %s\n", SDL_GetError());
@@ -320,11 +324,16 @@ void ONScripter::openAudio(int freq)
 {
     Mix_CloseAudio();
 
-#if BUILD_TRIMUI_SMART_PRO_AUDIO
-    if ( Mix_OpenAudio( (freq<0)?22050:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){  
-#else
+	
+//FIXME:no need to modify 44100 freq, see libretro.cpp retro_get_system_av_info
+//#if BUILD_TRIMUI_SMART_PRO_AUDIO
+//    if ( Mix_OpenAudio( (freq<0)?22050:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){  
+//#else
+//    if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
+//#endif
+
+
     if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
-#endif
         utils::printError("Couldn't open audio device!\n"
             "  reason: [%s].\n", SDL_GetError());
         audio_open_flag = false;

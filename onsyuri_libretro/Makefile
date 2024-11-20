@@ -160,8 +160,8 @@ endif
 
 OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o) $(SOURCES_S:.S=.o)
 
-CFLAGS   += -Wall -D__LIBRETRO__ $(fpic)
-CXXFLAGS += -Wall -D__LIBRETRO__ $(fpic)
+CFLAGS   += -Wall -D__LIBRETRO__ $(fpic) -DBUILD_ALL_LOG=1
+CXXFLAGS += -Wall -D__LIBRETRO__ $(fpic) -DBUILD_ALL_LOG=1
 #not good: -DBUILD_TRIMUI_SMART_PRO_AUDIO=1
 
 all: $(TARGET)
