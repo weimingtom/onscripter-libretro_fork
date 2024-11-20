@@ -60,8 +60,9 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
-* https://github.com/gouchi/onscripter-libretro
-* https://github.com/madcock/libretro-onscripter  
+* https://github.com/gouchi/onscripter-libretro  
+* https://github.com/madcock/libretro-onscripter    
+* (origin) https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 ## ARM Toolchain (all use one toolchain, include a30 and mini and rg28xx and rpizero2w, not include Trimui Smart Pro aarch64)  
 * (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
