@@ -32,6 +32,7 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 （2）手头上大部分掌机都能跑onsyuri新核心，但trimui smart pro和rg28xx不行
 （trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
 我有时间会把目前修改的代码开源到gh上
+2024/11/21:目前上述问题都已修复，未测试    
 ```
 
 ## Bugs or TODO  
