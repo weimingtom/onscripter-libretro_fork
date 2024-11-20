@@ -264,3 +264,7 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 * The *_libretro.so need to overlay SDL_config.h and SDL_dynapi.h in SDL2.
 * SDL_config.h overlay is through Makefile CFLAGS (you can also delete all SDL_config.h files except deps/SDL_config.h)     
 * SDL_dynapi.h overlay is failed, so I have to modify all SDL_dynapi.h everywhere  
+
+## xbox360 wireless controller wrong input  
+* Sometimes I have to disable xbox360 wireless controller device on Windows, otherwise the button input will be frequent  
+ 
