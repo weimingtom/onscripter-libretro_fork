@@ -970,9 +970,9 @@ int SDL_AudioInit(const char *driver_name)
     }
 #if BUILD_ALL_LOG
 if (driver_name) {
-	SDL_SetError("<<<<<<BUILD_ALL_LOG driver_name is %s, change to NULL\n", driver_name);
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is %s, change to NULL\n", driver_name);
 } else {
-	SDL_SetError("<<<<<<BUILD_ALL_LOG driver_name is NULL, change to NULL\n");
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is NULL, change to NULL\n");
 }
 driver_name = NULL;
 #endif
