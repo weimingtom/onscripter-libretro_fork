@@ -60,7 +60,7 @@
 #endif
 
 
-#ifndef __NACL__
+#if !defined(__NACL__) && !defined(__MINGW32__)
 /* List of signals to mask in the subthreads */
 static const int sig_list[] = {
     SIGHUP, SIGINT, SIGQUIT, SIGPIPE, SIGALRM, SIGTERM, SIGCHLD, SIGWINCH,
@@ -122,7 +122,7 @@ int SDL_SYS_CreateThread(SDL_Thread *thread)
 
 void SDL_SYS_SetupThread(const char *name)
 {
-#if !defined(__NACL__)
+#if !defined(__NACL__) && !defined(__MINGW32__)
     int i;
     sigset_t mask;
 #endif /* !__NACL__ */
@@ -162,7 +162,7 @@ void SDL_SYS_SetupThread(const char *name)
     }
 
    /* NativeClient does not yet support signals.*/
-#if !defined(__NACL__)
+#if !defined(__NACL__) && !defined(__MINGW32__)
     /* Mask asynchronous signals for this thread */
     sigemptyset(&mask);
     for (i = 0; sig_list[i]; ++i) {
@@ -188,7 +188,7 @@ SDL_threadID SDL_ThreadID(void)
 
 int SDL_SYS_SetThreadPriority(SDL_ThreadPriority priority)
 {
-#if defined(__NACL__) || defined(__RISCOS__) || defined(__OS2__)
+#if defined(__NACL__) || defined(__RISCOS__) || defined(__OS2__) || defined(__MINGW32__)
     /* FIXME: Setting thread priority does not seem to be supported in NACL */
     return 0;
 #else

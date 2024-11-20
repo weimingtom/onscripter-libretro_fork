@@ -35,6 +35,10 @@
 #include <emscripten.h>
 #endif
 
+#if defined(__MINGW32__)
+#include <windows.h>
+#endif
+
 /* The clock_gettime provides monotonous time, so we should use it if
    it's available. The clock_gettime function is behind ifdef
    for __USE_POSIX199309
@@ -180,6 +184,9 @@ Uint64 SDL_GetPerformanceFrequency(void)
 
 void SDL_Delay(Uint32 ms)
 {
+#if defined(__MINGW32__)
+	Sleep(ms);
+#else	
     int was_error;
 
 #ifdef HAVE_NANOSLEEP
@@ -226,6 +233,7 @@ void SDL_Delay(Uint32 ms)
         was_error = select(0, NULL, NULL, NULL, &tv);
 #endif /* HAVE_NANOSLEEP */
     } while (was_error && (errno == EINTR));
+#endif /* __MINGW32__ */	
 }
 
 #endif /* SDL_TIMER_UNIX */

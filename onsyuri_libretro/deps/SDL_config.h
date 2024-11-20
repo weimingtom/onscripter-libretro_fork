@@ -53,7 +53,9 @@
 
 /* Useful headers */
 #define STDC_HEADERS 1
+#if !defined(__MINGW32__)
 #define HAVE_ALLOCA_H 1
+#endif
 #define HAVE_CTYPE_H 1
 #define HAVE_FLOAT_H 1
 /*#define HAVE_ICONV_H 1*/
@@ -105,9 +107,13 @@
 #define HAVE_WCSSTR 1
 #define HAVE_WCSCMP 1
 #define HAVE_WCSNCMP 1
+#if !defined(__MINGW32__)
 #define HAVE_WCSCASECMP 1
+#endif
 /* #undef HAVE__WCSICMP */
+#if !defined(__MINGW32__)
 #define HAVE_WCSNCASECMP 1
+#endif
 /* #undef HAVE__WCSNICMP */
 #define HAVE_STRLEN 1
 /* #define HAVE_STRLCPY 1 */
@@ -120,7 +126,9 @@
 #define HAVE_STRCHR 1
 #define HAVE_STRRCHR 1
 #define HAVE_STRSTR 1
+#if !defined(__MINGW32__)
 #define HAVE_STRTOK_R 1
+#endif
 /* #undef HAVE_ITOA */
 /* #undef HAVE__LTOA */
 /* #undef HAVE__UITOA */
@@ -140,7 +148,9 @@
 #define HAVE_STRCASECMP 1
 /* #undef HAVE__STRNICMP */
 #define HAVE_STRNCASECMP 1
+#if !defined(__MINGW32__)
 #define HAVE_STRCASESTR 1
+#endif
 #define HAVE_SSCANF 1
 #define HAVE_VSSCANF 1
 #define HAVE_VSNPRINTF 1
@@ -197,18 +207,26 @@
 #define HAVE_FSEEKO 1
 #define HAVE_MEMFD_CREATE 1
 #define HAVE_POSIX_FALLOCATE 1
+#if !defined(__MINGW32__)
 #define HAVE_SIGACTION 1
+#endif
 #define HAVE_SA_SIGACTION 1
 #define HAVE_SETJMP 1
+#if !defined(__MINGW32__)
 #define HAVE_NANOSLEEP 1
+#endif
 #define HAVE_SYSCONF 1
 /* #undef HAVE_SYSCTLBYNAME */
+#if !defined(__MINGW32__)
 #define HAVE_CLOCK_GETTIME 1
+#endif
 /* #undef HAVE_GETPAGESIZE */
 #define HAVE_MPROTECT 1
 /*#define HAVE_ICONV 1*/
 /* #undef SDL_USE_LIBICONV */
+#if !defined(__MINGW32__)
 #define HAVE_PTHREAD_SETNAME_NP 1
+#endif
 /* #undef HAVE_PTHREAD_SET_NAME_NP */
 #define HAVE_SEM_TIMEDWAIT 1
 #if !defined(__ANDROID__)

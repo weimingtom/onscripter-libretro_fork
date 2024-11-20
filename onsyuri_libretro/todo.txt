@@ -169,7 +169,21 @@ tsp只能通过休眠开机按钮唤出系统菜单，按MENU键没用
 
 RG28XX似乎替换info文件后就正常了，不知道原来为什么不能用（可能文件缓存问题）
 -----------------
-
+#if !defined(__MINGW32__)		
+		template <typename To>
+		constexpr operator To() const noexcept(noexcept(static_cast<To>(std::declval<From>()))) {
+			return static_cast<To>(val);
+		}
+#else
+		template <typename To>
+		constexpr operator To() const {
+			return static_cast<To>(val);
+		}	
+#endif
+	
+	
+	-------------------
+	
 
 
 

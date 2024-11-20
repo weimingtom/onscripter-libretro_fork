@@ -23,6 +23,11 @@
 #ifndef __UTILS_H__
 #define __UTILS_H__
 
+//#if defined(__MINGW32__)
+//#define constexpr
+//#define noexcept
+//#endif
+
 #ifdef ANDROID
 #include <android/log.h>
 #elif defined(WINRT)
@@ -134,11 +139,18 @@ namespace utils{
 				: val { t }
 		{}
 
+//#if !defined(__MINGW32__)		
 		template <typename To>
 		constexpr operator To() const noexcept(noexcept(static_cast<To>(std::declval<From>()))) {
 			return static_cast<To>(val);
 		}
-
+//#else
+//		template <typename To>
+//		constexpr operator To() const {
+//			return static_cast<To>(val);
+//		}	
+//#endif
+		
 	private:
 		From const& val;
 	};

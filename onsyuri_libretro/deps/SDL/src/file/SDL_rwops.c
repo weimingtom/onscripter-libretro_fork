@@ -160,7 +160,11 @@ static Sint64 SDLCALL windows_file_size(SDL_RWops *context)
     }
 
     if (!GetFileSizeEx(context->hidden.windowsio.h, &size)) {
+#if !defined(__MINGW32__)		
         return WIN_SetError("windows_file_size");
+#else
+        return SDL_SetError("windows_file_size");	
+#endif	
     }
 
     return size.QuadPart;
@@ -197,7 +201,11 @@ static Sint64 SDLCALL windows_file_seek(SDL_RWops *context, Sint64 offset, int w
 
     windowsoffset.QuadPart = offset;
     if (!SetFilePointerEx(context->hidden.windowsio.h, windowsoffset, &windowsoffset, windowswhence)) {
+#if !defined(__MINGW32__)		
         return WIN_SetError("windows_file_seek");
+#else
+        return SDL_SetError("windows_file_size");	
+#endif			
     }
     return windowsoffset.QuadPart;
 }
@@ -335,8 +343,10 @@ static int SDLCALL windows_file_close(SDL_RWops *context)
 #define FSEEK_OFF_MIN (-(FSEEK_OFF_MAX)-1)
 #endif
 #define fseek_off_t off_t
+#if !defined(__MINGW32__)
 #define fseek       fseeko
 #define ftell       ftello
+#endif
 #elif defined(HAVE__FSEEKI64)
 #define fseek_off_t __int64
 #define fseek       _fseeki64

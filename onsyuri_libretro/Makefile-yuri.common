@@ -39,7 +39,8 @@ CXXFLAGS += $(INCFLAGS)
 CFLAGS += -DSDL_DYNAMIC_API=0
 CFLAGS += -DDECLSPEC= 
 # FIXME:dlopen, dlsym, dlclose need -ldl
-LDFLAGS += -lpthread -ldl
+#-ldl
+LDFLAGS += -lpthread 
 SOURCES_C += $(addprefix $(DEPS_DIR)/SDL/src/,\
   SDL.c \
   SDL_assert.c \

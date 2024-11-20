@@ -130,10 +130,14 @@ else ifeq ($(platform), vita)
 else
    #CC = gcc
 CC  = gcc -m64
-CXX = g++ -m64
+CXX = g++ -m64 -std=c++11
 AR  = ar   
 #CC  = gcc -m32
-#CXX = g++ -m32
+#CXX = g++ -m32 -std=c++11
+
+#for midiOutPrepareHeader (mmeapi.h)  
+LDFLAGS += -lwinmm
+
 #AR  = ar   
    TARGET := $(TARGET_NAME)_libretro.dll
 #-static-libgcc -static-libstdc++ -s   
