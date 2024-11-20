@@ -35,6 +35,7 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 ```
 
 ## Bugs or TODO  
+* (TODO) win32 onsyuri_libretro.dll, if change window scale to 1x, the black mouse cursor will be hidden  
 * (TODO) Fail to compile it (SDL1 version) with old gcc,  
 like RG300X gcw0 opendingux MIPS gcc toolchain   
 (because of libretro-common compiling ?)    
