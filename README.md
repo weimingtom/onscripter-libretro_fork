@@ -281,3 +281,5 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 看能不能解决这个问题，但不是很确定，可能最终还是要研究原版的写法来规避这个bug
 （我测试过用原版不修改的话会显示不出字符，所以必须修改）
 ```
+* https://github.com/weimingtom/onscripter_mergejh_sdl1_fork
+Debugging VC6 project  
