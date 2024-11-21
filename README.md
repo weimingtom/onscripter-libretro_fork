@@ -270,3 +270,14 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 ## xbox360 wireless controller wrong input  
 * Sometimes I have to disable xbox360 wireless controller device on Windows, otherwise the button input will be frequent  
  
+## onscripter_libretro cursor0.bmp not shown and drawstring character wrong when meet 0x0a  
+* Adding code to show or hide cursor in processText()     
+* Try to eat 0x0a character to solve this problem  
+```
+我合并的onscripter_libretro jh版的两个显著bug，不显示等待输入光标和字符变乱的bug，
+我似乎找到办法修复了，这两个问题都是我合并text.cpp代码时造成的，
+等待光标的显示隐藏代码需要参考原版的写法。至于第二个问题乱字问题，这个比较难解决，
+我是通过在textCommand和processText函数中消除0x0a字符（斜杠r回车）的方式，
+看能不能解决这个问题，但不是很确定，可能最终还是要研究原版的写法来规避这个bug
+（我测试过用原版不修改的话会显示不出字符，所以必须修改）
+```
