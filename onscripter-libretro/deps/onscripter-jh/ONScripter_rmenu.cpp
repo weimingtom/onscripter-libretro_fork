@@ -42,16 +42,16 @@
 #define MESSAGE_OK "OK"
 #define MESSAGE_CANCEL "Cancel"
 #else
-#define MESSAGE_SAVE_EXIST "%s%sã€€%sæœˆ%sæ—¥%sæ—¶%såˆ†"
-#define MESSAGE_SAVE_EMPTY "%s%sã€€â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”"
-#define MESSAGE_SAVE_CONFIRM "ä¿å­˜åœ¨%s%sï¼Ÿ"
-#define MESSAGE_LOAD_CONFIRM "è¯»å–%s%sï¼Ÿ"
-#define MESSAGE_RESET_CONFIRM "è¿”å›æ ‡é¢˜ï¼Ÿ"
-#define MESSAGE_END_CONFIRM "é€€å‡ºï¼Ÿ"
-#define MESSAGE_YES "æ˜¯"
-#define MESSAGE_NO "å¦"
-#define MESSAGE_OK "ç¡®å®š"
-#define MESSAGE_CANCEL "å–æ¶ˆ"
+#define MESSAGE_SAVE_EXIST "%s%s¡¡%sÔÂ%sÈÕ%sÊ±%s·Ö"
+#define MESSAGE_SAVE_EMPTY "%s%s¡¡¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª"
+#define MESSAGE_SAVE_CONFIRM "±£´æÔÚ%s%s£¿"
+#define MESSAGE_LOAD_CONFIRM "¶ÁÈ¡%s%s£¿"
+#define MESSAGE_RESET_CONFIRM "·µ»Ø±êÌâ£¿"
+#define MESSAGE_END_CONFIRM "ÍË³ö£¿"
+#define MESSAGE_YES "ÊÇ"
+#define MESSAGE_NO "·ñ"
+#define MESSAGE_OK "È·¶¨"
+#define MESSAGE_CANCEL "È¡Ïû"
 #endif
 
 #ifdef ANDROID
@@ -769,11 +769,12 @@ void ONScripter::buildDialog(bool yesno_flag, const char* mes1, const char* mes2
         setStr(&mes[1], MESSAGE_CANCEL, -1, true);
     }
 
+	int j;
     for (int i = 0; i < 2; i++) {
         SDL_Surface* bs = SDL_CreateRGBSurface(SDL_SWSURFACE, DIALOG_BUTTON_W * 2, DIALOG_BUTTON_H,
                                                fmt->BitsPerPixel, fmt->Rmask, fmt->Gmask, fmt->Bmask, fmt->Amask);
 
-        for (int j = 0; j < 2; j++) {
+        for (j = 0; j < 2; j++) {
             rect.x = DIALOG_BUTTON_W * j;
             rect.y = 0;
             rect.w = DIALOG_BUTTON_W;
@@ -811,7 +812,7 @@ void ONScripter::buildDialog(bool yesno_flag, const char* mes1, const char* mes2
             SDL_FreeSurface(bs);
         }
 
-        for (int j = 0; j < 2; j++) {
+        for (j = 0; j < 2; j++) {
             rect.x = DIALOG_BUTTON_W * j + 2;
             rect.y = 2;
             rect.w = DIALOG_BUTTON_W - 4;

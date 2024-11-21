@@ -25,7 +25,9 @@
 #include <stdlib.h>
 #include <string.h>
 extern "C" {
+#define INT32 INT32_
 #include <jpeglib.h>
+#undef INT32
 };
 #include <bzlib.h>
 #include "resize_image.h"

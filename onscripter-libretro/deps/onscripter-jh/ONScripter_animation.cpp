@@ -28,9 +28,10 @@
 
 int ONScripter::calcDurationToNextAnimation()
 {
+	int i;
     int min = 0; // minimum next time
 
-    for (int i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
         AnimationInfo* anim = &tachi_info[i];
         if (anim->visible && anim->is_animatable) {
             if (min == 0 || min > anim->next_time)
@@ -38,7 +39,7 @@ int ONScripter::calcDurationToNextAnimation()
         }
     }
 
-    for (int i = MAX_SPRITE_NUM - 1; i >= 0; i--) {
+    for (i = MAX_SPRITE_NUM - 1; i >= 0; i--) {
         AnimationInfo* anim = &sprite_info[i];
         if (anim->visible && anim->is_animatable) {
             if (min == 0 || min > anim->next_time)
@@ -70,11 +71,13 @@ int ONScripter::calcDurationToNextAnimation()
 
 void ONScripter::proceedAnimation(int current_time)
 {
-    for (int i = 0; i < 3; i++)
+	int i;
+
+    for (i = 0; i < 3; i++)
         if (tachi_info[i].proceedAnimation(current_time))
             flushDirect(tachi_info[i].pos, refreshMode());
 
-    for (int i = MAX_SPRITE_NUM - 1; i >= 0; i--)
+    for (i = MAX_SPRITE_NUM - 1; i >= 0; i--)
         if (sprite_info[i].proceedAnimation(current_time))
             flushDirect(sprite_info[i].pos, refreshMode());
 

@@ -36,9 +36,11 @@
 //FIXME: not sure, mingw32 gcc5 need __iob_func, but tdm64 mingw64 gcc 10.3.0 not need
 #if defined(__MINGW32__) && defined(__GNUC__) && __GNUC__ >= 6
 #else
+#if defined(_MSC_VER) && _MSC_VER > 1200
 extern "C" {
 FILE __iob_func[3] = {*stdin, *stdout, *stderr};
 }
+#endif
 #endif
 #elif defined(MACOS9)
 #include <DateTimeUtils.h>
@@ -82,7 +84,7 @@ void ONScripter::searchSaveFile(SaveFileInfo& save_file_info, int no)
 
     WCHAR file_nameW[256];
     MultiByteToWideChar(CP_ACP, 0, file_name, -1, file_nameW, 256);
-#if defined(__MINGW32__)
+#if defined(__MINGW32__) || (defined(_MSC_VER) && _MSC_VER <=1200)
     handle = CreateFileW(file_nameW, GENERIC_READ, 0, NULL,
                         OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 #else    

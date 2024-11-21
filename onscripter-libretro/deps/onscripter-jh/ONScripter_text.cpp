@@ -23,6 +23,9 @@
  */
 
 #include "ONScripter.h"
+#if defined(_MSC_VER) && (_MSC_VER <= 1200)
+#include <windows.h>
+#endif
 
 extern unsigned short convSJIS2UTF16( unsigned short in );
 
@@ -472,6 +475,7 @@ bool ONScripter::doClickEnd()
     bool ret = false;
     
     //draw_cursor_flag = true;
+	refresh_shadow_text_mode |= REFRESH_CURSOR_MODE;
 
     if ( automode_flag ){
         event_mode =  WAIT_TEXT_MODE | WAIT_INPUT_MODE | WAIT_VOICE_MODE | WAIT_TIMER_MODE;
@@ -491,6 +495,8 @@ bool ONScripter::doClickEnd()
 
     num_chars_in_sentence = 0;
     //draw_cursor_flag = false;
+	refresh_shadow_text_mode &= ~REFRESH_CURSOR_MODE;
+	stopAnimation(clickstr_state);
 
     return ret;
 }
@@ -671,12 +677,17 @@ int ONScripter::textCommand()
 
     char *buf = script_h.getStringBuffer();
 
+#if defined(_MSC_VER) && (_MSC_VER <= 1200)
+	OutputDebugStringA(buf);
+	OutputDebugStringA("\n");
+#endif
+
     bool tag_flag = true;
     if (buf[string_buffer_offset] == '[')
         string_buffer_offset++;
     else if (zenkakko_flag && 
-             buf[string_buffer_offset  ] == "ã€"[0] && 
-             buf[string_buffer_offset+1] == "ã€"[1])
+             buf[string_buffer_offset  ] == "¡¾"[0] && 
+             buf[string_buffer_offset+1] == "¡¾"[1])
         string_buffer_offset += 2;
     else
         tag_flag = false;
@@ -685,8 +696,8 @@ int ONScripter::textCommand()
     int end_offset = start_offset;
     while (tag_flag && buf[string_buffer_offset]){
         if (zenkakko_flag && 
-            buf[string_buffer_offset  ] == "ã€‘"[0] && 
-            buf[string_buffer_offset+1] == "ã€‘"[1]){
+            buf[string_buffer_offset  ] == "¡¿"[0] && 
+            buf[string_buffer_offset+1] == "¡¿"[1]){
             end_offset = string_buffer_offset;
             string_buffer_offset += 2;
             break;
@@ -1020,8 +1031,16 @@ bool ONScripter::processText()
         bool flush_flag = true;
         if ( skip_mode || ctrl_pressed_status )
             flush_flag = false;
-        if ( script_h.getStringBuffer()[ string_buffer_offset + 1 ] &&
-             !(script_h.getEndStatus() & ScriptHandler::END_1BYTE_CHAR)){
+		if (out_text[0] == 0x0a) { //FIXME:add one condition
+            drawChar( out_text, &sentence_font, flush_flag, true, accumulation_surface, &text_info );
+            num_chars_in_sentence++;
+			string_buffer_offset++;
+			sentence_font.newLine();
+			return true;
+        } else if ( script_h.getStringBuffer()[ string_buffer_offset + 1 ] &&
+			!(script_h.getEndStatus() & ScriptHandler::END_1BYTE_CHAR)) { 
+			 //&&
+			 //script_h.enc.getEncoding() == Encoding::CODE_CP932) { //FIXME:add one condition
             out_text[1] = script_h.getStringBuffer()[ string_buffer_offset + 1 ];
             drawChar( out_text, &sentence_font, flush_flag, true, accumulation_surface, &text_info );
             num_chars_in_sentence++;

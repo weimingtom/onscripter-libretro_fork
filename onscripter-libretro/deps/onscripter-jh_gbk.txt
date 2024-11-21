@@ -1,0 +1,17 @@
+ScriptParser.h
+	DEFAULT_START_KINSOKU
+
+ScriptParser.cpp
+	DEFAULT_SAVE_MENU_NAME
+
+ScriptHandler.cpp
+	if (is_zero_inserted) {
+
+ONScripter_rmenu.cpp
+	MESSAGE_SAVE_EXIST
+
+ONScripter_command.cpp
+	
+ONScripter.cpp
+	DEFAULT_ENV_FONT
+

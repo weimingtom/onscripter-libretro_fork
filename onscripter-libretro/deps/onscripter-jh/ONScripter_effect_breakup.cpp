@@ -198,7 +198,7 @@ void ONScripter::initBreakup(char* params)
         }
         ++diag_n;
     }
-    for (int i = 1; i < n_cell_y; i++) {
+    for (i = 1; i < n_cell_y; i++) {
         int state = BREAKUP_MOVE_FRAMES + BREAKUP_STILL_STATE + diag_n;
         if (breakup_mode & BREAKUP_MODE_PILEUP)
             state = 0 - diag_n;

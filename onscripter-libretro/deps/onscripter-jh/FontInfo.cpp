@@ -182,7 +182,7 @@ int FontInfo::y(bool use_ruby_offset)
     int pitch_y = pitch_xy[1];
     if (!is_line_space_fixed &&
         enc->getEncoding() == Encoding::CODE_UTF8 && ttf_font[0])
-        pitch_y += TTF_FontLineSkip((const TTF_Font*)ttf_font[0]) - font_size_xy[1];
+        pitch_y += TTF_FontLineSkip((TTF_Font*)ttf_font[0]) - font_size_xy[1];
     int y = xy[1] * pitch_y / 2 + top_xy[1] + line_offset_xy[1];
     if (use_ruby_offset && rubyon_flag && tateyoko_mode == YOKO_MODE &&
         enc->getEncoding() == Encoding::CODE_CP932)
@@ -272,7 +272,7 @@ SDL_Rect FontInfo::calcUpdatedArea(int start_xy[2], int ratio1, int ratio2)
     if (tateyoko_mode == YOKO_MODE) {
         int pitch_y = pitch_xy[1];
         if (enc->getEncoding() == Encoding::CODE_UTF8 && ttf_font[0])
-            pitch_y += TTF_FontLineSkip((const TTF_Font*)ttf_font[0]) - font_size_xy[1];
+            pitch_y += TTF_FontLineSkip((TTF_Font*)ttf_font[0]) - font_size_xy[1];
         if (start_xy[1] == xy[1]) {
             rect.x = top_xy[0] + pitch_xy[0] * start_xy[0] / 2;
             rect.w = pitch_xy[0] * (xy[0] - start_xy[0]) / 2 + 1;

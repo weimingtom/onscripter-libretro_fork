@@ -2353,7 +2353,7 @@ int ONScripter::gettagCommand()
 
     int n = script_h.enc.getBytes(buf[0]);
     unsigned short unicode1 = script_h.enc.getUTF16(buf);
-    unsigned short unicode2 = script_h.enc.getUTF16("â‰®", Encoding::CODE_CP932);
+    unsigned short unicode2 = script_h.enc.getUTF16("¡¾", Encoding::CODE_CP932);
     if (buf[0] == '[')
         buf++;
     else if (zenkakko_flag && unicode1 == unicode2)
@@ -2378,7 +2378,7 @@ int ONScripter::gettagCommand()
             if (buf){
                 const char *buf_start = buf;
                 unicode1 = script_h.enc.getUTF16(buf);
-                unicode2 = script_h.enc.getUTF16("â‰¯", Encoding::CODE_CP932);
+                unicode2 = script_h.enc.getUTF16("¡¿", Encoding::CODE_CP932);
                 while(*buf != '/' && *buf != 0 && *buf != ']' && 
                       (!zenkakko_flag || unicode1 != unicode2)){
                     buf += script_h.enc.getBytes(buf[0]);
@@ -2400,7 +2400,7 @@ int ONScripter::gettagCommand()
 
     n = script_h.enc.getBytes(pretext_buf[0]);
     unicode1 = script_h.enc.getUTF16(pretext_buf);
-    unicode2 = script_h.enc.getUTF16("â‰¯", Encoding::CODE_CP932);
+    unicode2 = script_h.enc.getUTF16("¡¿", Encoding::CODE_CP932);
     if (pretext_buf[0] == ']')
         pretext_buf++;
     else if (zenkakko_flag && unicode1 == unicode2)
@@ -4093,15 +4093,16 @@ int ONScripter::allsp2resumeCommand()
 
 int ONScripter::allspresumeCommand()
 {
+	int i;
     all_sprite_hide_flag = false;
 
-    for ( int i=0 ; i<3 ; i++ ){
+    for ( i=0 ; i<3 ; i++ ){
         AnimationInfo &ai = tachi_info[i];
         if (ai.image_surface && ai.visible)
             dirty_rect.add( ai.pos );
     }
 
-    for ( int i=0 ; i<MAX_SPRITE_NUM ; i++ ){
+    for ( i=0 ; i<MAX_SPRITE_NUM ; i++ ){
         AnimationInfo &ai = sprite_info[i];
         if (ai.image_surface && ai.visible)
             dirty_rect.add( ai.pos );
@@ -4124,15 +4125,16 @@ int ONScripter::allsp2hideCommand()
 
 int ONScripter::allsphideCommand()
 {
+	int i;
     all_sprite_hide_flag = true;
 
-    for ( int i=0 ; i<3 ; i++ ){
+    for ( i=0 ; i<3 ; i++ ){
         AnimationInfo &ai = tachi_info[i];
         if (ai.image_surface && ai.visible)
             dirty_rect.add( ai.pos );
     }
 
-    for ( int i=0 ; i<MAX_SPRITE_NUM ; i++ ){
+    for ( i=0 ; i<MAX_SPRITE_NUM ; i++ ){
         AnimationInfo &ai = sprite_info[i];
         if (ai.image_surface && ai.visible)
             dirty_rect.add( ai.pos );
