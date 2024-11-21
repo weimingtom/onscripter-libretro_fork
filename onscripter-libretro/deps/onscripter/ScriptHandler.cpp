@@ -826,8 +826,8 @@ int ScriptHandler::getStringFromInteger(char* buffer, int no, int num_column, bo
     if (is_zero_inserted) {
         if (code == Encoding::CODE_CP932) {
             for (i = 0; i < num_space; i++) {
-                buffer[c++] = ((char*)"ä¾½")[0];
-                buffer[c++] = ((char*)"ä¾½")[1];
+                buffer[c++] = ((char*)"‚O")[0];
+                buffer[c++] = ((char*)"‚O")[1];
             }
         }
         if (code == Encoding::CODE_UTF8) {
@@ -841,8 +841,8 @@ int ScriptHandler::getStringFromInteger(char* buffer, int no, int num_column, bo
     else {
         if (code == Encoding::CODE_CP932) {
             for (i = 0; i < num_space; i++) {
-                buffer[c++] = ((char*)"ä¸‚")[0];
-                buffer[c++] = ((char*)"ä¸‚")[1];
+                buffer[c++] = ((char*)"@")[0];
+                buffer[c++] = ((char*)"@")[1];
             }
         }
         if (code == Encoding::CODE_UTF8) {
@@ -855,8 +855,8 @@ int ScriptHandler::getStringFromInteger(char* buffer, int no, int num_column, bo
     }
     if (num_minus == 1) {
         if (code == Encoding::CODE_CP932) {
-            buffer[c++] = "äº…"[0];
-            buffer[c++] = "äº…"[1];
+            buffer[c++] = "|"[0];
+            buffer[c++] = "|"[1];
         }
         if (code == Encoding::CODE_UTF8) {
             buffer[c++] = 0xef;
@@ -865,7 +865,7 @@ int ScriptHandler::getStringFromInteger(char* buffer, int no, int num_column, bo
         }
     }
     c = (num_column - 1) * n;
-    char num_str[] = "ä¾½ä¾¾ä¿€ä¿ä¿‚ä¿†ä¿‡ä¿ˆä¿‰ä¿‹";
+    char num_str[] = "‚O‚P‚Q‚R‚S‚T‚U‚V‚W‚X";
     for (i = 0; i < num_digit; i++) {
         if (code == Encoding::CODE_CP932) {
             buffer[c] = num_str[no % 10 * 2];

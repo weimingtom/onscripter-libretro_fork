@@ -1,0 +1,18 @@
+ScriptParser.h
+	DEFAULT_START_KINSOKU
+
+ScriptParser.cpp
+	DEFAULT_SAVE_MENU_NAME
+
+ScriptHandler.cpp
+	c = (num_column - 1) * n;
+
+ONScripter_text.cpp
+	bool tag_flag = true;
+
+ONScripter_command.cpp: EUC->SJIS
+	int ONScripter::gettagCommand()
+
+ONScripter.cpp
+	DEFAULT_ENV_FONT
+

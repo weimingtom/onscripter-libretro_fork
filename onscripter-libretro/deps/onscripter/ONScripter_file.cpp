@@ -30,16 +30,9 @@
 #include <time.h>
 #elif defined(WIN32)
 #include <windows.h>
-//https://www.cnblogs.com/fortunely/p/18021414
-//C:/work/msys_v11/mingw/x86_64-w64-mingw32/include/stdio.h:83:25: note: previous declaration 'FILE* __iob_func()'
-//   83 |   _CRTIMP FILE *__cdecl __iob_func(void);
-//FIXME: not sure, mingw32 gcc5 need __iob_func, but tdm64 mingw64 gcc 10.3.0 not need
-#if defined(__MINGW32__) && defined(__GNUC__) && __GNUC__ >= 6
-#else
 extern "C" {
 FILE __iob_func[3] = {*stdin, *stdout, *stderr};
 }
-#endif
 #elif defined(MACOS9)
 #include <DateTimeUtils.h>
 #include <Files.h>
@@ -82,13 +75,8 @@ void ONScripter::searchSaveFile(SaveFileInfo& save_file_info, int no)
 
     WCHAR file_nameW[256];
     MultiByteToWideChar(CP_ACP, 0, file_name, -1, file_nameW, 256);
-#if defined(__MINGW32__)
-    handle = CreateFileW(file_nameW, GENERIC_READ, 0, NULL,
-                        OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-#else    
     handle = CreateFile(file_nameW, GENERIC_READ, 0, NULL,
                         OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-#endif                        
     if (handle == INVALID_HANDLE_VALUE) {
         save_file_info.valid = false;
         return;
