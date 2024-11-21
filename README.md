@@ -283,4 +283,8 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 ```
 * Debugging VC6 project see also    
 https://github.com/weimingtom/onscripter_mergejh_sdl1_fork    
-
+* UTF8_CAPTION not necessary    
+see https://github.com/weimingtom/onscripter_mergejh_sdl1_fork/blob/master/win32_prj/ref.txt    
+* change all sources to sjis or gbk, see    
+https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/deps/onscripter-jh_gbk.txt  
+https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/deps/onscripter_sjis.txt  
