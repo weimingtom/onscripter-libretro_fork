@@ -11,6 +11,7 @@ ONScripter_rmenu.cpp
 	MESSAGE_SAVE_EXIST
 
 ONScripter_command.cpp
+	int ONScripter::gettagCommand()
 	
 ONScripter.cpp
 	DEFAULT_ENV_FONT
