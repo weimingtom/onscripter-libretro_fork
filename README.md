@@ -45,6 +45,11 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 第三个版本应该是在tieba上发布的（难道是原作者？），
 用的是trimui官方工具链（我也是用这个工具链），
 我这三个版本都放到gh上，顺便比较测试
+
+我试了，tieba版的onsyuri（非RA插件）是目前用于trimui的最完美的版本，
+不过我不编译这个版本，除非是RA插件，我倾向于用最上游版本，onsyuri的代码是偏旧的
+（为了整合jh版的代码），虽然和最上游代码差不多，不过最上游代码的ONScripter_text.cpp
+还是有比较大的修改，当然我也还没研究清楚如何整合jh版代码到最上游版本
 ```
 
 ## Bugs or TODO  
