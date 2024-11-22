@@ -6,7 +6,8 @@ https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
 
 Test binary files (not stable):   
-https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123  
+(old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
 
 It may be used well for MIYOO A30 (open 0.txt as content using RetroArch32) and MIYOO MINI Plus (only for .sh script running with ra32, or change settings to show menu 'Load Content'), not very sure.  
 
@@ -25,7 +26,8 @@ https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/on
 
 **Onscripter-yuri build, WIP**  
 Onsyuri Test binary files (not stable very much):  
-https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113  
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123   
+(old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113   
 ```
 我测试过，onsyuri_libretro这个新代码库（相当于onscripter_libretro的SDL2版），目前的研究结果是：
 （1）PC、安卓和ARM版都可以编译，但Windows版暂时还不能编译（SDL2代码暂时编译不了）
