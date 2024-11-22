@@ -35,6 +35,18 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 2024/11/21:目前上述问题都已修复，未测试    
 ```
 
+## Other release versions of onscripter_libretro.so except me    
+* Known three versions: rg28xx, crossmixos, and tieba (not include me)    
+```
+我目前知道有三个onscripter_libretro正式发布版本（不计算我自己在内，
+我自己编译那个有严重bug），
+第一个是rg28xx和同系列，出厂就有，应该是最古老的版本，字体有问题；
+第二个是crossmix os版，工具链非官方，似乎是debian的gcc。
+第三个版本应该是在tieba上发布的（难道是原作者？），
+用的是trimui官方工具链（我也是用这个工具链），
+我这三个版本都放到gh上，顺便比较测试
+```
+
 ## Bugs or TODO  
 * (TODO) win32 onsyuri_libretro.dll, if change window scale to 1x, the black mouse cursor will be hidden  
 * (TODO) Fail to compile it (SDL1 version) with old gcc,  
