@@ -53,6 +53,7 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 ```
 
 ## Bugs or TODO  
+* (TODO) sjis版有一点乱字问题，其他应该都正常，sjis版的乱字是在点右键菜单选择回到开始的时候，显示确认是否，那里字乱了，不过在gbk版和yuri版都没有这个问题  
 * (TODO) win32 onsyuri_libretro.dll, if change window scale to 1x, the black mouse cursor will be hidden  
 * (TODO) Fail to compile it (SDL1 version) with old gcc,  
 like RG300X gcw0 opendingux MIPS gcc toolchain   
