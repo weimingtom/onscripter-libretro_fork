@@ -37,6 +37,20 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 2024/11/21:目前上述问题都已修复，未测试    
 ```
 
+## Install *_libretro.so and .info in Android  
+* The so files couldn't be loaded in tf card storage.
+* Set the info folder to tf card; install *_libretro.so into /data; Save the configuration.  
+* Don't Set the info and the so folder all to tf card, *_libretro.so can not be executed outside /data/ folder,
+You have to install core file, not copy or modify cores' folder      
+```
+我测试安卓版两个版本安装onscripter 和onsyuri libretro也是正常的。
+不过要注意，如果是非官方的核心info文件，只能info指定文件夹，
+然后安装核心so文件（需要保存配置）——如果info和cores文件夹都指定，
+则无法运行核心so文件，可能因为tf卡不允许执行so文件，
+所以只能通过安装核心来复制文件到有权限的地方，
+然后info指向新目录（因为不能安装info文件）
+```
+
 ## Other release versions of onscripter_libretro.so except me    
 * Known three versions: rg28xx, crossmixos, and tieba (not include me)    
 ```
