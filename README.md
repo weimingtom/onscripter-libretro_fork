@@ -265,7 +265,8 @@ windows版（32位，用mingw编译，我这个是在win11测试运行）的onsy
 * Modify jni/Application.mk to change APP_ABI to armeabi-v7a or arm64-v8a.    
 * Don't make the folder too long path name, it will fail to be compiled.   
 * Execute ndk-build to compile it.  
-* Change the so file name in folder libs.    
+* Change the so file name in folder libs.
+* Changing APP_ABI to 'all' or multiple values should cause ndk-build too many warnings, so I use one target per time build   
 
 ## Debugging onsyuri_libretro.so on Android  
 * BUG: android couldn't load core (fixed)  
