@@ -305,7 +305,7 @@ rg28xx我是删了核心重新安装就正常，不清楚是不是info文件没�
 ## xbox360 wireless controller wrong input  
 * Sometimes I have to disable xbox360 wireless controller device on Windows, otherwise the button input will be frequent  
  
-## onscripter_libretro cursor0.bmp not shown and drawstring character wrong when meet 0x0a  
+## onscripter_libretro cursor0.bmp not shown and drawString output characters wrong when it meets 0x0a  
 * Adding code to show or hide cursor in processText()     
 * Try to eat 0x0a character to solve this problem  
 ```
