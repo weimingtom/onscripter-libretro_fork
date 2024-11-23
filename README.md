@@ -266,7 +266,7 @@ windows版（32位，用mingw编译，我这个是在win11测试运行）的onsy
 * Don't make the folder too long path name, it will fail to be compiled.   
 * Execute ndk-build to compile it.  
 * Change the so file name in folder libs.
-* Changing APP_ABI to 'all' or multiple values should cause ndk-build too many warnings, so I use one target per time build   
+* Changing APP_ABI to 'all' or multiple values will causes ndk-build too many warnings, so I use one target in APP_ABI per time I build it.     
 
 ## Debugging onsyuri_libretro.so on Android  
 * BUG: android couldn't load core (fixed)  
