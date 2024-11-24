@@ -1,5 +1,5 @@
 # xubuntu 20.04 64bit
-MIYOO:=1
+MIYOO:=0
 JH:=0
 
 ifeq ($(MIYOO),2)

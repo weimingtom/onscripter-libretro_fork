@@ -7,44 +7,44 @@ set(CMAKE_C_STANDARD 11)
 
 set(SOURCES
   libretro.cpp
-  deps/onscripter-yuri/AnimationInfo.cpp
-  deps/onscripter-yuri/coding2utf16.cpp
-  deps/onscripter-yuri/DirectReader.cpp
-  deps/onscripter-yuri/DirtyRect.cpp
-  deps/onscripter-yuri/FontInfo.cpp
-  deps/onscripter-yuri/gbk2utf16.cpp
-  deps/onscripter-yuri/LUAHandler.cpp
-  deps/onscripter-yuri/NsaReader.cpp
-  deps/onscripter-yuri/ONScripter.cpp
-  deps/onscripter-yuri/ONScripter_animation.cpp
-  deps/onscripter-yuri/ONScripter_command.cpp
-  deps/onscripter-yuri/ONScripter_effect.cpp
-  deps/onscripter-yuri/ONScripter_effect_breakup.cpp
-  deps/onscripter-yuri/ONScripter_event.cpp
-  deps/onscripter-yuri/ONScripter_file.cpp
-  deps/onscripter-yuri/ONScripter_file2.cpp
-  deps/onscripter-yuri/ONScripter_image.cpp
-  deps/onscripter-yuri/ONScripter_lut.cpp
-  deps/onscripter-yuri/ONScripter_rmenu.cpp
-  deps/onscripter-yuri/ONScripter_sound.cpp
-  deps/onscripter-yuri/ONScripter_text.cpp
-  deps/onscripter-yuri/Parallel.cpp
-  deps/onscripter-yuri/resize_image.cpp
-  deps/onscripter-yuri/SarReader.cpp
-  deps/onscripter-yuri/ScriptHandler.cpp
-  deps/onscripter-yuri/ScriptParser.cpp
-  deps/onscripter-yuri/ScriptParser_command.cpp
-  deps/onscripter-yuri/sjis2utf16.cpp
-  deps/onscripter-yuri/renderer/gles_renderer.cpp
-  deps/onscripter-yuri/builtin_dll/layer_oldmovie.cpp
-  deps/onscripter-yuri/builtin_dll/layer_snow.cpp
-  deps/onscripter-yuri/builtin_dll/ONScripter_effect_cascade.cpp
-  deps/onscripter-yuri/builtin_dll/ONScripter_effect_trig.cpp
+  ../onsyuri/AnimationInfo.cpp
+  ../onsyuri/coding2utf16.cpp
+  ../onsyuri/DirectReader.cpp
+  ../onsyuri/DirtyRect.cpp
+  ../onsyuri/FontInfo.cpp
+  ../onsyuri/gbk2utf16.cpp
+  ../onsyuri/LUAHandler.cpp
+  ../onsyuri/NsaReader.cpp
+  ../onsyuri/ONScripter.cpp
+  ../onsyuri/ONScripter_animation.cpp
+  ../onsyuri/ONScripter_command.cpp
+  ../onsyuri/ONScripter_effect.cpp
+  ../onsyuri/ONScripter_effect_breakup.cpp
+  ../onsyuri/ONScripter_event.cpp
+  ../onsyuri/ONScripter_file.cpp
+  ../onsyuri/ONScripter_file2.cpp
+  ../onsyuri/ONScripter_image.cpp
+  ../onsyuri/ONScripter_lut.cpp
+  ../onsyuri/ONScripter_rmenu.cpp
+  ../onsyuri/ONScripter_sound.cpp
+  ../onsyuri/ONScripter_text.cpp
+  ../onsyuri/Parallel.cpp
+  ../onsyuri/resize_image.cpp
+  ../onsyuri/SarReader.cpp
+  ../onsyuri/ScriptHandler.cpp
+  ../onsyuri/ScriptParser.cpp
+  ../onsyuri/ScriptParser_command.cpp
+  ../onsyuri/sjis2utf16.cpp
+  ../onsyuri/renderer/gles_renderer.cpp
+  ../onsyuri/builtin_dll/layer_oldmovie.cpp
+  ../onsyuri/builtin_dll/layer_snow.cpp
+  ../onsyuri/builtin_dll/ONScripter_effect_cascade.cpp
+  ../onsyuri/builtin_dll/ONScripter_effect_trig.cpp
 )
 
 # configure SDL2 for libretro
-#file(COPY deps/SDL_config.h DESTINATION ${CMAKE_SOURCE_DIR}/deps/SDL/include)
-#file(COPY deps/SDL_dynapi.h DESTINATION ${CMAKE_SOURCE_DIR}/deps/SDL/src/dynapi)
+file(COPY deps/SDL_config.h DESTINATION ${CMAKE_SOURCE_DIR}/deps/SDL/include)
+file(COPY deps/SDL_dynapi.h DESTINATION ${CMAKE_SOURCE_DIR}/deps/SDL/src/dynapi)
 
 # prepare <SDL2/*.h> headers directory for onsyuri
 file(CREATE_LINK ${CMAKE_SOURCE_DIR}/deps/SDL/include
@@ -161,9 +161,6 @@ add_library(sdl2 STATIC
 target_include_directories(sdl2 PUBLIC
   deps/SDL/include
 )
-target_compile_definitions(sdl2 PRIVATE
-  -DSDL_DYNAMIC_API=0 -DSDL_TIMER_UNIX=1 -DHAVE_ATAN -DHAVE_ATAN2 -DHAVE_COPYSIGN -DHAVE_COS -DHAVE_EXP -DHAVE_FABS -DHAVE_FLOOR -DHAVE_FMOD -DHAVE_LOG -DHAVE_LOG10 -DHAVE_POW -DHAVE_SCALBN -DHAVE_SIN -DHAVE_SQRT -DHAVE_TAN
-)
 
 add_library(sdl2_image STATIC
   deps/SDL_image/src/IMG.c
@@ -254,8 +251,7 @@ set(FT_DISABLE_BZIP2 ON CACHE BOOL "freetype bzip2 option")
 set(FT_DISABLE_PNG ON CACHE BOOL "freetype png option")
 set(FT_DISABLE_BROTLI ON CACHE BOOL "freetype brotli option")
 set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "freetype harfbuzz option")
-#add_subdirectory(deps/SDL_ttf/external/freetype)
-add_subdirectory(deps/freetype)
+add_subdirectory(deps/SDL_ttf/external/freetype)
 
 add_library(sdl2_ttf STATIC
   deps/SDL_ttf/SDL_ttf.c
@@ -300,7 +296,7 @@ target_link_libraries(onsyuri_libretro
 )
 
 target_include_directories(onsyuri_libretro PRIVATE
-  deps/onscripter-yuri
+  ../onsyuri
 )
 target_compile_definitions(onsyuri_libretro PRIVATE
    -DUSE_BUILTIN_LAYER_EFFECTS -DENABLE_1BYTE_CHAR

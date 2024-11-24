@@ -4,6 +4,7 @@ https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro
 
 **Status:**   
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
+Cmake compiling is not availabe yet, use make instead.  
 
 Test binary files (not stable):   
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123  
