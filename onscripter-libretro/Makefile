@@ -2,6 +2,7 @@
 MIYOO:=0
 JH:=0
 
+
 ifeq ($(MIYOO),2)
 CC  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-gcc
 CXX := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-g++
