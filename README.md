@@ -76,6 +76,12 @@ You have to install core file, not copy or modify cores' folder
 如果直接通过：Launcher -> Options -> File Manager -> /opt/retroarch/bin/retroarch or retroarch32，也会出现此问题；
 如果通过: Launcher -> ONScripter，进入则不会出现闪退；
 故暂时忽略此问题，不修复此BUG
+
+上次说的关于RGB10X无法运行onsyuri-libretro和onscripter-libretro的问题，
+这个问题应该暂时无法解决，但不影响使用，
+因为如果是从启动器直接启动/roms/onscripter目录中的游戏，
+不会出现闪退。如果是从RA/RA32菜单进入或者从/opt下的elf文件启动进入，
+才会出现闪退情况——我怀疑是动态库问题，不过没找到相关的错误信息，目前无法修复
 ```  
 * (TODO) see onscripter_jp_test.zip, sjis版有一点乱字问题，其他应该都正常，sjis版(原版日文)的乱字是在点右键菜单选择回到开始的时候，显示确认是否，那里字乱了，不过在gbk版和yuri版都没有这个问题  
 * (TODO) win32 onsyuri_libretro.dll, if change window scale to 1x, the black mouse cursor will be hidden  
