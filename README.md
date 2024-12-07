@@ -70,7 +70,12 @@ You have to install core file, not copy or modify cores' folder
 ```
 
 ## Bugs or TODO  
-* (BUG) 已经测试到有台机RGB10X是会在运行我编译的核心时会失败中途退出（但能进入游戏开头，我用的是我的mizuiro测试游戏）  
+* (done, ignore) RGB10X运行我编译的核心时会失败中途退出（但能进入游戏开头，我用的是我的mizuiro测试游戏）
+```
+对于RGB10X，如果从启动器-RETROARCH-RETROARCH或RETROARCH32，则会出现这种闪退情况；如果直接通过/opt/retroarch/bin/retroarch或retroarch32，也会出现此问题；
+如果通过启动器-ONScripter进入则不会出现闪退；
+故暂时忽略此问题，不修复此BUG
+```  
 * (TODO) see onscripter_jp_test.zip, sjis版有一点乱字问题，其他应该都正常，sjis版(原版日文)的乱字是在点右键菜单选择回到开始的时候，显示确认是否，那里字乱了，不过在gbk版和yuri版都没有这个问题  
 * (TODO) win32 onsyuri_libretro.dll, if change window scale to 1x, the black mouse cursor will be hidden  
 * (TODO) Fail to compile it (SDL1 version) with old gcc,  
