@@ -67,6 +67,8 @@ You have to install core file, not copy or modify cores' folder
 不过我不编译这个版本，除非是RA插件，我倾向于用最上游版本，onsyuri的代码是偏旧的
 （为了整合jh版的代码），虽然和最上游代码差不多，不过最上游代码的ONScripter_text.cpp
 还是有比较大的修改，当然我也还没研究清楚如何整合jh版代码到最上游版本
+
+Trimui Brick的ONS模拟器.zip
 ```
 * RG28xx_Upgrade_20240511-MOD-v2.0.7z\Roms\APPS\upgrade\update1.dep\update1\vendor\deep\retro\cores\onscripter_libretro.so  
 * https://github.com/cizia64/CrossMix-OS/blob/main/RetroArch/.retroarch/cores/onscripter_libretro.so  
