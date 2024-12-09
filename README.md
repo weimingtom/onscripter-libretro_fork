@@ -131,9 +131,13 @@ or use gcc on rpi3 / rpi4
 * (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
 ```
 sdk_miyoo282_allwinnerA33.tgz
-staging_dir.tgz
+staging_dir.tgz (only for weimingtom/onscripter-jh-miyoo-a30)
 aarch64-linux-gnu-7.5.0-linaro.tgz
-SDK_usr_tg5040_a133p.tgz
+SDK_usr_tg5040_a133p.tgz (only for weimingtom/onscripter-jh-trimui-smart-pro)
+android-ndk-r10e-windows-x86_64.exe
+TDM-GCC-64_tdm64-gcc-10.3.0-2.7z (merge into msys)    
+msys_v11_retroarch_build_64.7z  
+msys_v11_retroarch_build_32.7z  
 ```
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
