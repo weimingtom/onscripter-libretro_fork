@@ -167,6 +167,11 @@ msys_v11_retroarch_build_32.7z
 
 ## Xubuntu 20.04 64bit Ref  
 ```
+sudo snap install retroarch
+(Don't need to install snap,
+don't use sudo apt install because that's too old version retroarch)  
+see https://www.retroarch.com/index.php?page=linux-instructions  
+
 retroarch->~/snap/retroarch/2879/.config/retroarch
 或查看系统菜单games里面retroarch的快捷方式，打开后看设置，目录中的设置
 ```
