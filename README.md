@@ -70,10 +70,14 @@ You have to install core file, not copy or modify cores' folder
 ```
 * RG28xx_Upgrade_20240511-MOD-v2.0.7z\Roms\APPS\upgrade\update1.dep\update1\vendor\deep\retro\cores\onscripter_libretro.so  
 * https://github.com/cizia64/CrossMix-OS/blob/main/RetroArch/.retroarch/cores/onscripter_libretro.so  
-* (released with standalone retroarch) https://tieba.baidu.com/p/9114508080  
+* (released with standalone non-system retroarch elf application) https://tieba.baidu.com/p/9114508080  
 see https://www.bilibili.com/video/BV1stUsYrEy6/  
-* (onsyuri, without retroarch) https://tieba.baidu.com/p/9161272364  
-see https://www.bilibili.com/video/BV1stUsYrEy6/  
+see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/trimui_bilibili_not_by_me  
+unzip ONS.7z to SDCARD:/Emus/  
+* (onsyuri, without retroarch, standalone application) https://tieba.baidu.com/p/9161272364  
+see https://www.bilibili.com/video/BV1stUsYrEy6/   
+see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/trimui_bilibili_not_by_me  
+unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
 * (done, ignore) RGB10X运行我编译的核心时会失败中途退出（但能进入游戏开头，我用的是我的mizuiro测试游戏）
