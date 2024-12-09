@@ -68,6 +68,12 @@ You have to install core file, not copy or modify cores' folder
 （为了整合jh版的代码），虽然和最上游代码差不多，不过最上游代码的ONScripter_text.cpp
 还是有比较大的修改，当然我也还没研究清楚如何整合jh版代码到最上游版本
 ```
+* RG28xx_Upgrade_20240511-MOD-v2.0.7z\Roms\APPS\upgrade\update1.dep\update1\vendor\deep\retro\cores\onscripter_libretro.so  
+* https://github.com/cizia64/CrossMix-OS/blob/main/RetroArch/.retroarch/cores/onscripter_libretro.so  
+* (released with standalone retroarch) https://tieba.baidu.com/p/9114508080  
+see https://www.bilibili.com/video/BV1stUsYrEy6/  
+* (onsyuri, without retroarch) https://tieba.baidu.com/p/9161272364  
+see https://www.bilibili.com/video/BV1stUsYrEy6/  
 
 ## Bugs or TODO  
 * (done, ignore) RGB10X运行我编译的核心时会失败中途退出（但能进入游戏开头，我用的是我的mizuiro测试游戏）
