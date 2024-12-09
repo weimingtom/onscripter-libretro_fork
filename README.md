@@ -129,6 +129,12 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/downloa
 * (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf  
 or use gcc on rpi3 / rpi4    
 * (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
+```
+sdk_miyoo282_allwinnerA33.tgz
+staging_dir.tgz
+aarch64-linux-gnu-7.5.0-linaro.tgz
+SDK_usr_tg5040_a133p.tgz
+```
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
 * Status: Miyoo A30 (tested)  
