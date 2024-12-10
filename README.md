@@ -142,6 +142,8 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/downloa
 or use gcc on rpi3 / rpi4    
 * (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
 ```
+xubuntu 20.04 64bit  
+
 sdk_miyoo282_allwinnerA33.tgz
 staging_dir.tgz (only for weimingtom/onscripter-jh-miyoo-a30)
 aarch64-linux-gnu-7.5.0-linaro.tgz
@@ -150,6 +152,9 @@ android-ndk-r10e-windows-x86_64.exe
 TDM-GCC-64_tdm64-gcc-10.3.0-2.7z (merge into msys)    
 msys_v11_retroarch_build_64.7z  
 msys_v11_retroarch_build_32.7z  
+
+onscripter_cn_test.zip
+onscripter_jp_test.zip
 ```
 
 ## Building ONScripter version and ONScripter-jh merge version for ARM
