@@ -360,7 +360,7 @@ int ScriptParser::savedirCommand()
 
 #if defined(LINUX) || defined(MACOSX) || defined(IOS) || defined(ANDROID)
         struct stat buf;
-#if defined(ANDROID) && !BUILD_RETROARCH
+#if defined(ANDROID)
         if ( stat_ons( save_dir, &buf ) != 0 ){
 #else
         if ( stat( save_dir, &buf ) != 0 ) {

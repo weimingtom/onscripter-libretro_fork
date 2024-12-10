@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string>
+
+#ifdef __ANDROID__
+#define DEFAULT_MOUSE_MODE "Touch"
+#else
+#define DEFAULT_MOUSE_MODE "Classical"
+#endif
+
 #include "ONScripter.h"
 #include "SDL_libretro.h"
 #include "gbk2utf16.h"
@@ -59,7 +66,7 @@ retro_set_environment(retro_environment_t cb)
             .desc = "Mouse Mode",
             .info = NULL,
             .values = { { "Touch" }, { "Classical" }, { NULL } },
-            .default_value = "Classical",
+            .default_value = DEFAULT_MOUSE_MODE,
         },
         {
             .key = "onsyuri_mouse_sensitivity",
@@ -118,8 +125,8 @@ void
 retro_get_system_info(struct retro_system_info* info)
 {
     info->need_fullpath = true;
-    info->valid_extensions = "txt|dat|___";
-    info->library_version = "0.7.4+1";
+    info->valid_extensions = "txt|dat|___|nt2|nt3|ons|/";
+    info->library_version = "0.7.4+2";
     info->library_name = "onsyuri";
     info->block_extract = false;
 }
@@ -138,13 +145,15 @@ retro_get_system_av_info(struct retro_system_av_info* info)
     info->timing.sample_rate = 44100.0;
 }
 
-static void
-apply_variables()
+void
+retro_init(void)
 {
+    enum retro_pixel_format pixfmt = RETRO_PIXEL_FORMAT_XRGB8888;
+    environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &pixfmt);
+
     struct retro_variable var = { 0 };
     var.key = "onsyuri_script_encoding";
-    // Need restart to change the coding
-    if (coding2utf16 == NULL && environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var)) {
+    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var)) {
         if (strcmp(var.value, "SHIFTJIS") == 0) {
             coding2utf16 = new SJIS2UTF16();
         } else {
@@ -159,18 +168,10 @@ apply_variables()
             classical_mouse = false;
         }
     }
-    SDL_ShowCursor(classical_mouse ? SDL_ENABLE : SDL_DISABLE);
     var.key = "onsyuri_mouse_sensitivity";
     if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var)) {
         mouse_sensitivity = SDL_atof(var.value);
     }
-}
-
-void
-retro_init(void)
-{
-    enum retro_pixel_format pixfmt = RETRO_PIXEL_FORMAT_XRGB8888;
-    environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &pixfmt);
 }
 
 static int
@@ -186,26 +187,27 @@ retro_load_game(const struct retro_game_info* game)
     if (!game)
         return false;
 
-    char* gamedir = dirname(SDL_strdup(game->path));
-    chdir(gamedir);
+    if (game->path[SDL_strlen(game->path) - 1] == '/') {
+        chdir(game->path);
+    } else {
+        char* gamedir = dirname(SDL_strdup(game->path));
+        chdir(gamedir);
+    }
 
-    apply_variables();
+    // Ignore SDL_AUDIODRIVER and SDL_VIDEODRIVER.
+    SDL_SetHintWithPriority(SDL_HINT_AUDIODRIVER, "libretro", SDL_HINT_OVERRIDE);
+    SDL_SetHintWithPriority(SDL_HINT_VIDEODRIVER, "libretro", SDL_HINT_OVERRIDE);
+
     if (ons.openScript() != 0)
         return false;
 
-//2024-11-12 00:15:18.369  6742-6778  ## onsyuri              pid-6742                             
-//E  Couldn't initialize SDL: Application didn't initialize properly, 
-//did you include SDL_main.h in the file containing your main() function?
-#if BUILD_RETROARCH
-SDL_SetMainReady();	
-#endif	
-	
     if (ons.init() != 0) {
         log_cb(RETRO_LOG_ERROR, "Failed to initialize ONScripter.\n");
         return false;
     }
 
     SDL_CaptureMouse(SDL_TRUE);
+    SDL_ShowCursor(classical_mouse ? SDL_ENABLE : SDL_DISABLE);
 
     struct retro_keyboard_callback keyboard = {
         .callback = SDL_libretro_KeyboardCallback,
@@ -298,6 +300,11 @@ PumpMouseEvents(void)
             SDL_libretro_SendMouseButton(right ? SDL_PRESSED : SDL_RELEASED, SDL_BUTTON_RIGHT);
             _right = right;
         }
+
+        // Keep mouse within the window.
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        SDL_WarpMouseInWindow(NULL, x, y);
     } else {
         static int16_t _x = 0;
         static int16_t _y = 0;
@@ -338,11 +345,6 @@ PumpMouseEvents(void)
 void
 retro_run(void)
 {
-    bool vupdated = false;
-    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE, &vupdated) && vupdated) {
-        apply_variables();
-    }
-
     input_poll_cb();
     PumpJoypadEvents();
     PumpMouseEvents();

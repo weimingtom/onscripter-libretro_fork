@@ -28,10 +28,6 @@
 
 #define MAX_LAYER_NUM 32
 
-//#if defined(__MINGW32__)
-//#define nullptr 0
-//#endif
-
 struct Layer {
   BaseReader *reader;
   AnimationInfo *sprite_info, *sprite;

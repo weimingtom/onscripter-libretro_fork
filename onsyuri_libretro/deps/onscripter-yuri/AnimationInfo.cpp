@@ -22,9 +22,8 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <math.h>
 #include "AnimationInfo.h"
-//#include <math.h>
+#include <math.h>
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif

@@ -132,10 +132,6 @@ void ONScripter::initSDL()
 {
     /* ---------------------------------------- */
     /* Initialize SDL */
-#if BUILD_ALL_LOG
-//SDL_LOG_CATEGORY_APPLICATION
-    SDL_LogSetPriority(SDL_LOG_CATEGORY_ERROR, SDL_LOG_PRIORITY_VERBOSE);
-#endif
 
     if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER  ) < 0 ){
         utils::printError("Couldn't initialize SDL: %s\n", SDL_GetError());
@@ -158,8 +154,11 @@ void ONScripter::initSDL()
 #if defined(ANDROID)
     SDL_SetHint(SDL_HINT_ACCELEROMETER_AS_JOYSTICK, "0");
 #endif
-    if(SDL_InitSubSystem( SDL_INIT_JOYSTICK ) == 0 && SDL_JoystickOpen(0) != NULL)
-        utils::printInfo("Initialize JOYSTICK\n");
+    if(SDL_InitSubSystem( SDL_INIT_GAMECONTROLLER ) == 0)
+        utils::printInfo("Initialize GAMECONTROLLER\n");
+    controller = SDL_GameControllerOpen(0);
+    if(controller != NULL)
+        utils::printInfo("GameController found\n");
 #endif
 
     /* ---------------------------------------- */
@@ -171,7 +170,7 @@ void ONScripter::initSDL()
 
     screen_bpp = 32;
     
-#if (defined(IOS) || (defined(ANDROID) && !BUILD_RETROARCH) || defined(WINRT))
+#if (defined(IOS) || defined(ANDROID) || defined(WINRT))
     SDL_DisplayMode mode;
     SDL_GetDisplayMode(0, 0, &mode);
     int width;
@@ -278,6 +277,12 @@ void ONScripter::initSDL()
         texture_format = SDL_PIXELFORMAT_ABGR8888;
     max_texture_width = info.max_texture_width;
     max_texture_height = info.max_texture_height;
+    // pick a size limit for blt_texture when using the software renderer
+    if (max_texture_width == 0 || max_texture_height == 0) {
+        max_texture_width = 2048;
+        max_texture_height = 2048;
+    }
+
     SDL_RenderClear(renderer);
 
     underline_value = script_h.screen_height;
@@ -323,15 +328,6 @@ void ONScripter::initSDL()
 void ONScripter::openAudio(int freq)
 {
     Mix_CloseAudio();
-
-	
-//FIXME:no need to modify 44100 freq, see libretro.cpp retro_get_system_av_info
-//#if BUILD_TRIMUI_SMART_PRO_AUDIO
-//    if ( Mix_OpenAudio( (freq<0)?22050:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){  
-//#else
-//    if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
-//#endif
-
 
     if ( Mix_OpenAudio( (freq<0)?44100:freq, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, DEFAULT_AUDIOBUF ) < 0 ){      
         utils::printError("Couldn't open audio device!\n"
@@ -869,7 +865,7 @@ void ONScripter::flushDirect( SDL_Rect &rect, int refresh_mode )
     SDL_UnlockSurface(accumulation_surface);
 
     screen_dirty_flag = false;
-#if (defined(ANDROID) && !BUILD_RETROARCH) || defined(WEB) // See sdl2 DOCS/README-android.md for more information on this
+#if defined(ANDROID) || defined(WEB) // See sdl2 DOCS/README-android.md for more information on this
     SDL_RenderClear(renderer);
     SDL_Rect *rect_ptr = nullptr;
 #else

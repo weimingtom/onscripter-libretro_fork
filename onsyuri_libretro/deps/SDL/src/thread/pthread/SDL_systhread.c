@@ -60,7 +60,7 @@
 #endif
 
 
-#if !defined(__NACL__) && !defined(__MINGW32__)
+#ifndef __NACL__
 /* List of signals to mask in the subthreads */
 static const int sig_list[] = {
     SIGHUP, SIGINT, SIGQUIT, SIGPIPE, SIGALRM, SIGTERM, SIGCHLD, SIGWINCH,
@@ -70,7 +70,7 @@ static const int sig_list[] = {
 
 static void *RunThread(void *data)
 {
-#if defined(__ANDROID__) && !BUILD_RETROARCH
+#ifdef __ANDROID__
     Android_JNI_SetupThread();
 #endif
     SDL_RunThread((SDL_Thread *)data);
@@ -122,7 +122,7 @@ int SDL_SYS_CreateThread(SDL_Thread *thread)
 
 void SDL_SYS_SetupThread(const char *name)
 {
-#if !defined(__NACL__) && !defined(__MINGW32__)
+#if !defined(__NACL__)
     int i;
     sigset_t mask;
 #endif /* !__NACL__ */
@@ -162,7 +162,7 @@ void SDL_SYS_SetupThread(const char *name)
     }
 
    /* NativeClient does not yet support signals.*/
-#if !defined(__NACL__) && !defined(__MINGW32__)
+#if !defined(__NACL__)
     /* Mask asynchronous signals for this thread */
     sigemptyset(&mask);
     for (i = 0; sig_list[i]; ++i) {
@@ -188,7 +188,7 @@ SDL_threadID SDL_ThreadID(void)
 
 int SDL_SYS_SetThreadPriority(SDL_ThreadPriority priority)
 {
-#if defined(__NACL__) || defined(__RISCOS__) || defined(__OS2__) || defined(__MINGW32__)
+#if defined(__NACL__) || defined(__RISCOS__) || defined(__OS2__)
     /* FIXME: Setting thread priority does not seem to be supported in NACL */
     return 0;
 #else
@@ -246,7 +246,7 @@ int SDL_SYS_SetThreadPriority(SDL_ThreadPriority priority)
         policy = pri_policy;
     }
 
-#if defined(__LINUX__) && !BUILD_RETROARCH
+#ifdef __LINUX__
     {
         pid_t linuxTid = syscall(SYS_gettid);
         return SDL_LinuxSetThreadPriorityAndPolicy(linuxTid, priority, policy);

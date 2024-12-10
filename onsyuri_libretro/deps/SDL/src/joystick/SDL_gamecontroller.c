@@ -402,7 +402,7 @@ static int SDLCALL SDL_GameControllerEventWatcher(void *userdata, SDL_Event *eve
     return 1;
 }
 
-#if defined(__ANDROID__) && !BUILD_RETROARCH
+#ifdef __ANDROID__
 /*
  * Helper function to guess at a mapping based on the elements reported for this controller
  */
@@ -780,7 +780,7 @@ static ControllerMapping_t *SDL_PrivateGetControllerMappingForGUID(SDL_JoystickG
         mapping = SDL_CreateMappingForWGIController(guid);
     } else if (SDL_IsJoystickVirtual(guid)) {
         /* We'll pick up a robust mapping in VIRTUAL_JoystickGetGamepadMapping */
-#if defined(__ANDROID__) && !BUILD_RETROARCH
+#ifdef __ANDROID__
     } else {
         mapping = SDL_CreateMappingForAndroidController(guid);
 #endif
@@ -1624,7 +1624,7 @@ static int SDL_PrivateGameControllerAddMapping(const char *mappingString, SDL_Co
         }
     }
 
-#if defined(ANDROID) && !BUILD_RETROARCH
+#ifdef ANDROID
     { /* Extract and verify the SDK version */
         const char *tmp;
 
@@ -1876,7 +1876,7 @@ static SDL_bool SDL_GetControllerMappingFilePath(char *path, size_t size)
         return SDL_strlcpy(path, hint, size) < size;
     }
 
-#if defined(__ANDROID__) && !BUILD_RETROARCH
+#if defined(__ANDROID__)
     return SDL_snprintf(path, size, "%s/controller_map.txt", SDL_AndroidGetInternalStoragePath()) < size;
 #else
     return SDL_FALSE;

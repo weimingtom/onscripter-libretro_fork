@@ -66,7 +66,6 @@
 #include <sys/syspage.h>
 #endif
 
-#include <stdio.h>
 #if (defined(__LINUX__) || defined(__ANDROID__)) && defined(__arm__)
 #include <unistd.h>
 #include <sys/types.h>

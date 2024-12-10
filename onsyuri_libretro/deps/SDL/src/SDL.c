@@ -649,7 +649,7 @@ const char *SDL_GetPlatform(void)
 
 SDL_bool SDL_IsTablet(void)
 {
-#if defined(__ANDROID__) && !BUILD_RETROARCH
+#if defined(__ANDROID__)
     extern SDL_bool SDL_IsAndroidTablet(void);
     return SDL_IsAndroidTablet();
 #elif defined(__IPHONEOS__)
