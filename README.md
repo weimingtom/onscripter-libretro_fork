@@ -144,7 +144,7 @@ or use gcc on rpi3 / rpi4
 ```
 xubuntu 20.04 64bit  
 
-sdk_miyoo282_allwinnerA33.tgz
+sdk_miyoo282_allwinnerA33.tgz (inside gcc-linaro-7.5.0-arm-linux-gnueabihf.tgz tar xzf and move outside)  
 staging_dir.tgz (only for weimingtom/onscripter-jh-miyoo-a30)
 aarch64-linux-gnu-7.5.0-linaro.tgz
 SDK_usr_tg5040_a133p.tgz (only for weimingtom/onscripter-jh-trimui-smart-pro)
