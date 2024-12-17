@@ -82,6 +82,10 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* F1菜单退出动作有问题？会退出整个ra；还有有人反映问题如下
+```
+onsyuri_libretro的SDL退出逻辑有点bug，没有正确注销SDL导致该进程退出后，系统无法再次申请SDL
+```
 * (done, ignore) RGB10X运行我编译的核心时会失败中途退出（但能进入游戏开头，我用的是我的mizuiro测试游戏）
 ```
 对于RGB10X，如果从：Launcher -> RETROARCH-RETROARCH or RETROARCH32，则会出现这种闪退情况；
