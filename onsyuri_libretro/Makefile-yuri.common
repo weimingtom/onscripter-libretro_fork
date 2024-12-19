@@ -9,6 +9,7 @@ ONS_DIR = $(DEPS_DIR)/onscripter-yuri
 #override the head files SDL_config.h and SDL_dynapi.h
 #FIXME: remove libretro-common
 INCFLAGS := \
+  -I$(DEPS_DIR)/lua \
   -I$(DEPS_DIR)/bzip2 \
   -I$(DEPS_DIR)/zlib \
   -I$(DEPS_DIR)/freetype/include \
@@ -157,6 +158,44 @@ SOURCES_C += \
   $(DEPS_DIR)/bzip2/decompress.c \
   $(DEPS_DIR)/bzip2/bzlib.c
 
+# lua
+CFLAGS += -DLUA_COMPAT_5_2
+SOURCES_C += \
+  $(DEPS_DIR)/lua/lapi.c \
+  $(DEPS_DIR)/lua/lcode.c \
+  $(DEPS_DIR)/lua/lctype.c \
+  $(DEPS_DIR)/lua/ldebug.c \
+  $(DEPS_DIR)/lua/ldo.c \
+  $(DEPS_DIR)/lua/ldump.c \
+  $(DEPS_DIR)/lua/lfunc.c \
+  $(DEPS_DIR)/lua/lgc.c \
+  $(DEPS_DIR)/lua/llex.c \
+  $(DEPS_DIR)/lua/lmem.c \
+  $(DEPS_DIR)/lua/lobject.c \
+  $(DEPS_DIR)/lua/lopcodes.c \
+  $(DEPS_DIR)/lua/lparser.c \
+  $(DEPS_DIR)/lua/lstate.c \
+  $(DEPS_DIR)/lua/lstring.c \
+  $(DEPS_DIR)/lua/ltable.c \
+  $(DEPS_DIR)/lua/ltm.c \
+  $(DEPS_DIR)/lua/lundump.c \
+  $(DEPS_DIR)/lua/lvm.c \
+  $(DEPS_DIR)/lua/lzio.c \
+  $(DEPS_DIR)/lua/ltests.c \
+  $(DEPS_DIR)/lua/lauxlib.c \
+  $(DEPS_DIR)/lua/lbaselib.c \
+  $(DEPS_DIR)/lua/ldblib.c \
+  $(DEPS_DIR)/lua/liolib.c \
+  $(DEPS_DIR)/lua/lmathlib.c \
+  $(DEPS_DIR)/lua/loslib.c \
+  $(DEPS_DIR)/lua/ltablib.c \
+  $(DEPS_DIR)/lua/lstrlib.c \
+  $(DEPS_DIR)/lua/lutf8lib.c \
+  $(DEPS_DIR)/lua/lbitlib.c \
+  $(DEPS_DIR)/lua/loadlib.c \
+  $(DEPS_DIR)/lua/lcorolib.c \
+  $(DEPS_DIR)/lua/linit.c
+  
 # freetype
 CFLAGS += -DFT2_BUILD_LIBRARY=1
 SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
