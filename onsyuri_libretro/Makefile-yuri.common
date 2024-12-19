@@ -365,6 +365,6 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-yuri/,\
   builtin_dll/ONScripter_effect_cascade.cpp \
   builtin_dll/ONScripter_effect_trig.cpp \
 )
-CXXFLAGS += -DUSE_BUILTIN_LAYER_EFFECTS -DENABLE_1BYTE_CHAR
+CXXFLAGS += -DUSE_BUILTIN_LAYER_EFFECTS -DENABLE_1BYTE_CHAR -DUSE_LUA
 CXXFLAGS += $(CFLAGS)
 
