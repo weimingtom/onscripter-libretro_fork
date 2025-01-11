@@ -128,6 +128,12 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 * 星之梦：对话偶尔会叠到同一行；start无法自动模式  
 * eden：自动模式声音会截断  
 * 秋之回忆2: yuri版，遇到选择肢时，按X会跳到新的右键上下文菜单（再按一次X退出上下文菜单，但选择肢不显示）  
+```
+我看到b站的演示，其实miyoo flip是有做ONS入口的，只不过出厂时候隐藏了（还隐藏了FFMPEG和FFPLAY）
+只要把Emu/新建文件夹/ONS目录复制到Emu目录即可。我猜测可能觉得ONS（实际是onsyuri）核心有bug，
+这个bug主要体现在进入RA后无法退出和调出RA菜单，只能通过ONS游戏本身的上下文菜单退出。
+其实我也注意到RA使用onsyuri后会有乱字情况，不过我没找到方法解决
+```
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
