@@ -127,6 +127,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 * 退出问号有回车；yuri版没这个问题  
 * 星之梦：对话偶尔会叠到同一行；start无法自动模式  
 * eden：自动模式声音会截断  
+* 秋之回忆2: yuri版，遇到选择肢时，按X会跳到新的右键上下文菜单（再按一次X退出上下文菜单，但选择肢不显示）  
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
