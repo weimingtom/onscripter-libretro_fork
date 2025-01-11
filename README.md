@@ -134,6 +134,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 这个bug主要体现在进入RA后无法退出和调出RA菜单，只能通过ONS游戏本身的上下文菜单退出。
 其实我也注意到RA使用onsyuri后会有乱字情况，不过我没找到方法解决
 ```
+* 纯白交响曲：yuri版，如果按住Y快进不放手，可能到饭堂时候会闪退（可能是因为内存不足？），但如果不快进，按A前进，不闪退  
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
