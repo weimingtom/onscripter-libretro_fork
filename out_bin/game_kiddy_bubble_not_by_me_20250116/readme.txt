@@ -1,0 +1,1 @@
+我知道GKD Bubble（Game Kiddy Bubble）里面的onscripter是什么来的，应该是改自onsyuri 0.7.4。似乎是单独运行的，不是RA核心，每个游戏ROM第一次执行它会复制文件onscripter（/storage/RA/onscripter）到游戏目录，相关shell调用在/storage/miniplus下
