@@ -1,0 +1,6 @@
+[submodule "deps/tinycoroutine"]
+	path = deps/tinycoroutine
+	url = https://github.com/soundsrc/tinycoroutine.git
+[submodule "deps/libretro-common"]
+	path = deps/libretro-common
+	url = https://github.com/libretro/libretro-common.git
