@@ -1,3 +1,22 @@
+# xubuntu 20.04 64bit
+MIYOO:=0
+JH:=0
+
+
+ifeq ($(MIYOO),2)
+CC  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-gcc
+CXX := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-g++
+AR  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-ar
+else ifeq ($(MIYOO),1)
+CC  := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
+CXX := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
+AR  := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ar
+else
+#CC  := gcc
+#CXX := g++
+#AR  := ar
+endif
+
 STATIC_LINKING := 0
 AR             := ar
 
@@ -66,7 +85,8 @@ ifeq ($(platform), unix)
 	EXT ?= so
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
    fpic := -fPIC
-   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+#   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+   SHARED := -shared -static-libgcc -static-libstdc++ -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
 else ifeq ($(platform), linux-portable)
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
    fpic := -fPIC -nostdlib
@@ -121,9 +141,16 @@ else ifeq ($(platform), miyoomini)
       palette_neon_intrinsics.c arm_init.c filter_neon_intrinsics.c \
    )
 else
-   CC = gcc
+   #CC = gcc
+CC  = gcc -m64
+CXX = g++ -m64
+AR  = ar   
+#CC  = gcc -m32
+#CXX = g++ -m32
+#AR  = ar   
    TARGET := $(TARGET_NAME)_libretro.dll
-   SHARED := -shared -static-libgcc -static-libstdc++ -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+#-static-libgcc -static-libstdc++ -s   
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
 endif
 
 LDFLAGS += $(LIBM)
@@ -136,9 +163,13 @@ else
    CXXFLAGS += -O3
 endif
 
+ifeq ($(JH),1)
+include Makefile-jh.common
+else
 include Makefile.common
+endif
 
-OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o)
+OBJECTS := $(SOURCES_C:.c=.o) $(SOURCES_CXX:.cpp=.o) $(SOURCES_S:.S=.o)
 
 CFLAGS   += -Wall -D__LIBRETRO__ $(fpic)
 CXXFLAGS += -Wall -D__LIBRETRO__ $(fpic)
@@ -168,3 +199,9 @@ clean:
 
 print-%:
 	@echo '$*=$($*)'
+
+install:
+	cp onscripter_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
+	
+#cp onscripter_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
+

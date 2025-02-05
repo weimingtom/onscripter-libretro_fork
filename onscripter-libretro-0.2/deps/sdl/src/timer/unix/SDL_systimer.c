@@ -85,8 +85,15 @@ Uint32 SDL_GetTicks (void)
 #endif
 }
 
+#if defined(__MINGW32__)
+#include <windows.h>
+#endif
+
 void SDL_Delay (Uint32 ms)
 {
+#if defined(__MINGW32__)
+Sleep(ms);
+#else
 #if SDL_THREAD_PTH
 	pth_time_t tv;
 	tv.tv_sec  =  ms/1000;
@@ -132,6 +139,7 @@ void SDL_Delay (Uint32 ms)
 #endif /* HAVE_NANOSLEEP */
 	} while ( was_error && (errno == EINTR) );
 #endif /* SDL_THREAD_PTH */
+#endif
 }
 
 #ifdef USE_ITIMER

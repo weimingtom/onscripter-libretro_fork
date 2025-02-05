@@ -574,7 +574,9 @@ static void SDL_CreateShadowSurface(int depth)
 #endif /* __QNXNTO__ */
 
 #ifdef WIN32
+#if !defined(__MINGW32__)
 	extern int sysevents_mouse_pressed;
+#endif
 #endif
 
 /*
@@ -591,7 +593,9 @@ SDL_Surface * SDL_SetVideoMode (int width, int height, int bpp, Uint32 flags)
 	SDL_GrabMode saved_grab;
 
 	#ifdef WIN32
+#if !defined(__MINGW32__)	
 		sysevents_mouse_pressed = 0;
+#endif		
 	#endif
 
 	/* Start up the video driver, if necessary..

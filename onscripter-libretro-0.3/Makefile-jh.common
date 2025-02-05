@@ -1,0 +1,199 @@
+# -*- mode: makefile -*-
+DEPS_DIR = $(CORE_DIR)/deps
+LIBRETRO_COMM_DIR = $(DEPS_DIR)/libretro-common
+SDL_LIBRETRO_DIR = $(CORE_DIR)/sdl-libretro
+
+INCFLAGS := \
+  -I$(LIBRETRO_COMM_DIR)/include \
+  -I$(DEPS_DIR)/bzip2 \
+  -I$(DEPS_DIR)/freetype/include \
+  -I$(DEPS_DIR)/libogg/include \
+  -I$(DEPS_DIR)/libvorbis/include \
+  -I$(DEPS_DIR)/libmad/ \
+  -I$(SDL_LIBRETRO_DIR) \
+  -I$(DEPS_DIR)/sdl/include \
+  -I$(DEPS_DIR)/sdl-image \
+  -I$(DEPS_DIR)/sdl-mixer \
+  -I$(DEPS_DIR)/sdl-ttf \
+  -I$(CORE_DIR) \
+  -I$(DEPS_DIR)
+
+
+CFLAGS += $(INCFLAGS)
+CXXFLAGS += $(INCFLAGS)
+
+# bzip2
+CFLAGS += -D_FILE_OFFSET_BITS=64
+SOURCES_C += \
+  $(DEPS_DIR)/bzip2/blocksort.c \
+  $(DEPS_DIR)/bzip2/huffman.c \
+  $(DEPS_DIR)/bzip2/crctable.c \
+  $(DEPS_DIR)/bzip2/randtable.c \
+  $(DEPS_DIR)/bzip2/compress.c \
+  $(DEPS_DIR)/bzip2/decompress.c \
+  $(DEPS_DIR)/bzip2/bzlib.c
+
+# freetype
+CFLAGS += -DFT2_BUILD_LIBRARY=1
+SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
+  base/ftbase.c \
+  base/ftdebug.c \
+  base/ftinit.c \
+  base/ftsystem.c \
+  base/ftbitmap.c \
+  base/ftglyph.c \
+  base/ftstroke.c \
+  autofit/autofit.c \
+  psnames/psnames.c \
+  sfnt/sfnt.c \
+  truetype/truetype.c \
+  raster/raster.c \
+  smooth/smooth.c \
+)
+
+## libjpeg-turbo
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\
+#  jcapimin.c jcapistd.c jccoefct.c jccolor.c jcdctmgr.c jchuff.c \
+#  jcicc.c jcinit.c jcmainct.c jcmarker.c jcmaster.c jcomapi.c jcparam.c \
+#  jcphuff.c jcprepct.c jcsample.c jctrans.c jdapimin.c jdapistd.c jdatadst.c \
+#  jdatasrc.c jdcoefct.c jdcolor.c jddctmgr.c jdhuff.c jdicc.c jdinput.c \
+#  jdmainct.c jdmarker.c jdmaster.c jdmerge.c jdphuff.c jdpostct.c jdsample.c \
+#  jdtrans.c jerror.c jfdctflt.c jfdctfst.c jfdctint.c jidctflt.c jidctfst.c \
+#  jidctint.c jidctred.c jquant1.c jquant2.c jutils.c jmemmgr.c jmemnobs.c \
+#  jaricom.c jcarith.c jdarith.c \
+#  jsimd_none.c \
+#)
+
+## zlib
+#SOURCES_C += $(addprefix $(DEPS_DIR)/zlib/,\
+#  adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c \
+#  gzread.c gzwrite.c inflate.c infback.c inftrees.c inffast.c \
+#  trees.c uncompr.c zutil.c \
+#)
+
+## libpng
+#SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
+#  png.c pngerror.c pngget.c pngmem.c pngpread.c \
+#  pngread.c pngrio.c pngrtran.c pngrutil.c \
+#  pngset.c pngtrans.c pngwio.c pngwrite.c pngwtran.c pngwutil.c \
+#)
+
+# libogg
+SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
+  bitwise.c framing.c \
+)
+
+# libvorbis
+SOURCES_C += $(addprefix $(DEPS_DIR)/libvorbis/lib/,\
+  mdct.c smallft.c block.c envelope.c window.c lsp.c \
+  lpc.c analysis.c synthesis.c psy.c info.c \
+  floor1.c floor0.c \
+  res0.c mapping0.c registry.c codebook.c sharedbook.c \
+  lookup.c bitrate.c vorbisfile.c \
+)
+
+# libmad
+CFLAGS += -DFPM_DEFAULT -DSIZEOF_INT=4
+SOURCES_C += $(addprefix $(DEPS_DIR)/libmad/,\
+  version.c fixed.c bit.c timer.c stream.c frame.c \
+  synth.c decoder.c layer12.c layer3.c huffman.c \
+)
+
+# sdl
+LDFLAGS += -lpthread
+SOURCES_C += $(addprefix $(DEPS_DIR)/sdl/src/,\
+  SDL.c SDL_error.c SDL_fatal.c \
+  audio/SDL_audio.c audio/SDL_audiocvt.c audio/SDL_audiodev.c \
+  audio/SDL_mixer.c audio/SDL_mixer_m68k.c audio/SDL_wave.c \
+  cdrom/SDL_cdrom.c cpuinfo/SDL_cpuinfo.c \
+  events/SDL_active.c events/SDL_events.c events/SDL_expose.c \
+  events/SDL_keyboard.c events/SDL_mouse.c events/SDL_quit.c \
+  events/SDL_resize.c \
+  file/SDL_rwops.c \
+  joystick/SDL_joystick.c \
+  stdlib/SDL_getenv.c stdlib/SDL_iconv.c \
+  stdlib/SDL_malloc.c stdlib/SDL_qsort.c \
+  stdlib/SDL_stdlib.c stdlib/SDL_string.c \
+  thread/SDL_thread.c thread/pthread/SDL_syscond.c thread/pthread/SDL_sysmutex.c \
+  thread/pthread/SDL_syssem.c thread/pthread/SDL_systhread.c \
+  timer/SDL_timer.c timer/unix/SDL_systimer.c \
+  video/SDL_blit_0.c video/SDL_blit_1.c video/SDL_blit_A.c \
+  video/SDL_blit.c video/SDL_blit_N.c video/SDL_bmp.c video/SDL_cursor.c \
+  video/SDL_gamma.c video/SDL_pixels.c video/SDL_RLEaccel.c \
+  video/SDL_stretch.c video/SDL_surface.c video/SDL_video.c \
+  video/SDL_yuv.c video/SDL_yuv_mmx.c video/SDL_yuv_sw.c \
+  cdrom/dummy/SDL_syscdrom.c \
+  joystick/dummy/SDL_sysjoystick.c \
+  loadso/dummy/SDL_sysloadso.c \
+)
+SOURCES_C += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+  audio.c events.c video.c \
+)
+
+# sdl-image
+CFLAGS += -DSIZEOF_SIZE_T=__SIZEOF_SIZE_T__ -DLOAD_JPG -DLOAD_BMP -DLOAD_PNG
+SOURCES_C += $(filter-out %/showimage.c, $(wildcard $(DEPS_DIR)/sdl-image/*.c))
+
+# sdl-mixer
+CFLAGS += -DOGG_MUSIC -DMP3_MAD_MUSIC
+SOURCES_C += $(addprefix $(DEPS_DIR)/sdl-mixer/,\
+  mixer.c \
+  music.c \
+  effects_internal.c \
+  effect_position.c \
+  load_voc.c \
+  load_aiff.c \
+  load_ogg.c \
+  music_ogg.c \
+  dynamic_ogg.c \
+  music_mad.c \
+)
+
+# sdl-ttf
+SOURCES_C += $(DEPS_DIR)/sdl-ttf/SDL_ttf.c
+
+# libretro-common
+SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
+  compat/compat_strl.c \
+  encodings/encoding_utf.c \
+  string/stdstring.c \
+  time/rtime.c \
+  file/file_path.c \
+  queues/fifo_queue.c \
+)
+
+# onscripter
+SOURCES_CXX := $(CORE_DIR)/libretro.cpp
+SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh/,\
+  ONScripter.cpp \
+  ONScripter_animation.cpp \
+  ONScripter_command.cpp \
+  ONScripter_effect.cpp \
+  ONScripter_effect_breakup.cpp \
+  ONScripter_effect_cascade.cpp \
+  ONScripter_event.cpp \
+  ONScripter_file.cpp \
+  ONScripter_file2.cpp \
+  ONScripter_image.cpp \
+  ONScripter_lut.cpp \
+  ONScripter_rmenu.cpp \
+  ONScripter_sound.cpp \
+  ONScripter_text.cpp \
+  resize_image.cpp \
+  sjis2utf16.cpp \
+  Encoding.cpp \
+  DirectReader.cpp \
+  SarReader.cpp \
+  NsaReader.cpp \
+  ScriptHandler.cpp \
+  ScriptParser.cpp \
+  ScriptParser_command.cpp \
+  FontInfo.cpp \
+  AnimationInfo.cpp \
+  DirtyRect.cpp \
+)
+SOURCES_CXX += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+  SDL_image.cpp \
+)
+CXXFLAGS += -DENABLE_1BYTE_CHAR
+

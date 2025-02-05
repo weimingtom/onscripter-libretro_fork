@@ -59,6 +59,8 @@ static Uint8 to_button(int16_t pressed)
 
 static void PumpMouseEvents(void)
 {
+#if 0
+//no mouse move
   static Sint16 x = 0;
   static Sint16 y = 0;
   static Uint8 btn = 0;
@@ -96,6 +98,52 @@ static void PumpMouseEvents(void)
       pressed = _pressed;
     }
   }
+#else
+//with mouse move
+//see github.com/madcock/libretro-onscripter
+  static Sint16 x = 0;
+  static Sint16 y = 0;
+  static Uint8 btn = 0;
+  static int16_t pressed = 0;
+
+  SDL_Surface *screen = SDL_GetVideoSurface();
+  int16_t _x = SDL_libretro_input_state_cb(0, RETRO_DEVICE_POINTER, 0, RETRO_DEVICE_ID_POINTER_X);
+  int16_t _y = SDL_libretro_input_state_cb(0, RETRO_DEVICE_POINTER, 0, RETRO_DEVICE_ID_POINTER_Y);
+  int16_t _pressed = 0;
+
+  _x = screen->w * (_x + 0x7fff) / 0xffff;
+  _y = screen->h * (_y + 0x7fff) / 0xffff;
+  if (x != _x || y != _y) {
+    x = _x;
+    y = _y;
+    SDL_PrivateMouseMotion(0, 0, x, y);
+  }
+
+  while (SDL_libretro_input_state_cb(0, RETRO_DEVICE_POINTER, _pressed, RETRO_DEVICE_ID_POINTER_PRESSED)) {
+    _pressed += 1;
+  }
+
+  if (SDL_libretro_input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT)) {
+    _pressed = 1;
+  }
+  if (SDL_libretro_input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT)) {
+    _pressed = 2;
+  }
+
+  if (pressed) {
+    if (!_pressed) {
+      btn = to_button(pressed);
+      SDL_PrivateMouseButton(SDL_RELEASED, btn, x, y);
+      pressed = 0;
+    }
+  } else {
+    if (_pressed) {
+      btn = to_button(_pressed);
+      SDL_PrivateMouseButton(SDL_PRESSED, btn, x, y);
+      pressed = _pressed;
+    }
+  }
+#endif
 }
 
 void DUMMY_PumpEvents(_THIS)

@@ -28,11 +28,13 @@
 #include "../SDL_thread_c.h"
 #include "../SDL_systhread.h"
 
+#if !defined(__MINGW32__)
 /* List of signals to mask in the subthreads */
 static int sig_list[] = {
 	SIGHUP, SIGINT, SIGQUIT, SIGPIPE, SIGALRM, SIGTERM, SIGCHLD, SIGWINCH,
 	SIGVTALRM, SIGPROF, 0
 };
+#endif
 
 #ifdef __RISCOS__
 /* RISC OS needs to know the main thread for
@@ -78,6 +80,7 @@ int SDL_SYS_CreateThread(SDL_Thread *thread, void *args)
 
 void SDL_SYS_SetupThread(void)
 {
+#if !defined(__MINGW32__)
 	int i;
 	sigset_t mask;
 
@@ -87,6 +90,7 @@ void SDL_SYS_SetupThread(void)
 		sigaddset(&mask, sig_list[i]);
 	}
 	pthread_sigmask(SIG_BLOCK, &mask, 0);
+#endif
 
 #ifdef PTHREAD_CANCEL_ASYNCHRONOUS
 	/* Allow ourselves to be asynchronously cancelled */
