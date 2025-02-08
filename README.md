@@ -3,6 +3,7 @@
 https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 **Status:**   
+NOTE: Sadly my current build onscripter_libretro.so GBK version (I call it onscripter_jh_libretro) is worse than the official version (like MIYOO FLIP), some games will crash.  
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
 Cmake compiling is not availabe yet, use make instead.  
 
@@ -135,6 +136,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 其实我也注意到RA使用onsyuri后会有乱字情况，不过我没找到方法解决
 ```
 * 纯白交响曲：yuri版，如果按住Y快进不放手，可能到饭堂时候会闪退（可能是因为内存不足？），但如果不快进，按A前进，不闪退  
+* 秋之回忆2: 所有版本，首页菜单-图片鉴赏-选上下进入，缩略图会花屏；似乎无法通过方向键切换到旁边的缩略图    
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
