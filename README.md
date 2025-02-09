@@ -120,15 +120,22 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 
 ## games test  
 * (TODO) running failed: narcissu for psp β.zip
-* 突然之间发现我已恋上你：无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁。  
+* 突然之间发现我已恋上你：（20250209修复）无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁。  
 修改无法进入的bug后，游戏开始开头第二句有乱字情况；  
 游戏是宽屏的导致4比3屏幕的字体太小（居中缩小有黑边），如果RA的输出设置为全屏填满不留黑边（上下拉长），字体会清晰一些；  
 修改无法进入的bug后，加载、保存和历史记录有乱字情况；  
 ```
-see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug  
+see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
+don't know reason   
 ```
-* 我所希冀的未来：进到主界面，然后就开始不了；yuri版正常，终了对话框少了终字    
-* 孤独少女百合物语：进到主界面，然后就开始不了；yuri版正常，主菜单无法选择结束游戏      
+* 我所希冀的未来：（20250209修复）进到主界面，然后就开始不了；yuri版正常，终了对话框少了终字    
+```
+see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
+```
+* 孤独少女百合物语：（20250209修复）进到主界面，然后就开始不了；yuri版正常，主菜单无法选择结束游戏      
+```
+see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
+```
 * 水仙1+2：叠行导致有些字没显示，超出屏幕；yuri版没缺字，但有时也会超出屏幕右边    
 * 纯白交响曲：新吾名字后面有个方块，bgm似乎有破音;yuri版没有方块  
 * 退出问号有回车；yuri版没这个问题  
