@@ -84,6 +84,7 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* libpng的ARM汇编代码（可能协程库也有）如何消除？    
 * F1菜单退出动作有问题？会退出整个ra；还有有人反映问题如下
 ```
 onsyuri_libretro的SDL退出逻辑有点bug，没有正确注销SDL导致该进程退出后，系统无法再次申请SDL
