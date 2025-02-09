@@ -189,5 +189,5 @@ print-%:
 	@echo '$*=$($*)'
 
 install:
-	cp onscripter_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
+	cp onscripter_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
 

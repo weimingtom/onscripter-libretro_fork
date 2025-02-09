@@ -85,8 +85,11 @@ ifeq ($(platform), unix)
 	EXT ?= so
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
    fpic := -fPIC
-#   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+ifeq ($(DEBUG), 1)
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+else
    SHARED := -shared -static-libgcc -static-libstdc++ -s -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+endif
 else ifeq ($(platform), linux-portable)
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
    fpic := -fPIC -nostdlib
@@ -144,8 +147,8 @@ endif
 LDFLAGS += $(LIBM)
 # "-DFALLTHROUGH=;"
 ifeq ($(DEBUG), 1)
-   CFLAGS += -O0 -g -DDEBUG
-   CXXFLAGS += -O0 -g -DDEBUG
+   CFLAGS += -O0 -g3 -DDEBUG
+   CXXFLAGS += -O0 -g3 -DDEBUG
 else
    CFLAGS += -O3
    CXXFLAGS += -O3
@@ -188,6 +191,12 @@ clean:
 print-%:
 	@echo '$*=$($*)'
 
+
 install:
-	cp onscripter_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
+	cp onscripter_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
+
+install2:
+	cp onscripter_libretro.so /home/wmt/.config/retroarch/cores/.
+	cp onscripter_libretro.info /home/wmt/.config/retroarch/cores/.
+
 

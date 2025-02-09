@@ -121,6 +121,9 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 ## games test  
 * (TODO) running failed: narcissu for psp β.zip
 * 突然之间发现我已恋上你：无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁    
+```
+see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug  
+```
 * 我所希冀的未来：进到主界面，然后就开始不了；yuri版正常，终了对话框少了终字    
 * 孤独少女百合物语：进到主界面，然后就开始不了；yuri版正常，主菜单无法选择结束游戏      
 * 水仙1+2：叠行导致有些字没显示，超出屏幕；yuri版没缺字，但有时也会超出屏幕右边    

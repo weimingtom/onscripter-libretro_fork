@@ -109,7 +109,8 @@ LD = g++ -o
 endif
 
 #CFLAGS = -g -Wall -pipe -c $(INCS) $(DEFS)
-CFLAGS = -O3 -Wall -fomit-frame-pointer -pipe -c $(INCS) $(DEFS)
+#CFLAGS = -O3 -Wall -fomit-frame-pointer -pipe -c $(INCS) $(DEFS)
+CFLAGS = -g3 -O0 -Wall -fomit-frame-pointer -pipe -c $(INCS) $(DEFS)
 
 # for GCC on PowerPC specfied
 #CC = powerpc-unknown-linux-gnu-g++

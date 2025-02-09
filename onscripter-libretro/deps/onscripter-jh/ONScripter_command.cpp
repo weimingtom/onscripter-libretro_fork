@@ -2350,17 +2350,20 @@ int ONScripter::gettagCommand()
         errorAndExit( "gettag: not in a subroutine, i.e. pretextgosub" );
 
     char *buf = pretext_buf;
-
-    int n = script_h.enc.getBytes(buf[0]);
-    unsigned short unicode1 = script_h.enc.getUTF16(buf);
-    unsigned short unicode2 = script_h.enc.getUTF16("¡¾", Encoding::CODE_CP932);
+int n = 0;
+unsigned short unicode1 = 0;
+unsigned short unicode2 = 0;
+if (buf) { //FIXME:added
+    n = script_h.enc.getBytes(buf[0]);
+    unicode1 = script_h.enc.getUTF16(buf);
+    unicode2 = script_h.enc.getUTF16("¡¾", Encoding::CODE_CP932);
     if (buf[0] == '[')
         buf++;
     else if (zenkakko_flag && unicode1 == unicode2)
         buf += n;
     else
         buf = NULL;
-    
+} //FIXME:added
     int end_status;
     do{
         script_h.readVariable();
@@ -2397,7 +2400,7 @@ int ONScripter::gettagCommand()
             buf = NULL;
     }
     while(end_status & ScriptHandler::END_COMMA);
-
+if (pretext_buf) { //FIXME: added
     n = script_h.enc.getBytes(pretext_buf[0]);
     unicode1 = script_h.enc.getUTF16(pretext_buf);
     unicode2 = script_h.enc.getUTF16("¡¿", Encoding::CODE_CP932);
@@ -2405,7 +2408,7 @@ int ONScripter::gettagCommand()
         pretext_buf++;
     else if (zenkakko_flag && unicode1 == unicode2)
         pretext_buf += n;
-
+} //FIXME: added
     return RET_CONTINUE;
 }
 
