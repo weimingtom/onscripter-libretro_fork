@@ -120,7 +120,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 
 ## games test  
 * (TODO) running failed: narcissu for psp β.zip
-* 突然之间发现我已恋上你：无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁    
+* 突然之间发现我已恋上你：无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁。修改这个bug后，游戏开始开头某个地方有乱字情况；游戏是宽屏的导致4比3屏幕的字体太小（居中缩小有黑边）           
 ```
 see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug  
 ```
