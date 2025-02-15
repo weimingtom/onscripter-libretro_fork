@@ -4,7 +4,7 @@
 #include <libco.h>
 #define USE_ONS 1
 #if USE_ONS
-#include <onscripter/ONScripter.h>
+#include <ONScripter.h>
 #endif
 
 retro_usec_t SDL_libretro_now = 0;
@@ -103,11 +103,24 @@ void retro_get_system_info(struct retro_system_info *info)
 void retro_get_system_av_info(struct retro_system_av_info *info)
 {
 #if USE_ONS
-  int width = ons.getWidth();
+  int width = ons.getWidth(); //FIXME:if include incorrect <ONScripter.h> file, this will return 0; and cause crash
   int height = ons.getHeight();
+if (width == 0 || height == 0) {
+//It will cause the retroarch window crash, (run this code before ons_main() and ons.init(), so screen_width == 0)  
+//see this:
+//
+//X Error of failed request:  BadValue (integer parameter out of range for operation)
+//  Major opcode of failed request:  1 (X_CreateWindow)
+//  Value in failed request:  0x0
+//  Serial number of failed request:  33339
+//  Current serial number in output stream:  33347
+//
+	width = 100;
+	height = 100;
+}
 #else
-  int width = 480;
-  int height = 640;
+  int width = 640;
+  int height = 480;
 #endif
   info->geometry.base_width = width;
   info->geometry.base_height = height;
@@ -120,10 +133,12 @@ void retro_get_system_av_info(struct retro_system_av_info *info)
 static void ons_main(void)
 {
 #if USE_ONS
+#if 1
   if (ons.init()) {
     log_cb(RETRO_LOG_ERROR, "Failed to initialize ONScripter\n");
     return;
   }
+#endif
   SDL_ShowCursor(SDL_DISABLE);
   ons.executeLabel();
 #endif
@@ -144,10 +159,10 @@ bool retro_load_game(const struct retro_game_info *game)
 
   char archive_path[PATH_MAX_LENGTH];
   fill_pathname_basedir(archive_path, game->path, sizeof(archive_path));
-#if USE_ONS
+#if USE_ONS 
   ons.setArchivePath(archive_path);
 
-  if (ons.openScript() != 0) {
+  if (ons.openScript() != 0) { //run here before retro_get_system_av_info() and ons_main()
     return false;
   }
 #endif

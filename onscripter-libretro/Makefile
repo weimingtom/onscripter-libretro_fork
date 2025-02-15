@@ -154,7 +154,9 @@ else
    CXXFLAGS += -O3
 endif
 
-ifeq ($(JH),1)
+ifeq ($(JH),2)
+include Makefile-jh_ori.common
+else ifeq ($(JH),1)
 include Makefile-jh.common
 else
 include Makefile.common
@@ -198,5 +200,16 @@ install:
 install2:
 	cp onscripter_libretro.so /home/wmt/.config/retroarch/cores/.
 	cp onscripter_libretro.info /home/wmt/.config/retroarch/cores/.
+
+#
+#make JH=2 DEBUG=1 
+#make JH=2 DEBUG=1 install2
+#gdb ./retroarch
+#(gdb) b libretro.cpp:112, 167
+#(gdb) b ScriptHandler.cpp:941
+#b ONScripter::initSDL
+#b ONScripter.cpp:107
+#b ScriptParser::openScript
+
 
 

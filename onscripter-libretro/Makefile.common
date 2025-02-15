@@ -5,6 +5,7 @@ SDL_LIBRETRO_DIR = $(CORE_DIR)/sdl-libretro
 
 INCFLAGS := \
   -I$(LIBRETRO_COMM_DIR)/include \
+  -I$(DEPS_DIR)/onscripter \
   -I$(DEPS_DIR)/bzip2 \
   -I$(DEPS_DIR)/zlib \
   -I$(DEPS_DIR)/freetype/include \

@@ -51,8 +51,8 @@
 #define DEFAULT_LOOKBACK_NAME2 "doncur.bmp"
 #define DEFAULT_LOOKBACK_NAME3 "doffcur.bmp"
 
-#define DEFAULT_START_KINSOKU "ã€ã€ï¼‰ï¼½ï½ã€ã€‚ï¼Œï¼Žã€‚ï¼Ÿï¼ãƒ½ãƒ¾ã‚ã‚žã€…ãƒ¼"
-#define DEFAULT_END_KINSOKU   "ã€Œã€Žï¼ˆï¼»ï½›"
+#define DEFAULT_START_KINSOKU "¡¹¡»£©£Ý£ý¡¢¡££¬£®¡££¿£¡©c©d©f©g¡©©`"
+#define DEFAULT_END_KINSOKU   "¡¸¡º£¨£Û£û"
 
 typedef unsigned char uchar3[3];
 
