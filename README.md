@@ -84,6 +84,10 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* onscripter-jh_ori编译的核心产生闪退
+```
+原因：libretro.cpp包含了错误的ONScripter.h头文件，导致getWidth()返回0，产生crash，如果指向正确的头文件目录即可解决这个问题  
+```
 * libpng的ARM汇编代码（可能协程库也有）如何消除？    
 * F1菜单退出动作有问题？会退出整个ra；还有有人反映问题如下
 ```
