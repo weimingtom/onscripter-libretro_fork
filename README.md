@@ -163,7 +163,8 @@ see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
 * (origin) https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 ## ARM Toolchain (all use one toolchain, include a30 and mini and rg28xx and rpizero2w, not include Trimui Smart Pro aarch64)  
-* (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
+* [MAIN, First used, target 64bit] (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018
+* [MAIN, Second used, target 32bit] (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
 see https://github.com/weimingtom/miyoo_a30_playground  
 see https://github.com/weimingtom/onscripter-jh-miyoo-a30  
 * (not tested) https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz  
@@ -173,7 +174,8 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.
 see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz
 * (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf  
 or use gcc on rpi3 / rpi4    
-* (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
+* (rg351p-toolchain, not tested) aarch64-buildroot-linux-gnu_sdk-buildroot.tar.gz    
+see https://github.com/AdrienLombard/sm64-351elec-port/releases/tag/v1.0.0    
 ```
 xubuntu 20.04 64bit  
 
