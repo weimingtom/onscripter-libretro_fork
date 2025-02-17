@@ -140,7 +140,8 @@ unzip ONSYURI.7z to SDCARD:/Emus/
 产生crash，如果指向正确的头文件目录即可解决这个问题
 
 
-core核心(_libretro.so)闪退的调试方法：
+core核心(_libretro.so)闪退的PC版调试方法  
+（通过PC版xubuntu 20.04 64位的gdb调试）：  
 （1）去下载RetroArch 1.19.1的源代码：
 https://github.com/libretro/RetroArch/releases/tag/v1.19.1
 （2）编译安装（可以不必编译成-g debug版，但.so动态库必须确保-g debug版）：
