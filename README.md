@@ -38,7 +38,41 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 （2）手头上大部分掌机都能跑onsyuri新核心，但trimui smart pro和rg28xx不行
 （trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
 我有时间会把目前修改的代码开源到gh上
-2024/11/21:目前上述问题都已修复，未测试    
+2024/11/21:目前上述问题都已修复，未测试
+
+trimui smart pro声音问题修复方法（注意，可能这些修改可能因为合并最新版onsyuri导致被回滚了，当前版本还没恢复）：    
+deps/SDL/src/audio/SDL_audio.c  
+need to change VIDEODRIVER=NULL
+see SDL_HINT_AUDIODRIVER  
+see https://github.com/weimingtom/onscripter-libretro_fork/commit/84464c45672085387df8269c648fdaa4ad160a5c
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/84464c45672085387df8269c648fdaa4ad160a5c/onsyuri_libretro/deps/SDL/src/video/SDL_video.c
+    /* Select the proper video driver */
+    video = NULL;
+    if (!driver_name) {
+        driver_name = SDL_GetHint(SDL_HINT_VIDEODRIVER);
+    }
+#if BUILD_ALL_LOG
+if (driver_name) {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_VideoInit driver_name is %s, change to NULL\n", driver_name);
+} else {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_VideoInit driver_name is NULL, change to NULL\n");
+}
+driver_name = NULL;
+#endif
+
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/84464c45672085387df8269c648fdaa4ad160a5c/onsyuri_libretro/deps/SDL/src/audio/SDL_audio.c  
+    /* Select the proper audio driver */
+    if (driver_name == NULL) {
+        driver_name = SDL_GetHint(SDL_HINT_AUDIODRIVER);
+    }
+#if BUILD_ALL_LOG
+if (driver_name) {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is %s, change to NULL\n", driver_name);
+} else {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is NULL, change to NULL\n");
+}
+driver_name = NULL;
+#endif
 ```
 
 ## Install *_libretro.so and .info in Android  
