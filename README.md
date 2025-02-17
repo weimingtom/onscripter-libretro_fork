@@ -136,18 +136,26 @@ unzip ONSYURI.7z to SDCARD:/Emus/
 ## Bugs or TODO  
 * onscripter-jh_ori编译的核心产生闪退
 ```
-原因：libretro.cpp包含了错误的ONScripter.h头文件，导致getWidth()返回0，产生crash，如果指向正确的头文件目录即可解决这个问题
+原因：libretro.cpp包含了错误的ONScripter.h头文件，导致getWidth()返回0，
+产生crash，如果指向正确的头文件目录即可解决这个问题
 
 
 core核心(_libretro.so)闪退的调试方法：
 （1）去下载RetroArch 1.19.1的源代码：
 https://github.com/libretro/RetroArch/releases/tag/v1.19.1
-（2）编译安装（可以不必编译成-g debug版，但.so动态库必须确保-g debug版）：./configure --prefix=/home/wmt/ra
-（3）gdb运行（不用理会界面的图片缺失问题，因为不影响调试）：cd /home/wmt/ra/bin; gdb ./retroarch  
-（4）如果崩溃的话会会自动加载.so的调试信息
-（5）编译安装-g debug版的so核心文件并且安装到/home/wmt/.config/retroarch/cores/.下，例如这样（只是举例，只要能编译成-g3 -O0即可）：  
-make JH=1 V=1 DEBUG=1 clean && make JH=1 V=1 DEBUG=1 -j8 && make install2
-参考：https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/Makefile  
+（2）编译安装（可以不必编译成-g debug版，但.so动态库必须确保-g debug版）：
+./configure --prefix=/home/wmt/ra
+make -j8 && make install  
+（3）gdb运行（不用理会界面的图片缺失问题，因为不影响调试）：
+cd /home/wmt/ra/bin; gdb ./retroarch  
+（4）如果崩溃的话会自动加载.so的调试信息
+（5）编译安装-g debug版的so核心文件并且安装到
+/home/wmt/.config/retroarch/cores/.下，
+例如这样（只是举例，只要能编译成-g3 -O0即可）：  
+make MIYOO=0 JH=1 V=1 DEBUG=1 clean &&
+make MIYOO=0 JH=1 V=1 DEBUG=1 -j8 &&
+make install2
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/Makefile  
 ```
 * libpng的ARM汇编代码（可能协程库也有）如何消除？    
 * F1菜单退出动作有问题？会退出整个ra；还有有人反映问题如下
