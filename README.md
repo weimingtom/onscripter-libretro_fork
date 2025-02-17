@@ -40,7 +40,22 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 我有时间会把目前修改的代码开源到gh上
 2024/11/21:目前上述问题都已修复，未测试
 
-trimui smart pro声音问题修复方法（注意，可能这些修改可能因为合并最新版onsyuri导致被回滚了，当前版本还没恢复）：    
+
+
+trimui smart pro声音问题修复方法：  
+（见下面driver_name = NULL;消除全局变量对SDL底层驱动的干扰，避免听不到声音）  
+**（注意，可能这些修改可能因为合并最新版onsyuri导致被回滚了，当前版本还没恢复）**：
+
+上次我编译的onsyuri_libretro，关于trimui smart pro
+和rg28xx无法加载这个核心，我改了一下，似乎又能用了，
+虽然trimui无声音问题仍然未解决。rg28xx我是删了核心重新安装就正常，
+不清楚是不是info文件没读对（也可能是因为我重新编译过so的原因）。
+至于trimui之前无法加载核心so，
+应该是因为我改了SDL2的pthread部分代码导致的，
+改回去就没问题了，至于声音，可能是因为dsp设备有问题，
+但不确定具体位置。这部分修改代码未提交，
+我只提交了测试so文件和一些patch说明
+
 deps/SDL/src/audio/SDL_audio.c  
 need to change VIDEODRIVER=NULL
 see SDL_HINT_AUDIODRIVER  
