@@ -136,8 +136,17 @@ unzip ONSYURI.7z to SDCARD:/Emus/
 ## Bugs or TODO  
 * onscripter-jh_ori编译的核心产生闪退
 ```
-原因：libretro.cpp包含了错误的ONScripter.h头文件，导致getWidth()返回0，
+原因：libretro.cpp包含了错误的ONScripter.h头文件，导致ons.getWidth()返回0，
 产生crash，如果指向正确的头文件目录即可解决这个问题
+
+解决了上一年（没错，这个问题我想了一年）onscripter_libretro编译
+jh原版代码的RA核心文件会crash的问题——其实主要不是代码的问题，
+而是因为我包含错了头文件（包含到SJIS版的ONScripter.h头文件了）——
+只要改成包含jh版的ONScripter.h头文件就不会闪退了，我晕。
+这个bug的另一个原因是不能传递窗口大小为0给RA，
+原来的代码没有做0大小串口的判断，
+我顺便加上了窗口大小为0时的异常处理（给它一个非0缺省的窗口大小）
+
 
 
 core核心(_libretro.so)闪退的PC版调试方法  
