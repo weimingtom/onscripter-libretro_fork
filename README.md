@@ -499,3 +499,13 @@ https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-li
 未测试sdlthread开关下的代码  
 忽略了libsdl/sdl_image.cpp文件  
 ```
+
+## 从ONS模拟器贴吧(ons模拟器吧)看来，ONS还有很多bug未修复  
+```
+如果从ONS的tieba和我自己实际去测试过，onscripter和onscripter-jh的源码bug数量应该是成吨的，
+或者说这是个很棘手的问题（没人愿意改好这些问题），
+对比起来，PPSSPP的bug都没ONS那么多，
+我都怀疑做这些ONS汉化移植工作的人是用nscripter
+测试运行的——不会告诉我是凭空做出来的吧，
+或者说是故意这么搞的
+```
