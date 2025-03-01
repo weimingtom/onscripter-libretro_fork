@@ -5,7 +5,7 @@ SDL_LIBRETRO_DIR = $(CORE_DIR)/sdl-libretro
 
 INCFLAGS := \
   -I$(LIBRETRO_COMM_DIR)/include \
-  -I$(DEPS_DIR)/onscripter-jh_ori \
+  -I$(DEPS_DIR)/onscripter-en \
   -I$(DEPS_DIR)/bzip2 \
   -I$(DEPS_DIR)/zlib \
   -I$(DEPS_DIR)/freetype/include \
@@ -174,20 +174,21 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
 
 # onscripter
 SOURCES_CXX := $(CORE_DIR)/libretro.cpp
-SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
-  ONScripter.cpp \
-  ONScripter_animation.cpp \
-  ONScripter_command.cpp \
-  ONScripter_effect.cpp \
-  ONScripter_effect_breakup.cpp \
-  ONScripter_event.cpp \
-  ONScripter_file.cpp \
-  ONScripter_file2.cpp \
-  ONScripter_image.cpp \
-  ONScripter_lut.cpp \
-  ONScripter_rmenu.cpp \
-  ONScripter_sound.cpp \
-  ONScripter_text.cpp \
+SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-en/,\
+  ONScripterLabel.cpp \
+  ONScripterLabel_animation.cpp \
+  ONScripterLabel_command.cpp \
+  ONScripterLabel_effect.cpp \
+  ONScripterLabel_effect_breakup.cpp \
+  ONScripterLabel_effect_cascade.cpp \
+  ONScripterLabel_effect_trig.cpp \
+  ONScripterLabel_event.cpp \
+  ONScripterLabel_file.cpp \
+  ONScripterLabel_file2.cpp \
+  ONScripterLabel_image.cpp \
+  ONScripterLabel_rmenu.cpp \
+  ONScripterLabel_sound.cpp \
+  ONScripterLabel_text.cpp \
   resize_image.cpp \
   sjis2utf16.cpp \
   DirectReader.cpp \
@@ -199,4 +200,19 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
   FontInfo.cpp \
   AnimationInfo.cpp \
   DirtyRect.cpp \
+  \
+  DirPaths.cpp \
+  graphics_routines.cpp \
+  Layer.cpp \
 )
+
+
+#  AVIWrapper.cpp \
+#  embed.cpp \
+#  graphics_altivec.cpp \
+#  graphics_mmx.cpp \
+#  graphics_sse2.cpp \
+#  LUAHandler.cpp \
+#  MadWrapper.cpp \
+#  nscriptdecode.cpp \
+#  onscripter.cpp \

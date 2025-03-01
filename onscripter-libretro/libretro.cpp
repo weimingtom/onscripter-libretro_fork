@@ -3,7 +3,8 @@
 #endif
 #define USE_ONS 1
 #define USE_NOW 0
-#define USE_SDLTHREAD 0 //for v3
+#define USE_SDLTHREAD 0 //for onscripter-libretro v3
+#define USE_LABEL 0//for onscripter-en
 
 
 
@@ -18,8 +19,13 @@
 #include <libco.h>
 #endif
 #if USE_ONS
+#if USE_LABEL
+#include <ONScripterLabel.h>
+typedef ONScripterLabel ONScripter;
+#else
 //don't use #include <onscripter/ONScripter.h>, use #include <ONScripter.h> instead (stop including wrong header file)  
 #include <ONScripter.h>
+#endif
 #endif
 
 #if USE_SDLTHREAD
@@ -240,9 +246,15 @@ bool retro_load_game(const struct retro_game_info *game)
 #if USE_ONS 
   ons.setArchivePath(archive_path);
 
+#if USE_LABEL
+  if (ons.open() != 0) { //run here before retro_get_system_av_info() and ons_main()
+    return false;
+  }
+#else
   if (ons.openScript() != 0) { //run here before retro_get_system_av_info() and ons_main()
     return false;
   }
+#endif
 #endif
 
 

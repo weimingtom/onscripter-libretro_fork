@@ -9,6 +9,7 @@ TINYCO:=0
 #TODO:CMakeLists_v2.txt, CMakeLists_v3.txt
 #TODO:libretro/SDL_image.cpp, see Makefile.common
 #TODO:USE_SDLTHREAD not tested
+#TODO:build with USE_LABEL=1
 
 ifeq ($(MIYOO),2)
 CC  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-gcc
@@ -178,7 +179,9 @@ ifeq ($(TINYCO), 1)
   CXXFLAGS += -DUSE_TINYCO=1
 endif
 
-ifeq ($(JH),2)
+ifeq ($(JH),3)
+include Makefile-en.common
+else ifeq ($(JH),2)
 include Makefile-jh_ori.common
 else ifeq ($(JH),1)
 include Makefile-jh.common
