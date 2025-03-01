@@ -7,7 +7,8 @@ NOTE: Sadly my current build onscripter_libretro.so GBK version (I call it onscr
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
 Cmake compiling is not availabe yet, use make instead.  
 
-Test binary files (not stable):   
+Test binary files (not stable, buggy, different from the versions of other peoples or official ones):   
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250209  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123  
 (old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
 
@@ -37,7 +38,56 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 （2）手头上大部分掌机都能跑onsyuri新核心，但trimui smart pro和rg28xx不行
 （trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
 我有时间会把目前修改的代码开源到gh上
-2024/11/21:目前上述问题都已修复，未测试    
+2024/11/21:目前上述问题都已修复，未测试
+
+
+
+trimui smart pro声音问题修复方法：  
+（见下面driver_name = NULL;消除全局变量对SDL底层驱动的干扰，避免听不到声音）  
+**（TODO: 注意，这些修改可能因为合并最新版onsyuri导致被回滚了，当前版本还没恢复）**：  
+
+上次我编译的onsyuri_libretro，关于trimui smart pro
+和rg28xx无法加载这个核心，我改了一下，似乎又能用了，
+虽然trimui无声音问题仍然未解决。rg28xx我是删了核心重新安装就正常，
+不清楚是不是info文件没读对（也可能是因为我重新编译过so的原因）。
+至于trimui之前无法加载核心so，
+应该是因为我改了SDL2的pthread部分代码导致的，
+改回去就没问题了，至于声音，可能是因为dsp设备有问题，
+但不确定具体位置。这部分修改代码未提交，
+我只提交了测试so文件和一些patch说明
+
+deps/SDL/src/audio/SDL_audio.c  
+need to change VIDEODRIVER=NULL
+see SDL_HINT_AUDIODRIVER  
+see https://github.com/weimingtom/onscripter-libretro_fork/commit/84464c45672085387df8269c648fdaa4ad160a5c
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/84464c45672085387df8269c648fdaa4ad160a5c/onsyuri_libretro/deps/SDL/src/video/SDL_video.c
+    /* Select the proper video driver */
+    video = NULL;
+    if (!driver_name) {
+        driver_name = SDL_GetHint(SDL_HINT_VIDEODRIVER);
+    }
+#if BUILD_ALL_LOG
+if (driver_name) {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_VideoInit driver_name is %s, change to NULL\n", driver_name);
+} else {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_VideoInit driver_name is NULL, change to NULL\n");
+}
+driver_name = NULL;
+#endif
+
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/84464c45672085387df8269c648fdaa4ad160a5c/onsyuri_libretro/deps/SDL/src/audio/SDL_audio.c  
+    /* Select the proper audio driver */
+    if (driver_name == NULL) {
+        driver_name = SDL_GetHint(SDL_HINT_AUDIODRIVER);
+    }
+#if BUILD_ALL_LOG
+if (driver_name) {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is %s, change to NULL\n", driver_name);
+} else {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is NULL, change to NULL\n");
+}
+driver_name = NULL;
+#endif
 ```
 
 ## Install *_libretro.so and .info in Android  
@@ -84,6 +134,40 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* onscripter-jh_ori编译的核心产生闪退  
+**TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**      
+```
+原因：libretro.cpp包含了错误的ONScripter.h头文件，导致ons.getWidth()返回0，
+产生crash，如果指向正确的头文件目录即可解决这个问题
+
+解决了上一年（没错，这个问题我想了一年）onscripter_libretro编译
+jh原版代码的RA核心文件会crash的问题——其实主要不是代码的问题，
+而是因为我包含错了头文件（包含到SJIS版的ONScripter.h头文件了）——
+只要改成包含jh版的ONScripter.h头文件就不会闪退了，我晕。
+这个bug的另一个原因是不能传递窗口大小为0给RA，
+原来的代码没有做0大小串口的判断，
+我顺便加上了窗口大小为0时的异常处理（给它一个非0缺省的窗口大小）
+
+
+
+core核心(_libretro.so)闪退的PC版调试方法  
+（通过PC版xubuntu 20.04 64位的gdb调试）：  
+（1）去下载RetroArch 1.19.1的源代码：
+https://github.com/libretro/RetroArch/releases/tag/v1.19.1
+（2）编译安装（可以不必编译成-g debug版，但.so动态库必须确保-g debug版）：
+./configure --prefix=/home/wmt/ra
+make -j8 && make install  
+（3）gdb运行（不用理会界面的图片缺失问题，因为不影响调试）：
+cd /home/wmt/ra/bin; gdb ./retroarch  
+（4）如果崩溃的话会自动加载.so的调试信息
+（5）编译安装-g debug版的so核心文件并且安装到
+/home/wmt/.config/retroarch/cores/.下，
+例如这样（只是举例，只要能编译成-g3 -O0即可）：  
+make MIYOO=0 JH=1 V=1 DEBUG=1 clean &&
+make MIYOO=0 JH=1 V=1 DEBUG=1 -j8 &&
+make install2
+see https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/Makefile  
+```
 * libpng的ARM汇编代码（可能协程库也有）如何消除？    
 * F1菜单退出动作有问题？会退出整个ra；还有有人反映问题如下
 ```
@@ -159,7 +243,8 @@ see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
 * (origin) https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 ## ARM Toolchain (all use one toolchain, include a30 and mini and rg28xx and rpizero2w, not include Trimui Smart Pro aarch64)  
-* (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
+* [MAIN, First used, target 64bit] (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018
+* [MAIN, Second used, target 32bit] (for miyoo a30) https://github.com/XK9274/a30-sdk-miyoo/releases/tag/16042024  
 see https://github.com/weimingtom/miyoo_a30_playground  
 see https://github.com/weimingtom/onscripter-jh-miyoo-a30  
 * (not tested) https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz  
@@ -169,7 +254,8 @@ see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/tag/v0.
 see https://github.com/shauninman/miyoomini-toolchain-buildroot/releases/download/v0.0.3/miyoomini-toolchain.tar.xz
 * (for rpi0, not tested) https://github.com/raspberrypi/tools/blob/master/arm-bcm2708/arm-linux-gnueabihf  
 or use gcc on rpi3 / rpi4    
-* (for Trimui Smart Pro and Trimui Brick, aarch64) https://github.com/trimui/toolchain_sdk_smartpro/releases/tag/20231018  
+* (rg351p-toolchain, not tested) aarch64-buildroot-linux-gnu_sdk-buildroot.tar.gz    
+see https://github.com/AdrienLombard/sm64-351elec-port/releases/tag/v1.0.0    
 ```
 xubuntu 20.04 64bit  
 
