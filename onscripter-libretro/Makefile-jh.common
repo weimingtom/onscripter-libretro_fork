@@ -19,6 +19,7 @@ INCFLAGS := \
   -I$(DEPS_DIR)/sdl-image \
   -I$(DEPS_DIR)/sdl-mixer \
   -I$(DEPS_DIR)/sdl-ttf \
+  -I$(DEPS_DIR)/tinycoroutine \
   -I$(CORE_DIR) \
   -I$(DEPS_DIR)
 
@@ -85,6 +86,7 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
 SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
   arm/filter_neon.S \
 )
+#FIXME:libpng depends ARM ASM
 
 # libogg
 SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
@@ -168,7 +170,11 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
   time/rtime.c \
   file/file_path.c \
   libco/libco.c \
+  queues/fifo_queue.c \
 )
+
+# tinycoroutine
+SOURCES_C += $(DEPS_DIR)/tinycoroutine/tinycoroutine.c
 
 # onscripter
 SOURCES_CXX := $(CORE_DIR)/libretro.cpp
@@ -200,3 +206,8 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh/,\
   AnimationInfo.cpp \
   DirtyRect.cpp \
 )
+#SOURCES_CXX += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+#  SDL_image.cpp \
+#)
+CXXFLAGS += -DENABLE_1BYTE_CHAR
+

@@ -1,13 +1,43 @@
+#ifndef USE_TINYCO
+#define USE_TINYCO 0
+#endif
+#define USE_ONS 1
+#define USE_NOW 0
+#define USE_SDLTHREAD 0 //for v3
+
+
+
+
 #include <SDL_libretro.h>
 #include <retro_miscellaneous.h>
 #include <file/file_path.h>
+
+#if USE_TINYCO
+#include <tinycoroutine.h>
+#else
 #include <libco.h>
-#define USE_ONS 1
+#endif
 #if USE_ONS
+//don't use #include <onscripter/ONScripter.h>, use #include <ONScripter.h> instead (stop including wrong header file)  
 #include <ONScripter.h>
 #endif
 
+#if USE_SDLTHREAD
+static void                        fallback_log(enum retro_log_level level, const char *fmt, ...);
+static retro_log_printf_t          log_cb = fallback_log;
+static retro_video_refresh_t       video_cb;
+static retro_input_state_t         input_state_cb;
+static retro_input_poll_t          input_poll_cb;
+static retro_audio_sample_batch_t  audio_batch_cb;
+static retro_environment_t         environ_cb;
+static ONScripter                  ons;
+static SDL_Thread                 *ons_thread;
+static uint32_t                    delta;
+#endif
+
+#if USE_NOW
 retro_usec_t SDL_libretro_now = 0;
+#endif
 retro_audio_sample_batch_t SDL_libretro_audio_batch_cb;
 retro_input_state_t SDL_libretro_input_state_cb;
 
@@ -20,12 +50,27 @@ static retro_environment_t environ_cb;
 #if USE_ONS
 static ONScripter ons;
 #endif
-static cothread_t retro_ct, ons_ct;
+#if USE_TINYCO
+static struct tinyco_t tinyco;
+static uint8_t ons_stack[64*1024];
 
+
+void SDL_libretro_co_spawn(void (*fn)(void *), void *data, void *stack, size_t stack_size)
+{
+  tinyco_spawn(&tinyco, fn, data, stack, stack_size);
+}
+
+#else
+static cothread_t retro_ct, ons_ct;
+#endif
 
 void SDL_libretro_co_yield(void)
 {
+#if USE_TINYCO
+  tinyco_yield(&tinyco);
+#else
   co_switch(retro_ct);
+#endif
 }
 
 void SDL_libretro_video_refresh()
@@ -48,10 +93,12 @@ unsigned retro_api_version(void)
   return RETRO_API_VERSION;
 }
 
+#if USE_NOW
 static void on_frame_time(retro_usec_t usec)
 {
-  SDL_libretro_now += usec;
+  SDL_libretro_now += usec; //FIXME:not need???
 }
+#endif
 
 void retro_set_environment(retro_environment_t cb)
 {
@@ -60,11 +107,13 @@ void retro_set_environment(retro_environment_t cb)
   if (environ_cb(RETRO_ENVIRONMENT_GET_LOG_INTERFACE, &log))
     log_cb = log.log;
 
+#if USE_NOW
   static struct retro_frame_time_callback frame_time = {
     .callback = on_frame_time,
     .reference = 1000000 / 60,
   };
   environ_cb(RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK, &frame_time);
+#endif
 }
 
 void retro_set_video_refresh(retro_video_refresh_t cb)
@@ -78,6 +127,7 @@ void retro_set_audio_sample(retro_audio_sample_t cb)
 
 void retro_set_audio_sample_batch(retro_audio_sample_batch_t cb)
 {
+  //audio_batch_cb = cb;
   SDL_libretro_audio_batch_cb = cb;
 }
 
@@ -88,14 +138,15 @@ void retro_set_input_poll(retro_input_poll_t cb)
 
 void retro_set_input_state(retro_input_state_t cb)
 {
+  //input_state_cb = cb;
   SDL_libretro_input_state_cb = cb;
 }
 
 void retro_get_system_info(struct retro_system_info *info)
 {
   info->need_fullpath = true;
-  info->valid_extensions = "txt|dat|___";
-  info->library_version = "0.1";
+  info->valid_extensions = "txt|dat|___|ons";
+  info->library_version = "0.3";
   info->library_name = "onscripter";
   info->block_extract = false;
 }
@@ -126,11 +177,24 @@ if (width == 0 || height == 0) {
   info->geometry.base_height = height;
   info->geometry.max_width = width;
   info->geometry.max_height = height;
+#if USE_SDLTHREAD  
+  info->geometry.aspect_ratio = 0.0;
+#endif  
   info->timing.fps = 60.0;
   info->timing.sample_rate = 44100.0;
 }
 
-static void ons_main(void)
+#if USE_SDLTHREAD
+static void frame_cb(retro_usec_t usec)
+{
+  delta = usec / 1000;
+}
+#endif
+
+//static void ons_main(void *unused)
+//static int ons_main(void *data)
+//if (...) return -1; return 0;
+static void ons_main(void) 
 {
 #if USE_ONS
 #if 1
@@ -146,10 +210,24 @@ static void ons_main(void)
 
 void retro_init(void)
 {
+#if USE_SDLTHREAD
+  enum retro_pixel_format pixfmt = RETRO_PIXEL_FORMAT_XRGB8888;
+  struct retro_frame_time_callback frametime = {
+    .callback = frame_cb,
+    .reference = 1000000 / 60,
+  };
+  environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &pixfmt);
+  environ_cb(RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK, &frametime);
+#else
   enum retro_pixel_format pixfmt = RETRO_PIXEL_FORMAT_XRGB8888;
   environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &pixfmt);
+#if USE_TINYCO
+  tinyco_init(&tinyco, NULL, NULL);
+#else  
   retro_ct = co_active();
   ons_ct = co_create(65536*8, ons_main);
+#endif
+#endif
 }
 
 bool retro_load_game(const struct retro_game_info *game)
@@ -166,6 +244,25 @@ bool retro_load_game(const struct retro_game_info *game)
     return false;
   }
 #endif
+
+
+
+
+#if USE_SDLTHREAD
+  ons_thread = SDL_CreateThread(ons_main, NULL);
+
+  struct retro_keyboard_callback keyboard = {
+    .callback = SDL_libretro_KeyboardCallback,
+  };
+  environ_cb(RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK, &keyboard);
+#else
+#if USE_TINYCO
+    SDL_libretro_co_spawn(ons_main, NULL, ons_stack, sizeof(ons_stack));
+#else	
+	//FIXME:
+#endif
+#endif
+
   return true;
 }
 
@@ -184,11 +281,117 @@ void retro_reset(void)
 #endif
 }
 
+#if USE_SDLTHREAD
+static void pump_joypad_events(void)
+{
+  static SDL_keysym sym;
+  static int16_t buttons[16] = {0};
+  static const SDLKey bkeys[16] = {
+    [RETRO_DEVICE_ID_JOYPAD_B]      = SDLK_SPACE,
+    [RETRO_DEVICE_ID_JOYPAD_Y]      = SDLK_RCTRL,
+    [RETRO_DEVICE_ID_JOYPAD_SELECT] = SDLK_0,
+    [RETRO_DEVICE_ID_JOYPAD_START]  = SDLK_a,
+    [RETRO_DEVICE_ID_JOYPAD_UP]     = SDLK_UP,
+    [RETRO_DEVICE_ID_JOYPAD_DOWN]   = SDLK_DOWN,
+    [RETRO_DEVICE_ID_JOYPAD_LEFT]   = SDLK_LEFT,
+    [RETRO_DEVICE_ID_JOYPAD_RIGHT]  = SDLK_RIGHT,
+    [RETRO_DEVICE_ID_JOYPAD_A]      = SDLK_RETURN,
+    [RETRO_DEVICE_ID_JOYPAD_X]      = SDLK_ESCAPE,
+    [RETRO_DEVICE_ID_JOYPAD_L]      = SDLK_o,
+    [RETRO_DEVICE_ID_JOYPAD_R]      = SDLK_s,
+    [RETRO_DEVICE_ID_JOYPAD_L2]     = SDLK_PAGEUP,
+    [RETRO_DEVICE_ID_JOYPAD_R2]     = SDLK_PAGEDOWN,
+    [RETRO_DEVICE_ID_JOYPAD_L3]     = SDLK_TAB,
+    [RETRO_DEVICE_ID_JOYPAD_R3]     = SDLK_q,
+  };
+  for (int i = 0; i < 16; ++i) {
+    int16_t state = input_state_cb(0, RETRO_DEVICE_JOYPAD, 0, i);
+    SDLKey k = bkeys[i];
+    if (k && buttons[i] != state) {
+      buttons[i] = state;
+      sym.scancode = k;
+      sym.sym = k;
+      SDL_PrivateKeyboard(state ? SDL_PRESSED : SDL_RELEASED, &sym);
+    }
+  }
+}
+
+static Uint8 pressed_to_button(int16_t pressed)
+{
+  if (pressed == 1)
+    return SDL_BUTTON_LEFT;
+  if (pressed == 2)
+    return SDL_BUTTON_RIGHT;
+  return 0;
+}
+
+static void pump_mouse_events(void)
+{
+  static Sint16 x = 0;
+  static Sint16 y = 0;
+  static Uint8 btn = 0;
+  static int16_t pressed = 0;
+
+  SDL_Surface *screen = SDL_GetVideoSurface();
+  int16_t _x = input_state_cb(0, RETRO_DEVICE_POINTER, 0, RETRO_DEVICE_ID_POINTER_X);
+  int16_t _y = input_state_cb(0, RETRO_DEVICE_POINTER, 0, RETRO_DEVICE_ID_POINTER_Y);
+  int16_t _pressed = 0;
+
+  _x = screen->w * (_x + 0x7fff) / 0xffff;
+  _y = screen->h * (_y + 0x7fff) / 0xffff;
+  if (x != _x || y != _y) {
+    x = _x;
+    y = _y;
+    SDL_PrivateMouseMotion(0, 0, x, y);
+  }
+
+  while (input_state_cb(0, RETRO_DEVICE_POINTER, _pressed, RETRO_DEVICE_ID_POINTER_PRESSED)) {
+    _pressed += 1;
+  }
+
+  if (input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_LEFT)) {
+    _pressed = 1;
+  }
+  if (input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_RIGHT)) {
+    _pressed = 2;
+  }
+
+  if (pressed) {
+    if (!_pressed) {
+      btn = pressed_to_button(pressed);
+      SDL_PrivateMouseButton(SDL_RELEASED, btn, x, y);
+      pressed = 0;
+    }
+  } else {
+    if (_pressed) {
+      btn = pressed_to_button(_pressed);
+      SDL_PrivateMouseButton(SDL_PRESSED, btn, x, y);
+      pressed = _pressed;
+    }
+  }
+}
+#endif
+
 void retro_run(void)
 {
+#if USE_SDLTHREAD
+  if (SDL_GetVideoSurface() == NULL)
+    return;
+
+  input_poll_cb();
+  pump_joypad_events();
+  pump_mouse_events();
+  SDL_libretro_RefreshVideo(video_cb);
+  SDL_libretro_ProduceAudio(audio_batch_cb);
+#else
+#if USE_TINYCO
+  SDL_libretro_co_yield();
+#else
   co_switch(ons_ct);
+#endif  
   input_poll_cb();
   SDL_libretro_video_refresh();
+#endif
 }
 
 size_t retro_serialize_size(void)
@@ -216,7 +419,14 @@ bool retro_load_game_special(unsigned game_type, const struct retro_game_info *i
 
 void retro_unload_game(void)
 {
+#if USE_SDLTHREAD
+  SDL_Event event;
+  event.type = SDL_QUIT;
+  SDL_PushEvent(&event);
+  SDL_WaitThread(ons_thread, NULL);
+#else
   SDL_Quit();
+#endif
 }
 
 unsigned retro_get_region(void)

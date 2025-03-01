@@ -7,17 +7,21 @@
  (gnu packages xiph)
  (gnu packages mp3)
  (guix download)
+ (guix git-download)
  (guix gexp)
  (guix packages))
 
 
 (define onscripter-source
-  (origin
-    (method url-fetch)
-    (uri "http://onscripter.osdn.jp/onscripter-20220816.tar.gz")
-    (sha256
-     (base32
-      "1mfm8a3ndadlb7397lmigvz303h6nhmhx8z620dfjxqpll0a9gp2"))))
+  (let ((version "20230825"))
+    (origin
+      (method git-fetch)
+      (uri (git-reference
+            (url "https://github.com/ogapee/onscripter")
+            (commit version)))
+      (file-name (git-file-name "onscripter" version))
+      (sha256
+       (base32 "074qh2bx7aqzqy3rfkvhhw2m3k48y9kf06f8k53ngyqmx6s579jx")))))
 
 
 (computed-file

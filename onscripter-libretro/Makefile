@@ -1,7 +1,14 @@
 # xubuntu 20.04 64bit
 MIYOO:=0
 JH:=0
+TINYCO:=0
 
+#FIXME:libpng depends ARM ASM
+#FIXME:deps not update to v0.3
+#FIXME:USE_WAIT_AUDIO_DELAY
+#TODO:CMakeLists_v2.txt, CMakeLists_v3.txt
+#TODO:libretro/SDL_image.cpp, see Makefile.common
+#TODO:USE_SDLTHREAD not tested
 
 ifeq ($(MIYOO),2)
 CC  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-gcc
@@ -131,6 +138,18 @@ else ifeq ($(platform), vita)
    AR = arm-vita-eabi-ar
    CXXFLAGS += -Wl,-q -Wall -O3
 	STATIC_LINKING = 1
+else ifeq ($(platform), miyoomini)
+   TARGET := $(TARGET_NAME)_libretro.so
+   fpic := -fPIC
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+   CC = arm-linux-gnueabihf-gcc
+   CXX = arm-linux-gnueabihf-g++
+   AR = arm-linux-gnueabihf-ar
+   CFLAGS += -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -march=armv7ve
+   CXXFLAGS += $(CFLAGS)
+   SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/arm/,\
+      palette_neon_intrinsics.c arm_init.c filter_neon_intrinsics.c \
+   )
 else
    #CC = gcc
 CC  = gcc -m64
@@ -152,6 +171,11 @@ ifeq ($(DEBUG), 1)
 else
    CFLAGS += -O3
    CXXFLAGS += -O3
+endif
+
+ifeq ($(TINYCO), 1)
+  CFLAGS += -DUSE_TINYCO=1
+  CXXFLAGS += -DUSE_TINYCO=1
 endif
 
 ifeq ($(JH),2)
@@ -196,6 +220,8 @@ print-%:
 
 install:
 	cp onscripter_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
+
+#cp onscripter_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
 
 install2:
 	cp onscripter_libretro.so /home/wmt/.config/retroarch/cores/.
