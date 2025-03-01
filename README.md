@@ -3,7 +3,7 @@
 https://github.com/YuriSizuku/OnscripterYuri/tree/master/src/onsyuri_libretro  
 
 **Status:**   
-NOTE: As you can see, there are tons of bugs in ONScripter and ONScripter-jh. Although I like them and they are awesome, but I have to say, I think it is more than PPSSPP's bugs.      
+NOTE: As you can see, there are tons of bugs in ONScripter and ONScripter-jh. Although I like them and they are awesome, I have to say, I think it is more than PPSSPP's bugs.      
 NOTE: Sadly my current build onscripter_libretro.so GBK version (I call it onscripter_jh_libretro) is worse than the official version (like MIYOO FLIP), some games will crash.  
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
 Cmake compiling is not availabe yet, use make instead.  
@@ -490,3 +490,12 @@ see https://github.com/weimingtom/onscripter_mergejh_sdl1_fork/blob/master/win32
 * change all sources to sjis or gbk, see    
 https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/deps/onscripter-jh_gbk.txt  
 https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-libretro/deps/onscripter_sjis.txt  
+
+## (TODO) 关于合并onscripter-libretro的三个历史版本还没做的事情    
+* 一些还未完成的任务，如果有必要请回滚到v20250218继续研究
+```
+加入en代码
+合并deps未完成
+未测试sdlthread开关下的代码  
+忽略了libsdl/sdl_image.cpp文件  
+```
