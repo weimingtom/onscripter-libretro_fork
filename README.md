@@ -205,7 +205,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 ```
 
 ## games test  
-* 初音之歌-铃音之声：开头快进到下着照后面，确认存储卡，【未来】【明显是拍太多了吧!?】上一句【哦，现在，318...】乱字；yuri版也会乱字  
+* 初音之歌-铃音之声：选第2项【初音之声】，开头快进到下着照后面，确认存储卡，【未来】【明显是拍太多了吧!?】上一句【哦，现在，318...】乱字；yuri版也会乱字  
 * Steam游戏官方中文版, noesis01, NOESIS01-诉说谎言的记忆之物语: ons和onsyuri版都闪退  
 * Steam游戏官方中文版, noesis02, NOESIS02-羽化, NOeSIS-羽化: ons和onsyuri版都闪退
 * (TODO) running failed: narcissu for psp β.zip
