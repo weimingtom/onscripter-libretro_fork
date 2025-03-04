@@ -204,12 +204,35 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 [PSP][PC移植版][月姬][中文版].rar      
 ```
 
-## 测试整合包，还有一些游戏不是整合的，还有一些是从别的网站拖下来
-* ONS游戏整合包, ONS.rar, ONS游戏整合包/galgame/开源掌机/新版RG35XX （有18慎）  
-https://www.bilibili.com/video/BV1NPznYuEBi
-* ONS.zip.001, miyoo mini的 ons模拟器运行游戏测试, MIYOOMINI ONS游戏懒人包, RG35XXH-ONS模拟器，字体拥挤解决办法
-https://tieba.baidu.com/p/7862507512  
-https://www.bilibili.com/video/BV1pF4m1K7Ti  
+## （注：请买正版游戏, please buy steam games）可能有用的测试整合包，还有一些游戏不是整合的，还有一些是从别的网站拖下来
+* ONS.zip.001, miyoo mini的 ons模拟器运行游戏测试, MIYOOMINI ONS游戏懒人包, RG35XXH-ONS模拟器，字体拥挤解决办法  
+RG35XXP + H/游戏包补充/ONS  
+ONS游戏整合包.rar    
+* ONS游戏整合包, ONS.rar, ONS游戏整合包/galgame/开源掌机/新版RG35XX （有18慎）    
+* 115上一些早期下载的Android ONS整合包，合集，和ONS英文游戏  
+Open Source Nscripter (ONScripter) for Nintendo Switch + 31 Novel [NSP]  
+云下载/ONS, ONS_Chinese   
+云下载/ONS_GalGame for Android    
+云下载/ONS Gal for Android   
+ons_111  
+gift_for_ONS  
+ONS-gal  
+ONScripter for PSP  
+NS工具下载   
+Ｇ線上の魔王_For_ONS  
+（通常不是ONS）国产Gal, 黙示    
+* baidupan上一些早期下载的ONS整合包，还有一些PSP移植游戏（解压后就能看到其实是ONS来着）,还有一些买的合集     
+narcissu for psp β.zip
+20160605/视觉小说/NOeSIS外伝〜色亡き世界〜, Ironaki_1_1.zip  
+20160605/视觉小说/Tsukihime -English-.7z  
+20160605/视觉小说/孤独少女的百合物语
+ONS游戏.doc
+游戏本体  
+scenario(只是一些早期取出文件)
+全中文300部，PSP移植游戏，[PSP][PC移植版], [中文版]    
+* See yinxiangbiji, galgame购买, _ons_all_1, _ons_all_2, _ons_1, _ons2, 我的资源  
+某个可能已经挂掉的tieba（参考wmt_vn_study的issue）  
+* Steam, 有些是ponscripter的(utf-8), NOeSIS三作还有水仙1+2, 等等等等    
 
 ## games test  
 * 魔女的花园：按Y快进后有时候会出现各种立绘错乱位置叠加（可能没消失，或者可能变得很巨大，难道是显示头像显示到主屏幕上？yuri版也有这个问题）；读取进度菜单最后-号错误折行（yuri版没折行）；yuri版快进到开头某段偶尔可能会闪退；开头有一段对话对话框左上角不显示说话人（例如“魔女”），但yuri版没这个bug
