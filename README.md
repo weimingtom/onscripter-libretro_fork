@@ -222,13 +222,13 @@ NS工具下载
 Ｇ線上の魔王_For_ONS  
 （通常不是ONS）国产Gal, 黙示    
 * baidupan上一些早期下载的ONS整合包，还有一些PSP移植游戏（解压后就能看到其实是ONS来着）,还有一些买的合集     
-narcissu for psp β.zip
+narcissu for psp β.zip  
 20160605/视觉小说/NOeSIS外伝〜色亡き世界〜, Ironaki_1_1.zip  
 20160605/视觉小说/Tsukihime -English-.7z  
-20160605/视觉小说/孤独少女的百合物语
-ONS游戏.doc
-游戏本体  
-scenario(只是一些早期取出文件)
+20160605/视觉小说/孤独少女的百合物语  
+ONS游戏.doc  
+游戏本体   
+scenario(只是一些早期取出文件)  
 全中文300部，PSP移植游戏，[PSP][PC移植版], [中文版]    
 * See yinxiangbiji, galgame购买, _ons_all_1, _ons_all_2, _ons_1, _ons2, 我的资源  
 某个可能已经挂掉的tieba（参考wmt_vn_study的issue）  
