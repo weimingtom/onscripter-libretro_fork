@@ -204,6 +204,13 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 [PSP][PC移植版][月姬][中文版].rar      
 ```
 
+## 测试整合包，还有一些游戏不是整合的，还有一些是从别的网站拖下来
+* ONS游戏整合包, ONS.rar, ONS游戏整合包/galgame/开源掌机/新版RG35XX （有18慎）  
+https://www.bilibili.com/video/BV1NPznYuEBi
+* ONS.zip.001, miyoo mini的 ons模拟器运行游戏测试, MIYOOMINI ONS游戏懒人包, RG35XXH-ONS模拟器，字体拥挤解决办法
+https://tieba.baidu.com/p/7862507512  
+https://www.bilibili.com/video/BV1pF4m1K7Ti  
+
 ## games test  
 * 魔女的花园：按Y快进后有时候会出现各种立绘错乱位置叠加（可能没消失，或者可能变得很巨大，难道是显示头像显示到主屏幕上？yuri版也有这个问题）；读取进度菜单最后-号错误折行（yuri版没折行）；yuri版快进到开头某段偶尔可能会闪退；开头有一段对话对话框左上角不显示说话人（例如“魔女”），但yuri版没这个bug
 * 遥仰凰华：主菜单上下切换菜单时显示文字错位（yuri版也一样）；读取进度菜单最后-号错误折行（yuri版没折行）；下方文本框左侧边缘有一条垂直向下的一段绿色线（有时候整个左侧不含黑边部分的左边缘都是绿色，yuri版也一样）；不确定是否有乱字情况
