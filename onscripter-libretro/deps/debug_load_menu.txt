@@ -1,0 +1,123 @@
+b ONScripter::executeSystemLoad
+
+(gdb) bt
+#0  ONScripter::executeSystemLoad() (this=0x7ffff7f48c7a <SDL_LowerBlit+106>)
+    at ONScripter_rmenu.cpp:286
+#1  0x00005555555963e5 in ONScripter::executeSystemCall()
+    (this=0x5555555cc820 <ons>) at ONScripter_rmenu.cpp:146
+#2  0x0000555555577387 in ONScripter::systemcallCommand()
+    (this=0x5555555cc820 <ons>) at ONScripter_command.cpp:356
+#3  0x00005555555729a2 in ONScripter::parseLine() (this=0x5555555cc820 <ons>)
+    at ONScripter.cpp:938
+#4  0x0000555555572423 in ONScripter::executeLabel()
+    (this=0x5555555cc820 <ons>) at ONScripter.cpp:857
+#5  0x000055555555a67f in main(int, char**) (argc=1, argv=0x7fffffffe030)
+    at onscripter_main.cpp:530
+
+
+
+-------
+gedit ScriptHandler.cpp
+:844
+
+#0  ScriptHandler::getStringFromInteger(char*, int, int, bool)
+    (this=0x5555555cd5f0 <ons+3536>, buffer=0x7fffffffddf4 "", no=1, num_column=2, is_zero_inserted=false) at ScriptHandler.cpp:844
+#1  0x000055555558e604 in ONScripter::searchSaveFile(ScriptParser::SaveFileInfo&, int) (this=0x5555555cc820 <ons>, save_file_info=..., no=1)
+    at ONScripter_file.cpp:63
+#2  0x0000555555596da1 in ONScripter::executeSystemLoad()
+    (this=0x5555555cc820 <ons>) at ONScripter_rmenu.cpp:310
+#3  0x00005555555963e5 in ONScripter::executeSystemCall()
+    (this=0x5555555cc820 <ons>) at ONScripter_rmenu.cpp:146
+#4  0x0000555555577387 in ONScripter::systemcallCommand()
+    (this=0x5555555cc820 <ons>) at ONScripter_command.cpp:356
+#5  0x00005555555729a2 in ONScripter::parseLine() (this=0x5555555cc820 <ons>)
+    at ONScripter.cpp:938
+#6  0x0000555555572423 in ONScripter::executeLabel()
+    (this=0x5555555cc820 <ons>) at ONScripter.cpp:857
+#7  0x000055555555a67f in main(int, char**) (argc=1, argv=0x7fffffffe030)
+    at onscripter_main.cpp:530
+
+----
+
+
+
+#if 1//defined(ENABLE_1BYTE_CHAR) && defined(FORCE_1BYTE_CHAR)
+    if (num_minus == 1) no = -no;
+    char format[6];
+    if (is_zero_inserted)
+        sprintf(format, "%%0%dd", num_column);
+    else
+        sprintf(format, "%%%dd", num_column);
+    sprintf(buffer, format, no);
+
+    return num_column;
+#else
+    int code = enc.getEncoding();
+    int n = 2; // bytes per character
+    if (code == Encoding::CODE_UTF8)
+        n = 3;
+    int c = 0;
+    if (is_zero_inserted) {
+        if (code == Encoding::CODE_CP932) {
+            for (i = 0; i < num_space; i++) {
+                buffer[c++] = ((char*)"\A3\B0")[0];
+                buffer[c++] = ((char*)"\A3\B0")[1];
+            }
+        }
+        if (code == Encoding::CODE_UTF8) {
+            for (i = 0; i < num_space; i++) {
+                buffer[c++] = 0xef;
+                buffer[c++] = 0xbc;
+                buffer[c++] = 0x90;
+            }
+        }
+    }
+    else {
+        if (code == Encoding::CODE_CP932) {
+            for (i = 0; i < num_space; i++) {
+                buffer[c++] = ((char*)"\A1\A1")[0];
+                buffer[c++] = ((char*)"\A1\A1")[1];
+            }
+        }
+        if (code == Encoding::CODE_UTF8) {
+            for (i = 0; i < num_space; i++) {
+                buffer[c++] = 0xe3;
+                buffer[c++] = 0x80;
+                buffer[c++] = 0x80;
+            }
+        }
+    }
+    if (num_minus == 1) {
+        if (code == Encoding::CODE_CP932) {
+            buffer[c++] = "\A3\AD"[0];
+            buffer[c++] = "\A3\AD"[1];
+        }
+        if (code == Encoding::CODE_UTF8) {
+            buffer[c++] = 0xef;
+            buffer[c++] = 0xbc;
+            buffer[c++] = 0x8d;
+        }
+    }
+    c = (num_column - 1) * n;
+    char num_str[] = "\A3\B0\A3\B1\A3\B2\A3\B3\A3\B4\A3\B5\A3\B6\A3\B7\A3\B8\A3\B9";
+    for (i = 0; i < num_digit; i++) {
+        if (code == Encoding::CODE_CP932) {
+            buffer[c] = num_str[no % 10 * 2];
+            buffer[c + 1] = num_str[no % 10 * 2 + 1];
+        }
+        if (code == Encoding::CODE_UTF8) {
+            buffer[c] = 0xef;
+            buffer[c + 1] = 0xbc;
+            buffer[c + 2] = 0x90 + no % 10;
+        }
+        no /= 10;
+        c -= n;
+    }
+    buffer[num_column * n] = '\0';
+
+    return num_column * n;
+#endif
+
+
+
+

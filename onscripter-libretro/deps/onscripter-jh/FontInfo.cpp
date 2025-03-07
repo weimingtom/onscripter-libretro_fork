@@ -236,15 +236,54 @@ void FontInfo::setLineArea(const char* buf)
         num_xy[tateyoko_mode] = w * 2 / pitch_xy[tateyoko_mode] + 1;
     }
     else {
+#define FIX_LOAD_MENU_LINE_WRAP_BUG 1
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
         num_xy[tateyoko_mode] = strlen(buf) / 2 + 1;
+#else
+//        num_xy[tateyoko_mode] = strlen(buf) * 2;
+        int w = 0;
+        while (buf[0]) {
+            int n = enc->getBytes(buf[0]);
+            unsigned short unicode = enc->getUTF16(buf);
+
+            int minx, maxx, miny, maxy, advanced;
+            TTF_GlyphMetrics((TTF_Font*)ttf_font[0], unicode,
+                             &minx, &maxx, &miny, &maxy, &advanced);
+
+            w += advanced + pitch_xy[tateyoko_mode] - font_size_xy[tateyoko_mode];
+            buf += n;
+        }
+        num_xy[tateyoko_mode] = w * 2 / pitch_xy[tateyoko_mode] + 1 + 1; //FIXME: +1
+#endif
     }
     num_xy[1 - tateyoko_mode] = 1;
 }
 
 bool FontInfo::isEndOfLine(float margin)
 {
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
     if (xy[tateyoko_mode] + margin >= num_xy[tateyoko_mode] * 2) return true;
-
+#else
+//gdb ./onscripter
+//TODO: debug auto line wrap
+//(gdb) b FontInfo::newLine
+//
+//TODO: draw red rect around the text  
+//
+//TODO: Load menu space before the number, goto after #else, ScriptHandler.cpp 
+//(gdb) b ScriptHandler::getStringFromInteger
+//
+//TODO: break when click and show load menu
+//(gdb) b ONScripter::executeSystemLoad
+//        flush(refreshMode());
+//#if 1
+//printf("<<<< MESSAGE_SAVE_EMPTY: %s\n", buffer);
+//#endif
+    if (xy[tateyoko_mode] + margin > num_xy[tateyoko_mode] * 2) {
+        printf("<<<<< isEndOfLine, %f, %d\n", xy[tateyoko_mode] + margin, num_xy[tateyoko_mode] * 2);
+        return true;
+    }
+#endif
     return false;
 }
 
