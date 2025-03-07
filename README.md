@@ -9,6 +9,7 @@ Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO 
 Cmake compiling is not availabe yet, use make instead.  
 
 Test binary files (not stable, buggy, different from the versions of other peoples or official ones):   
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250308  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250209  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123  
 (old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_jh_joypad_20240724  
@@ -203,6 +204,7 @@ onscripter-libretro_fork_20241112_v2_perfect_run.7z
 ```
 [PSP][PC移植版][月姬][中文版].rar      
 ```
+* (TODO) 解决tinycoroutine不支持aarch64问题（已从Makefile-jh.common注释掉）    
 
 ## （注：请买正版游戏, please buy steam games）可能有用的测试整合包，还有一些游戏不是整合的，还有一些是从别的网站拖下来
 * ONS.zip.001, miyoo mini的 ons模拟器运行游戏测试, MIYOOMINI ONS游戏懒人包, RG35XXH-ONS模拟器，字体拥挤解决办法  
@@ -256,7 +258,10 @@ tsukihime.rar
 屏幕下方黑边（顶部对齐）；  
 yuri版类似，只是读档没折行，但读档标题似乎乱字？也可能没事    
 * 海猫（包括ep1-4, ep5-8, 羽）：  
-(20250307 fixed, see FIX_TACHI_IMAGE_PNG_MASK_BUG) jpg转透明图双列的立绘图全都没有正确显示成透明背景的立绘图（立绘不透明穿透），yuri版也有这个bug    
+(20250307 fixed, see FIX_TACHI_IMAGE_PNG_MASK_BUG) jpg转透明图双列的立绘图全都没有正确显示成透明背景的立绘图（立绘不透明穿透），yuri版也有这个bug
+修复立绘不透明背景bug后依然有问题，立绘有闪烁效果；  
+【】对话括号并到同一行（缺少右引号）；  
+有时候会错误折行      
 ```
 海猫的ONS移植版的立绘不透明问题，我试过可以用某个版本的onscripter
 或者最终版onscripter-en来运行看到立绘的透明背景效果，
