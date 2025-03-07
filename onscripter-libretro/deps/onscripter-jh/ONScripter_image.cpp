@@ -52,6 +52,37 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
         tmp = tmp2;
     }
 
+
+
+
+
+
+//added, another code see below
+#define FIX_TACHI_IMAGE_PNG_MASK_BUG 1
+#if FIX_TACHI_IMAGE_PNG_MASK_BUG
+    bool has_colorkey = false;
+    Uint32 colorkey = 0;
+
+    if ( has_alpha ){
+        *has_alpha = (tmp->format->Amask != 0);
+        if (!(*has_alpha) && (tmp->flags & SDL_SRCCOLORKEY)){
+            has_colorkey = true;
+            colorkey = tmp->format->colorkey;
+            if (tmp->format->palette){
+                //palette will be converted to RGBA, so don't do colorkey check
+                has_colorkey = false;
+            }
+            *has_alpha = true;
+        }
+    }
+#endif
+
+
+
+
+
+
+
     SDL_Surface* ret;
     if ((tmp->w * tmp->format->BytesPerPixel == tmp->pitch) &&
         (tmp->format->BitsPerPixel == image_surface->format->BitsPerPixel) &&
@@ -65,6 +96,94 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
         ret = SDL_ConvertSurface(tmp, image_surface->format, SDL_SWSURFACE);
         SDL_FreeSurface(tmp);
     }
+
+
+
+
+
+
+
+
+
+
+//added, another code see upper
+#if FIX_TACHI_IMAGE_PNG_MASK_BUG
+    //  A PNG image may contain an alpha channel, which complicates
+    // handling loaded images when the ":a" alphablend tag is used,
+    // since the standard method was to assume the right half of the image
+    // contains an alpha data mask for the left half.
+    //  The current default behavior is to use the PNG image's alpha
+    // channel if available, and only process for an old-style mask
+    // when no alpha channel was provided.
+    // However, this could cause problems running older NScr games
+    // which have PNG images containing old-style masks but also an
+    // opaque alpha channel.
+    //  Therefore, we provide a hack, set with the --detect-png-nscmask
+    // command-line option, to auto-detect if a PNG image is likely to
+    // have an old-style mask.  We assume that an old-style mask is intended
+    // if the image either has no alpha channel, or the alpha channel it has
+    // is completely opaque.  (Note that this used to be the default
+    // behavior for onscripter-en.)
+    //  Note that using the --force-png-nscmask option will always assume
+    // old-style masks, while --force-png-alpha will produce the current
+    // default behavior.
+#if 0
+    if ((png_mask_type != PNG_MASK_USE_ALPHA) &&
+#else
+    if (1 &&
+#endif
+        has_alpha && *has_alpha) {
+#if 0
+        if (png_mask_type == PNG_MASK_USE_NSCRIPTER)
+            *has_alpha = false;
+        else if (png_mask_type == PNG_MASK_AUTODETECT) {
+#else
+        if (1) {
+#endif
+            SDL_LockSurface(ret);
+            const Uint32 aval = *(Uint32*)ret->pixels & ret->format->Amask;
+            if (aval != ret->format->Amask) goto breakalpha;
+            *has_alpha = false;
+            for (int y=0; y<ret->h; ++y) {
+                Uint32* pixbuf = (Uint32*)((char*)ret->pixels + y * ret->pitch);
+                for (int x=ret->w; x>0; --x, ++pixbuf) {
+                    // Resolving ambiguity per Tatu's patch, 20081118.
+                    // I note that this technically changes the meaning of the
+                    // code, since != is higher-precedence than &, but this
+                    // version is obviously what I intended when I wrote this.
+                    // Has this been broken all along?  :/  -- Haeleth
+                    if ((*pixbuf & ret->format->Amask) != aval) {
+                        *has_alpha = true;
+                        goto breakalpha;
+                    }
+                }
+            }
+          breakalpha:
+            if (!*has_alpha && has_colorkey) {
+                // has a colorkey, so run a match against rgb values
+                const Uint32 aval = colorkey & ~(ret->format->Amask);
+                if (aval == (*(Uint32*)ret->pixels & ~(ret->format->Amask)))
+                    goto breakkey;
+                *has_alpha = false;
+                for (int y=0; y<ret->h; ++y) {
+                    Uint32* pixbuf = (Uint32*)((char*)ret->pixels + y * ret->pitch);
+                    for (int x=ret->w; x>0; --x, ++pixbuf) {
+                        if ((*pixbuf & ~(ret->format->Amask)) == aval) {
+                            *has_alpha = true;
+                            goto breakkey;
+                        }
+                    }
+                }
+            }
+          breakkey:
+            SDL_UnlockSurface(ret);
+        }
+    }
+#endif
+
+
+
+
 
     return ret;
 }
