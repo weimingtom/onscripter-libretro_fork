@@ -233,6 +233,8 @@ scenario(只是一些早期取出文件)
 * See yinxiangbiji, galgame购买, _ons_all_1, _ons_all_2, _ons_1, _ons2, 我的资源  
 某个可能已经挂掉的tieba（参考wmt_vn_study的issue）  
 * Steam, 有些是ponscripter的(utf-8), NOeSIS三作还有水仙1+2, 等等等等    
+* 月姬简体中文测试beta  
+tsukihime.rar  
 
 ## games test  
 * 魔女的花园：按Y快进后有时候会出现各种立绘错乱位置叠加（可能没消失，或者可能变得很巨大，难道是显示头像显示到主屏幕上？yuri版也有这个问题）；读取进度菜单最后-号错误折行（yuri版没折行）；yuri版快进到开头某段偶尔可能会闪退；开头有一段对话对话框左上角不显示说话人（例如“魔女”），但yuri版没这个bug
