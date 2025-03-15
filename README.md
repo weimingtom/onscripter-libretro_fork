@@ -137,7 +137,8 @@ unzip ONSYURI.7z to SDCARD:/Emus/
 
 ## Bugs or TODO  
 * onscripter-jh_ori编译的核心产生闪退  
-**TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**      
+**TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**  
+**TODO: 编译RetroArch需要预先安装什么软件包**  
 ```
 原因：libretro.cpp包含了错误的ONScripter.h头文件，导致ons.getWidth()返回0，
 产生crash，如果指向正确的头文件目录即可解决这个问题
