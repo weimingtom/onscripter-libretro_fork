@@ -298,8 +298,18 @@ debug_load_menu.txt
 ```
 * 天使的工作：按Y跳过开头的一大段OP动画，到正文开始就有大量的乱字和正常字夹杂，主菜单默认选第3项回想模式（yuri版默认不选），读取也是默认选第3项（yuri版默认不选）；yuri版没有这些问题，没有乱字情况  
 * 初音之歌-铃音之声：选第2项【初音之声】，开头快进到下着照后面，确认存储卡，【未来】【明显是拍太多了吧!?】上一句【哦，现在，318...】乱字；yuri版也会乱字  
-* Steam游戏官方中文版, noesis01, NOESIS01-诉说谎言的记忆之物语: ons和onsyuri版都闪退  
+* Steam游戏官方中文版, noesis01, NOESIS01-诉说谎言的记忆之物语: ons和onsyuri版都闪退
+```
+我用自己编译的onscripter-libretro的RA核心打开noesis01和noesis02闪退，好像是因为加载字体那里出问题了，
+导致font空指针——但很怪的是如果我编译单独程序（非RA），链接xubuntu自己的开发库(sudo apt安装）
+则不会出现空指针和闪退（俩游戏的情况一样）。我暂时不改这个bug，
+我估计可能需要整个替换deps下的freetype源代码才能修复这个问题，
+或者找找有没有更好的方法
+```
 * Steam游戏官方中文版, noesis02, NOESIS02-羽化, NOeSIS-羽化: ons和onsyuri版都闪退
+```
+see upper  
+```
 * (TODO) running failed: narcissu for psp β.zip
 * 突然之间发现我已恋上你：（20250209修复）无法进入；yuri版正常，语音和bgm似乎有点破音，立绘似乎有点左右压扁。  
 修改无法进入的bug后，游戏开始开头第二句有乱字情况；  
