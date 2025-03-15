@@ -1,3 +1,8 @@
+#JH=3:onscripter-en
+#JH=2:onscripter-jh_ori, original jh
+#JH=1:onscripter-jh, my merged jh
+#JH=0:onscripter
+
 # xubuntu 20.04 64bit
 MIYOO:=0
 JH:=0
@@ -180,6 +185,8 @@ ifeq ($(TINYCO), 1)
 endif
 
 ifeq ($(JH),3)
+CFLAGS += -DUSE_LABEL=1
+CXXFLAGS += -DUSE_LABEL=1
 include Makefile-en.common
 else ifeq ($(JH),2)
 include Makefile-jh_ori.common

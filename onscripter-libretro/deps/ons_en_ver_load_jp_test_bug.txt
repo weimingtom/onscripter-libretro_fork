@@ -1,0 +1,33 @@
+CFLAGS += -DUSE_LABEL=1
+CXXFLAGS += -DUSE_LABEL=1
+
+onscripter-libretro\deps\onscripter-en\ScriptParser.cpp
+added:        if (!root) { //FIXME:added, why null????
+        	root = "";
+        }
+
+===
+
+FILE *ScriptParser::fopen( const char *path, const char *mode, const bool save, const bool usesavedir )
+{
+    const char* root;
+    char *file_name;
+    FILE *fp = NULL;
+
+    if (usesavedir && script_h.savedir) {
+        root = script_h.savedir;
+        file_name = new char[strlen(root)+strlen(path)+1];
+        sprintf( file_name, "%s%s", root, path );
+        //printf("parser:fopen(\"%s\")\n", file_name);
+
+        fp = ::fopen( file_name, mode );
+    } else if (save) {
+        root = script_h.save_path;
+        if (!root) { //FIXME:added, why null????
+        	root = "";
+        }
+        file_name = new char[strlen(root)+strlen(path)+1];
+        sprintf( file_name, "%s%s", root, path );
+        //printf("parser:fopen(\"%s\")\n", file_name);
+
+

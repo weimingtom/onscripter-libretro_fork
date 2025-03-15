@@ -1,0 +1,76 @@
+onscripter-libretro\deps\onscripter-jh\ONScripter_text.cpp
+added:if (!info->ttf_font[0]) {
+return 0;
+}
+
+=====
+
+int ONScripter::drawGlyph( SDL_Surface *dst_surface, FontInfo *info, SDL_Color &color, char* text, int xy[2], AnimationInfo *cache_info, SDL_Rect *clip, SDL_Rect &dst_rect )
+{
+    unsigned short unicode;
+    if (IS_TWO_BYTE(text[0])){
+        unsigned index = ((unsigned char*)text)[0];
+        index = index << 8 | ((unsigned char*)text)[1];
+        unicode = convSJIS2UTF16( index );
+    }
+    else{
+        if ((text[0] & 0xe0) == 0xa0 || (text[0] & 0xe0) == 0xc0) unicode = ((unsigned char*)text)[0] - 0xa0 + 0xff60;
+        else unicode = text[0];
+    }
+
+    int minx, maxx, miny, maxy, advanced;
+#if 0
+    if (TTF_GetFontStyle( (TTF_Font*)info->ttf_font[0] ) !=
+        (info->is_bold?TTF_STYLE_BOLD:TTF_STYLE_NORMAL) )
+        TTF_SetFontStyle( (TTF_Font*)info->ttf_font[0], (info->is_bold?TTF_STYLE_BOLD:TTF_STYLE_NORMAL));
+#endif    
+if (!info->ttf_font[0]) {
+return 0;
+}
+
+
+
+
+
+
+
+
+=================
+
+onscripter-libretro\deps\onscripter-jh\FontInfo.cpp
+
+added 2 places:
+ if (fc->next->font[1]) { //FIXME:NOeSIS01 crash bug
+
+===
+
+#if defined(PSP)
+        fc->next->rw_ops = SDL_RWFromFile(font_file, "r");
+        fc->next->font[0] = TTF_OpenFontRW(fc->next->rw_ops, SDL_TRUE, font_size * ratio1 / ratio2);
+#if (SDL_TTF_MAJOR_VERSION >= 2) && (SDL_TTF_MINOR_VERSION >= 0) && (SDL_TTF_PATCHLEVEL >= 10)
+        fc->next->font[1] = TTF_OpenFontRW(fc->next->rw_ops, SDL_TRUE, font_size * ratio1 / ratio2);
+        if (fc->next->font[1]) { //FIXME:NOeSIS01 crash bug
+        	TTF_SetFontOutline(fc->next->font[1], 1);
+        }
+#endif
+        fc->next->power_resume_number = psp_power_resume_number;
+        strcpy(fc->next->name, font_file);
+#else
+        fp = fopen(font_file, "rb");
+        fseek(fp, 0, SEEK_END);
+        long length = ftell(fp);
+        unsigned char* buf = new unsigned char[length]; // not released
+        fseek(fp, 0, SEEK_SET);
+        fread(buf, 1, length, fp);
+        fclose(fp);
+        SDL_RWops* src = SDL_RWFromMem(buf, length);
+        fc->next->font[0] = TTF_OpenFontRW(src, 1, font_size * ratio1 / ratio2);
+#if (SDL_TTF_MAJOR_VERSION >= 2) && (SDL_TTF_MINOR_VERSION >= 0) && (SDL_TTF_PATCHLEVEL >= 10)
+        SDL_RWops* src2 = SDL_RWFromMem(buf, length);
+        fc->next->font[1] = TTF_OpenFontRW(src2, 1, font_size * ratio1 / ratio2);
+        if (fc->next->font[1]) { //FIXME:NOeSIS01 crash bug
+        	TTF_SetFontOutline(fc->next->font[1], 1);
+        }
+#endif
+#endif
+

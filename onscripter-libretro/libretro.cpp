@@ -4,8 +4,9 @@
 #define USE_ONS 1
 #define USE_NOW 0
 #define USE_SDLTHREAD 0 //for onscripter-libretro v3
+#ifndef USE_LABEL
 #define USE_LABEL 0//for onscripter-en
-
+#endif
 
 
 

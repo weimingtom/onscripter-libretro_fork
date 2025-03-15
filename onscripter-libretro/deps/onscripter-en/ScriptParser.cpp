@@ -1113,6 +1113,9 @@ FILE *ScriptParser::fopen( const char *path, const char *mode, const bool save, 
         fp = ::fopen( file_name, mode );
     } else if (save) {
         root = script_h.save_path;
+        if (!root) { //FIXME:added, why null????
+        	root = "";
+        }
         file_name = new char[strlen(root)+strlen(path)+1];
         sprintf( file_name, "%s%s", root, path );
         //printf("parser:fopen(\"%s\")\n", file_name);
