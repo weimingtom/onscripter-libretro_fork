@@ -289,7 +289,12 @@ bool ONScripter::executeSystemLoad()
     text_info.fill(0, 0, 0, 0);
 
     int n = script_h.enc.getNum((unsigned char*)save_item_name);
+#define FIX_LOAD_MENU_LINE_WRAP_BUG 1
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
     menu_font.num_xy[0] = (n + 1) / 2 + 2 + 13;
+#else
+    menu_font.num_xy[0] = (n + 1) / 2 + 2 + 13 + 2 + 2;
+#endif
     menu_font.num_xy[1] = num_save_file + 2;
     menu_font.top_xy[0] = (screen_width * screen_ratio2 / screen_ratio1 - menu_font.num_xy[0] * menu_font.pitch_xy[0]) / 2;
     menu_font.top_xy[1] = (screen_height * screen_ratio2 / screen_ratio1 - menu_font.num_xy[1] * menu_font.pitch_xy[1]) / 2;
@@ -308,7 +313,11 @@ bool ONScripter::executeSystemLoad()
     SaveFileInfo save_file_info;
     for (unsigned int i = 1; i <= num_save_file; i++) {
         searchSaveFile(save_file_info, i);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
         menu_font.setXY((menu_font.num_xy[0] * 2 - (n + 15 * 2)) / 4);
+#else        
+        menu_font.setXY((menu_font.num_xy[0] * 2 - (n + 15 * 2)) / 4);// - 2);
+#endif
 
         char* format_str = NULL;
         if (save_file_info.valid) {
@@ -403,7 +412,11 @@ void ONScripter::executeSystemSave()
     text_info.fill(0, 0, 0, 0);
 
     int n = script_h.enc.getNum((unsigned char*)save_item_name);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG    
     menu_font.num_xy[0] = (n + 1) / 2 + 2 + 13;
+#else
+    menu_font.num_xy[0] = (n + 1) / 2 + 2 + 13 + 2 + 2;
+#endif    
     menu_font.num_xy[1] = num_save_file + 2;
     menu_font.top_xy[0] = (screen_width * screen_ratio2 / screen_ratio1 - menu_font.num_xy[0] * menu_font.pitch_xy[0]) / 2;
     menu_font.top_xy[1] = (screen_height * screen_ratio2 / screen_ratio1 - menu_font.num_xy[1] * menu_font.pitch_xy[1]) / 2;
@@ -422,7 +435,11 @@ void ONScripter::executeSystemSave()
     for (unsigned int i = 1; i <= num_save_file; i++) {
         SaveFileInfo save_file_info;
         searchSaveFile(save_file_info, i);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
         menu_font.setXY((menu_font.num_xy[0] * 2 - (n + 15 * 2)) / 4);
+#else         
+        menu_font.setXY((menu_font.num_xy[0] * 2 - (n + 15 * 2)) / 4);// - 2);
+#endif
 
         char* format_str = NULL;
         if (save_file_info.valid) {
@@ -507,7 +524,11 @@ bool ONScripter::executeSystemYesNo(int caller, int file_no)
     }
 
     int n = script_h.enc.getNum((unsigned char*)name);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG    
     menu_font.num_xy[0] = (n + 1) / 2;
+#else
+    menu_font.num_xy[0] = (n + 1) / 2 + 2 + 2;
+#endif    
     menu_font.num_xy[1] = 3;
     menu_font.top_xy[0] = (screen_width * screen_ratio2 / screen_ratio1 - menu_font.num_xy[0] * menu_font.pitch_xy[0]) / 2;
     menu_font.top_xy[1] = (screen_height * screen_ratio2 / screen_ratio1 - menu_font.num_xy[1] * menu_font.pitch_xy[1]) / 2;
@@ -521,14 +542,22 @@ bool ONScripter::executeSystemYesNo(int caller, int file_no)
     int offset2 = n / 2 - offset1;
     setStr(&format_str, MESSAGE_YES, -1, true);
     strcpy(name, format_str);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
     menu_font.setXY(offset1 - 2, 2);
+#else 
+    menu_font.setXY(offset1 - 2 + 1, 2);
+#endif    
     ButtonLink* button = getSelectableSentence(name, &menu_font, false);
     root_button_link.insert(button);
     button->no = 1;
 
     setStr(&format_str, MESSAGE_NO, -1, true);
     strcpy(name, format_str);
+#if !FIX_LOAD_MENU_LINE_WRAP_BUG
     menu_font.setXY(offset2, 2);
+#else 
+    menu_font.setXY(offset2, 2);
+#endif    
     button = getSelectableSentence(name, &menu_font, false);
     root_button_link.insert(button);
     button->no = 2;

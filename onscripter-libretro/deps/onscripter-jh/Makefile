@@ -3,6 +3,8 @@
 # Makefile.Linux - Makefile rules for linux
 #
 
+#sudo apt install libsdl-dev libsdl-image1.2-dev  libsdl-ttf2.0-dev libsdl-mixer1.2-dev libbz2-dev libfreetype-dev
+
 #copy this file from Makefile.Linux
 #
 #sudo apt-get install libsdl-dev
@@ -127,3 +129,7 @@ CFLAGS = -g3 -O0 -Wall -fomit-frame-pointer -pipe -c $(INCS) $(DEFS)
 RM = rm -f
 
 include Makefile.onscripter
+
+install:
+	cp ./onscripter ~/q2/.
+

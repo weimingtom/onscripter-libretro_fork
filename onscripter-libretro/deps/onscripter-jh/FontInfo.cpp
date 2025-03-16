@@ -234,10 +234,11 @@ void FontInfo::setLineArea(const char* buf)
             buf += n;
         }
         num_xy[tateyoko_mode] = w * 2 / pitch_xy[tateyoko_mode] + 1;
+printf("<<<<< 1 num_xy[tateyoko_mode] = %d\n", num_xy[tateyoko_mode]);        
     }
     else {
 #define FIX_LOAD_MENU_LINE_WRAP_BUG 1
-#if !FIX_LOAD_MENU_LINE_WRAP_BUG
+#if 1//!FIX_LOAD_MENU_LINE_WRAP_BUG
         num_xy[tateyoko_mode] = strlen(buf) / 2 + 1;
 #else
 //        num_xy[tateyoko_mode] = strlen(buf) * 2;
@@ -253,10 +254,12 @@ void FontInfo::setLineArea(const char* buf)
             w += advanced + pitch_xy[tateyoko_mode] - font_size_xy[tateyoko_mode];
             buf += n;
         }
-        num_xy[tateyoko_mode] = w * 2 / pitch_xy[tateyoko_mode] + 1 + 1; //FIXME: +1
+        num_xy[tateyoko_mode] = w * 2 / pitch_xy[tateyoko_mode] + 1 - 1; //FIXME: + 1 -> + 1 - 1 
+printf("<<<<< 2 num_xy[tateyoko_mode] = %d\n", num_xy[tateyoko_mode]);           
 #endif
     }
     num_xy[1 - tateyoko_mode] = 1;
+printf("<<<<< 3 num_xy[1 - tateyoko_mode] = %d\n", 1);  
 }
 
 bool FontInfo::isEndOfLine(float margin)
@@ -279,8 +282,8 @@ bool FontInfo::isEndOfLine(float margin)
 //#if 1
 //printf("<<<< MESSAGE_SAVE_EMPTY: %s\n", buffer);
 //#endif
-    if (xy[tateyoko_mode] + margin > num_xy[tateyoko_mode] * 2) {
-        printf("<<<<< isEndOfLine, %f, %d\n", xy[tateyoko_mode] + margin, num_xy[tateyoko_mode] * 2);
+    if (xy[tateyoko_mode] + margin >= num_xy[tateyoko_mode] * 2) {
+        printf("<<<<< isEndOfLine?, %f, %d\n", xy[tateyoko_mode] + margin, num_xy[tateyoko_mode] * 2);
         return true;
     }
 #endif
@@ -338,6 +341,7 @@ SDL_Rect FontInfo::calcUpdatedArea(int start_xy[2], int ratio1, int ratio2)
             rect.h = pitch_xy[1] * num_xy[1];
         }
         num_xy[0] = (xy[0] - start_xy[0]) / 2 + 1;
+printf("<<<<< 4 num_xy[0] = %d\n", num_xy[0]);  
     }
 
     return rect;
@@ -369,12 +373,15 @@ int FontInfo::initRuby(FontInfo& body_info, int body_count, int ruby_count)
     if (tateyoko_mode == YOKO_MODE) {
         top_xy[1] -= font_size_xy[1];
         num_xy[0] = ruby_count;
+printf("<<<<< 5 num_xy[0] = %d\n", num_xy[0]);  
         num_xy[1] = 1;
     }
     else {
         top_xy[0] += body_info.font_size_xy[0];
         num_xy[0] = 1;
+printf("<<<<< 6 num_xy[0] = %d\n", num_xy[0]);  
         num_xy[1] = ruby_count;
+printf("<<<<< 7 num_xy[1] = %d\n", num_xy[1]);  
     }
 
     if (ruby_count * font_size_xy[tateyoko_mode] >= body_count * body_info.pitch_xy[tateyoko_mode]) {
