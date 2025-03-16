@@ -1,45 +1,45 @@
-/****************************************************************************
- *
- * ftgrays.h
- *
- *   FreeType smooth renderer declaration
- *
- * Copyright (C) 1996-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftgrays.h                                                              */
+/*                                                                         */
+/*    FreeType smooth renderer declaration                                 */
+/*                                                                         */
+/*  Copyright 1996-2001 by                                                 */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef FTGRAYS_H_
-#define FTGRAYS_H_
+#ifndef __FTGRAYS_H__
+#define __FTGRAYS_H__
 
 #ifdef __cplusplus
   extern "C" {
 #endif
 
 
-#ifdef STANDALONE_
+#ifdef _STANDALONE_
 #include "ftimage.h"
 #else
 #include <ft2build.h>
-#include <freetype/ftimage.h>
+#include FT_IMAGE_H
 #endif
 
 
-  /**************************************************************************
-   *
-   * To make ftgrays.h independent from configuration files we check
-   * whether FT_EXPORT_VAR has been defined already.
-   *
-   * On some systems and compilers (Win32 mostly), an extra keyword is
-   * necessary to compile the library as a DLL.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* To make ftgrays.h independent from configuration files we check       */
+  /* whether FT_EXPORT_VAR has been defined already.                       */
+  /*                                                                       */
+  /* On some systems and compilers (Win32 mostly), an extra keyword is     */
+  /* necessary to compile the library as a DLL.                            */
+  /*                                                                       */
 #ifndef FT_EXPORT_VAR
 #define FT_EXPORT_VAR( x )  extern  x
 #endif
@@ -51,7 +51,7 @@
   }
 #endif
 
-#endif /* FTGRAYS_H_ */
+#endif /* __FTGRAYS_H__ */
 
 
 /* END */

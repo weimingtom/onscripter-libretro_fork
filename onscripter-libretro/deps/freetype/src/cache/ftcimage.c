@@ -1,25 +1,25 @@
-/****************************************************************************
- *
- * ftcimage.c
- *
- *   FreeType Image cache (body).
- *
- * Copyright (C) 2000-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftcimage.c                                                             */
+/*                                                                         */
+/*    FreeType Image cache (body).                                         */
+/*                                                                         */
+/*  Copyright 2000-2001, 2003, 2004, 2006 by                               */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#include <freetype/ftcache.h>
+#include <ft2build.h>
+#include FT_CACHE_H
 #include "ftcimage.h"
-#include <freetype/internal/ftmemory.h>
-#include <freetype/internal/ftobjs.h>
+#include FT_INTERNAL_MEMORY_H
 
 #include "ftccback.h"
 #include "ftcerror.h"
@@ -61,20 +61,19 @@
   {
     FT_Memory  memory = cache->memory;
     FT_Error   error;
-    FTC_INode  inode  = NULL;
+    FTC_INode  inode;
 
 
-    if ( !FT_QNEW( inode ) )
+    if ( !FT_NEW( inode ) )
     {
       FTC_GNode         gnode  = FTC_GNODE( inode );
       FTC_Family        family = gquery->family;
       FT_UInt           gindex = gquery->gindex;
-      FTC_IFamilyClass  clazz  = FTC_CACHE_IFAMILY_CLASS( cache );
+      FTC_IFamilyClass  clazz  = FTC_CACHE__IFAMILY_CLASS( cache );
 
 
       /* initialize its inner fields */
       FTC_GNode_Init( gnode, gindex, family );
-      inode->glyph = NULL;
 
       /* we will now load the glyph image */
       error = clazz->family_load_glyph( family, gindex, cache,
@@ -104,12 +103,12 @@
   }
 
 
-  FT_LOCAL_DEF( FT_Offset )
+  FT_LOCAL_DEF( FT_ULong )
   ftc_inode_weight( FTC_Node   ftcinode,
                     FTC_Cache  ftccache )
   {
     FTC_INode  inode = (FTC_INode)ftcinode;
-    FT_Offset  size  = 0;
+    FT_ULong   size  = 0;
     FT_Glyph   glyph = inode->glyph;
 
     FT_UNUSED( ftccache );
@@ -123,7 +122,7 @@
 
 
         bitg = (FT_BitmapGlyph)glyph;
-        size = bitg->bitmap.rows * (FT_Offset)FT_ABS( bitg->bitmap.pitch ) +
+        size = bitg->bitmap.rows * ft_labs( bitg->bitmap.pitch ) +
                sizeof ( *bitg );
       }
       break;
@@ -134,9 +133,9 @@
 
 
         outg = (FT_OutlineGlyph)glyph;
-        size = (FT_Offset)outg->outline.n_points *
+        size = outg->outline.n_points *
                  ( sizeof ( FT_Vector ) + sizeof ( FT_Byte ) ) +
-               (FT_Offset)outg->outline.n_contours * sizeof ( FT_Short ) +
+               outg->outline.n_contours * sizeof ( FT_Short ) +
                sizeof ( *outg );
       }
       break;
@@ -152,7 +151,7 @@
 
 #if 0
 
-  FT_LOCAL_DEF( FT_Offset )
+  FT_LOCAL_DEF( FT_ULong )
   FTC_INode_Weight( FTC_INode  inode )
   {
     return ftc_inode_weight( FTC_NODE( inode ), NULL );

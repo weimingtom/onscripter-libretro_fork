@@ -1,42 +1,48 @@
-/****************************************************************************
- *
- * ftserv.h
- *
- *   The FreeType services (specification only).
- *
- * Copyright (C) 2003-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftserv.h                                                               */
+/*                                                                         */
+/*    The FreeType services (specification only).                          */
+/*                                                                         */
+/*  Copyright 2003, 2004, 2005, 2006, 2007 by                              */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-  /**************************************************************************
-   *
-   * Each module can export one or more 'services'.  Each service is
-   * identified by a constant string and modeled by a pointer; the latter
-   * generally corresponds to a structure containing function pointers.
-   *
-   * Note that a service's data cannot be a mere function pointer because in
-   * C it is possible that function pointers might be implemented differently
-   * than data pointers (e.g. 48 bits instead of 32).
-   *
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /*  Each module can export one or more `services'.  Each service is      */
+  /*  identified by a constant string and modeled by a pointer; the latter */
+  /*  generally corresponds to a structure containing function pointers.   */
+  /*                                                                       */
+  /*  Note that a service's data cannot be a mere function pointer because */
+  /*  in C it is possible that function pointers might be implemented      */
+  /*  differently than data pointers (e.g. 48 bits instead of 32).         */
+  /*                                                                       */
+  /*************************************************************************/
 
 
-#ifndef FTSERV_H_
-#define FTSERV_H_
+#ifndef __FTSERV_H__
+#define __FTSERV_H__
 
-#include "compiler-macros.h"
 
 FT_BEGIN_HEADER
 
-  /**************************************************************************
-   *
+#if defined( _MSC_VER )      /* Visual C++ (and Intel C++) */
+
+  /* we disable the warning `conditional expression is constant' here */
+  /* in order to compile cleanly with the maximum level of warnings   */
+#pragma warning( disable : 4127 )
+
+#endif /* _MSC_VER */
+
+  /*
    * @macro:
    *   FT_FACE_FIND_SERVICE
    *
@@ -48,15 +54,15 @@ FT_BEGIN_HEADER
    *     The source face handle.
    *
    *   id ::
-   *     A string describing the service as defined in the service's header
-   *     files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
-   *     'multi-masters').  It is automatically prefixed with
-   *     `FT_SERVICE_ID_`.
+   *     A string describing the service as defined in the service's
+   *     header files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
+   *     `multi-masters').  It is automatically prefixed with
+   *     `FT_SERVICE_ID_'.
    *
    * @output:
    *   ptr ::
-   *     A variable that receives the service pointer.  Will be `NULL` if not
-   *     found.
+   *     A variable that receives the service pointer.  Will be NULL
+   *     if not found.
    */
 #ifdef __cplusplus
 
@@ -86,9 +92,7 @@ FT_BEGIN_HEADER
 
 #endif /* !C++ */
 
-
-  /**************************************************************************
-   *
+  /*
    * @macro:
    *   FT_FACE_FIND_GLOBAL_SERVICE
    *
@@ -100,39 +104,39 @@ FT_BEGIN_HEADER
    *     The source face handle.
    *
    *   id ::
-   *     A string describing the service as defined in the service's header
-   *     files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
-   *     'multi-masters').  It is automatically prefixed with
-   *     `FT_SERVICE_ID_`.
+   *     A string describing the service as defined in the service's
+   *     header files (e.g. FT_SERVICE_ID_MULTI_MASTERS which expands to
+   *     `multi-masters').  It is automatically prefixed with
+   *     `FT_SERVICE_ID_'.
    *
    * @output:
    *   ptr ::
-   *     A variable that receives the service pointer.  Will be `NULL` if not
-   *     found.
+   *     A variable that receives the service pointer.  Will be NULL
+   *     if not found.
    */
 #ifdef __cplusplus
 
-#define FT_FACE_FIND_GLOBAL_SERVICE( face, ptr, id )                  \
-  FT_BEGIN_STMNT                                                      \
-    FT_Module    module = FT_MODULE( FT_FACE( face )->driver );       \
-    FT_Pointer   _tmp_;                                               \
-    FT_Pointer*  _pptr_ = (FT_Pointer*)&(ptr);                        \
-                                                                      \
-                                                                      \
-    _tmp_ = ft_module_get_service( module, FT_SERVICE_ID_ ## id, 1 ); \
-    *_pptr_ = _tmp_;                                                  \
+#define FT_FACE_FIND_GLOBAL_SERVICE( face, ptr, id )               \
+  FT_BEGIN_STMNT                                                   \
+    FT_Module    module = FT_MODULE( FT_FACE( face )->driver );    \
+    FT_Pointer   _tmp_;                                            \
+    FT_Pointer*  _pptr_ = (FT_Pointer*)&(ptr);                     \
+                                                                   \
+                                                                   \
+    _tmp_ = ft_module_get_service( module, FT_SERVICE_ID_ ## id ); \
+    *_pptr_ = _tmp_;                                               \
   FT_END_STMNT
 
 #else /* !C++ */
 
-#define FT_FACE_FIND_GLOBAL_SERVICE( face, ptr, id )                  \
-  FT_BEGIN_STMNT                                                      \
-    FT_Module   module = FT_MODULE( FT_FACE( face )->driver );        \
-    FT_Pointer  _tmp_;                                                \
-                                                                      \
-                                                                      \
-    _tmp_ = ft_module_get_service( module, FT_SERVICE_ID_ ## id, 1 ); \
-    ptr   = _tmp_;                                                    \
+#define FT_FACE_FIND_GLOBAL_SERVICE( face, ptr, id )               \
+  FT_BEGIN_STMNT                                                   \
+    FT_Module   module = FT_MODULE( FT_FACE( face )->driver );     \
+    FT_Pointer  _tmp_;                                             \
+                                                                   \
+                                                                   \
+    _tmp_ = ft_module_get_service( module, FT_SERVICE_ID_ ## id ); \
+    ptr   = _tmp_;                                                 \
   FT_END_STMNT
 
 #endif /* !C++ */
@@ -147,8 +151,8 @@ FT_BEGIN_HEADER
   /*************************************************************************/
 
   /*
-   * The following structure is used to _describe_ a given service to the
-   * library.  This is useful to build simple static service lists.
+   *  The following structure is used to _describe_ a given service
+   *  to the library.  This is useful to build simple static service lists.
    */
   typedef struct  FT_ServiceDescRec_
   {
@@ -160,205 +164,14 @@ FT_BEGIN_HEADER
   typedef const FT_ServiceDescRec*  FT_ServiceDesc;
 
 
-  /**************************************************************************
-   *
-   * @macro:
-   *   FT_DEFINE_SERVICEDESCREC1
-   *   FT_DEFINE_SERVICEDESCREC2
-   *   FT_DEFINE_SERVICEDESCREC3
-   *   FT_DEFINE_SERVICEDESCREC4
-   *   FT_DEFINE_SERVICEDESCREC5
-   *   FT_DEFINE_SERVICEDESCREC6
-   *   FT_DEFINE_SERVICEDESCREC7
-   *   FT_DEFINE_SERVICEDESCREC8
-   *   FT_DEFINE_SERVICEDESCREC9
-   *   FT_DEFINE_SERVICEDESCREC10
-   *
-   * @description:
-   *   Used to initialize an array of FT_ServiceDescRec structures.
-   *
-   *   The array will be allocated in the global scope (or the scope where
-   *   the macro is used).
-   */
-#define FT_DEFINE_SERVICEDESCREC1( class_,                                  \
-                                   serv_id_1, serv_data_1 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC2( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC3( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC4( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC5( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4,                  \
-                                   serv_id_5, serv_data_5 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC6( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4,                  \
-                                   serv_id_5, serv_data_5,                  \
-                                   serv_id_6, serv_data_6 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { serv_id_6, serv_data_6 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC7( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4,                  \
-                                   serv_id_5, serv_data_5,                  \
-                                   serv_id_6, serv_data_6,                  \
-                                   serv_id_7, serv_data_7 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { serv_id_6, serv_data_6 },                                             \
-    { serv_id_7, serv_data_7 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC8( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4,                  \
-                                   serv_id_5, serv_data_5,                  \
-                                   serv_id_6, serv_data_6,                  \
-                                   serv_id_7, serv_data_7,                  \
-                                   serv_id_8, serv_data_8 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { serv_id_6, serv_data_6 },                                             \
-    { serv_id_7, serv_data_7 },                                             \
-    { serv_id_8, serv_data_8 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC9( class_,                                  \
-                                   serv_id_1, serv_data_1,                  \
-                                   serv_id_2, serv_data_2,                  \
-                                   serv_id_3, serv_data_3,                  \
-                                   serv_id_4, serv_data_4,                  \
-                                   serv_id_5, serv_data_5,                  \
-                                   serv_id_6, serv_data_6,                  \
-                                   serv_id_7, serv_data_7,                  \
-                                   serv_id_8, serv_data_8,                  \
-                                   serv_id_9, serv_data_9 )                 \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { serv_id_6, serv_data_6 },                                             \
-    { serv_id_7, serv_data_7 },                                             \
-    { serv_id_8, serv_data_8 },                                             \
-    { serv_id_9, serv_data_9 },                                             \
-    { NULL, NULL }                                                          \
-  };
-
-#define FT_DEFINE_SERVICEDESCREC10( class_,                                 \
-                                    serv_id_1, serv_data_1,                 \
-                                    serv_id_2, serv_data_2,                 \
-                                    serv_id_3, serv_data_3,                 \
-                                    serv_id_4, serv_data_4,                 \
-                                    serv_id_5, serv_data_5,                 \
-                                    serv_id_6, serv_data_6,                 \
-                                    serv_id_7, serv_data_7,                 \
-                                    serv_id_8, serv_data_8,                 \
-                                    serv_id_9, serv_data_9,                 \
-                                    serv_id_10, serv_data_10 )              \
-  static const FT_ServiceDescRec  class_[] =                                \
-  {                                                                         \
-    { serv_id_1, serv_data_1 },                                             \
-    { serv_id_2, serv_data_2 },                                             \
-    { serv_id_3, serv_data_3 },                                             \
-    { serv_id_4, serv_data_4 },                                             \
-    { serv_id_5, serv_data_5 },                                             \
-    { serv_id_6, serv_data_6 },                                             \
-    { serv_id_7, serv_data_7 },                                             \
-    { serv_id_8, serv_data_8 },                                             \
-    { serv_id_9, serv_data_9 },                                             \
-    { serv_id_10, serv_data_10 },                                           \
-    { NULL, NULL }                                                          \
-  };
-
-
   /*
-   * Parse a list of FT_ServiceDescRec descriptors and look for a specific
-   * service by ID.  Note that the last element in the array must be { NULL,
-   * NULL }, and that the function should return NULL if the service isn't
-   * available.
+   *  Parse a list of FT_ServiceDescRec descriptors and look for
+   *  a specific service by ID.  Note that the last element in the
+   *  array must be { NULL, NULL }, and that the function should
+   *  return NULL if the service isn't available.
    *
-   * This function can be used by modules to implement their `get_service'
-   * method.
+   *  This function can be used by modules to implement their
+   *  `get_service' method.
    */
   FT_BASE( FT_Pointer )
   ft_service_list_lookup( FT_ServiceDesc  service_descriptors,
@@ -374,23 +187,22 @@ FT_BEGIN_HEADER
   /*************************************************************************/
 
   /*
-   * This structure is used to store a cache for several frequently used
-   * services.  It is the type of `face->internal->services'.  You should
-   * only use FT_FACE_LOOKUP_SERVICE to access it.
+   *  This structure is used to store a cache for several frequently used
+   *  services.  It is the type of `face->internal->services'.  You
+   *  should only use FT_FACE_LOOKUP_SERVICE to access it.
    *
-   * All fields should have the type FT_Pointer to relax compilation
-   * dependencies.  We assume the developer isn't completely stupid.
+   *  All fields should have the type FT_Pointer to relax compilation
+   *  dependencies.  We assume the developer isn't completely stupid.
    *
-   * Each field must be named `service_XXXX' where `XXX' corresponds to the
-   * correct FT_SERVICE_ID_XXXX macro.  See the definition of
-   * FT_FACE_LOOKUP_SERVICE below how this is implemented.
+   *  Each field must be named `service_XXXX' where `XXX' corresponds to
+   *  the correct FT_SERVICE_ID_XXXX macro.  See the definition of
+   *  FT_FACE_LOOKUP_SERVICE below how this is implemented.
    *
    */
   typedef struct  FT_ServiceCacheRec_
   {
     FT_Pointer  service_POSTSCRIPT_FONT_NAME;
     FT_Pointer  service_MULTI_MASTERS;
-    FT_Pointer  service_METRICS_VARIATIONS;
     FT_Pointer  service_GLYPH_DICT;
     FT_Pointer  service_PFR_METRICS;
     FT_Pointer  service_WINFNT;
@@ -399,24 +211,21 @@ FT_BEGIN_HEADER
 
 
   /*
-   * A magic number used within the services cache.
+   *  A magic number used within the services cache.
    */
-
-  /* ensure that value `1' has the same width as a pointer */
-#define FT_SERVICE_UNAVAILABLE  ((FT_Pointer)~(FT_PtrDist)1)
+#define FT_SERVICE_UNAVAILABLE  ((FT_Pointer)-2)  /* magic number */
 
 
-  /**************************************************************************
-   *
+  /*
    * @macro:
    *   FT_FACE_LOOKUP_SERVICE
    *
    * @description:
-   *   This macro is used to look up a service from a face's driver module
+   *   This macro is used to lookup a service from a face's driver module
    *   using its cache.
    *
    * @input:
-   *   face ::
+   *   face::
    *     The source face handle containing the cache.
    *
    *   field ::
@@ -427,7 +236,7 @@ FT_BEGIN_HEADER
    *
    * @output:
    *   ptr ::
-   *     A variable receiving the service data.  `NULL` if not available.
+   *     A variable receiving the service data.  NULL if not available.
    */
 #ifdef __cplusplus
 
@@ -475,7 +284,7 @@ FT_BEGIN_HEADER
 #endif /* !C++ */
 
   /*
-   * A macro used to define new service structure types.
+   *  A macro used to define new service structure types.
    */
 
 #define FT_DEFINE_SERVICE( name )            \
@@ -487,9 +296,32 @@ FT_BEGIN_HEADER
 
   /* */
 
+  /*
+   *  The header files containing the services.
+   */
+
+#define FT_SERVICE_BDF_H                <freetype/internal/services/svbdf.h>
+#define FT_SERVICE_GLYPH_DICT_H         <freetype/internal/services/svgldict.h>
+#define FT_SERVICE_GX_VALIDATE_H        <freetype/internal/services/svgxval.h>
+#define FT_SERVICE_KERNING_H            <freetype/internal/services/svkern.h>
+#define FT_SERVICE_MULTIPLE_MASTERS_H   <freetype/internal/services/svmm.h>
+#define FT_SERVICE_OPENTYPE_VALIDATE_H  <freetype/internal/services/svotval.h>
+#define FT_SERVICE_PFR_H                <freetype/internal/services/svpfr.h>
+#define FT_SERVICE_POSTSCRIPT_CMAPS_H   <freetype/internal/services/svpscmap.h>
+#define FT_SERVICE_POSTSCRIPT_INFO_H    <freetype/internal/services/svpsinfo.h>
+#define FT_SERVICE_POSTSCRIPT_NAME_H    <freetype/internal/services/svpostnm.h>
+#define FT_SERVICE_SFNT_H               <freetype/internal/services/svsfnt.h>
+#define FT_SERVICE_TRUETYPE_ENGINE_H    <freetype/internal/services/svtteng.h>
+#define FT_SERVICE_TT_CMAP_H            <freetype/internal/services/svttcmap.h>
+#define FT_SERVICE_WINFNT_H             <freetype/internal/services/svwinfnt.h>
+#define FT_SERVICE_XFREE86_NAME_H       <freetype/internal/services/svxf86nm.h>
+#define FT_SERVICE_TRUETYPE_GLYF_H      <freetype/internal/services/svttglyf.h>
+
+ /* */
+
 FT_END_HEADER
 
-#endif /* FTSERV_H_ */
+#endif /* __FTSERV_H__ */
 
 
 /* END */

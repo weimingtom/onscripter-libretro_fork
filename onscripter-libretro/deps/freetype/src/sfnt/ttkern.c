@@ -1,38 +1,40 @@
-/****************************************************************************
- *
- * ttkern.c
- *
- *   Load the basic TrueType kerning table.  This doesn't handle
- *   kerning data within the GPOS table at the moment.
- *
- * Copyright (C) 1996-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ttkern.c                                                               */
+/*                                                                         */
+/*    Load the basic TrueType kerning table.  This doesn't handle          */
+/*    kerning data within the GPOS table at the moment.                    */
+/*                                                                         */
+/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006, 2007 by             */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#include <freetype/internal/ftdebug.h>
-#include <freetype/internal/ftstream.h>
-#include <freetype/tttags.h>
+#include <ft2build.h>
+#include FT_INTERNAL_DEBUG_H
+#include FT_INTERNAL_STREAM_H
+#include FT_TRUETYPE_TAGS_H
 #include "ttkern.h"
+#include "ttload.h"
 
 #include "sferrors.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  ttkern
+#define FT_COMPONENT  trace_ttkern
 
 
 #undef  TT_KERN_INDEX
@@ -58,16 +60,14 @@
 
     if ( table_size < 4 )  /* the case of a malformed table */
     {
-      FT_ERROR(( "tt_face_load_kern:"
-                 " kerning table is too small - ignored\n" ));
-      error = FT_THROW( Table_Missing );
+      FT_ERROR(( "kerning table is too small - ignored\n" ));
+      error = SFNT_Err_Table_Missing;
       goto Exit;
     }
 
     if ( FT_FRAME_EXTRACT( table_size, face->kern_table ) )
     {
-      FT_ERROR(( "tt_face_load_kern:"
-                 " could not extract kerning table\n" ));
+      FT_ERROR(( "could not extract kerning table\n" ));
       goto Exit;
     }
 
@@ -84,9 +84,9 @@
 
     for ( nn = 0; nn < num_tables; nn++ )
     {
-      FT_UInt    num_pairs, length, coverage, format;
+      FT_UInt    num_pairs, length, coverage;
       FT_Byte*   p_next;
-      FT_UInt32  mask = (FT_UInt32)1UL << nn;
+      FT_UInt32  mask = 1UL << nn;
 
 
       if ( p + 6 > p_limit )
@@ -94,45 +94,36 @@
 
       p_next = p;
 
-      p       += 2; /* skip version */
+      p += 2; /* skip version */
       length   = FT_NEXT_USHORT( p );
       coverage = FT_NEXT_USHORT( p );
 
-      if ( length <= 6 + 8 )
+      if ( length <= 6 )
         break;
 
       p_next += length;
 
-      if ( p_next > p_limit )  /* handle broken table */
-        p_next = p_limit;
-
-      format = coverage >> 8;
-
-      /* we currently only support format 0 kerning tables */
-      if ( format != 0 )
-        goto NextTable;
-
       /* only use horizontal kerning tables */
-      if ( ( coverage & 3U ) != 0x0001 ||
-           p + 8 > p_next              )
+      if ( ( coverage & ~8 ) != 0x0001 ||
+           p + 8 > p_limit             )
         goto NextTable;
 
       num_pairs = FT_NEXT_USHORT( p );
       p        += 6;
 
-      if ( ( p_next - p ) < 6 * (int)num_pairs ) /* handle broken count */
-        num_pairs = (FT_UInt)( ( p_next - p ) / 6 );
+      if ( p + 6 * num_pairs > p_limit )
+        goto NextTable;
 
       avail |= mask;
 
       /*
-       * Now check whether the pairs in this table are ordered.
-       * We then can use binary search.
+       *  Now check whether the pairs in this table are ordered.
+       *  We then can use binary search.
        */
       if ( num_pairs > 0 )
       {
-        FT_ULong  count;
-        FT_ULong  old_pair;
+        FT_UInt  count;
+        FT_UInt  old_pair;
 
 
         old_pair = FT_NEXT_ULONG( p );
@@ -144,7 +135,7 @@
 
 
           cur_pair = FT_NEXT_ULONG( p );
-          if ( cur_pair < old_pair )
+          if ( cur_pair <= old_pair )
             break;
 
           p += 2;
@@ -187,32 +178,21 @@
                        FT_UInt  left_glyph,
                        FT_UInt  right_glyph )
   {
-    FT_Int   result = 0;
-    FT_UInt  count, mask;
+    FT_Int    result = 0;
+    FT_UInt   count, mask = 1;
+    FT_Byte*  p       = face->kern_table;
 
-    FT_Byte*  p;
-    FT_Byte*  p_limit;
-
-
-    if ( !face->kern_table )
-      return result;
-
-    p       = face->kern_table;
-    p_limit = p + face->kern_table_size;
 
     p   += 4;
     mask = 0x0001;
 
-    for ( count = face->num_kern_tables;
-          count > 0 && p + 6 <= p_limit;
-          count--, mask <<= 1 )
+    for ( count = face->num_kern_tables; count > 0; count--, mask <<= 1 )
     {
       FT_Byte* base     = p;
-      FT_Byte* next;
+      FT_Byte* next     = base;
       FT_UInt  version  = FT_NEXT_USHORT( p );
       FT_UInt  length   = FT_NEXT_USHORT( p );
       FT_UInt  coverage = FT_NEXT_USHORT( p );
-      FT_UInt  num_pairs;
       FT_Int   value    = 0;
 
       FT_UNUSED( version );
@@ -220,26 +200,21 @@
 
       next = base + length;
 
-      if ( next > p_limit )  /* handle broken table */
-        next = p_limit;
-
       if ( ( face->kern_avail_bits & mask ) == 0 )
         goto NextTable;
 
-      FT_ASSERT( p + 8 <= next ); /* tested in tt_face_load_kern */
-
-      num_pairs = FT_NEXT_USHORT( p );
-      p        += 6;
-
-      if ( ( next - p ) < 6 * (int)num_pairs )  /* handle broken count  */
-        num_pairs = (FT_UInt)( ( next - p ) / 6 );
+      if ( p + 8 > next )
+        goto NextTable;
 
       switch ( coverage >> 8 )
       {
       case 0:
         {
-          FT_ULong  key0 = TT_KERN_INDEX( left_glyph, right_glyph );
+          FT_UInt   num_pairs = FT_NEXT_USHORT( p );
+          FT_ULong  key0      = TT_KERN_INDEX( left_glyph, right_glyph );
 
+
+          p += 6;
 
           if ( face->kern_order_bits & mask )   /* binary search */
           {
@@ -289,8 +264,8 @@
         break;
 
        /*
-        * We don't support format 2 because we haven't seen a single font
-        * using it in real life...
+        *  We don't support format 2 because we haven't seen a single font
+        *  using it in real life...
         */
 
       default:

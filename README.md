@@ -305,6 +305,13 @@ debug_load_menu.txt
 则不会出现空指针和闪退（俩游戏的情况一样）。我暂时不改这个bug，
 我估计可能需要整个替换deps下的freetype源代码才能修复这个问题，
 或者找找有没有更好的方法
+
+20250316, from
+freetype-2.13.0
+sdl_ttf-2.0.11
+downgrade (migrate) to ->
+freetype-2.3.5
+sdl_ttf-2.0.8
 ```
 * Steam游戏官方中文版, noesis02, NOESIS02-羽化, NOeSIS-羽化: ons和onsyuri版都闪退
 ```

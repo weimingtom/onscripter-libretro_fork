@@ -1,24 +1,29 @@
-/****************************************************************************
- *
- * ftgasp.c
- *
- *   Access of TrueType's `gasp' table (body).
- *
- * Copyright (C) 2007-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftgasp.c                                                               */
+/*                                                                         */
+/*    Access of TrueType's `gasp' table (body).                            */
+/*                                                                         */
+/*  Copyright 2007 by                                                      */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
+#include <ft2build.h>
+#if _MSC_VER > 1200 //VC 6
+#include FT_GASP_H
+#include FT_INTERNAL_TRUETYPE_TYPES_H
+#else
 #include <freetype/ftgasp.h>
 #include <freetype/internal/tttypes.h>
-
+#endif
 
   FT_EXPORT_DEF( FT_Int )
   FT_Get_Gasp( FT_Face  face,

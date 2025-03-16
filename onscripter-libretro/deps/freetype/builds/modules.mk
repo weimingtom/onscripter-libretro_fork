@@ -3,7 +3,7 @@
 #
 
 
-# Copyright (C) 1996-2023 by
+# Copyright 1996-2000, 2003, 2006 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -28,10 +28,10 @@ $(FTMODULE_H): $(MODULES_CFG)
 	$(FTMODULE_H_CREATE)
 	$(FTMODULE_H_DONE)
 
-ifneq ($(findstring $(PLATFORM),dos windows os2),)
+ifneq ($(findstring $(PLATFORM),dos win32 win16 os2),)
   OPEN_MODULE   := @echo$(space)
-  CLOSE_MODULE  :=  >> $(subst /,$(SEP),$(FTMODULE_H))
-  REMOVE_MODULE := @-$(DELETE) $(subst /,$(SEP),$(FTMODULE_H))
+  CLOSE_MODULE  :=  >> $(subst /,\,$(FTMODULE_H))
+  REMOVE_MODULE := @-$(DELETE) $(subst /,\,$(FTMODULE_H))
 else
   OPEN_MODULE   := @echo "
   CLOSE_MODULE  := " >> $(FTMODULE_H)
@@ -41,7 +41,7 @@ endif
 
 define FTMODULE_H_INIT
 $(REMOVE_MODULE)
-$(info Generating modules list in $(FTMODULE_H)...)
+@-echo Generating modules list in $(FTMODULE_H)...
 $(OPEN_MODULE)/* This is a generated file. */$(CLOSE_MODULE)
 endef
 
@@ -56,7 +56,7 @@ endef
 
 define FTMODULE_H_DONE
 $(OPEN_MODULE)/* EOF */$(CLOSE_MODULE)
-$(info done.)
+@echo done.
 endef
 
 

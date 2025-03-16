@@ -1,3 +1,15 @@
+see https://github.com/weimingtom/onscripter_en_fork
+
+freetype-2.13.0
+sdl_ttf-2.0.11
+
+downgrade (migrate) to ->
+
+freetype-2.3.5
+sdl_ttf-2.0.8
+
+-----------------
+
 onscripter-libretro\deps\onscripter-jh\ONScripter_text.cpp
 added:if (!info->ttf_font[0]) {
 return 0;

@@ -4,7 +4,7 @@
 #
 
 
-# Copyright (C) 1996-2023 by
+# Copyright 1996-2000, 2003, 2006 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -23,9 +23,8 @@ DELETE := rm -f
 CAT    := cat
 SEP    := /
 
-# This is used for `make refdoc' and `make refdoc-venv'
-#
-BIN := bin
+# we use a special devel ftoption.h
+DEVEL_DIR := $(TOP_DIR)/devel
 
 
 # library file name

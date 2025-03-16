@@ -47,14 +47,26 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
   base/ftsystem.c \
   base/ftbitmap.c \
   base/ftglyph.c \
-  base/ftstroke.c \
+  \
   autofit/autofit.c \
   psnames/psnames.c \
   sfnt/sfnt.c \
   truetype/truetype.c \
-  raster/raster.c \
+  \
   smooth/smooth.c \
+  \
+  cff/cff.c \
+  cid/type1cid.c \
+  gxvalid/gxvalid.c \
+  otvalid/otvalid.c \
+  psaux/psaux.c \
+  pshinter/pshinter.c \
+  type1/type1.c \
+  cache/ftcache.c \
 )
+
+#base/ftstroke.c 
+#raster/raster.c 
 
 # libjpeg-turbo
 SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\

@@ -1,100 +1,57 @@
-FreeType 2.13.0
-===============
+  Special notes to Unix users
+  ===========================
 
-Homepage: https://www.freetype.org
+  Please  read  the file  `docs/UPGRADE.UNIX'.  It contains  important
+  information regarding the installation  of FreeType on Unix systems,
+  especially GNU based operating systems like GNU/Linux.
 
-FreeType is a freely available software library to render fonts.
-
-It  is  written  in  C,   designed  to  be  small,  efficient,  highly
-customizable,  and portable  while capable  of producing  high-quality
-output (glyph images) of most vector and bitmap font formats.
-
-Please   read  the   `docs/CHANGES`   file,   it  contains   IMPORTANT
-INFORMATION.
-
-Read the files `docs/INSTALL*`  for installation instructions; see the
-file `docs/LICENSE.TXT` for the available licenses.
-
-For using FreeType's git repository  instead of a distribution bundle,
-please read file  `README.git`.  Note that you have  to actually clone
-the repository; using a snapshot will  not work (in other words, don't
-use gitlab's 'Download' button).
-
-The FreeType 2 API reference is located in directory `docs/reference`;
-use the file  `index.html` as the top entry point.   [Please note that
-currently  the search  function  for  locally installed  documentation
-doesn't work due to cross-site scripting issues.]
-
-Additional documentation is  available as a separate  package from our
-sites.  Go to
-
-  https://download.savannah.gnu.org/releases/freetype/
-
-and download one of the following files.
-
-  freetype-doc-2.13.0.tar.xz
-  freetype-doc-2.13.0.tar.gz
-  ftdoc2130.zip
-
-To view the documentation online, go to
-
-  https://www.freetype.org/freetype2/docs/
+  FreeType 2's  library is called `libfreetype',  FreeType 1's library
+  is called `libttf'.  They are *not* compatible!
 
 
-Mailing Lists
--------------
+  FreeType 2.3.5
+  ==============
 
-The preferred  way of  communication with the  FreeType team  is using
-e-mail lists.
+  Please   read   the  docs/CHANGES   file,   it  contains   IMPORTANT
+  INFORMATION.
 
-  general use and discussion:      freetype@nongnu.org
-  engine internals, porting, etc.: freetype-devel@nongnu.org
-  announcements:                   freetype-announce@nongnu.org
-  git repository tracker:          freetype-commit@nongnu.org
+  Read the files `docs/INSTALL' for installation instructions.
 
-The lists are moderated; see
+  The FreeType 2 API reference is located in `docs/reference'; use the
+  file   `ft2-doc.html'   as   the   top  entry   point.    Additional
+  documentation is available as a separate package from our sites.  Go
+  to
 
-  https://www.freetype.org/contact.html
+    http://download.savannah.gnu.org/releases/freetype/
 
-how to subscribe.
+  and download one of the following files.
 
-
-Bugs
-----
-
-Please submit bug reports at
-
-  https://gitlab.freedesktop.org/freetype/freetype/-/issues
-
-Alternatively,    you    might    report    bugs    by    e-mail    to
-`freetype-devel@nongnu.org`.    Don't  forget   to  send   a  detailed
-explanation of the problem -- there  is nothing worse than receiving a
-terse message that only says 'it doesn't work'.
+    freetype-doc-2.3.5.tar.bz2
+    freetype-doc-2.3.5.tar.gz
+    ftdoc235.zip
 
 
-Patches
--------
+  Bugs
+  ====
 
-For larger changes please provide merge requests at
+  Please report bugs  by e-mail to `freetype-devel@nongnu.org'.  Don't
+  forget to  send a  detailed explanation of  the problem --  there is
+  nothing  worse than  receiving a  terse message  that only  says `it
+  doesn't work'.
 
-  https://gitlab.freedesktop.org/freetype/freetype/-/merge_requests
+  Alternatively, you may submit a bug report at
 
-Alternatively, you can send patches to the `freetype-devel@nongnu.org`
-mailing list  -- and thank you  in advance for your  work on improving
-FreeType!
-
-Details on the process can be found here:
-
-  https://www.freetype.org/developer.html#patches
+    https://savannah.nongnu.org/bugs/?group=freetype
 
 
-Enjoy!
+  Enjoy!
 
-  The FreeType Team
+
+    The FreeType Team
 
 ----------------------------------------------------------------------
 
-Copyright (C) 2006-2023 by
+Copyright 2006, 2007 by
 David Turner, Robert Wilhelm, and Werner Lemberg.
 
 This  file is  part of  the FreeType  project, and  may only  be used,

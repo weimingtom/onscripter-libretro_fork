@@ -1,26 +1,26 @@
-/****************************************************************************
- *
- * svpfr.h
- *
- *   Internal PFR service functions (specification).
- *
- * Copyright (C) 2003-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  svpfr.h                                                                */
+/*                                                                         */
+/*    Internal PFR service functions (specification).                      */
+/*                                                                         */
+/*  Copyright 2003, 2006 by                                                */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef SVPFR_H_
-#define SVPFR_H_
+#ifndef __SVPFR_H__
+#define __SVPFR_H__
 
-#include <freetype/ftpfr.h>
-#include <freetype/internal/ftserv.h>
+#include FT_PFR_H
+#include FT_INTERNAL_SERVICE_H
 
 
 FT_BEGIN_HEADER
@@ -56,10 +56,11 @@ FT_BEGIN_HEADER
 
   };
 
+ /* */
 
 FT_END_HEADER
 
-#endif /* SVPFR_H_ */
+#endif /* __SVPFR_H__ */
 
 
 /* END */

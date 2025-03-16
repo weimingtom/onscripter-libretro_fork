@@ -1,33 +1,33 @@
-/****************************************************************************
- *
- * svsfnt.h
- *
- *   The FreeType SFNT table loading service (specification).
- *
- * Copyright (C) 2003-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  svsfnt.h                                                               */
+/*                                                                         */
+/*    The FreeType SFNT table loading service (specification).             */
+/*                                                                         */
+/*  Copyright 2003, 2004 by                                                */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef SVSFNT_H_
-#define SVSFNT_H_
+#ifndef __SVSFNT_H__
+#define __SVSFNT_H__
 
-#include <freetype/internal/ftserv.h>
-#include <freetype/tttables.h>
+#include FT_INTERNAL_SERVICE_H
+#include FT_TRUETYPE_TABLES_H
 
 
 FT_BEGIN_HEADER
 
 
   /*
-   * SFNT table loading service.
+   *  SFNT table loading service.
    */
 
 #define FT_SERVICE_ID_SFNT_TABLE  "sfnt-table"
@@ -58,7 +58,6 @@ FT_BEGIN_HEADER
   (*FT_SFNT_TableInfoFunc)( FT_Face    face,
                             FT_UInt    idx,
                             FT_ULong  *tag,
-                            FT_ULong  *offset,
                             FT_ULong  *length );
 
 
@@ -69,20 +68,13 @@ FT_BEGIN_HEADER
     FT_SFNT_TableInfoFunc  table_info;
   };
 
-
-#define FT_DEFINE_SERVICE_SFNT_TABLEREC( class_, load_, get_, info_ )  \
-  static const FT_Service_SFNT_TableRec  class_ =                      \
-  {                                                                    \
-    load_, get_, info_                                                 \
-  };
-
   /* */
 
 
 FT_END_HEADER
 
 
-#endif /* SVSFNT_H_ */
+#endif /* __SVSFNT_H__ */
 
 
 /* END */

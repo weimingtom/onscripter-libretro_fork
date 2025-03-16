@@ -3,7 +3,7 @@
 #
 
 
-# Copyright (C) 2000-2023 by
+# Copyright 2000, 2001, 2003, 2004, 2006 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -15,39 +15,32 @@
 
 # Cache driver directory
 #
-CACHE_DIR := $(SRC_DIR)/cache
-
+CACHE_DIR   := $(SRC_DIR)/cache
 
 # compilation flags for the driver
 #
-CACHE_COMPILE := $(CC) $(ANSIFLAGS)                              \
-                       $I$(subst /,$(COMPILER_SEP),$(CACHE_DIR)) \
-                       $(INCLUDE_FLAGS)                          \
-                       $(FT_CFLAGS)
+CACHE_COMPILE := $(FT_COMPILE) $I$(subst /,$(COMPILER_SEP),$(CACHE_DIR))
 
 
 # Cache driver sources (i.e., C files)
 #
 CACHE_DRV_SRC := $(CACHE_DIR)/ftcbasic.c \
                  $(CACHE_DIR)/ftccache.c \
-                 $(CACHE_DIR)/ftccmap.c  \
+                 $(CACHE_DIR)/ftccmap.c \
                  $(CACHE_DIR)/ftcglyph.c \
                  $(CACHE_DIR)/ftcimage.c \
                  $(CACHE_DIR)/ftcmanag.c \
                  $(CACHE_DIR)/ftcmru.c   \
                  $(CACHE_DIR)/ftcsbits.c
 
-
 # Cache driver headers
 #
-CACHE_DRV_H := $(CACHE_DIR)/ftccache.h \
-               $(CACHE_DIR)/ftccback.h \
+CACHE_DRV_H := $(CACHE_DIR)/ftccback.h \
                $(CACHE_DIR)/ftcerror.h \
                $(CACHE_DIR)/ftcglyph.h \
                $(CACHE_DIR)/ftcimage.h \
                $(CACHE_DIR)/ftcmanag.h \
-               $(CACHE_DIR)/ftcmru.h   \
-               $(CACHE_DIR)/ftcsbits.h
+               $(CACHE_DIR)/ftcmru.h
 
 
 # Cache driver object(s)

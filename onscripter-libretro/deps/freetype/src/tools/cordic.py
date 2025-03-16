@@ -1,32 +1,79 @@
-#!/usr/bin/env python3
-
 # compute arctangent table for CORDIC computations in fttrigon.c
-import math
+import sys, math
 
-# units  = 64*65536.0   # don't change !!
-units = 180 * 2 ** 16
-scale = units / math.pi
+#units  = 64*65536.0   # don't change !!
+units  = 256
+scale  = units/math.pi
 shrink = 1.0
-angles2 = []
+comma  = ""
 
-print("")
-print("table of arctan( 1/2^n ) for PI = " + repr(units / 65536.0) + " units")
+def calc_val( x ):
+    global units, shrink
+    angle  = math.atan(x)
+    shrink = shrink * math.cos(angle)
+    return angle/math.pi * units
 
-for n in range(1, 32):
+def  print_val( n, x ):
+    global comma
 
-    x = 0.5 ** n  # tangent value
+    lo  = int(x)
+    hi  = lo + 1
+    alo = math.atan(lo)
+    ahi = math.atan(hi)
+    ax  = math.atan(2.0**n)
 
-    angle = math.atan(x)  # arctangent
-    angle2 = round(angle * scale)  # arctangent in FT_Angle units
+    errlo = abs( alo - ax )
+    errhi = abs( ahi - ax )
+
+    if ( errlo < errhi ):
+      hi = lo
+
+    sys.stdout.write( comma + repr( int(hi) ) )
+    comma = ", "
+
+
+print ""
+print "table of arctan( 1/2^n ) for PI = " + repr(units/65536.0) + " units"
+
+# compute range of "i"
+r = [-1]
+r = r + range(32)
+
+for n in r:
+
+    if n >= 0:
+        x = 1.0/(2.0**n)    # tangent value
+    else:
+        x = 2.0**(-n)
+
+    angle  = math.atan(x)    # arctangent
+    angle2 = angle*scale     # arctangent in FT_Angle units
+
+    # determine which integer value for angle gives the best tangent
+    lo  = int(angle2)
+    hi  = lo + 1
+    tlo = math.tan(lo/scale)
+    thi = math.tan(hi/scale)
+
+    errlo = abs( tlo - x )
+    errhi = abs( thi - x )
+
+    angle2 = hi
+    if errlo < errhi:
+        angle2 = lo
 
     if angle2 <= 0:
         break
 
-    angles2.append(repr(int(angle2)))
-    shrink /= math.sqrt(1 + x * x)
+    sys.stdout.write( comma + repr( int(angle2) ) )
+    comma = ", "
 
-print(", ".join(angles2))
-print("shrink factor    = " + repr(shrink))
-print("shrink factor 2  = " + repr(int(shrink * (2 ** 32))))
-print("expansion factor = " + repr(1 / shrink))
-print("")
+    shrink = shrink * math.cos( angle2/scale)
+
+
+print
+print "shrink factor    = " + repr( shrink )
+print "shrink factor 2  = " + repr( shrink * (2.0**32) )
+print "expansion factor = " + repr(1/shrink)
+print ""
+

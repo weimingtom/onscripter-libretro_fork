@@ -1,28 +1,29 @@
-/****************************************************************************
- *
- * ttkern.h
- *
- *   Load the basic TrueType kerning table.  This doesn't handle
- *   kerning data within the GPOS table at the moment.
- *
- * Copyright (C) 1996-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ttkern.h                                                               */
+/*                                                                         */
+/*    Load the basic TrueType kerning table.  This doesn't handle          */
+/*    kerning data within the GPOS table at the moment.                    */
+/*                                                                         */
+/*  Copyright 1996-2001, 2002, 2005, 2007 by                               */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef TTKERN_H_
-#define TTKERN_H_
+#ifndef __TTKERN_H__
+#define __TTKERN_H__
 
 
-#include <freetype/internal/ftstream.h>
-#include <freetype/internal/tttypes.h>
+#include <ft2build.h>
+#include FT_INTERNAL_STREAM_H
+#include FT_INTERNAL_TRUETYPE_TYPES_H
 
 
 FT_BEGIN_HEADER
@@ -45,7 +46,7 @@ FT_BEGIN_HEADER
 
 FT_END_HEADER
 
-#endif /* TTKERN_H_ */
+#endif /* __TTKERN_H__ */
 
 
 /* END */

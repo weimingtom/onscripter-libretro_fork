@@ -1,56 +1,55 @@
-/****************************************************************************
- *
- * cidobjs.c
- *
- *   CID objects manager (body).
- *
- * Copyright (C) 1996-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  cidobjs.c                                                              */
+/*                                                                         */
+/*    CID objects manager (body).                                          */
+/*                                                                         */
+/*  Copyright 1996-2001, 2002, 2003, 2004, 2005, 2006 by                   */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#include <freetype/internal/ftdebug.h>
-#include <freetype/internal/ftstream.h>
+#include <ft2build.h>
+#include FT_INTERNAL_DEBUG_H
+#include FT_INTERNAL_STREAM_H
 
 #include "cidgload.h"
 #include "cidload.h"
 
-#include <freetype/internal/services/svpscmap.h>
-#include <freetype/internal/psaux.h>
-#include <freetype/internal/pshints.h>
-#include <freetype/ftdriver.h>
+#include FT_SERVICE_POSTSCRIPT_CMAPS_H
+#include FT_INTERNAL_POSTSCRIPT_AUX_H
+#include FT_INTERNAL_POSTSCRIPT_HINTS_H
 
 #include "ciderrs.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  cidobjs
+#define FT_COMPONENT  trace_cidobjs
 
 
-  /**************************************************************************
-   *
-   *                           SLOT  FUNCTIONS
-   *
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /*                            SLOT  FUNCTIONS                            */
+  /*                                                                       */
+  /*************************************************************************/
 
   FT_LOCAL_DEF( void )
   cid_slot_done( FT_GlyphSlot  slot )
   {
-    if ( slot->internal )
-      slot->internal->glyph_hints = NULL;
+    slot->internal->glyph_hints = 0;
   }
 
 
@@ -85,11 +84,11 @@
   }
 
 
-  /**************************************************************************
-   *
-   *                          SIZE  FUNCTIONS
-   *
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /*                           SIZE  FUNCTIONS                             */
+  /*                                                                       */
+  /*************************************************************************/
 
 
   static PSH_Globals_Funcs
@@ -114,16 +113,16 @@
     CID_Size  size = (CID_Size)cidsize;
 
 
-    if ( cidsize->internal->module_data )
+    if ( cidsize->internal )
     {
       PSH_Globals_Funcs  funcs;
 
 
       funcs = cid_size_get_globals_funcs( size );
       if ( funcs )
-        funcs->destroy( (PSH_Globals)cidsize->internal->module_data );
+        funcs->destroy( (PSH_Globals)cidsize->internal );
 
-      cidsize->internal->module_data = NULL;
+      cidsize->internal = 0;
     }
   }
 
@@ -132,7 +131,7 @@
   cid_size_init( FT_Size  cidsize )     /* CID_Size */
   {
     CID_Size           size  = (CID_Size)cidsize;
-    FT_Error           error = FT_Err_Ok;
+    FT_Error           error = 0;
     PSH_Globals_Funcs  funcs = cid_size_get_globals_funcs( size );
 
 
@@ -146,146 +145,135 @@
 
       error = funcs->create( cidsize->face->memory, priv, &globals );
       if ( !error )
-        cidsize->internal->module_data = globals;
+        cidsize->internal = (FT_Size_Internal)(void*)globals;
     }
 
     return error;
   }
 
 
-  FT_LOCAL_DEF( FT_Error )
+  FT_LOCAL( FT_Error )
   cid_size_request( FT_Size          size,
                     FT_Size_Request  req )
   {
-    FT_Error  error;
-
     PSH_Globals_Funcs  funcs;
 
 
-    error = FT_Request_Metrics( size->face, req );
-    if ( error )
-      goto Exit;
+    FT_Request_Metrics( size->face, req );
 
     funcs = cid_size_get_globals_funcs( (CID_Size)size );
 
     if ( funcs )
-      funcs->set_scale( (PSH_Globals)size->internal->module_data,
+      funcs->set_scale( (PSH_Globals)size->internal,
                         size->metrics.x_scale,
                         size->metrics.y_scale,
                         0, 0 );
 
-  Exit:
-    return error;
+    return CID_Err_Ok;
   }
 
 
-  /**************************************************************************
-   *
-   *                          FACE  FUNCTIONS
-   *
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /*                           FACE  FUNCTIONS                             */
+  /*                                                                       */
+  /*************************************************************************/
 
-  /**************************************************************************
-   *
-   * @Function:
-   *   cid_face_done
-   *
-   * @Description:
-   *   Finalizes a given face object.
-   *
-   * @Input:
-   *   face ::
-   *     A pointer to the face object to destroy.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* <Function>                                                            */
+  /*    cid_face_done                                                      */
+  /*                                                                       */
+  /* <Description>                                                         */
+  /*    Finalizes a given face object.                                     */
+  /*                                                                       */
+  /* <Input>                                                               */
+  /*    face :: A pointer to the face object to destroy.                   */
+  /*                                                                       */
   FT_LOCAL_DEF( void )
   cid_face_done( FT_Face  cidface )         /* CID_Face */
   {
-    CID_Face      face = (CID_Face)cidface;
-    FT_Memory     memory;
-    CID_FaceInfo  cid;
-    PS_FontInfo   info;
+    CID_Face   face = (CID_Face)cidface;
+    FT_Memory  memory;
 
 
-    if ( !face )
-      return;
-
-    cid    = &face->cid;
-    info   = &cid->font_info;
-    memory = cidface->memory;
-
-    /* release subrs */
-    if ( face->subrs )
+    if ( face )
     {
-      FT_UInt  n;
+      CID_FaceInfo  cid  = &face->cid;
+      PS_FontInfo   info = &cid->font_info;
 
 
-      for ( n = 0; n < cid->num_dicts; n++ )
+      memory = cidface->memory;
+
+      /* release subrs */
+      if ( face->subrs )
       {
-        CID_Subrs  subr = face->subrs + n;
+        FT_Int  n;
 
 
-        if ( subr->code )
+        for ( n = 0; n < cid->num_dicts; n++ )
         {
-          FT_FREE( subr->code[0] );
-          FT_FREE( subr->code );
+          CID_Subrs  subr = face->subrs + n;
+
+
+          if ( subr->code )
+          {
+            FT_FREE( subr->code[0] );
+            FT_FREE( subr->code );
+          }
         }
+
+        FT_FREE( face->subrs );
       }
 
-      FT_FREE( face->subrs );
+      /* release FontInfo strings */
+      FT_FREE( info->version );
+      FT_FREE( info->notice );
+      FT_FREE( info->full_name );
+      FT_FREE( info->family_name );
+      FT_FREE( info->weight );
+
+      /* release font dictionaries */
+      FT_FREE( cid->font_dicts );
+      cid->num_dicts = 0;
+
+      /* release other strings */
+      FT_FREE( cid->cid_font_name );
+      FT_FREE( cid->registry );
+      FT_FREE( cid->ordering );
+
+      cidface->family_name = 0;
+      cidface->style_name  = 0;
+
+      FT_FREE( face->binary_data );
+      FT_FREE( face->cid_stream );
     }
-
-    /* release FontInfo strings */
-    FT_FREE( info->version );
-    FT_FREE( info->notice );
-    FT_FREE( info->full_name );
-    FT_FREE( info->family_name );
-    FT_FREE( info->weight );
-
-    /* release font dictionaries */
-    FT_FREE( cid->font_dicts );
-    cid->num_dicts = 0;
-
-    /* release other strings */
-    FT_FREE( cid->cid_font_name );
-    FT_FREE( cid->registry );
-    FT_FREE( cid->ordering );
-
-    cidface->family_name = NULL;
-    cidface->style_name  = NULL;
-
-    FT_FREE( face->binary_data );
-    FT_FREE( face->cid_stream );
   }
 
 
-  /**************************************************************************
-   *
-   * @Function:
-   *   cid_face_init
-   *
-   * @Description:
-   *   Initializes a given CID face object.
-   *
-   * @Input:
-   *   stream ::
-   *     The source font stream.
-   *
-   *   face_index ::
-   *     The index of the font face in the resource.
-   *
-   *   num_params ::
-   *     Number of additional generic parameters.  Ignored.
-   *
-   *   params ::
-   *     Additional generic parameters.  Ignored.
-   *
-   * @InOut:
-   *   face ::
-   *     The newly built face object.
-   *
-   * @Return:
-   *   FreeType error code.  0 means success.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* <Function>                                                            */
+  /*    cid_face_init                                                      */
+  /*                                                                       */
+  /* <Description>                                                         */
+  /*    Initializes a given CID face object.                               */
+  /*                                                                       */
+  /* <Input>                                                               */
+  /*    stream     :: The source font stream.                              */
+  /*                                                                       */
+  /*    face_index :: The index of the font face in the resource.          */
+  /*                                                                       */
+  /*    num_params :: Number of additional generic parameters.  Ignored.   */
+  /*                                                                       */
+  /*    params     :: Additional generic parameters.  Ignored.             */
+  /*                                                                       */
+  /* <InOut>                                                               */
+  /*    face       :: The newly built face object.                         */
+  /*                                                                       */
+  /* <Return>                                                              */
+  /*    FreeType error code.  0 means success.                             */
+  /*                                                                       */
   FT_LOCAL_DEF( FT_Error )
   cid_face_init( FT_Stream      stream,
                  FT_Face        cidface,        /* CID_Face */
@@ -311,13 +299,6 @@
       psaux = (PSAux_Service)FT_Get_Module_Interface(
                 FT_FACE_LIBRARY( face ), "psaux" );
 
-      if ( !psaux )
-      {
-        FT_ERROR(( "cid_face_init: cannot access `psaux' module\n" ));
-        error = FT_THROW( Missing_Module );
-        goto Exit;
-      }
-
       face->psaux = psaux;
     }
 
@@ -329,8 +310,6 @@
 
       face->pshinter = pshinter;
     }
-
-    FT_TRACE2(( "CID driver\n" ));
 
     /* open the tokenizer; this will also check the font format */
     if ( FT_STREAM_SEEK( 0 ) )
@@ -345,11 +324,10 @@
       goto Exit;
 
     /* check the face index */
-    /* XXX: handle CID fonts with more than a single face */
-    if ( ( face_index & 0xFFFF ) != 0 )
+    if ( face_index != 0 )
     {
       FT_ERROR(( "cid_face_init: invalid face index\n" ));
-      error = FT_THROW( Invalid_Argument );
+      error = CID_Err_Invalid_Argument;
       goto Exit;
     }
 
@@ -363,14 +341,13 @@
       PS_FontInfo   info = &cid->font_info;
 
 
-      cidface->num_glyphs   = (FT_Long)cid->cid_count;
+      cidface->num_glyphs   = cid->cid_count;
       cidface->num_charmaps = 0;
 
-      cidface->face_index = face_index & 0xFFFF;
-
-      cidface->face_flags |= FT_FACE_FLAG_SCALABLE   | /* scalable outlines */
-                             FT_FACE_FLAG_HORIZONTAL | /* horizontal data   */
-                             FT_FACE_FLAG_HINTER;      /* has native hinter */
+      cidface->face_index = face_index;
+      cidface->face_flags = FT_FACE_FLAG_SCALABLE   | /* scalable outlines */
+                            FT_FACE_FLAG_HORIZONTAL | /* horizontal data   */
+                            FT_FACE_FLAG_HINTER;      /* has native hinter */
 
       if ( info->is_fixed_pitch )
         cidface->face_flags |= FT_FACE_FLAG_FIXED_WIDTH;
@@ -433,13 +410,12 @@
 
       /* no embedded bitmap support */
       cidface->num_fixed_sizes = 0;
-      cidface->available_sizes = NULL;
+      cidface->available_sizes = 0;
 
-      cidface->bbox.xMin =   cid->font_bbox.xMin            >> 16;
-      cidface->bbox.yMin =   cid->font_bbox.yMin            >> 16;
-      /* no `U' suffix here to 0xFFFF! */
-      cidface->bbox.xMax = ( cid->font_bbox.xMax + 0xFFFF ) >> 16;
-      cidface->bbox.yMax = ( cid->font_bbox.yMax + 0xFFFF ) >> 16;
+      cidface->bbox.xMin =   cid->font_bbox.xMin             >> 16;
+      cidface->bbox.yMin =   cid->font_bbox.yMin             >> 16;
+      cidface->bbox.xMax = ( cid->font_bbox.xMax + 0xFFFFU ) >> 16;
+      cidface->bbox.yMax = ( cid->font_bbox.yMax + 0xFFFFU ) >> 16;
 
       if ( !cidface->units_per_EM )
         cidface->units_per_EM = 1000;
@@ -460,71 +436,40 @@
   }
 
 
-  /**************************************************************************
-   *
-   * @Function:
-   *   cid_driver_init
-   *
-   * @Description:
-   *   Initializes a given CID driver object.
-   *
-   * @Input:
-   *   driver ::
-   *     A handle to the target driver object.
-   *
-   * @Return:
-   *   FreeType error code.  0 means success.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* <Function>                                                            */
+  /*    cid_driver_init                                                    */
+  /*                                                                       */
+  /* <Description>                                                         */
+  /*    Initializes a given CID driver object.                             */
+  /*                                                                       */
+  /* <Input>                                                               */
+  /*    driver :: A handle to the target driver object.                    */
+  /*                                                                       */
+  /* <Return>                                                              */
+  /*    FreeType error code.  0 means success.                             */
+  /*                                                                       */
   FT_LOCAL_DEF( FT_Error )
-  cid_driver_init( FT_Module  module )
+  cid_driver_init( FT_Module  driver )
   {
-    PS_Driver  driver = (PS_Driver)module;
+    FT_UNUSED( driver );
 
-    FT_UInt32  seed;
-
-
-    /* set default property values, cf. `ftt1drv.h' */
-    driver->hinting_engine = FT_HINTING_ADOBE;
-
-    driver->no_stem_darkening = TRUE;
-
-    driver->darken_params[0] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_X1;
-    driver->darken_params[1] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y1;
-    driver->darken_params[2] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_X2;
-    driver->darken_params[3] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y2;
-    driver->darken_params[4] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_X3;
-    driver->darken_params[5] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y3;
-    driver->darken_params[6] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_X4;
-    driver->darken_params[7] = CFF_CONFIG_OPTION_DARKENING_PARAMETER_Y4;
-
-    /* compute random seed from some memory addresses */
-    seed = (FT_UInt32)( (FT_Offset)(char*)&seed          ^
-                        (FT_Offset)(char*)&module        ^
-                        (FT_Offset)(char*)module->memory );
-    seed = seed ^ ( seed >> 10 ) ^ ( seed >> 20 );
-
-    driver->random_seed = (FT_Int32)seed;
-    if ( driver->random_seed < 0 )
-      driver->random_seed = -driver->random_seed;
-    else if ( driver->random_seed == 0 )
-      driver->random_seed = 123456789;
-
-    return FT_Err_Ok;
+    return CID_Err_Ok;
   }
 
 
-  /**************************************************************************
-   *
-   * @Function:
-   *   cid_driver_done
-   *
-   * @Description:
-   *   Finalizes a given CID driver.
-   *
-   * @Input:
-   *   driver ::
-   *     A handle to the target CID driver.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* <Function>                                                            */
+  /*    cid_driver_done                                                    */
+  /*                                                                       */
+  /* <Description>                                                         */
+  /*    Finalizes a given CID driver.                                      */
+  /*                                                                       */
+  /* <Input>                                                               */
+  /*    driver :: A handle to the target CID driver.                       */
+  /*                                                                       */
   FT_LOCAL_DEF( void )
   cid_driver_done( FT_Module  driver )
   {

@@ -1,42 +1,41 @@
-/****************************************************************************
- *
- * gxvbsln.c
- *
- *   TrueTypeGX/AAT bsln table validation (body).
- *
- * Copyright (C) 2004-2023 by
- * suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  gxvbsln.c                                                              */
+/*                                                                         */
+/*    TrueTypeGX/AAT bsln table validation (body).                         */
+/*                                                                         */
+/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  gxvbsln
+#define FT_COMPONENT  trace_gxvbsln
 
 
   /*************************************************************************/
@@ -72,11 +71,11 @@
 
   static void
   gxv_bsln_LookupValue_validate( FT_UShort            glyph,
-                                 GXV_LookupValueCPtr  value_p,
-                                 GXV_Validator        gxvalid )
+                                 GXV_LookupValueDesc  value,
+                                 GXV_Validator        valid )
   {
-    FT_UShort     v = value_p->u;
-    FT_UShort*    ctlPoints;
+    FT_UShort   v = value.u;
+    FT_UShort*  ctlPoints;
 
     FT_UNUSED( glyph );
 
@@ -123,9 +122,9 @@
 
   static GXV_LookupValueDesc
   gxv_bsln_LookupFmt4_transit( FT_UShort            relative_gindex,
-                               GXV_LookupValueCPtr  base_value_p,
+                               GXV_LookupValueDesc  base_value,
                                FT_Bytes             lookuptbl_limit,
-                               GXV_Validator        gxvalid )
+                               GXV_Validator        valid )
   {
     FT_Bytes             p;
     FT_Bytes             limit;
@@ -133,10 +132,10 @@
     GXV_LookupValueDesc  value;
 
     /* XXX: check range ? */
-    offset = (FT_UShort)( base_value_p->u +
+    offset = (FT_UShort)( base_value.u +
                           ( relative_gindex * sizeof ( FT_UShort ) ) );
 
-    p     = gxvalid->lookuptbl_head + offset;
+    p     = valid->lookuptbl_head + offset;
     limit = lookuptbl_limit;
     GXV_LIMIT_CHECK( 2 );
 
@@ -149,7 +148,7 @@
   static void
   gxv_bsln_parts_fmt0_validate( FT_Bytes       tables,
                                 FT_Bytes       limit,
-                                GXV_Validator  gxvalid )
+                                GXV_Validator  valid )
   {
     FT_Bytes  p = tables;
 
@@ -159,7 +158,7 @@
     /* deltas */
     GXV_LIMIT_CHECK( 2 * GXV_BSLN_VALUE_COUNT );
 
-    gxvalid->table_data = NULL;      /* No ctlPoints here. */
+    valid->table_data = NULL;      /* No ctlPoints here. */
 
     GXV_EXIT;
   }
@@ -168,7 +167,7 @@
   static void
   gxv_bsln_parts_fmt1_validate( FT_Bytes       tables,
                                 FT_Bytes       limit,
-                                GXV_Validator  gxvalid )
+                                GXV_Validator  valid )
   {
     FT_Bytes  p = tables;
 
@@ -176,15 +175,15 @@
     GXV_NAME_ENTER( "parts format 1" );
 
     /* deltas */
-    gxv_bsln_parts_fmt0_validate( p, limit, gxvalid );
+    gxv_bsln_parts_fmt0_validate( p, limit, valid );
 
     /* mappingData */
-    gxvalid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
-    gxvalid->lookupval_func   = gxv_bsln_LookupValue_validate;
-    gxvalid->lookupfmt4_trans = gxv_bsln_LookupFmt4_transit;
+    valid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
+    valid->lookupval_func   = gxv_bsln_LookupValue_validate;
+    valid->lookupfmt4_trans = gxv_bsln_LookupFmt4_transit;
     gxv_LookupTable_validate( p + 2 * GXV_BSLN_VALUE_COUNT,
                               limit,
-                              gxvalid );
+                              valid );
 
     GXV_EXIT;
   }
@@ -193,7 +192,7 @@
   static void
   gxv_bsln_parts_fmt2_validate( FT_Bytes       tables,
                                 FT_Bytes       limit,
-                                GXV_Validator  gxvalid )
+                                GXV_Validator  valid )
   {
     FT_Bytes   p = tables;
 
@@ -212,7 +211,7 @@
     stdGlyph = FT_NEXT_USHORT( p );
     GXV_TRACE(( " (stdGlyph = %u)\n", stdGlyph ));
 
-    gxv_glyphid_validate( stdGlyph, gxvalid );
+    gxv_glyphid_validate( stdGlyph, valid );
 
     /* Record the position of ctlPoints */
     GXV_BSLN_DATA( ctlPoints_p ) = p;
@@ -227,7 +226,7 @@
           FT_INVALID_DATA;
       }
       else
-        gxv_ctlPoint_validate( stdGlyph, ctlPoint, gxvalid );
+        gxv_ctlPoint_validate( stdGlyph, (FT_Short)ctlPoint, valid );
     }
 
     GXV_EXIT;
@@ -237,7 +236,7 @@
   static void
   gxv_bsln_parts_fmt3_validate( FT_Bytes       tables,
                                 FT_Bytes       limit,
-                                GXV_Validator  gxvalid)
+                                GXV_Validator  valid)
   {
     FT_Bytes  p = tables;
 
@@ -245,15 +244,15 @@
     GXV_NAME_ENTER( "parts format 3" );
 
     /* stdGlyph + ctlPoints */
-    gxv_bsln_parts_fmt2_validate( p, limit, gxvalid );
+    gxv_bsln_parts_fmt2_validate( p, limit, valid );
 
     /* mappingData */
-    gxvalid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
-    gxvalid->lookupval_func   = gxv_bsln_LookupValue_validate;
-    gxvalid->lookupfmt4_trans = gxv_bsln_LookupFmt4_transit;
+    valid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
+    valid->lookupval_func   = gxv_bsln_LookupValue_validate;
+    valid->lookupfmt4_trans = gxv_bsln_LookupFmt4_transit;
     gxv_LookupTable_validate( p + ( 2 + 2 * GXV_BSLN_VALUE_COUNT ),
                               limit,
-                              gxvalid );
+                              valid );
 
     GXV_EXIT;
   }
@@ -272,8 +271,8 @@
                      FT_Face       face,
                      FT_Validator  ftvalid )
   {
-    GXV_ValidatorRec  gxvalidrec;
-    GXV_Validator     gxvalid = &gxvalidrec;
+    GXV_ValidatorRec  validrec;
+    GXV_Validator     valid = &validrec;
 
     GXV_bsln_DataRec  bslnrec;
     GXV_bsln_Data     bsln = &bslnrec;
@@ -294,9 +293,9 @@
     };
 
 
-    gxvalid->root       = ftvalid;
-    gxvalid->table_data = bsln;
-    gxvalid->face       = face;
+    valid->root       = ftvalid;
+    valid->table_data = bsln;
+    valid->face       = face;
 
     FT_TRACE3(( "validating `bsln' table\n" ));
     GXV_INIT;
@@ -321,7 +320,7 @@
 
     bsln->defaultBaseline = defaultBaseline;
 
-    fmt_funcs_table[format]( p, limit, gxvalid );
+    fmt_funcs_table[format]( p, limit, valid );
 
     FT_TRACE4(( "\n" ));
   }

@@ -1,35 +1,35 @@
-/****************************************************************************
- *
- * svgxval.h
- *
- *   FreeType API for validating TrueTypeGX/AAT tables (specification).
- *
- * Copyright (C) 2004-2023 by
- * Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  svgxval.h                                                              */
+/*                                                                         */
+/*    FreeType API for validating TrueTypeGX/AAT tables (specification).   */
+/*                                                                         */
+/*  Copyright 2004, 2005 by                                                */
+/*  Masatake YAMATO, Red Hat K.K.,                                         */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef SVGXVAL_H_
-#define SVGXVAL_H_
+#ifndef __SVGXVAL_H__
+#define __SVGXVAL_H__
 
-#include <freetype/ftgxval.h>
-#include <freetype/internal/ftvalid.h>
+#include FT_GX_VALIDATE_H
+#include FT_INTERNAL_VALIDATE_H
 
 FT_BEGIN_HEADER
 
@@ -66,7 +66,7 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 
-#endif /* SVGXVAL_H_ */
+#endif /* __SVGXVAL_H__ */
 
 
 /* END */

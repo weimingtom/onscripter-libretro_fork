@@ -1,51 +1,51 @@
-/****************************************************************************
- *
- * ftcmru.h
- *
- *   Simple MRU list-cache (specification).
- *
- * Copyright (C) 2000-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftcmru.h                                                               */
+/*                                                                         */
+/*    Simple MRU list-cache (specification).                               */
+/*                                                                         */
+/*  Copyright 2000-2001, 2003, 2004, 2005, 2006 by                         */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-  /**************************************************************************
-   *
-   * An MRU is a list that cannot hold more than a certain number of
-   * elements (`max_elements').  All elements in the list are sorted in
-   * least-recently-used order, i.e., the `oldest' element is at the tail
-   * of the list.
-   *
-   * When doing a lookup (either through `Lookup()' or `Lookup_Node()'),
-   * the list is searched for an element with the corresponding key.  If
-   * it is found, the element is moved to the head of the list and is
-   * returned.
-   *
-   * If no corresponding element is found, the lookup routine will try to
-   * obtain a new element with the relevant key.  If the list is already
-   * full, the oldest element from the list is discarded and replaced by a
-   * new one; a new element is added to the list otherwise.
-   *
-   * Note that it is possible to pre-allocate the element list nodes.
-   * This is handy if `max_elements' is sufficiently small, as it saves
-   * allocations/releases during the lookup process.
-   *
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* An MRU is a list that cannot hold more than a certain number of       */
+  /* elements (`max_elements').  All elements in the list are sorted in    */
+  /* least-recently-used order, i.e., the `oldest' element is at the tail  */
+  /* of the list.                                                          */
+  /*                                                                       */
+  /* When doing a lookup (either through `Lookup()' or `Lookup_Node()'),   */
+  /* the list is searched for an element with the corresponding key.  If   */
+  /* it is found, the element is moved to the head of the list and is      */
+  /* returned.                                                             */
+  /*                                                                       */
+  /* If no corresponding element is found, the lookup routine will try to  */
+  /* obtain a new element with the relevant key.  If the list is already   */
+  /* full, the oldest element from the list is discarded and replaced by a */
+  /* new one; a new element is added to the list otherwise.                */
+  /*                                                                       */
+  /* Note that it is possible to pre-allocate the element list nodes.      */
+  /* This is handy if `max_elements' is sufficiently small, as it saves    */
+  /* allocations/releases during the lookup process.                       */
+  /*                                                                       */
+  /*************************************************************************/
 
 
-#ifndef FTCMRU_H_
-#define FTCMRU_H_
+#ifndef __FTCMRU_H__
+#define __FTCMRU_H__
 
 
-#include <freetype/freetype.h>
-#include <freetype/internal/compiler-macros.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 #ifdef FREETYPE_H
 #error "freetype.h of FreeType 1 has been loaded!"
@@ -107,15 +107,13 @@ FT_BEGIN_HEADER
 
   typedef struct  FTC_MruListClassRec_
   {
-    FT_Offset                node_size;
-
+    FT_UInt                  node_size;
     FTC_MruNode_CompareFunc  node_compare;
     FTC_MruNode_InitFunc     node_init;
     FTC_MruNode_ResetFunc    node_reset;
     FTC_MruNode_DoneFunc     node_done;
 
   } FTC_MruListClassRec;
-
 
   typedef struct  FTC_MruListRec_
   {
@@ -165,10 +163,10 @@ FT_BEGIN_HEADER
   FT_BEGIN_STMNT                                                            \
     FTC_MruNode*             _pfirst  = &(list)->nodes;                     \
     FTC_MruNode_CompareFunc  _compare = (FTC_MruNode_CompareFunc)(compare); \
-    FTC_MruNode              _first, _node;                                 \
+    FTC_MruNode              _first, _node, *_pnode;                        \
                                                                             \
                                                                             \
-    error  = FT_Err_Ok;                                                     \
+    error  = 0;                                                             \
     _first = *(_pfirst);                                                    \
     _node  = NULL;                                                          \
                                                                             \
@@ -182,16 +180,17 @@ FT_BEGIN_HEADER
           if ( _node != _first )                                            \
             FTC_MruNode_Up( _pfirst, _node );                               \
                                                                             \
-          node = _node;                                                     \
-          goto MruOk_;                                                      \
+          _pnode = (FTC_MruNode*)(void*)&(node);                            \
+          *_pnode = _node;                                                  \
+          goto _MruOk;                                                      \
         }                                                                   \
         _node = _node->next;                                                \
                                                                             \
-      } while ( _node != _first);                                           \
+      } while ( _node != _first) ;                                          \
     }                                                                       \
                                                                             \
     error = FTC_MruList_New( (list), (key), (FTC_MruNode*)(void*)&(node) ); \
-  MruOk_:                                                                   \
+  _MruOk:                                                                   \
     ;                                                                       \
   FT_END_STMNT
 
@@ -242,7 +241,7 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 
-#endif /* FTCMRU_H_ */
+#endif /* __FTCMRU_H__ */
 
 
 /* END */

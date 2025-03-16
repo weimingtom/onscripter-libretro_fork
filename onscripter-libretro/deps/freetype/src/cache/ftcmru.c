@@ -1,25 +1,26 @@
-/****************************************************************************
- *
- * ftcmru.c
- *
- *   FreeType MRU support (body).
- *
- * Copyright (C) 2003-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftcmru.c                                                               */
+/*                                                                         */
+/*    FreeType MRU support (body).                                         */
+/*                                                                         */
+/*  Copyright 2003, 2004, 2006 by                                          */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#include <freetype/ftcache.h>
+#include <ft2build.h>
+#include FT_CACHE_H
 #include "ftcmru.h"
-#include <freetype/internal/ftobjs.h>
-#include <freetype/internal/ftdebug.h>
+#include FT_INTERNAL_OBJECTS_H
+#include FT_INTERNAL_DEBUG_H
 
 #include "ftcerror.h"
 
@@ -45,7 +46,7 @@
         {
           if ( cnode == node )
           {
-            fprintf( stderr, "FTC_MruNode_Prepend: invalid action\n" );
+            fprintf( stderr, "FTC_MruNode_Prepend: invalid action!\n" );
             exit( 2 );
           }
           cnode = cnode->next;
@@ -75,7 +76,7 @@
     FTC_MruNode  first = *plist;
 
 
-    FT_ASSERT( first );
+    FT_ASSERT( first != NULL );
 
     if ( first != node )
     {
@@ -93,7 +94,7 @@
 
         } while ( cnode != first );
 
-        fprintf( stderr, "FTC_MruNode_Up: invalid action\n" );
+        fprintf( stderr, "FTC_MruNode_Up: invalid action!\n" );
         exit( 2 );
       Ok:
       }
@@ -125,7 +126,7 @@
     FTC_MruNode  prev, next;
 
 
-    FT_ASSERT( first );
+    FT_ASSERT( first != NULL );
 
 #ifdef FT_DEBUG_ERROR
       {
@@ -140,7 +141,7 @@
 
         } while ( cnode != first );
 
-        fprintf( stderr, "FTC_MruNode_Remove: invalid action\n" );
+        fprintf( stderr, "FTC_MruNode_Remove: invalid action!\n" );
         exit( 2 );
       Ok:
       }
@@ -160,7 +161,7 @@
       *plist = NULL;
     }
     else if ( node == first )
-      *plist = next;
+        *plist = next;
   }
 
 
@@ -237,7 +238,7 @@
                    FTC_MruNode  *anode )
   {
     FT_Error     error;
-    FTC_MruNode  node   = NULL;
+    FTC_MruNode  node;
     FT_Memory    memory = list->memory;
 
 
@@ -262,17 +263,15 @@
       if ( list->clazz.node_done )
         list->clazz.node_done( node, list->data );
     }
-
-    /* zero new node in case of node_init failure */
     else if ( FT_ALLOC( node, list->clazz.node_size ) )
-      goto Exit;
+        goto Exit;
 
     error = list->clazz.node_init( node, key, list->data );
     if ( error )
       goto Fail;
 
-    FTC_MruNode_Prepend( &list->nodes, node );
-    list->num_nodes++;
+      FTC_MruNode_Prepend( &list->nodes, node );
+      list->num_nodes++;
 
   Exit:
     *anode = node;
@@ -297,7 +296,7 @@
 
 
     node = FTC_MruList_Find( list, key );
-    if ( !node )
+    if ( node == NULL )
       return FTC_MruList_New( list, key, anode );
 
     *anode = node;
@@ -317,7 +316,7 @@
 
 
       if ( list->clazz.node_done )
-        list->clazz.node_done( node, list->data );
+       list->clazz.node_done( node, list->data );
 
       FT_FREE( node );
     }
@@ -333,7 +332,7 @@
 
 
     first = list->nodes;
-    while ( first && ( !selection || selection( first, key ) ) )
+    while ( first && ( selection == NULL || selection( first, key ) ) )
     {
       FTC_MruList_Remove( list, first );
       first = list->nodes;

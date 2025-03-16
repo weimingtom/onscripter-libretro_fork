@@ -1,25 +1,25 @@
-/****************************************************************************
- *
- * cffcmap.h
- *
- *   CFF character mapping table (cmap) support (specification).
- *
- * Copyright (C) 2002-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  cffcmap.h                                                              */
+/*                                                                         */
+/*    CFF character mapping table (cmap) support (specification).          */
+/*                                                                         */
+/*  Copyright 2002, 2003, 2006 by                                          */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef CFFCMAP_H_
-#define CFFCMAP_H_
+#ifndef __CFFCMAP_H__
+#define __CFFCMAP_H__
 
-#include <freetype/internal/cffotypes.h>
+#include "cffobjs.h"
 
 FT_BEGIN_HEADER
 
@@ -43,7 +43,8 @@ FT_BEGIN_HEADER
   } CFF_CMapStdRec;
 
 
-  FT_DECLARE_CMAP_CLASS( cff_cmap_encoding_class_rec )
+  FT_CALLBACK_TABLE const FT_CMap_ClassRec
+  cff_cmap_encoding_class_rec;
 
 
   /*************************************************************************/
@@ -56,12 +57,13 @@ FT_BEGIN_HEADER
 
   /* unicode (synthetic) cmaps */
 
-  FT_DECLARE_CMAP_CLASS( cff_cmap_unicode_class_rec )
+  FT_CALLBACK_TABLE const FT_CMap_ClassRec
+  cff_cmap_unicode_class_rec;
 
 
 FT_END_HEADER
 
-#endif /* CFFCMAP_H_ */
+#endif /* __CFFCMAP_H__ */
 
 
 /* END */

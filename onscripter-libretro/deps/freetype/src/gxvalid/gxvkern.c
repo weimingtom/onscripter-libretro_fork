@@ -1,45 +1,45 @@
-/****************************************************************************
- *
- * gxvkern.c
- *
- *   TrueTypeGX/AAT kern table validation (body).
- *
- * Copyright (C) 2004-2023 by
- * suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  gxvkern.c                                                              */
+/*                                                                         */
+/*    TrueTypeGX/AAT kern table validation (body).                         */
+/*                                                                         */
+/*  Copyright 2004, 2005, 2006, 2007                                       */
+/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-#include <freetype/ftsnames.h>
-#include <freetype/internal/services/svgxval.h>
+#include FT_SFNT_NAMES_H
+#include FT_SERVICE_GX_VALIDATE_H
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  gxvkern
+#define FT_COMPONENT  trace_gxvkern
 
 
   /*************************************************************************/
@@ -79,20 +79,20 @@
 
 #define GXV_KERN_DATA( field )  GXV_TABLE_DATA( kern, field )
 
-#define KERN_IS_CLASSIC( gxvalid )                               \
+#define KERN_IS_CLASSIC( valid )                               \
           ( KERN_VERSION_CLASSIC == GXV_KERN_DATA( version ) )
-#define KERN_IS_NEW( gxvalid )                                   \
+#define KERN_IS_NEW( valid )                                   \
           ( KERN_VERSION_NEW     == GXV_KERN_DATA( version ) )
 
-#define KERN_DIALECT( gxvalid )              \
+#define KERN_DIALECT( valid )              \
           GXV_KERN_DATA( dialect_request )
-#define KERN_ALLOWS_MS( gxvalid )                       \
-          ( KERN_DIALECT( gxvalid ) & KERN_DIALECT_MS )
-#define KERN_ALLOWS_APPLE( gxvalid )                       \
-          ( KERN_DIALECT( gxvalid ) & KERN_DIALECT_APPLE )
+#define KERN_ALLOWS_MS( valid )                       \
+          ( KERN_DIALECT( valid ) & KERN_DIALECT_MS )
+#define KERN_ALLOWS_APPLE( valid )                       \
+          ( KERN_DIALECT( valid ) & KERN_DIALECT_APPLE )
 
-#define GXV_KERN_HEADER_SIZE           ( KERN_IS_NEW( gxvalid ) ? 8 : 4 )
-#define GXV_KERN_SUBTABLE_HEADER_SIZE  ( KERN_IS_NEW( gxvalid ) ? 8 : 6 )
+#define GXV_KERN_HEADER_SIZE           ( KERN_IS_NEW( valid ) ? 8 : 4 )
+#define GXV_KERN_SUBTABLE_HEADER_SIZE  ( KERN_IS_NEW( valid ) ? 8 : 6 )
 
 
   /*************************************************************************/
@@ -110,7 +110,7 @@
   gxv_kern_subtable_fmt0_pairs_validate( FT_Bytes       table,
                                          FT_Bytes       limit,
                                          FT_UShort      nPairs,
-                                         GXV_Validator  gxvalid )
+                                         GXV_Validator  valid )
   {
     FT_Bytes   p = table;
     FT_UShort  i;
@@ -127,18 +127,16 @@
     {
       FT_UShort  gid_left;
       FT_UShort  gid_right;
-#ifdef GXV_LOAD_UNUSED_VARS
       FT_Short   kernValue;
-#endif
 
 
       /* left */
       gid_left  = FT_NEXT_USHORT( p );
-      gxv_glyphid_validate( gid_left, gxvalid );
+      gxv_glyphid_validate( gid_left, valid );
 
       /* right */
       gid_right = FT_NEXT_USHORT( p );
-      gxv_glyphid_validate( gid_right, gxvalid );
+      gxv_glyphid_validate( gid_right, valid );
 
       /* Pairs of left and right GIDs must be unique and sorted. */
       GXV_TRACE(( "left gid = %u, right gid = %u\n", gid_left, gid_right ));
@@ -158,11 +156,7 @@
         FT_INVALID_DATA;
 
       /* skip the kern value */
-#ifdef GXV_LOAD_UNUSED_VARS
       kernValue = FT_NEXT_SHORT( p );
-#else
-      p += 2;
-#endif
     }
 
     GXV_EXIT;
@@ -171,7 +165,7 @@
   static void
   gxv_kern_subtable_fmt0_validate( FT_Bytes       table,
                                    FT_Bytes       limit,
-                                   GXV_Validator  gxvalid )
+                                   GXV_Validator  valid )
   {
     FT_Bytes   p = table + GXV_KERN_SUBTABLE_HEADER_SIZE;
 
@@ -186,10 +180,10 @@
 
     /* nPairs, searchRange, entrySelector, rangeShift */
     GXV_LIMIT_CHECK( 2 + 2 + 2 + 2 );
-    gxv_BinSrchHeader_validate( p, limit, &unitSize, &nPairs, gxvalid );
+    gxv_BinSrchHeader_validate( p, limit, &unitSize, &nPairs, valid );
     p += 2 + 2 + 2 + 2;
 
-    gxv_kern_subtable_fmt0_pairs_validate( p, limit, nPairs, gxvalid );
+    gxv_kern_subtable_fmt0_pairs_validate( p, limit, nPairs, valid );
 
     GXV_EXIT;
   }
@@ -209,11 +203,11 @@
   static void
   gxv_kern_subtable_fmt1_valueTable_load( FT_Bytes       table,
                                           FT_Bytes       limit,
-                                          GXV_Validator  gxvalid )
+                                          GXV_Validator  valid )
   {
     FT_Bytes                       p = table;
     GXV_kern_fmt1_StateOptRecData  optdata =
-      (GXV_kern_fmt1_StateOptRecData)gxvalid->statetable.optdata;
+      (GXV_kern_fmt1_StateOptRecData)valid->statetable.optdata;
 
 
     GXV_LIMIT_CHECK( 2 );
@@ -232,14 +226,14 @@
                                          FT_UShort*     classTable_length_p,
                                          FT_UShort*     stateArray_length_p,
                                          FT_UShort*     entryTable_length_p,
-                                         GXV_Validator  gxvalid )
+                                         GXV_Validator  valid )
   {
     FT_UShort  o[4];
     FT_UShort  *l[4];
     FT_UShort  buff[5];
 
     GXV_kern_fmt1_StateOptRecData  optdata =
-      (GXV_kern_fmt1_StateOptRecData)gxvalid->statetable.optdata;
+      (GXV_kern_fmt1_StateOptRecData)valid->statetable.optdata;
 
 
     o[0] = classTable;
@@ -251,7 +245,7 @@
     l[2] = entryTable_length_p;
     l[3] = &(optdata->valueTable_length);
 
-    gxv_set_length_by_ushort_offset( o, l, buff, 4, table_size, gxvalid );
+    gxv_set_length_by_ushort_offset( o, l, buff, 4, table_size, valid );
   }
 
 
@@ -262,34 +256,28 @@
   gxv_kern_subtable_fmt1_entry_validate(
     FT_Byte                         state,
     FT_UShort                       flags,
-    GXV_StateTable_GlyphOffsetCPtr  glyphOffset_p,
+    GXV_StateTable_GlyphOffsetDesc  glyphOffset,
     FT_Bytes                        table,
     FT_Bytes                        limit,
-    GXV_Validator                   gxvalid )
+    GXV_Validator                   valid )
   {
-#ifdef GXV_LOAD_UNUSED_VARS
     FT_UShort  push;
     FT_UShort  dontAdvance;
-#endif
     FT_UShort  valueOffset;
-#ifdef GXV_LOAD_UNUSED_VARS
     FT_UShort  kernAction;
     FT_UShort  kernValue;
-#endif
 
     FT_UNUSED( state );
-    FT_UNUSED( glyphOffset_p );
+    FT_UNUSED( glyphOffset );
 
 
-#ifdef GXV_LOAD_UNUSED_VARS
     push        = (FT_UShort)( ( flags >> 15 ) & 1      );
     dontAdvance = (FT_UShort)( ( flags >> 14 ) & 1      );
-#endif
     valueOffset = (FT_UShort)(   flags         & 0x3FFF );
 
     {
       GXV_kern_fmt1_StateOptRecData  vt_rec =
-        (GXV_kern_fmt1_StateOptRecData)gxvalid->statetable.optdata;
+        (GXV_kern_fmt1_StateOptRecData)valid->statetable.optdata;
       FT_Bytes  p;
 
 
@@ -300,10 +288,8 @@
       limit = table + vt_rec->valueTable + vt_rec->valueTable_length;
 
       GXV_LIMIT_CHECK( 2 + 2 );
-#ifdef GXV_LOAD_UNUSED_VARS
       kernAction = FT_NEXT_USHORT( p );
       kernValue  = FT_NEXT_USHORT( p );
-#endif
     }
   }
 
@@ -311,7 +297,7 @@
   static void
   gxv_kern_subtable_fmt1_validate( FT_Bytes       table,
                                    FT_Bytes       limit,
-                                   GXV_Validator  gxvalid )
+                                   GXV_Validator  valid )
   {
     FT_Bytes                   p = table;
     GXV_kern_fmt1_StateOptRec  vt_rec;
@@ -319,18 +305,18 @@
 
     GXV_NAME_ENTER( "kern subtable format 1" );
 
-    gxvalid->statetable.optdata =
+    valid->statetable.optdata =
       &vt_rec;
-    gxvalid->statetable.optdata_load_func =
+    valid->statetable.optdata_load_func =
       gxv_kern_subtable_fmt1_valueTable_load;
-    gxvalid->statetable.subtable_setup_func =
+    valid->statetable.subtable_setup_func =
       gxv_kern_subtable_fmt1_subtable_setup;
-    gxvalid->statetable.entry_glyphoffset_fmt =
+    valid->statetable.entry_glyphoffset_fmt =
       GXV_GLYPHOFFSET_NONE;
-    gxvalid->statetable.entry_validate_func =
+    valid->statetable.entry_validate_func =
       gxv_kern_subtable_fmt1_entry_validate;
 
-    gxv_StateTable_validate( p, limit, gxvalid );
+    gxv_StateTable_validate( p, limit, valid );
 
     GXV_EXIT;
   }
@@ -373,7 +359,7 @@
   gxv_kern_subtable_fmt2_clstbl_validate( FT_Bytes            table,
                                           FT_Bytes            limit,
                                           GXV_kern_ClassSpec  spec,
-                                          GXV_Validator       gxvalid )
+                                          GXV_Validator       valid )
   {
     const FT_String*  tag    = GXV_KERN_FMT2_DATA( class_tag[spec] );
     GXV_odtect_Range  odtect = GXV_KERN_FMT2_DATA( odtect );
@@ -391,13 +377,13 @@
     GXV_TRACE(( " %s firstGlyph=%d, nGlyphs=%d\n",
                 tag, firstGlyph, nGlyphs ));
 
-    gxv_glyphid_validate( firstGlyph, gxvalid );
-    gxv_glyphid_validate( (FT_UShort)( firstGlyph + nGlyphs - 1 ), gxvalid );
+    gxv_glyphid_validate( firstGlyph, valid );
+    gxv_glyphid_validate( (FT_UShort)( firstGlyph + nGlyphs - 1 ), valid );
 
     gxv_array_getlimits_ushort( p, p + ( 2 * nGlyphs ),
                                 &( GXV_KERN_FMT2_DATA( offset_min[spec] ) ),
                                 &( GXV_KERN_FMT2_DATA( offset_max[spec] ) ),
-                                gxvalid );
+                                valid );
 
     gxv_odtect_add_range( table, 2 * nGlyphs, tag, odtect );
 
@@ -408,7 +394,7 @@
   static void
   gxv_kern_subtable_fmt2_validate( FT_Bytes       table,
                                    FT_Bytes       limit,
-                                   GXV_Validator  gxvalid )
+                                   GXV_Validator  valid )
   {
     GXV_ODTECT( 3, odtect );
     GXV_kern_subtable_fmt2_DataRec  fmt2_rec =
@@ -439,10 +425,10 @@
     GXV_LIMIT_CHECK( GXV_KERN_FMT2_DATA( array ) );
 
     gxv_kern_subtable_fmt2_clstbl_validate( table + leftOffsetTable, limit,
-                                            GXV_KERN_CLS_L, gxvalid );
+                                            GXV_KERN_CLS_L, valid );
 
     gxv_kern_subtable_fmt2_clstbl_validate( table + rightOffsetTable, limit,
-                                            GXV_KERN_CLS_R, gxvalid );
+                                            GXV_KERN_CLS_R, valid );
 
     if ( GXV_KERN_FMT2_DATA( offset_min[GXV_KERN_CLS_L] ) +
            GXV_KERN_FMT2_DATA( offset_min[GXV_KERN_CLS_R] )
@@ -455,7 +441,7 @@
                             - GXV_KERN_FMT2_DATA( array ),
                           "array", odtect );
 
-    gxv_odtect_validate( odtect, gxvalid );
+    gxv_odtect_validate( odtect, valid );
 
     GXV_EXIT;
   }
@@ -466,7 +452,7 @@
   static void
   gxv_kern_subtable_fmt3_validate( FT_Bytes       table,
                                    FT_Bytes       limit,
-                                   GXV_Validator  gxvalid )
+                                   GXV_Validator  valid )
   {
     FT_Bytes   p = table + GXV_KERN_SUBTABLE_HEADER_SIZE;
     FT_UShort  glyphCount;
@@ -485,16 +471,14 @@
     rightClassCount = FT_NEXT_BYTE( p );
     flags           = FT_NEXT_BYTE( p );
 
-    if ( gxvalid->face->num_glyphs != glyphCount )
+    if ( valid->face->num_glyphs != glyphCount )
     {
-      GXV_TRACE(( "maxGID=%ld, but glyphCount=%d\n",
-                  gxvalid->face->num_glyphs, glyphCount ));
-      GXV_SET_ERR_IF_PARANOID( FT_INVALID_GLYPH_ID );
+      GXV_TRACE(( "maxGID=%d, but glyphCount=%d\n",
+                  valid->face->num_glyphs, glyphCount ));
+      if ( valid->root->level >= FT_VALIDATE_PARANOID )
+        FT_INVALID_GLYPH_ID;
     }
 
-    if ( flags != 0 )
-      GXV_TRACE(( "kern subtable fmt3 has nonzero value"
-                  " (%d) in unused flag\n", flags ));
     /*
      * just skip kernValue[kernValueCount]
      */
@@ -509,8 +493,8 @@
 
 
       GXV_LIMIT_CHECK( glyphCount );
-      gxv_array_getlimits_byte( p, p + glyphCount, &min, &max, gxvalid );
-      p += gxvalid->subtable_length;
+      gxv_array_getlimits_byte( p, p + glyphCount, &min, &max, valid );
+      p += valid->subtable_length;
 
       if ( leftClassCount < max )
         FT_INVALID_DATA;
@@ -524,8 +508,8 @@
 
 
       GXV_LIMIT_CHECK( glyphCount );
-      gxv_array_getlimits_byte( p, p + glyphCount, &min, &max, gxvalid );
-      p += gxvalid->subtable_length;
+      gxv_array_getlimits_byte( p, p + glyphCount, &min, &max, valid );
+      p += valid->subtable_length;
 
       if ( rightClassCount < max )
         FT_INVALID_DATA;
@@ -549,7 +533,7 @@
       }
     }
 
-    gxvalid->subtable_length = (FT_ULong)( p - table );
+    valid->subtable_length = p - table;
 
     GXV_EXIT;
   }
@@ -558,27 +542,23 @@
   static FT_Bool
   gxv_kern_coverage_new_apple_validate( FT_UShort      coverage,
                                         FT_UShort*     format,
-                                        GXV_Validator  gxvalid )
+                                        GXV_Validator  valid )
   {
     /* new Apple-dialect */
-#ifdef GXV_LOAD_TRACE_VARS
     FT_Bool  kernVertical;
     FT_Bool  kernCrossStream;
     FT_Bool  kernVariation;
-#endif
 
-    FT_UNUSED( gxvalid );
+    FT_UNUSED( valid );
 
 
     /* reserved bits = 0 */
     if ( coverage & 0x1FFC )
-      return FALSE;
+      return 0;
 
-#ifdef GXV_LOAD_TRACE_VARS
     kernVertical    = FT_BOOL( ( coverage >> 15 ) & 1 );
     kernCrossStream = FT_BOOL( ( coverage >> 14 ) & 1 );
     kernVariation   = FT_BOOL( ( coverage >> 13 ) & 1 );
-#endif
 
     *format = (FT_UShort)( coverage & 0x0003 );
 
@@ -588,34 +568,30 @@
 
     GXV_TRACE(( "kerning values in Apple format subtable are ignored\n" ));
 
-    return TRUE;
+    return 1;
   }
 
 
   static FT_Bool
   gxv_kern_coverage_classic_apple_validate( FT_UShort      coverage,
                                             FT_UShort*     format,
-                                            GXV_Validator  gxvalid )
+                                            GXV_Validator  valid )
   {
     /* classic Apple-dialect */
-#ifdef GXV_LOAD_TRACE_VARS
     FT_Bool  horizontal;
     FT_Bool  cross_stream;
-#endif
 
 
     /* check expected flags, but don't check if MS-dialect is impossible */
-    if ( !( coverage & 0xFD00 ) && KERN_ALLOWS_MS( gxvalid ) )
-      return FALSE;
+    if ( !( coverage & 0xFD00 ) && KERN_ALLOWS_MS( valid ) )
+      return 0;
 
     /* reserved bits = 0 */
     if ( coverage & 0x02FC )
-      return FALSE;
+      return 0;
 
-#ifdef GXV_LOAD_TRACE_VARS
     horizontal   = FT_BOOL( ( coverage >> 15 ) & 1 );
     cross_stream = FT_BOOL( ( coverage >> 13 ) & 1 );
-#endif
 
     *format = (FT_UShort)( coverage & 0x0003 );
 
@@ -625,40 +601,36 @@
 
     /* format 1 requires GX State Machine, too new for classic */
     if ( *format == 1 )
-      return FALSE;
+      return 0;
 
     GXV_TRACE(( "kerning values in Apple format subtable are ignored\n" ));
 
-    return TRUE;
+    return 1;
   }
 
 
   static FT_Bool
   gxv_kern_coverage_classic_microsoft_validate( FT_UShort      coverage,
                                                 FT_UShort*     format,
-                                                GXV_Validator  gxvalid )
+                                                GXV_Validator  valid )
   {
     /* classic Microsoft-dialect */
-#ifdef GXV_LOAD_TRACE_VARS
     FT_Bool  horizontal;
     FT_Bool  minimum;
     FT_Bool  cross_stream;
     FT_Bool  override;
-#endif
 
-    FT_UNUSED( gxvalid );
+    FT_UNUSED( valid );
 
 
     /* reserved bits = 0 */
     if ( coverage & 0xFDF0 )
-      return FALSE;
+      return 0;
 
-#ifdef GXV_LOAD_TRACE_VARS
     horizontal   = FT_BOOL(   coverage        & 1 );
     minimum      = FT_BOOL( ( coverage >> 1 ) & 1 );
     cross_stream = FT_BOOL( ( coverage >> 2 ) & 1 );
     override     = FT_BOOL( ( coverage >> 3 ) & 1 );
-#endif
 
     *format = (FT_UShort)( ( coverage >> 8 ) & 0x0003 );
 
@@ -671,7 +643,7 @@
       GXV_TRACE((
         "kerning values in Microsoft format 2 subtable are ignored\n" ));
 
-    return TRUE;
+    return 1;
   }
 
 
@@ -686,49 +658,49 @@
   static GXV_kern_Dialect
   gxv_kern_coverage_validate( FT_UShort      coverage,
                               FT_UShort*     format,
-                              GXV_Validator  gxvalid )
+                              GXV_Validator  valid )
   {
     GXV_kern_Dialect  result = KERN_DIALECT_UNKNOWN;
 
 
     GXV_NAME_ENTER( "validating coverage" );
 
-    GXV_TRACE(( "interpret coverage 0x%04x by Apple style\n", coverage ));
+    GXV_TRACE(( "interprete coverage 0x%04x by Apple style\n", coverage ));
 
-    if ( KERN_IS_NEW( gxvalid ) )
+    if ( KERN_IS_NEW( valid ) )
     {
       if ( gxv_kern_coverage_new_apple_validate( coverage,
                                                  format,
-                                                 gxvalid ) )
+                                                 valid ) )
       {
         result = KERN_DIALECT_APPLE;
         goto Exit;
       }
     }
 
-    if ( KERN_IS_CLASSIC( gxvalid ) && KERN_ALLOWS_APPLE( gxvalid ) )
+    if ( KERN_IS_CLASSIC( valid ) && KERN_ALLOWS_APPLE( valid ) )
     {
       if ( gxv_kern_coverage_classic_apple_validate( coverage,
                                                      format,
-                                                     gxvalid ) )
+                                                     valid ) )
       {
         result = KERN_DIALECT_APPLE;
         goto Exit;
       }
     }
 
-    if ( KERN_IS_CLASSIC( gxvalid ) && KERN_ALLOWS_MS( gxvalid ) )
+    if ( KERN_IS_CLASSIC( valid ) && KERN_ALLOWS_MS( valid ) )
     {
       if ( gxv_kern_coverage_classic_microsoft_validate( coverage,
                                                          format,
-                                                         gxvalid ) )
+                                                         valid ) )
       {
         result = KERN_DIALECT_MS;
         goto Exit;
       }
     }
 
-    GXV_TRACE(( "cannot interpret coverage, broken kern subtable\n" ));
+    GXV_TRACE(( "cannot interprete coverage, broken kern subtable\n" ));
 
   Exit:
     GXV_EXIT;
@@ -739,17 +711,13 @@
   static void
   gxv_kern_subtable_validate( FT_Bytes       table,
                               FT_Bytes       limit,
-                              GXV_Validator  gxvalid )
+                              GXV_Validator  valid )
   {
     FT_Bytes   p = table;
-#ifdef GXV_LOAD_TRACE_VARS
     FT_UShort  version = 0;    /* MS only: subtable version, unused */
-#endif
-    FT_ULong   length;         /* MS: 16bit, Apple: 32bit */
+    FT_ULong   length;         /* MS: 16bit, Apple: 32bit*/
     FT_UShort  coverage;
-#ifdef GXV_LOAD_TRACE_VARS
     FT_UShort  tupleIndex = 0; /* Apple only */
-#endif
     FT_UShort  u16[2];
     FT_UShort  format = 255;   /* subtable format */
 
@@ -761,38 +729,26 @@
     u16[1]   = FT_NEXT_USHORT( p ); /* Apple: length_lo MS: length */
     coverage = FT_NEXT_USHORT( p );
 
-    switch ( gxv_kern_coverage_validate( coverage, &format, gxvalid ) )
+    switch ( gxv_kern_coverage_validate( coverage, &format, valid ) )
     {
     case KERN_DIALECT_MS:
-#ifdef GXV_LOAD_TRACE_VARS
       version    = u16[0];
-#endif
       length     = u16[1];
-#ifdef GXV_LOAD_TRACE_VARS
       tupleIndex = 0;
-#endif
       GXV_TRACE(( "Subtable version = %d\n", version ));
-      GXV_TRACE(( "Subtable length = %lu\n", length ));
+      GXV_TRACE(( "Subtable length = %d\n", length ));
       break;
 
     case KERN_DIALECT_APPLE:
-#ifdef GXV_LOAD_TRACE_VARS
       version    = 0;
-#endif
-      length     = ( (FT_ULong)u16[0] << 16 ) + u16[1];
-#ifdef GXV_LOAD_TRACE_VARS
+      length     = ( u16[0] << 16 ) + u16[1];
       tupleIndex = 0;
-#endif
-      GXV_TRACE(( "Subtable length = %lu\n", length ));
+      GXV_TRACE(( "Subtable length = %d\n", length ));
 
-      if ( KERN_IS_NEW( gxvalid ) )
+      if ( KERN_IS_NEW( valid ) )
       {
         GXV_LIMIT_CHECK( 2 );
-#ifdef GXV_LOAD_TRACE_VARS
         tupleIndex = FT_NEXT_USHORT( p );
-#else
-        p += 2;
-#endif
         GXV_TRACE(( "Subtable tupleIndex = %d\n", tupleIndex ));
       }
       break;
@@ -800,24 +756,24 @@
     default:
       length = u16[1];
       GXV_TRACE(( "cannot detect subtable dialect, "
-                  "just skip %lu byte\n", length ));
+                  "just skip %d byte\n", length ));
       goto Exit;
     }
 
     /* formats 1, 2, 3 require the position of the start of this subtable */
     if ( format == 0 )
-      gxv_kern_subtable_fmt0_validate( table, table + length, gxvalid );
+      gxv_kern_subtable_fmt0_validate( table, table + length, valid );
     else if ( format == 1 )
-      gxv_kern_subtable_fmt1_validate( table, table + length, gxvalid );
+      gxv_kern_subtable_fmt1_validate( table, table + length, valid );
     else if ( format == 2 )
-      gxv_kern_subtable_fmt2_validate( table, table + length, gxvalid );
+      gxv_kern_subtable_fmt2_validate( table, table + length, valid );
     else if ( format == 3 )
-      gxv_kern_subtable_fmt3_validate( table, table + length, gxvalid );
+      gxv_kern_subtable_fmt3_validate( table, table + length, valid );
     else
       FT_INVALID_DATA;
 
   Exit:
-    gxvalid->subtable_length = length;
+    valid->subtable_length = length;
     GXV_EXIT;
   }
 
@@ -837,8 +793,8 @@
                              GXV_kern_Dialect  dialect_request,
                              FT_Validator      ftvalid )
   {
-    GXV_ValidatorRec   gxvalidrec;
-    GXV_Validator      gxvalid = &gxvalidrec;
+    GXV_ValidatorRec   validrec;
+    GXV_Validator      valid = &validrec;
 
     GXV_kern_DataRec   kernrec;
     GXV_kern_Data      kern = &kernrec;
@@ -850,13 +806,13 @@
     FT_UInt            i;
 
 
-    gxvalid->root       = ftvalid;
-    gxvalid->table_data = kern;
-    gxvalid->face       = face;
+    valid->root       = ftvalid;
+    valid->table_data = kern;
+    valid->face       = face;
 
     FT_TRACE3(( "validating `kern' table\n" ));
     GXV_INIT;
-    KERN_DIALECT( gxvalid ) = dialect_request;
+    KERN_DIALECT( valid ) = dialect_request;
 
     GXV_LIMIT_CHECK( 2 );
     GXV_KERN_DATA( version ) = (GXV_kern_Version)FT_NEXT_USHORT( p );
@@ -865,12 +821,12 @@
 
     if ( 0x0001 < GXV_KERN_DATA( version ) )
       FT_INVALID_FORMAT;
-    else if ( KERN_IS_CLASSIC( gxvalid ) )
+    else if ( KERN_IS_CLASSIC( valid ) )
     {
       GXV_LIMIT_CHECK( 2 );
       nTables = FT_NEXT_USHORT( p );
     }
-    else if ( KERN_IS_NEW( gxvalid ) )
+    else if ( KERN_IS_NEW( valid ) )
     {
       if ( classic_only )
         FT_INVALID_FORMAT;
@@ -884,10 +840,10 @@
 
     for ( i = 0; i < nTables; i++ )
     {
-      GXV_TRACE(( "validating subtable %d/%lu\n", i, nTables ));
+      GXV_TRACE(( "validating subtable %d/%d\n", i, nTables ));
       /* p should be 32bit-aligned? */
-      gxv_kern_subtable_validate( p, 0, gxvalid );
-      p += gxvalid->subtable_length;
+      gxv_kern_subtable_validate( p, 0, valid );
+      p += valid->subtable_length;
     }
 
     FT_TRACE4(( "\n" ));

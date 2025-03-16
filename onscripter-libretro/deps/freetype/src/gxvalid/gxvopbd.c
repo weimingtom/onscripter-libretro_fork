@@ -1,42 +1,41 @@
-/****************************************************************************
- *
- * gxvopbd.c
- *
- *   TrueTypeGX/AAT opbd table validation (body).
- *
- * Copyright (C) 2004-2023 by
- * suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  gxvopbd.c                                                              */
+/*                                                                         */
+/*    TrueTypeGX/AAT opbd table validation (body).                         */
+/*                                                                         */
+/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  gxvopbd
+#define FT_COMPONENT  trace_gxvopbd
 
 
   /*************************************************************************/
@@ -68,18 +67,18 @@
 
   static void
   gxv_opbd_LookupValue_validate( FT_UShort            glyph,
-                                 GXV_LookupValueCPtr  value_p,
-                                 GXV_Validator        gxvalid )
+                                 GXV_LookupValueDesc  value,
+                                 GXV_Validator        valid )
   {
     /* offset in LookupTable is measured from the head of opbd table */
-    FT_Bytes   p     = gxvalid->root->base + value_p->u;
-    FT_Bytes   limit = gxvalid->root->limit;
+    FT_Bytes   p     = valid->root->base + value.u;
+    FT_Bytes   limit = valid->root->limit;
     FT_Short   delta_value;
     int        i;
 
 
-    if ( value_p->u < GXV_OPBD_DATA( valueOffset_min ) )
-      GXV_OPBD_DATA( valueOffset_min ) = value_p->u;
+    if ( value.u < GXV_OPBD_DATA( valueOffset_min ) )
+      GXV_OPBD_DATA( valueOffset_min ) = value.u;
 
     for ( i = 0; i < 4; i++ )
     {
@@ -91,7 +90,7 @@
         if ( delta_value == -1 )
           continue;
 
-        gxv_ctlPoint_validate( glyph, (FT_UShort)delta_value, gxvalid );
+        gxv_ctlPoint_validate( glyph, delta_value, valid );
       }
       else                              /* format 0, value is distance */
         continue;
@@ -133,17 +132,17 @@
 
   static GXV_LookupValueDesc
   gxv_opbd_LookupFmt4_transit( FT_UShort            relative_gindex,
-                               GXV_LookupValueCPtr  base_value_p,
+                               GXV_LookupValueDesc  base_value,
                                FT_Bytes             lookuptbl_limit,
-                               GXV_Validator        gxvalid )
+                               GXV_Validator        valid )
   {
     GXV_LookupValueDesc  value;
 
     FT_UNUSED( lookuptbl_limit );
-    FT_UNUSED( gxvalid );
+    FT_UNUSED( valid );
 
     /* XXX: check range? */
-    value.u = (FT_UShort)( base_value_p->u +
+    value.u = (FT_UShort)( base_value.u +
                            relative_gindex * 4 * sizeof ( FT_Short ) );
 
     return value;
@@ -163,8 +162,8 @@
                      FT_Face       face,
                      FT_Validator  ftvalid )
   {
-    GXV_ValidatorRec  gxvalidrec;
-    GXV_Validator     gxvalid = &gxvalidrec;
+    GXV_ValidatorRec  validrec;
+    GXV_Validator     valid = &validrec;
     GXV_opbd_DataRec  opbdrec;
     GXV_opbd_Data     opbd  = &opbdrec;
     FT_Bytes          p     = table;
@@ -173,9 +172,9 @@
     FT_ULong  version;
 
 
-    gxvalid->root       = ftvalid;
-    gxvalid->table_data = opbd;
-    gxvalid->face       = face;
+    valid->root       = ftvalid;
+    valid->table_data = opbd;
+    valid->face       = face;
 
     FT_TRACE3(( "validating `opbd' table\n" ));
     GXV_INIT;
@@ -188,7 +187,7 @@
 
 
     /* only 0x00010000 is defined (1996) */
-    GXV_TRACE(( "(version=0x%08lx)\n", version ));
+    GXV_TRACE(( "(version=0x%08x)\n", version ));
     if ( 0x00010000UL != version )
       FT_INVALID_FORMAT;
 
@@ -197,12 +196,12 @@
     if ( 0x0001 < GXV_OPBD_DATA( format ) )
       FT_INVALID_FORMAT;
 
-    gxvalid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
-    gxvalid->lookupval_func   = gxv_opbd_LookupValue_validate;
-    gxvalid->lookupfmt4_trans = gxv_opbd_LookupFmt4_transit;
+    valid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
+    valid->lookupval_func   = gxv_opbd_LookupValue_validate;
+    valid->lookupfmt4_trans = gxv_opbd_LookupFmt4_transit;
 
-    gxv_LookupTable_validate( p, limit, gxvalid );
-    p += gxvalid->subtable_length;
+    gxv_LookupTable_validate( p, limit, valid );
+    p += valid->subtable_length;
 
     if ( p > table + GXV_OPBD_DATA( valueOffset_min ) )
     {

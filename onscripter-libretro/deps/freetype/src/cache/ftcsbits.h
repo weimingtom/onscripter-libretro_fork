@@ -1,26 +1,27 @@
-/****************************************************************************
- *
- * ftcsbits.h
- *
- *   A small-bitmap cache (specification).
- *
- * Copyright (C) 2000-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  ftcsbits.h                                                             */
+/*                                                                         */
+/*    A small-bitmap cache (specification).                                */
+/*                                                                         */
+/*  Copyright 2000-2001, 2002, 2003, 2006 by                               */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef FTCSBITS_H_
-#define FTCSBITS_H_
+#ifndef __FTCSBITS_H__
+#define __FTCSBITS_H__
 
 
-#include <freetype/ftcache.h>
+#include <ft2build.h>
+#include FT_CACHE_H
 #include "ftcglyph.h"
 
 
@@ -61,10 +62,10 @@ FT_BEGIN_HEADER
 
   typedef const FTC_SFamilyClassRec*  FTC_SFamilyClass;
 
-#define FTC_SFAMILY_CLASS( x )  ( (FTC_SFamilyClass)(x) )
+#define FTC_SFAMILY_CLASS( x )  ((FTC_SFamilyClass)(x))
 
-#define FTC_CACHE_SFAMILY_CLASS( x )  \
-          FTC_SFAMILY_CLASS( FTC_CACHE_GCACHE_CLASS( x )->family_class )
+#define FTC_CACHE__SFAMILY_CLASS( x )  \
+          FTC_SFAMILY_CLASS( FTC_CACHE__GCACHE_CLASS( x )->family_class )
 
 
   FT_LOCAL( void )
@@ -82,21 +83,16 @@ FT_BEGIN_HEADER
 #endif
 
 
-#ifdef FTC_INLINE
-
   FT_LOCAL( FT_Bool )
   FTC_SNode_Compare( FTC_SNode   snode,
                      FTC_GQuery  gquery,
-                     FTC_Cache   cache,
-                     FT_Bool*    list_changed);
-
-#endif
+                     FTC_Cache   cache );
 
   /* */
 
 FT_END_HEADER
 
-#endif /* FTCSBITS_H_ */
+#endif /* __FTCSBITS_H__ */
 
 
 /* END */

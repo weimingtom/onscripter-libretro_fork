@@ -1,55 +1,39 @@
-/****************************************************************************
- *
- * psmodule.c
- *
- *   psnames module implementation (body).
- *
- * Copyright (C) 1996-2023 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  psmodule.c                                                             */
+/*                                                                         */
+/*    PSNames module implementation (body).                                */
+/*                                                                         */
+/*  Copyright 1996-2001, 2002, 2003, 2005, 2006, 2007 by                   */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#include <freetype/internal/ftdebug.h>
-#include <freetype/internal/ftobjs.h>
-#include <freetype/internal/services/svpscmap.h>
+#include <ft2build.h>
+#include FT_INTERNAL_OBJECTS_H
+#include FT_SERVICE_POSTSCRIPT_CMAPS_H
 
 #include "psmodule.h"
-
-  /*
-   * The file `pstables.h' with its arrays and its function
-   * `ft_get_adobe_glyph_index' is useful for other projects also (for
-   * example, `pdfium' is using it).  However, if used as a C++ header,
-   * including it in two different source files makes it necessary to use
-   * `extern const' for the declaration of its arrays, otherwise the data
-   * would be duplicated as mandated by the C++ standard.
-   *
-   * For this reason, we use `DEFINE_PS_TABLES' to guard the function
-   * definitions, and `DEFINE_PS_TABLES_DATA' to provide both proper array
-   * declarations and definitions.
-   */
-#include "pstables.h"
-#define  DEFINE_PS_TABLES
-#define  DEFINE_PS_TABLES_DATA
 #include "pstables.h"
 
 #include "psnamerr.h"
 
 
-#ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
+#ifndef FT_CONFIG_OPTION_NO_POSTSCRIPT_NAMES
 
 
 #ifdef FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
 
 
 #define VARIANT_BIT         0x80000000UL
-#define BASE_GLYPH( code )  ( (FT_UInt32)( (code) & ~VARIANT_BIT ) )
+#define BASE_GLYPH( code )  ( (code) & ~VARIANT_BIT )
 
 
   /* Return the Unicode value corresponding to a given glyph.  Note that */
@@ -73,7 +57,7 @@
       /*      `uniXXXXYYYYZZZZ'...                                   */
 
       FT_Int       count;
-      FT_UInt32    value = 0;
+      FT_ULong     value = 0;
       const char*  p     = glyph_name + 3;
 
 
@@ -108,7 +92,7 @@
         if ( *p == '\0' )
           return value;
         if ( *p == '.' )
-          return (FT_UInt32)( value | VARIANT_BIT );
+          return value | VARIANT_BIT;
       }
     }
 
@@ -117,7 +101,7 @@
     if ( glyph_name[0] == 'u' )
     {
       FT_Int       count;
-      FT_UInt32    value = 0;
+      FT_ULong     value = 0;
       const char*  p     = glyph_name + 1;
 
 
@@ -148,37 +132,37 @@
         if ( *p == '\0' )
           return value;
         if ( *p == '.' )
-          return (FT_UInt32)( value | VARIANT_BIT );
+          return value | VARIANT_BIT;
       }
     }
 
     /* Look for a non-initial dot in the glyph name in order to */
     /* find variants like `A.swash', `e.final', etc.            */
     {
-      FT_UInt32    value = 0;
-      const char*  p     = glyph_name;
+      const char*  p   = glyph_name;
+      const char*  dot = NULL;
 
 
-      for ( ; *p && *p != '.'; p++ )
-        ;
-
-      /* now look up the glyph in the Adobe Glyph List;      */
-      /* `.notdef', `.null' and the empty name are short cut */
-      if ( p > glyph_name )
+      for ( ; *p; p++ )
       {
-        value = (FT_UInt32)ft_get_adobe_glyph_index( glyph_name, p );
-
-        if ( *p == '.' )
-          value |= (FT_UInt32)VARIANT_BIT;
+        if ( *p == '.' && p > glyph_name )
+        {
+          dot = p;
+          break;
+        }
       }
 
-      return value;
+      /* now look up the glyph in the Adobe Glyph List */
+      if ( !dot )
+        return ft_get_adobe_glyph_index( glyph_name, p );
+      else
+        return ft_get_adobe_glyph_index( glyph_name, dot ) | VARIANT_BIT;
     }
   }
 
 
   /* ft_qsort callback to sort the unicode map */
-  FT_COMPARE_DEF( int )
+  FT_CALLBACK_DEF( int )
   compare_uni_maps( const void*  a,
                     const void*  b )
   {
@@ -190,121 +174,9 @@
 
     /* sort base glyphs before glyph variants */
     if ( unicode1 == unicode2 )
-    {
-      if ( map1->unicode > map2->unicode )
-        return 1;
-      else if ( map1->unicode < map2->unicode )
-        return -1;
-      else
-        return 0;
-    }
+      return map1->unicode - map2->unicode;
     else
-    {
-      if ( unicode1 > unicode2 )
-        return 1;
-      else if ( unicode1 < unicode2 )
-        return -1;
-      else
-        return 0;
-    }
-  }
-
-
-  /* support for extra glyphs not handled (well) in AGL; */
-  /* we add extra mappings for them if necessary         */
-
-#define EXTRA_GLYPH_LIST_SIZE  10
-
-  static const FT_UInt32  ft_extra_glyph_unicodes[EXTRA_GLYPH_LIST_SIZE] =
-  {
-    /* WGL 4 */
-    0x0394,
-    0x03A9,
-    0x2215,
-    0x00AD,
-    0x02C9,
-    0x03BC,
-    0x2219,
-    0x00A0,
-    /* Romanian */
-    0x021A,
-    0x021B
-  };
-
-  static const char  ft_extra_glyph_names[] =
-  {
-    'D','e','l','t','a',0,
-    'O','m','e','g','a',0,
-    'f','r','a','c','t','i','o','n',0,
-    'h','y','p','h','e','n',0,
-    'm','a','c','r','o','n',0,
-    'm','u',0,
-    'p','e','r','i','o','d','c','e','n','t','e','r','e','d',0,
-    's','p','a','c','e',0,
-    'T','c','o','m','m','a','a','c','c','e','n','t',0,
-    't','c','o','m','m','a','a','c','c','e','n','t',0
-  };
-
-  static const FT_Int
-  ft_extra_glyph_name_offsets[EXTRA_GLYPH_LIST_SIZE] =
-  {
-     0,
-     6,
-    12,
-    21,
-    28,
-    35,
-    38,
-    53,
-    59,
-    72
-  };
-
-
-  static void
-  ps_check_extra_glyph_name( const char*  gname,
-                             FT_UInt      glyph,
-                             FT_UInt*     extra_glyphs,
-                             FT_UInt     *states )
-  {
-    FT_UInt  n;
-
-
-    for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
-    {
-      if ( ft_strcmp( ft_extra_glyph_names +
-                        ft_extra_glyph_name_offsets[n], gname ) == 0 )
-      {
-        if ( states[n] == 0 )
-        {
-          /* mark this extra glyph as a candidate for the cmap */
-          states[n]     = 1;
-          extra_glyphs[n] = glyph;
-        }
-
-        return;
-      }
-    }
-  }
-
-
-  static void
-  ps_check_extra_glyph_unicode( FT_UInt32  uni_char,
-                                FT_UInt   *states )
-  {
-    FT_UInt  n;
-
-
-    for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
-    {
-      if ( uni_char == ft_extra_glyph_unicodes[n] )
-      {
-        /* disable this extra glyph from being added to the cmap */
-        states[n] = 2;
-
-        return;
-      }
-    }
+      return unicode1 - unicode2;
   }
 
 
@@ -319,14 +191,12 @@
   {
     FT_Error  error;
 
-    FT_UInt  extra_glyph_list_states[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    FT_UInt  extra_glyphs[EXTRA_GLYPH_LIST_SIZE];
-
 
     /* we first allocate the table */
     table->num_maps = 0;
+    table->maps     = 0;
 
-    if ( !FT_QNEW_ARRAY( table->maps, num_glyphs + EXTRA_GLYPH_LIST_SIZE ) )
+    if ( !FT_NEW_ARRAY( table->maps, num_glyphs ) )
     {
       FT_UInt     n;
       FT_UInt     count;
@@ -341,16 +211,12 @@
         const char*  gname = get_glyph_name( glyph_data, n );
 
 
-        if ( gname && *gname )
+        if ( gname )
         {
-          ps_check_extra_glyph_name( gname, n,
-                                     extra_glyphs, extra_glyph_list_states );
           uni_char = ps_unicode_value( gname );
 
           if ( BASE_GLYPH( uni_char ) != 0 )
           {
-            ps_check_extra_glyph_unicode( uni_char,
-                                          extra_glyph_list_states );
             map->unicode     = uni_char;
             map->glyph_index = n;
             map++;
@@ -361,38 +227,21 @@
         }
       }
 
-      for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
-      {
-        if ( extra_glyph_list_states[n] == 1 )
-        {
-          /* This glyph name has an additional representation. */
-          /* Add it to the cmap.                               */
-
-          map->unicode     = ft_extra_glyph_unicodes[n];
-          map->glyph_index = extra_glyphs[n];
-          map++;
-        }
-      }
-
       /* now compress the table a bit */
       count = (FT_UInt)( map - table->maps );
 
       if ( count == 0 )
       {
-        /* No unicode chars here! */
         FT_FREE( table->maps );
         if ( !error )
-          error = FT_THROW( No_Unicode_Glyph_Name );
+          error = PSnames_Err_Invalid_Argument;  /* No unicode chars here! */
       }
-      else
-      {
+      else {
         /* Reallocate if the number of used entries is much smaller. */
         if ( count < num_glyphs / 2 )
         {
-          FT_MEM_QRENEW_ARRAY( table->maps,
-                               num_glyphs + EXTRA_GLYPH_LIST_SIZE,
-                               count );
-          error = FT_Err_Ok;
+          (void)FT_RENEW_ARRAY( table->maps, num_glyphs, count );
+          error = PSnames_Err_Ok;
         }
 
         /* Sort the table in increasing order of unicode values, */
@@ -412,17 +261,20 @@
   ps_unicodes_char_index( PS_Unicodes  table,
                           FT_UInt32    unicode )
   {
-    PS_UniMap  *result = NULL;
-    PS_UniMap  *min = table->maps;
-    PS_UniMap  *max = min + table->num_maps;
-    PS_UniMap  *mid = min + ( ( max - min ) >> 1 );
+    PS_UniMap  *min, *max, *mid, *result = NULL;
 
 
     /* Perform a binary search on the table. */
-    while ( min < max )
+
+    min = table->maps;
+    max = min + table->num_maps - 1;
+
+    while ( min <= max )
     {
       FT_UInt32  base_glyph;
 
+
+      mid = min + ( ( max - min ) >> 1 );
 
       if ( mid->unicode == unicode )
       {
@@ -435,15 +287,13 @@
       if ( base_glyph == unicode )
         result = mid; /* remember match but continue search for base glyph */
 
+      if ( min == max )
+        break;
+
       if ( base_glyph < unicode )
         min = mid + 1;
       else
-        max = mid;
-
-      /* reasonable prediction in a continuous block */
-      mid += unicode - base_glyph;
-      if ( mid >= max || mid < min )
-        mid = min + ( ( max - min ) >> 1 );
+        max = mid - 1;
     }
 
     if ( result )
@@ -453,7 +303,7 @@
   }
 
 
-  static FT_UInt32
+  static FT_ULong
   ps_unicodes_char_next( PS_Unicodes  table,
                          FT_UInt32   *unicode )
   {
@@ -464,13 +314,14 @@
     {
       FT_UInt     min = 0;
       FT_UInt     max = table->num_maps;
-      FT_UInt     mid = min + ( ( max - min ) >> 1 );
+      FT_UInt     mid;
       PS_UniMap*  map;
       FT_UInt32   base_glyph;
 
 
       while ( min < max )
       {
+        mid = min + ( ( max - min ) >> 1 );
         map = table->maps + mid;
 
         if ( map->unicode == char_code )
@@ -488,11 +339,6 @@
           min = mid + 1;
         else
           max = mid;
-
-        /* reasonable prediction in a continuous block */
-        mid += char_code - base_glyph;
-        if ( mid >= max || mid < min )
-          mid = min + ( max - min ) / 2;
       }
 
       if ( result )
@@ -538,47 +384,38 @@
   }
 
 
+  static
+  const FT_Service_PsCMapsRec  pscmaps_interface =
+  {
 #ifdef FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
 
-  FT_DEFINE_SERVICE_PSCMAPSREC(
-    pscmaps_interface,
-
-    (PS_Unicode_ValueFunc)     ps_unicode_value,        /* unicode_value         */
-    (PS_Unicodes_InitFunc)     ps_unicodes_init,        /* unicodes_init         */
-    (PS_Unicodes_CharIndexFunc)ps_unicodes_char_index,  /* unicodes_char_index   */
-    (PS_Unicodes_CharNextFunc) ps_unicodes_char_next,   /* unicodes_char_next    */
-
-    (PS_Macintosh_NameFunc)    ps_get_macintosh_name,   /* macintosh_name        */
-    (PS_Adobe_Std_StringsFunc) ps_get_standard_strings, /* adobe_std_strings     */
-
-    t1_standard_encoding,                               /* adobe_std_encoding    */
-    t1_expert_encoding                                  /* adobe_expert_encoding */
-  )
+    (PS_Unicode_ValueFunc)     ps_unicode_value,
+    (PS_Unicodes_InitFunc)     ps_unicodes_init,
+    (PS_Unicodes_CharIndexFunc)ps_unicodes_char_index,
+    (PS_Unicodes_CharNextFunc) ps_unicodes_char_next,
 
 #else
 
-  FT_DEFINE_SERVICE_PSCMAPSREC(
-    pscmaps_interface,
-
-    NULL,                                               /* unicode_value         */
-    NULL,                                               /* unicodes_init         */
-    NULL,                                               /* unicodes_char_index   */
-    NULL,                                               /* unicodes_char_next    */
-
-    (PS_Macintosh_NameFunc)    ps_get_macintosh_name,   /* macintosh_name        */
-    (PS_Adobe_Std_StringsFunc) ps_get_standard_strings, /* adobe_std_strings     */
-
-    t1_standard_encoding,                               /* adobe_std_encoding    */
-    t1_expert_encoding                                  /* adobe_expert_encoding */
-  )
+    0,
+    0,
+    0,
+    0,
 
 #endif /* FT_CONFIG_OPTION_ADOBE_GLYPH_LIST */
 
+    (PS_Macintosh_NameFunc)    ps_get_macintosh_name,
+    (PS_Adobe_Std_StringsFunc) ps_get_standard_strings,
 
-  FT_DEFINE_SERVICEDESCREC1(
-    pscmaps_services,
+    t1_standard_encoding,
+    t1_expert_encoding
+  };
 
-    FT_SERVICE_ID_POSTSCRIPT_CMAPS, &pscmaps_interface )
+
+  static const FT_ServiceDescRec  pscmaps_services[] =
+  {
+    { FT_SERVICE_ID_POSTSCRIPT_CMAPS, &pscmaps_interface },
+    { NULL, NULL }
+  };
 
 
   static FT_Pointer
@@ -590,18 +427,13 @@
     return ft_service_list_lookup( pscmaps_services, service_id );
   }
 
-#endif /* FT_CONFIG_OPTION_POSTSCRIPT_NAMES */
+#endif /* !FT_CONFIG_OPTION_NO_POSTSCRIPT_NAMES */
 
 
-#ifndef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
-#define PUT_PS_NAMES_SERVICE( a )  NULL
-#else
-#define PUT_PS_NAMES_SERVICE( a )  a
-#endif
 
-  FT_DEFINE_MODULE(
-    psnames_module_class,
-
+  FT_CALLBACK_TABLE_DEF
+  const FT_Module_Class  psnames_module_class =
+  {
     0,  /* this is not a font driver, nor a renderer */
     sizeof ( FT_ModuleRec ),
 
@@ -609,13 +441,18 @@
     0x10000L,   /* driver version                      */
     0x20000L,   /* driver requires FreeType 2 or above */
 
-    PUT_PS_NAMES_SERVICE(
-      (void*)&pscmaps_interface ),   /* module specific interface */
-
-    (FT_Module_Constructor)NULL,                                       /* module_init   */
-    (FT_Module_Destructor) NULL,                                       /* module_done   */
-    (FT_Module_Requester)  PUT_PS_NAMES_SERVICE( psnames_get_service ) /* get_interface */
-  )
+#ifdef FT_CONFIG_OPTION_NO_POSTSCRIPT_NAMES
+    0,
+    (FT_Module_Constructor)0,
+    (FT_Module_Destructor) 0,
+    (FT_Module_Requester)  0
+#else
+    (void*)&pscmaps_interface,   /* module specific interface */
+    (FT_Module_Constructor)0,
+    (FT_Module_Destructor) 0,
+    (FT_Module_Requester)  psnames_get_service
+#endif
+  };
 
 
 /* END */

@@ -3,7 +3,7 @@
 #
 
 
-# Copyright (C) 2004-2023 by
+# Copyright 2004 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -20,10 +20,7 @@ OTV_DIR := $(SRC_DIR)/otvalid
 
 # compilation flags for the driver
 #
-OTV_COMPILE := $(CC) $(ANSIFLAGS)                            \
-                     $I$(subst /,$(COMPILER_SEP),$(OTV_DIR)) \
-                     $(INCLUDE_FLAGS)                        \
-                     $(FT_CFLAGS)
+OTV_COMPILE := $(FT_COMPILE) $I$(subst /,$(COMPILER_SEP),$(OTV_DIR))
 
 
 # OTV driver sources (i.e., C files)
@@ -34,15 +31,14 @@ OTV_DRV_SRC := $(OTV_DIR)/otvbase.c  \
                $(OTV_DIR)/otvgpos.c  \
                $(OTV_DIR)/otvgsub.c  \
                $(OTV_DIR)/otvjstf.c  \
-               $(OTV_DIR)/otvmath.c  \
                $(OTV_DIR)/otvmod.c
 
 # OTV driver headers
 #
-OTV_DRV_H := $(OTV_DIR)/otvalid.h  \
+OTV_DRV_H := $(OTV_DIR)/otvalid.h \
+             $(OTV_DIR)/otverror.h  \
              $(OTV_DIR)/otvcommn.h \
-             $(OTV_DIR)/otverror.h \
-             $(OTV_DIR)/otvgpos.h  \
+             $(OTV_DIR)/otvgpos.h \
              $(OTV_DIR)/otvmod.h
 
 

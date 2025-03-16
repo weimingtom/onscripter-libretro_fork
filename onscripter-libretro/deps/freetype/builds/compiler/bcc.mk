@@ -3,7 +3,7 @@
 #
 
 
-# Copyright (C) 1996-2023 by
+# Copyright 1996-2000, 2003, 2006 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -52,35 +52,27 @@ L :=
 
 # Target flag -- no trailing space.
 #
-T  := -o
-TE := -e
+T := -o
 
 
 # C flags
 #
 #   These should concern: debug output, optimization & warnings.
 #
-#   Use the ANSIFLAGS variable to define the compiler flags used to enforce
+#   Use the ANSIFLAGS variable to define the compiler flags used to enfore
 #   ANSI compliance.
 #
 CFLAGS ?= -c -q -y -d -v -Od -w-par -w-ccc -w-rch -w-pro -w-aus
 
 # ANSIFLAGS: Put there the flags used to make your compiler ANSI-compliant.
 #
-ANSIFLAGS ?= -A
+ANSIFLAGS := -A
 
 
 # Library linking
 #
 CLEAN_LIBRARY ?= $(DELETE) $(subst /,$(SEP),$(PROJECT_LIBRARY))
-LINK_LIBRARY   = tlib /u /P128 $(subst /,$(COMPILER_SEP),$@ $(OBJECTS_LIST:%=+%))
-
-
-# Borland C++ specific temporary files
-#
-CLEAN += \
-         $(subst /,$(SEP),$(TOP_DIR)/apinames.$(O)) \
-         $(subst /,$(SEP),$(OBJ_DIR)/apinames.tds)
+LINK_LIBRARY   = tlib /u $(subst /,$(COMPILER_SEP),$@ $(OBJECTS_LIST:%=+%))
 
 
 # EOF

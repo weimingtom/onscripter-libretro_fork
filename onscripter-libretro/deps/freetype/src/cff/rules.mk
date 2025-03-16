@@ -3,7 +3,7 @@
 #
 
 
-# Copyright (C) 1996-2023 by
+# Copyright 1996-2000, 2001, 2003 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
 # This file is part of the FreeType project, and may only be used, modified,
@@ -18,27 +18,24 @@
 CFF_DIR := $(SRC_DIR)/cff
 
 
-CFF_COMPILE := $(CC) $(ANSIFLAGS)                            \
-                     $I$(subst /,$(COMPILER_SEP),$(CFF_DIR)) \
-                     $(INCLUDE_FLAGS)                        \
-                     $(FT_CFLAGS)
+CFF_COMPILE := $(FT_COMPILE) $I$(subst /,$(COMPILER_SEP),$(CFF_DIR))
 
 
 # CFF driver sources (i.e., C files)
 #
-CFF_DRV_SRC := $(CFF_DIR)/cffcmap.c  \
-               $(CFF_DIR)/cffdrivr.c \
-               $(CFF_DIR)/cffgload.c \
+CFF_DRV_SRC := $(CFF_DIR)/cffobjs.c  \
                $(CFF_DIR)/cffload.c  \
-               $(CFF_DIR)/cffobjs.c  \
-               $(CFF_DIR)/cffparse.c
-
+               $(CFF_DIR)/cffgload.c \
+               $(CFF_DIR)/cffparse.c \
+               $(CFF_DIR)/cffcmap.c  \
+               $(CFF_DIR)/cffdrivr.c
 
 # CFF driver headers
 #
 CFF_DRV_H := $(CFF_DRV_SRC:%.c=%.h) \
-             $(CFF_DIR)/cfferrs.h   \
-             $(CFF_DIR)/cfftoken.h
+             $(CFF_DIR)/cfftoken.h  \
+             $(CFF_DIR)/cfftypes.h  \
+             $(CFF_DIR)/cfferrs.h
 
 
 # CFF driver object(s)
