@@ -253,7 +253,7 @@ yuri版快进到开头某段偶尔可能会闪退；
 或者说它会把一些不带右半遮罩的立绘当作带右半遮罩来处理。
 这个问题目前我还没找到方法解决
 
-20250320:重新修复FIX_TACHI_IMAGE_PNG_MASK_BUG
+20250320:重新修复FIX_TACHI_IMAGE_PNG_MASK_BUG, see ONScripter_image.cpp ONScripter::loadImage isHaimao
 ```
 * 遥仰凰华：  
 主菜单上下切换菜单时显示文字错位（yuri版也一样）；
