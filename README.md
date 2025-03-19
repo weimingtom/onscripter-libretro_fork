@@ -375,7 +375,7 @@ see ONScripter_command.cpp:2347 int ONScripter::gettagCommand() nullptr bug
 ```
 * 纯白交响曲：yuri版，如果按住Y快进不放手，可能到饭堂时候会闪退（可能是因为内存不足？），但如果不快进，按A前进，不闪退  
 * 秋之回忆2: 所有版本，首页菜单-图片鉴赏-选上下进入，缩略图会花屏；似乎无法通过方向键切换到旁边的缩略图；  
-* 秋之回忆2: 按X-上下文菜单-退出-【是否】变成右对齐【否是】（yuri版无此bug）      
+* 秋之回忆2: （20250316 fixed, see FIX_LOAD_MENU_LINE_WRAP_BUG）按X-上下文菜单-退出-【是否】变成右对齐【否是】（yuri版无此bug）      
 
 ## References  
 * (origin, dead?) https://github.com/iyzsong/onscripter-libretro
