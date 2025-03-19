@@ -59,12 +59,15 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
 
 //added, another code see below
 #define FIX_TACHI_IMAGE_PNG_MASK_BUG 1
+int DEBUG = 0;
 #if FIX_TACHI_IMAGE_PNG_MASK_BUG
+#if 0
     bool has_colorkey = false;
     Uint32 colorkey = 0;
 
     if ( has_alpha ){
         *has_alpha = (tmp->format->Amask != 0);
+if (DEBUG) printf("<<<<<<<<<<< *has_alpha == %d\n", *has_alpha);
         if (!(*has_alpha) && (tmp->flags & SDL_SRCCOLORKEY)){
             has_colorkey = true;
             colorkey = tmp->format->colorkey;
@@ -75,8 +78,22 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
             *has_alpha = true;
         }
     }
+#else
+    bool has_colorkey = false;
+    Uint32 colorkey = 0;
+if (DEBUG) printf("<<<<<<<<<<< init *has_alpha == %d, %s\n", *has_alpha, filename);
+	if (!(*has_alpha) && (tmp->flags & SDL_SRCCOLORKEY)){
+	    has_colorkey = true;
+	    colorkey = tmp->format->colorkey;
+	    if (tmp->format->palette){
+		//palette will be converted to RGBA, so don't do colorkey check
+		has_colorkey = false;
+	    }
+	    *has_alpha = true;
+	}
+if (DEBUG) printf("<<<<<<<<<<< init2 *has_alpha == %d, %s, has_colorkey == %d\n", *has_alpha, filename, has_colorkey);
 #endif
-
+#endif
 
 
 
@@ -104,8 +121,7 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
 
 
 
-
-
+    //*has_alpha = true; //monv de huayuan
 //added, another code see upper
 #if FIX_TACHI_IMAGE_PNG_MASK_BUG
     //  A PNG image may contain an alpha channel, which complicates
@@ -138,11 +154,12 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
             *has_alpha = false;
         else if (png_mask_type == PNG_MASK_AUTODETECT) {
 #else
-        if (1) {
+	if (1) {
 #endif
             SDL_LockSurface(ret);
             const Uint32 aval = *(Uint32*)ret->pixels & ret->format->Amask;
             if (aval != ret->format->Amask) goto breakalpha;
+if (DEBUG) printf("<<<<<<<<<< alpha channel is 0xff, %X, %s\n", aval, filename);
             *has_alpha = false;
             for (int y=0; y<ret->h; ++y) {
                 Uint32* pixbuf = (Uint32*)((char*)ret->pixels + y * ret->pitch);
@@ -159,6 +176,8 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
                 }
             }
           breakalpha:
+if (DEBUG) printf("<<<<<<<<<<<breakalpha *has_alpha == %d, %s, has_colorkey == %d\n", *has_alpha, filename, has_colorkey);
+#if 1
             if (!*has_alpha && has_colorkey) {
                 // has a colorkey, so run a match against rgb values
                 const Uint32 aval = colorkey & ~(ret->format->Amask);
@@ -174,15 +193,42 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
                         }
                     }
                 }
+            } else {
+bool isHaimao = true; //FIXME: if the image left half (why not right half ?) is not gray or black or white, I think it is not haimao
+                for (int y=0; y<ret->h; ++y) {
+                    Uint32* pixbuf = (Uint32*)((char*)ret->pixels + y * ret->pitch);
+                    for (int x=ret->w; x>0; --x, ++pixbuf) {
+//&& *pixbuf != 0xFF050200
+                        if (/*strstr(filename, "TA") &&*/ x<ret->w/2 && *pixbuf != 0xFF000000 && *pixbuf != 0xFFFFFFFF) { //not black and not white
+				int r = (*pixbuf >> 16) & 0xff;
+				int g = (*pixbuf >>  8) & 0xff;
+				int b = (*pixbuf >>  8) & 0xff;
+				if (r != g || r != b) { //and not gray
+                        		isHaimao = false;
+if (DEBUG) printf("<<<<<<<<<<<isHaimao is false, %X, xy == %d, %d\n", *pixbuf, x, y);
+					goto endCheckHaimao;
+				}
+			}
+                    }
+                }
+endCheckHaimao:
+if (isHaimao) { //strstr(filename, "TA")) { //filename contains 'TA' may mean tachi, it can be used to check if it is Haimao game temporarily
+	//skip
+} else {
+		*has_alpha = true; //FIXME:added, monv de huayuan
+}		
             }
+#endif
           breakkey:
             SDL_UnlockSurface(ret);
         }
+    } else {
+    	//*has_alpha = true; //monv de huayuan
     }
 #endif
 
-
-
+//monv de huayuan, image2/TITLE.png, *has_alpha from 1 to 0 is wrong  
+if (DEBUG) printf("<<<<<<<<<<<final *has_alpha == %d, %s\n", *has_alpha, filename);
 
 
     return ret;
