@@ -32,6 +32,8 @@ SDL_Surface* ONScripter::loadImage(char* filename, bool is_flipped, bool* has_al
     SDL_Surface* tmp = NULL;
     if (location) *location = BaseReader::ARCHIVE_TYPE_NONE;
 
+//printf("<<<<<<<<<<< ONScripter::loadImage filename == %s\n", filename);
+
     if (filename[0] == '>')
         tmp = createRectangleSurface(filename, has_alpha, alpha);
     else
@@ -322,6 +324,19 @@ SDL_Surface* ONScripter::createSurfaceFromFile(char* filename, bool* has_alpha, 
         tmp_image_buf = NULL;
     }
 
+#define FIX_MEMORIES_OFF_2ND_SYS_BMP_BUG 1
+#if FIX_MEMORIES_OFF_2ND_SYS_BMP_BUG
+//if (fopen("MOV_OP03.mp4", "")
+bool isMO2 = false;
+if (filename && strstr(filename, "sys/") && strstr(filename, "-") && strstr(filename, ".bmp")) 
+{ //"186-1.bmp"
+	isMO2 = true;
+	if (length < 0xB9C4) {
+		length = 0xB9C4;
+	}
+}
+#endif
+
     unsigned char* buffer = NULL;
     if (length > tmp_image_buf_length) {
         buffer = new (std::nothrow) unsigned char[length];
@@ -337,6 +352,22 @@ SDL_Surface* ONScripter::createSurfaceFromFile(char* filename, bool* has_alpha, 
 
     script_h.cBR->getFile(filename, buffer, location);
     char* ext = strrchr(filename, '.');
+
+#if FIX_MEMORIES_OFF_2ND_SYS_BMP_BUG
+if (isMO2 && length > 0x1C && tmp_image_buf_length > 0x1C) {		
+	printf("<<<<<<<<<FIX_MO2_SYS_BMP_BUG %s, 0x1C == %X, %X, %X\n", filename, buffer[0x1C], buffer[0x00], buffer[0x01]);
+	if (buffer[0x00] == 0x42 && buffer[0x01] == 0x4D && //magic is BM 
+		buffer[0x1C] == 0x18 &&  //24bit depth color
+		buffer[0x02] == 0xBE && buffer[0x03] == 0x8B) //file size 8BBE
+	{
+		buffer[0x1C] = 0x20; //24 -> 32 bit depth color
+		for (int k = 0x8BBE; k < 0xB9C4; k++) { //if
+			buffer[k] = 0xff;//0x00; //change from 0x00 black to 0xff white, NOTE current is 32bit
+		}
+	}
+}
+#endif
+
 
     SDL_RWops* src = SDL_RWFromMem(buffer, length);
     int is_png = IMG_isPNG(src);
