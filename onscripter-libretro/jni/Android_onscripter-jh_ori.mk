@@ -10,7 +10,7 @@ LOCAL_MODULE    := bzip2
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -56,7 +56,7 @@ LOCAL_MODULE    := freetype
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -121,7 +121,7 @@ LOCAL_MODULE    := libjpeg-turbo
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -170,7 +170,7 @@ LOCAL_MODULE    := zlib
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -212,7 +212,7 @@ LOCAL_MODULE    := libpng
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -258,7 +258,7 @@ LOCAL_MODULE    := libogg
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -298,7 +298,7 @@ LOCAL_MODULE    := libvorbis
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -342,7 +342,7 @@ LOCAL_MODULE    := libmad
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -384,7 +384,7 @@ LOCAL_MODULE    := sdl
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -447,7 +447,7 @@ LOCAL_MODULE    := sdl-libretro
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -489,7 +489,7 @@ LOCAL_MODULE    := sdl-image
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -528,7 +528,7 @@ LOCAL_MODULE    := sdl-mixer
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -578,7 +578,7 @@ LOCAL_MODULE    := sdl-ttf
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -616,7 +616,7 @@ LOCAL_MODULE    := libretro-common
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -662,7 +662,7 @@ LOCAL_MODULE    := onscripter
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \
@@ -680,13 +680,12 @@ LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/.. \
   -I$(LOCAL_PATH)/../deps
 
-LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/onscripter/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/onscripter-jh_ori/,\
   ONScripter.cpp \
   ONScripter_animation.cpp \
   ONScripter_command.cpp \
   ONScripter_effect.cpp \
   ONScripter_effect_breakup.cpp \
-  ONScripter_effect_cascade.cpp \
   ONScripter_event.cpp \
   ONScripter_file.cpp \
   ONScripter_file2.cpp \
@@ -697,7 +696,6 @@ LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/onscripter/,\
   ONScripter_text.cpp \
   resize_image.cpp \
   sjis2utf16.cpp \
-  Encoding.cpp \
   DirectReader.cpp \
   SarReader.cpp \
   NsaReader.cpp \
@@ -712,7 +710,9 @@ LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/onscripter/,\
 #TODO: remove this switch
 LOCAL_CXXFLAGS  += -fpermissive 
 
-LOCAL_CXXFLAGS  += -DENABLE_1BYTE_CHAR
+#not care
+LOCAL_CXXFLAGS  += -DSDL_JAVA_PACKAGE_PATH=com_example_SanAngeles
+#LOCAL_CXXFLAGS  += -DENABLE_1BYTE_CHAR
 
 #LOCAL_SRC_FILES := foo/foo.c
 #LOCAL_CFLAGS := -DFOO=2
@@ -731,7 +731,7 @@ LOCAL_MODULE    := retro
 
 LOCAL_CFLAGS += \
   -I$(LOCAL_PATH)/../deps/libretro-common/include \
-  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/onscripter-jh_ori \
   -I$(LOCAL_PATH)/../deps/bzip2 \
   -I$(LOCAL_PATH)/../deps/zlib \
   -I$(LOCAL_PATH)/../deps/freetype/include \

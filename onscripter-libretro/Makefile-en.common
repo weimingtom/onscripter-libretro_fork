@@ -98,6 +98,7 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
 SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
   arm/filter_neon.S \
 )
+#FIXME:libpng depends ARM ASM
 
 # libogg
 SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
@@ -184,7 +185,13 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
   queues/fifo_queue.c \
 )
 
+# tinycoroutine
+#SOURCES_C += $(DEPS_DIR)/tinycoroutine/tinycoroutine.c
+#FIXME: not support __aarch64__, see deps/tinycoroutine/tinycoroutine.c:256
+
 # onscripter
+CFLAGS += -DUSE_LABEL=1
+CXXFLAGS += -DUSE_LABEL=1
 SOURCES_CXX := $(CORE_DIR)/libretro.cpp
 SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-en/,\
   ONScripterLabel.cpp \
@@ -217,7 +224,10 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-en/,\
   graphics_routines.cpp \
   Layer.cpp \
 )
-
+#SOURCES_CXX += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+#  SDL_image.cpp \
+#)
+#CXXFLAGS += -DENABLE_1BYTE_CHAR
 
 #  AVIWrapper.cpp \
 #  embed.cpp \

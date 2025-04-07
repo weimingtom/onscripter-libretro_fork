@@ -98,6 +98,7 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
 SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
   arm/filter_neon.S \
 )
+#FIXME:libpng depends ARM ASM
 
 # libogg
 SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
@@ -185,7 +186,8 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
 )
 
 # tinycoroutine
-SOURCES_C += $(DEPS_DIR)/tinycoroutine/tinycoroutine.c
+#SOURCES_C += $(DEPS_DIR)/tinycoroutine/tinycoroutine.c
+#FIXME: not support __aarch64__, see deps/tinycoroutine/tinycoroutine.c:256
 
 # onscripter
 SOURCES_CXX := $(CORE_DIR)/libretro.cpp
@@ -221,3 +223,4 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter/,\
 #  SDL_image.cpp \
 #)
 CXXFLAGS += -DENABLE_1BYTE_CHAR
+

@@ -1,46 +1,44 @@
-# -*- mode: makefile -*-
-DEPS_DIR = $(CORE_DIR)/deps
-LIBRETRO_COMM_DIR = $(DEPS_DIR)/libretro-common
-SDL_LIBRETRO_DIR = $(CORE_DIR)/sdl-libretro
+LOCAL_PATH := $(call my-dir)
 
-INCFLAGS := \
-  -I$(LIBRETRO_COMM_DIR)/include \
-  -I$(DEPS_DIR)/onscripter-jh_ori \
-  -I$(DEPS_DIR)/bzip2 \
-  -I$(DEPS_DIR)/zlib \
-  -I$(DEPS_DIR)/freetype/include \
-  -I$(DEPS_DIR)/libjpeg-turbo \
-  -I$(DEPS_DIR)/libpng \
-  -I$(DEPS_DIR)/libogg/include \
-  -I$(DEPS_DIR)/libvorbis/include \
-  -I$(DEPS_DIR)/libmad/ \
-  -I$(SDL_LIBRETRO_DIR) \
-  -I$(DEPS_DIR)/sdl/include \
-  -I$(DEPS_DIR)/sdl-image \
-  -I$(DEPS_DIR)/sdl-mixer \
-  -I$(DEPS_DIR)/sdl-ttf \
-  -I$(DEPS_DIR)/tinycoroutine \
-  -I$(CORE_DIR) \
-  -I$(DEPS_DIR)
+include $(CLEAR_VARS)
 
+LOCAL_CFLAGS += \
+  -I$(LOCAL_PATH)/../deps/libretro-common/include \
+  -I$(LOCAL_PATH)/../deps/onscripter \
+  -I$(LOCAL_PATH)/../deps/bzip2 \
+  -I$(LOCAL_PATH)/../deps/zlib \
+  -I$(LOCAL_PATH)/../deps/freetype/include \
+  -I$(LOCAL_PATH)/../deps/libjpeg-turbo \
+  -I$(LOCAL_PATH)/../deps/libpng \
+  -I$(LOCAL_PATH)/../deps/libogg/include \
+  -I$(LOCAL_PATH)/../deps/libvorbis/include \
+  -I$(LOCAL_PATH)/../deps/libmad \
+  -I$(LOCAL_PATH)/../sdl-libretro \
+  -I$(LOCAL_PATH)/../deps/sdl/include \
+  -I$(LOCAL_PATH)/../deps/sdl-image \
+  -I$(LOCAL_PATH)/../deps/sdl-mixer \
+  -I$(LOCAL_PATH)/../deps/sdl-ttf \
+  -I$(LOCAL_PATH)/../deps/tinycoroutine \
+  -I$(LOCAL_PATH)/.. \
+  -I$(LOCAL_PATH)/../deps
 
-CFLAGS += $(INCFLAGS)
-CXXFLAGS += $(INCFLAGS)
+#CFLAGS += $(INCFLAGS)
+#CXXFLAGS += $(INCFLAGS)
 
 # bzip2
-CFLAGS += -D_FILE_OFFSET_BITS=64
-SOURCES_C += \
-  $(DEPS_DIR)/bzip2/blocksort.c \
-  $(DEPS_DIR)/bzip2/huffman.c \
-  $(DEPS_DIR)/bzip2/crctable.c \
-  $(DEPS_DIR)/bzip2/randtable.c \
-  $(DEPS_DIR)/bzip2/compress.c \
-  $(DEPS_DIR)/bzip2/decompress.c \
-  $(DEPS_DIR)/bzip2/bzlib.c
+LOCAL_CFLAGS += -D_FILE_OFFSET_BITS=64
+LOCAL_SRC_FILES += \
+  $(LOCAL_PATH)/../deps/bzip2/blocksort.c \
+  $(LOCAL_PATH)/../deps/bzip2/huffman.c \
+  $(LOCAL_PATH)/../deps/bzip2/crctable.c \
+  $(LOCAL_PATH)/../deps/bzip2/randtable.c \
+  $(LOCAL_PATH)/../deps/bzip2/compress.c \
+  $(LOCAL_PATH)/../deps/bzip2/decompress.c \
+  $(LOCAL_PATH)/../deps/bzip2/bzlib.c
 
 # freetype
-CFLAGS += -DFT2_BUILD_LIBRARY=1
-SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
+LOCAL_CFLAGS += -DFT2_BUILD_LIBRARY=1
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/freetype/src/,\
   base/ftbase.c \
   base/ftdebug.c \
   base/ftinit.c \
@@ -69,7 +67,7 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
 #raster/raster.c 
 
 # libjpeg-turbo
-SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libjpeg-turbo/,\
   jcapimin.c jcapistd.c jccoefct.c jccolor.c jcdctmgr.c jchuff.c \
   jcicc.c jcinit.c jcmainct.c jcmarker.c jcmaster.c jcomapi.c jcparam.c \
   jcphuff.c jcprepct.c jcsample.c jctrans.c jdapimin.c jdapistd.c jdatadst.c \
@@ -82,31 +80,30 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/libjpeg-turbo/,\
 )
 
 # zlib
-SOURCES_C += $(addprefix $(DEPS_DIR)/zlib/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/zlib/,\
   adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c \
   gzread.c gzwrite.c inflate.c infback.c inftrees.c inffast.c \
   trees.c uncompr.c zutil.c \
 )
 
 # libpng
-SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libpng/,\
   png.c pngerror.c pngget.c pngmem.c pngpread.c \
   pngread.c pngrio.c pngrtran.c pngrutil.c \
   pngset.c pngtrans.c pngwio.c pngwrite.c pngwtran.c pngwutil.c \
   arm/arm_init.c arm/filter_neon_intrinsics.c arm/palette_neon_intrinsics.c \
 )
-SOURCES_S += $(addprefix $(DEPS_DIR)/libpng/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libpng/,\
   arm/filter_neon.S \
 )
-#FIXME:libpng depends ARM ASM
 
 # libogg
-SOURCES_C += $(addprefix $(DEPS_DIR)/libogg/src/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libogg/src/,\
   bitwise.c framing.c \
 )
 
 # libvorbis
-SOURCES_C += $(addprefix $(DEPS_DIR)/libvorbis/lib/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libvorbis/lib/,\
   mdct.c smallft.c block.c envelope.c window.c lsp.c \
   lpc.c analysis.c synthesis.c psy.c info.c \
   floor1.c floor0.c \
@@ -115,15 +112,15 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/libvorbis/lib/,\
 )
 
 # libmad
-CFLAGS += -DFPM_DEFAULT -DSIZEOF_INT=4
-SOURCES_C += $(addprefix $(DEPS_DIR)/libmad/,\
+LOCAL_CFLAGS += -DFPM_DEFAULT -DSIZEOF_INT=4
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libmad/,\
   version.c fixed.c bit.c timer.c stream.c frame.c \
   synth.c decoder.c layer12.c layer3.c huffman.c \
 )
 
 # sdl
 LDFLAGS += -lpthread
-SOURCES_C += $(addprefix $(DEPS_DIR)/sdl/src/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/sdl/src/,\
   SDL.c SDL_error.c SDL_fatal.c \
   audio/SDL_audio.c audio/SDL_audiocvt.c audio/SDL_audiodev.c \
   audio/SDL_mixer.c audio/SDL_mixer_m68k.c audio/SDL_wave.c \
@@ -148,17 +145,17 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/sdl/src/,\
   joystick/dummy/SDL_sysjoystick.c \
   loadso/dummy/SDL_sysloadso.c \
 )
-SOURCES_C += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../sdl-libretro/, \
   audio.c events.c video.c \
 )
 
 # sdl-image
-CFLAGS += -DSIZEOF_SIZE_T=__SIZEOF_SIZE_T__ -DLOAD_JPG -DLOAD_BMP -DLOAD_PNG
-SOURCES_C += $(filter-out %/showimage.c, $(wildcard $(DEPS_DIR)/sdl-image/*.c))
+LOCAL_CFLAGS += -DSIZEOF_SIZE_T=__SIZEOF_SIZE_T__ -DLOAD_JPG -DLOAD_BMP -DLOAD_PNG
+LOCAL_SRC_FILES += $(filter-out %/showimage.c, $(wildcard $(LOCAL_PATH)/../deps/sdl-image/*.c))
 
 # sdl-mixer
-CFLAGS += -DOGG_MUSIC -DMP3_MAD_MUSIC
-SOURCES_C += $(addprefix $(DEPS_DIR)/sdl-mixer/,\
+LOCAL_CFLAGS += -DOGG_MUSIC -DMP3_MAD_MUSIC
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/sdl-mixer/,\
   mixer.c \
   music.c \
   effects_internal.c \
@@ -172,10 +169,10 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/sdl-mixer/,\
 )
 
 # sdl-ttf
-SOURCES_C += $(DEPS_DIR)/sdl-ttf/SDL_ttf.c
+LOCAL_SRC_FILES += $(LOCAL_PATH)/../deps/sdl-ttf/SDL_ttf.c
 
 # libretro-common
-SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/libretro-common/,\
   compat/compat_strl.c \
   encodings/encoding_utf.c \
   string/stdstring.c \
@@ -186,17 +183,17 @@ SOURCES_C += $(addprefix $(LIBRETRO_COMM_DIR)/,\
 )
 
 # tinycoroutine
-#SOURCES_C += $(DEPS_DIR)/tinycoroutine/tinycoroutine.c
-#FIXME: not support __aarch64__, see deps/tinycoroutine/tinycoroutine.c:256
+LOCAL_SRC_FILES += $(LOCAL_PATH)/../deps/tinycoroutine/tinycoroutine.c
 
 # onscripter
-SOURCES_CXX := $(CORE_DIR)/libretro.cpp
-SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
+LOCAL_SRC_FILES += $(LOCAL_PATH)/../libretro.cpp
+LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../deps/onscripter/,\
   ONScripter.cpp \
   ONScripter_animation.cpp \
   ONScripter_command.cpp \
   ONScripter_effect.cpp \
   ONScripter_effect_breakup.cpp \
+  ONScripter_effect_cascade.cpp \
   ONScripter_event.cpp \
   ONScripter_file.cpp \
   ONScripter_file2.cpp \
@@ -207,6 +204,7 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
   ONScripter_text.cpp \
   resize_image.cpp \
   sjis2utf16.cpp \
+  Encoding.cpp \
   DirectReader.cpp \
   SarReader.cpp \
   NsaReader.cpp \
@@ -217,8 +215,18 @@ SOURCES_CXX += $(addprefix $(DEPS_DIR)/onscripter-jh_ori/,\
   AnimationInfo.cpp \
   DirtyRect.cpp \
 )
-#SOURCES_CXX += $(addprefix $(SDL_LIBRETRO_DIR)/, \
+#LOCAL_SRC_FILES += $(addprefix $(LOCAL_PATH)/../sdl-libretro/, \
 #  SDL_image.cpp \
 #)
-#CXXFLAGS += -DENABLE_1BYTE_CHAR
+LOCAL_CXXFLAGS += -DENABLE_1BYTE_CHAR
 
+#LOCAL_SHORT_COMMANDS := true
+LOCAL_MODULE    := retro
+#LOCAL_SRC_FILES := $(SOURCES_C) $(SOURCES_CXX)
+LOCAL_CFLAGS    += -std=c99
+
+#TODO: remove this switch
+LOCAL_CXXFLAGS  += -fpermissive 
+
+#LOCAL_LDFLAGS   += -Wl,-version-script=$(LOCAL_PATH)/../link.T
+include $(BUILD_SHARED_LIBRARY)

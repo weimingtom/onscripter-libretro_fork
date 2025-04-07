@@ -179,14 +179,18 @@ else
    CXXFLAGS += -O3
 endif
 
+#FIXME:???
+#deps/onscripter/FontInfo.cpp:275:41: error: invalid conversion from 
+#‘const TTF_Font*’ {aka ‘const _TTF_Font*’} to ‘TTF_Font*’ 
+#{aka ‘_TTF_Font*’} [-fpermissive]
+CXXFLAGS += -fpermissive
+
 ifeq ($(TINYCO), 1)
   CFLAGS += -DUSE_TINYCO=1
   CXXFLAGS += -DUSE_TINYCO=1
 endif
 
 ifeq ($(JH),3)
-CFLAGS += -DUSE_LABEL=1
-CXXFLAGS += -DUSE_LABEL=1
 include Makefile-en.common
 else ifeq ($(JH),2)
 include Makefile-jh_ori.common
