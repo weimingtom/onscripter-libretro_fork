@@ -239,6 +239,8 @@ scenario(只是一些早期取出文件)
 * 月姬简体中文测试beta  
 tsukihime.rar  
 * for android.rar  
+* 月は東に日は西に, (x) Binary Pot  
+* Princess Holiday  
 
 ## games test  
 * 魔女的花园：按Y快进后有时候会出现各种立绘错乱位置叠加（可能没消失，或者可能变得很巨大，难道是显示头像显示到主屏幕上？yuri版也有这个问题）；  
