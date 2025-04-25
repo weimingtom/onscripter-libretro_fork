@@ -195,6 +195,6 @@ print-%:
 	@echo '$*=$($*)'
 
 install:
-	cp onsyuri_libretro.so /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
-	cp onsyuri_libretro.info /home/wmt/snap/retroarch/2879/.config/retroarch/cores/.
+	cp onsyuri_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
+	cp onsyuri_libretro.info /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
 

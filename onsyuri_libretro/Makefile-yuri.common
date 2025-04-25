@@ -197,21 +197,51 @@ SOURCES_C += \
   $(DEPS_DIR)/lua/linit.c
   
 # freetype
+#see deps/freetype/Android.mk
 CFLAGS += -DFT2_BUILD_LIBRARY=1
 SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
-  base/ftbase.c \
-  base/ftdebug.c \
-  base/ftinit.c \
-  base/ftsystem.c \
-  base/ftbitmap.c \
-  base/ftglyph.c \
-  base/ftstroke.c \
   autofit/autofit.c \
-  psnames/psnames.c \
-  sfnt/sfnt.c \
-  truetype/truetype.c \
+  base/ftbase.c \
+  base/ftbbox.c \
+  base/ftbdf.c \
+  base/ftbitmap.c \
+  base/ftcid.c \
+  base/ftdebug.c \
+  base/ftfstype.c \
+  base/ftgasp.c \
+  base/ftglyph.c \
+  base/ftgxval.c \
+  base/ftinit.c \
+  base/ftmm.c \
+  base/ftotval.c \
+  base/ftpatent.c \
+  base/ftpfr.c \
+  base/ftstroke.c \
+  base/ftsynth.c \
+  base/ftsystem.c \
+  base/fttype1.c \
+  base/ftwinfnt.c \
+  bdf/bdf.c \
+  bzip2/ftbzip2.c \
+  cache/ftcache.c \
+  cff/cff.c \
+  cid/type1cid.c \
+  gzip/ftgzip.c \
+  lzw/ftlzw.c \
+  pcf/pcf.c \
+  pfr/pfr.c \
+  psaux/psaux.c \
+  pshinter/pshinter.c \
+  psnames/psmodule.c \
   raster/raster.c \
+  sdf/sdf.c \
+  sfnt/sfnt.c \
+  svg/svg.c \
   smooth/smooth.c \
+  truetype/truetype.c \
+  type1/type1.c \
+  type42/type42.c \
+  winfonts/winfnt.c \
 )
 
 # libjpeg-turbo

@@ -1,3 +1,4 @@
+#define SDL_DYNAMIC_API 0//#include "SDL_dynapi.h" //FIXME: added for ndk-build 
 #include "SDL_libretro.h"
 #include "SDL_image.h"
 #include "./deps/SDL/src/audio/SDL_sysaudio.h"
@@ -54,9 +55,18 @@ PumpEvents(SDL_VideoDevice* device)
 void
 DestroyWindowFramebuffer(SDL_VideoDevice* device, SDL_Window* window)
 {
-    SDL_FreeSurface(_surface_fb);
-    SDL_FreeSurface(_surface_ons);
-    SDL_FreeSurface(_surface_retro);
+    if (_surface_fb) {
+        SDL_FreeSurface(_surface_fb);
+        _surface_fb = NULL;
+    }
+    if (_surface_ons) {
+        SDL_FreeSurface(_surface_ons);
+        _surface_ons = NULL;
+    }
+    if (_surface_retro) {
+        SDL_FreeSurface(_surface_retro);
+        _surface_retro = NULL;
+    }
 }
 
 int
