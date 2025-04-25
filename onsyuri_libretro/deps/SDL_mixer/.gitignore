@@ -1,4 +1,4 @@
-build*
+#build*
 aclocal.m4
 autom4te*
 config.cache
