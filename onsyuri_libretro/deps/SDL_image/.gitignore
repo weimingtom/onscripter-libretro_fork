@@ -15,7 +15,7 @@ libtool
 xcuserdata
 *.xcworkspace
 SDL2_image.pc
-showimage
+#showimage
 
 # for Visual C++
 .vs
