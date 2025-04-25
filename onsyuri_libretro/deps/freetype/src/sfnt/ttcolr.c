@@ -229,7 +229,7 @@
 
       base_glyphs_offset_v1 = FT_NEXT_ULONG( p );
 
-      if ( base_glyphs_offset_v1 + 4 >= table_size )
+      if ( base_glyphs_offset_v1 >= table_size - 4 )
         goto InvalidTable;
 
       p1                 = (FT_Byte*)( table + base_glyphs_offset_v1 );
@@ -249,7 +249,7 @@
 
       if ( layer_offset_v1 )
       {
-        if ( layer_offset_v1 + 4 >= table_size )
+        if ( layer_offset_v1 >= table_size - 4 )
           goto InvalidTable;
 
         p1            = (FT_Byte*)( table + layer_offset_v1 );
@@ -699,7 +699,7 @@
                                              item_deltas ) )
           return 0;
 
-        apaint->u.solid.color.alpha += item_deltas[0];
+        apaint->u.solid.color.alpha += (FT_F2Dot14)item_deltas[0];
       }
 #endif
 
@@ -1269,6 +1269,7 @@
   static FT_Bool
   find_base_glyph_v1_record( FT_Byte *           base_glyph_begin,
                              FT_UInt             num_base_glyph,
+                             FT_Byte *           end_colr,
                              FT_UInt             glyph_id,
                              BaseGlyphV1Record  *record )
   {
@@ -1278,7 +1279,8 @@
 
     while ( min < max )
     {
-      FT_UInt  mid = min + ( max - min ) / 2;
+      FT_UInt    mid = min + ( max - min ) / 2;
+      FT_UShort  gid;
 
       /*
        * `base_glyph_begin` is the beginning of `BaseGlyphV1List`;
@@ -1287,8 +1289,15 @@
        */
       FT_Byte  *p = base_glyph_begin + 4 + mid * BASE_GLYPH_PAINT_RECORD_SIZE;
 
-      FT_UShort  gid = FT_NEXT_USHORT( p );
 
+      /* We need to be able to read 2 bytes (FT_NEXT_USHORT) for the glyph */
+      /* ID, then 4 bytes (FT_NEXT_ULONG) for the paint offset.  If that's */
+      /* not available before the end of the table, something's wrong with */
+      /* the font and we can't find a COLRv1 glyph.                        */
+      if ( p > end_colr - 2 - 4 )
+        return 0;
+
+      gid = FT_NEXT_USHORT( p );
 
       if ( gid < glyph_id )
         min = mid + 1;
@@ -1328,6 +1337,7 @@
 
     if ( !find_base_glyph_v1_record( colr->base_glyphs_v1,
                                      colr->num_base_glyphs_v1,
+                                     (FT_Byte*)colr->table + colr->table_size,
                                      base_glyph,
                                      &base_glyph_v1_record ) )
       return 0;
@@ -1646,7 +1656,7 @@
           return 0;
 
         color_stop->stop_offset += F2DOT14_TO_FIXED( item_deltas[0] );
-        color_stop->color.alpha += item_deltas[1];
+        color_stop->color.alpha += (FT_F2Dot14)item_deltas[1];
       }
 #else
       FT_UNUSED( var_index_base );
@@ -1914,7 +1924,7 @@
 #else /* !TT_CONFIG_OPTION_COLOR_LAYERS */
 
   /* ANSI C doesn't like empty source files */
-  typedef int  _tt_colr_dummy;
+  typedef int  tt_colr_dummy_;
 
 #endif /* !TT_CONFIG_OPTION_COLOR_LAYERS */
 
