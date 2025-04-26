@@ -8,7 +8,8 @@ NOTE: Sadly my current build onscripter_libretro.so GBK version (I call it onscr
 Tested under xubuntu 20 64bit, and may be tested well under MIYOO A30 and MIYOO Mini Plus (32bit), RG28XX (32bit), Android 12 (Redmi 12C, 32 and 64bit), Windows 10 (32 and 64bit), Trimui Smart Pro and Trimui Brick (64bit), R36S (64bit), RGB10X (64bit), Waveshare GPM280Z2 (Retropie, 32bit)  
 Cmake compiling is not availabe yet, use make instead.  
 
-Test binary files (not stable, buggy, different from the versions of other peoples or official ones):   
+Test binary files (not stable, buggy, different from the versions of other peoples or official ones):  
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250426   
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250308  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20250209  
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123  
@@ -31,6 +32,7 @@ https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/on
 
 **Onscripter-yuri build, WIP**  
 Onsyuri Test binary files (not stable very much):  
+https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20250426   
 (alpha test) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20241219    
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123   
 (old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113   
@@ -343,6 +345,8 @@ see ONScripter_rmenu.cpp, debug_load_menu.txt, FIX_LOAD_MENU_LINE_WRAP_BUG
 * 初音之歌-铃音之声：选第2项【初音之声】，开头快进到下着照后面，确认存储卡，【未来】【明显是拍太多了吧!?】上一句【哦，现在，318...】乱字；yuri版也会乱字  
 * Steam游戏官方中文版, noesis01, NOESIS01-诉说谎言的记忆之物语: ons和onsyuri版都闪退
 ```
+onsyuri版运行noesis01闪退问题在升级freetype（2.13.0升级到2.13.2）后解决，见版本20250425左右修改（编译输出版本是20250426）      
+
 我用自己编译的onscripter-libretro的RA核心打开noesis01和noesis02闪退，好像是因为加载字体那里出问题了，
 导致font空指针——但很怪的是如果我编译单独程序（非RA），链接xubuntu自己的开发库(sudo apt安装）
 则不会出现空指针和闪退（俩游戏的情况一样）。我暂时不改这个bug，
