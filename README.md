@@ -218,7 +218,8 @@ ONS游戏整合包.rar
 Open Source Nscripter (ONScripter) for Nintendo Switch + 31 Novel [NSP]  
 云下载/ONS, ONS_Chinese   
 云下载/ONS_GalGame for Android    
-云下载/ONS Gal for Android   
+云下载/ONS Gal for Android  
+云下载/ONS_汉化硬盘版  
 ons_111  
 gift_for_ONS  
 ONS-gal  
