@@ -1,0 +1,5 @@
+ArkOS_RGB10_v2.0_12242024.img
+ArkOS_RGB10_v2.0_12242024.img.xz
+
+onscripter_libretro.so same as r36s version
+
