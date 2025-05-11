@@ -22,6 +22,8 @@
 # ifndef LIBMAD_GLOBAL_H
 # define LIBMAD_GLOBAL_H
 
+#include <stdlib.h> /*for abort*/
+
 /* conditional debugging */
 
 # if defined(DEBUG) && defined(NDEBUG)

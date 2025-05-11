@@ -160,7 +160,9 @@ core核心(_libretro.so)闪退的PC版调试方法
 （1）去下载RetroArch 1.19.1的源代码：
 https://github.com/libretro/RetroArch/releases/tag/v1.19.1
 （2）编译安装（可以不必编译成-g debug版，但.so动态库必须确保-g debug版）：
-./configure --prefix=/home/wmt/ra
+sudo apt install libsdl2-dev libx11-xcb-dev  
+cd RetroArch-1.19.1  
+./configure --prefix=/home/wmt/ra  
 make -j8 && make install  
 （3）gdb运行（不用理会界面的图片缺失问题，因为不影响调试）：
 cd /home/wmt/ra/bin; gdb ./retroarch  
