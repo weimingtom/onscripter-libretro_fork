@@ -43,7 +43,8 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 （trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
 我有时间会把目前修改的代码开源到gh上
 2024/11/21:目前上述问题都已修复，未测试
-
+2025/05/13:可能刷TRIMUI SMART PRO的crossmix os系统升级包可以修复这个SDL_HINT_AUDIODRIVER的无声音bug,
+所以暂时不加上这个patch,但安全起见最好封死这个问题
 
 
 trimui smart pro声音问题修复方法：  
@@ -140,7 +141,7 @@ unzip ONSYURI.7z to SDCARD:/Emus/
 ## Bugs or TODO  
 * onscripter-jh_ori编译的核心产生闪退  
 **TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**  
-**TODO: 编译RetroArch需要预先安装什么软件包**  
+**(Done) TODO: 编译RetroArch需要预先安装什么软件包(答:libsdl2-dev libx11-xcb-dev)**  
 ```
 原因：libretro.cpp包含了错误的ONScripter.h头文件，导致ons.getWidth()返回0，
 产生crash，如果指向正确的头文件目录即可解决这个问题
