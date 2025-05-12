@@ -43,7 +43,8 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 （trimui smart pro是我编译安卓版之前可以编译运行，但后来编译安卓版后就不行）。
 我有时间会把目前修改的代码开源到gh上
 2024/11/21:目前上述问题都已修复，未测试
-2025/05/13:可能刷TRIMUI SMART PRO的crossmix os系统升级包可以修复这个SDL_HINT_AUDIODRIVER的无声音bug,
+2025/05/13:可能刷TRIMUI SMART PRO的crossmix os的系统升级包(会顺便升级固件到最新版)
+可以修复这个SDL_HINT_AUDIODRIVER的无声音bug,
 所以暂时不加上这个patch,但安全起见最好封死这个问题
 
 
