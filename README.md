@@ -218,11 +218,12 @@ ONS游戏整合包.rar
 * ONS游戏整合包, ONS.rar, ONS游戏整合包/galgame/开源掌机/新版RG35XX （有18慎）    
 * 115上一些早期下载的Android ONS整合包，合集，和ONS英文游戏  
 Open Source Nscripter (ONScripter) for Nintendo Switch + 31 Novel [NSP]  
-云下载/ONS, ONS_Chinese   
-云下载/ONS_GalGame for Android    
-云下载/ONS Gal for Android  
-云下载/ONS_汉化硬盘版  
-ons_111  
+云下载/ONS, ONS_Chinese, Gamex180,  [iOS]ONSCripte.ipa     
+云下载/ONS_GalGame for Android, Galgamex7 for android [CHS]        
+云下载/ONS Gal for Android, ONS版 已汉化Galgamex30 for android   
+云下载/ONS_汉化硬盘版, Gamex21    
+云下载/ONS_CC, Gamex3  
+ons_111, Gamex2  
 gift_for_ONS  
 ONS-gal  
 ONScripter for PSP  
