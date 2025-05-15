@@ -357,6 +357,7 @@ target_compile_definitions(onsyuri_libretro PRIVATE
    __LIBRETRO__
    USE_BUILTIN_LAYER_EFFECTS ENABLE_1BYTE_CHAR
    USE_LUA
+   BUILD_ALL_LOG
 )
 if (HAVE_NEON)
   target_compile_definitions(onsyuri_libretro PRIVATE USE_SIMD USE_SIMD_ARM_NEON)

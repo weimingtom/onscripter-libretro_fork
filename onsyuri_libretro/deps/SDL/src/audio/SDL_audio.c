@@ -968,7 +968,15 @@ int SDL_AudioInit(const char *driver_name)
     if (driver_name == NULL) {
         driver_name = SDL_GetHint(SDL_HINT_AUDIODRIVER);
     }
-
+#if BUILD_ALL_LOG
+if (driver_name) {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is %s, change to NULL\n", driver_name);
+} else {
+	SDL_SetError("<<<<<<BUILD_ALL_LOG SDL_AudioInit driver_name is NULL, change to NULL\n");
+}
+driver_name = NULL;
+#endif
+	
     if (driver_name != NULL && *driver_name != 0) {
         const char *driver_attempt = driver_name;
         while (driver_attempt != NULL && *driver_attempt != 0 && !initialized) {
