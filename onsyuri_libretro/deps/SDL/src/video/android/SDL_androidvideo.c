@@ -225,16 +225,36 @@ void Android_SetScreenResolution(int surfaceWidth, int surfaceHeight, int device
     Android_ScreenRate = (int)rate;
 }
 
+/*
+hardware_buffer.h
+enum AHardwareBuffer_Format {
+    AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM           = 1,
+    AHARDWAREBUFFER_FORMAT_R8G8B8X8_UNORM           = 2,
+    AHARDWAREBUFFER_FORMAT_R8G8B8_UNORM             = 3,
+    AHARDWAREBUFFER_FORMAT_R5G6B5_UNORM             = 4,
+    AHARDWAREBUFFER_FORMAT_R16G16B16A16_FLOAT       = 0x16,
+    AHARDWAREBUFFER_FORMAT_R10G10B10A2_UNORM        = 0x2b,
+    AHARDWAREBUFFER_FORMAT_BLOB                     = 0x21,
+    AHARDWAREBUFFER_FORMAT_D16_UNORM                = 0x30,
+    AHARDWAREBUFFER_FORMAT_D24_UNORM                = 0x31,
+    AHARDWAREBUFFER_FORMAT_D24_UNORM_S8_UINT        = 0x32,
+    AHARDWAREBUFFER_FORMAT_D32_FLOAT                = 0x33,
+    AHARDWAREBUFFER_FORMAT_D32_FLOAT_S8_UINT        = 0x34,
+    AHARDWAREBUFFER_FORMAT_S8_UINT                  = 0x35,
+    AHARDWAREBUFFER_FORMAT_Y8Cb8Cr8_420             = 0x23,
+};
+*/
+
 static Uint32 format_to_pixelFormat(int format)
 {
     Uint32 pf;
-    if (format == AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM) { /* 1 */
+    if (format == 1/*AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM*/) { /* 1 */
         pf = SDL_PIXELFORMAT_RGBA8888;
-    } else if (format == AHARDWAREBUFFER_FORMAT_R8G8B8X8_UNORM) { /* 2 */
+    } else if (format == 2/*AHARDWAREBUFFER_FORMAT_R8G8B8X8_UNORM*/) { /* 2 */
         pf = SDL_PIXELFORMAT_RGBX8888;
-    } else if (format == AHARDWAREBUFFER_FORMAT_R8G8B8_UNORM) { /* 3 */
+    } else if (format == 3/*AHARDWAREBUFFER_FORMAT_R8G8B8_UNORM*/) { /* 3 */
         pf = SDL_PIXELFORMAT_RGB24;
-    } else if (format == AHARDWAREBUFFER_FORMAT_R5G6B5_UNORM) { /* 4*/
+    } else if (format == 4/*AHARDWAREBUFFER_FORMAT_R5G6B5_UNORM*/) { /* 4*/
         pf = SDL_PIXELFORMAT_RGB565;
     } else if (format == 5) {
         pf = SDL_PIXELFORMAT_BGRA8888;

@@ -52,12 +52,12 @@ struct LayerInfo {
   LayerInfo(){
     sprite_num = -1;
     interval = last_update = 0;
-    handler = nullptr;
+    handler = 0;
   }
   ~LayerInfo(){
     if (handler) {
       delete handler;
-      handler = nullptr;
+      handler = 0;
     }
   }
 };

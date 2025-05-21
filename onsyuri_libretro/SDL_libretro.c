@@ -113,7 +113,8 @@ UpdateWindowFramebuffer(SDL_VideoDevice* device,
                         const SDL_Rect* rects,
                         int numrects)
 {
-    for (int i = 0; i < numrects; i += 1) {
+    int i;
+    for (i = 0; i < numrects; i += 1) {
         SDL_BlitSurface(_surface_fb, (SDL_Rect*)&rects[i], _surface_ons, (SDL_Rect*)&rects[i]);
     }
     return 0;

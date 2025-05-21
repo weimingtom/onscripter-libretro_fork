@@ -138,10 +138,17 @@ namespace utils{
 				: val { t }
 		{}
 
+#if 0
 		template <typename To>
 		constexpr operator To() const noexcept(noexcept(static_cast<To>(std::declval<From>()))) {
 			return static_cast<To>(val);
 		}
+#else
+		template <typename To>
+		constexpr operator To() const {
+			return static_cast<To>(val);
+		}
+#endif
 
 	private:
 		From const& val;

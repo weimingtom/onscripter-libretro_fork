@@ -140,7 +140,7 @@ void *FontInfo::openFont( char *font_file, int ratio1, int ratio2 )
         if (useFile) fc->next->font[1] = TTF_OpenFontRW(rwops, SDL_TRUE, font_size * ratio1 / ratio2);
         else fc->next->font[1] = TTF_OpenFontRW(SDL_RWFromConstMem(font_cache, font_cache_size), 1, font_size * ratio1 / ratio2);
         
-        if (fc->next->font[1] == nullptr) {
+        if (fc->next->font[1] == 0) {
             utils::printError("Open font failed: %s\n", TTF_GetError());
         }
         TTF_SetFontOutline(fc->next->font[1], 1);

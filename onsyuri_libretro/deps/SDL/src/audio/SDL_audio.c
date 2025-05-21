@@ -976,7 +976,7 @@ if (driver_name) {
 }
 driver_name = NULL;
 #endif
-	
+
     if (driver_name != NULL && *driver_name != 0) {
         const char *driver_attempt = driver_name;
         while (driver_attempt != NULL && *driver_attempt != 0 && !initialized) {

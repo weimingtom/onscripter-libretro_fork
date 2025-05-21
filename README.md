@@ -140,7 +140,8 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
-* onscripter-jh_ori编译的核心产生闪退  
+* onsyuri核心会干扰部分掌机的F1上下文菜单，导致MENU键失灵（例如TRIMUI SMART PRO，可以用开机键代替），有时也会导致RetroArch上下文菜单的资源图片失效，字体失效导致中文变成问号    
+* (Done) onscripter-jh_ori编译的核心产生闪退  
 **TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**  
 **(Done) TODO: 编译RetroArch需要预先安装什么软件包(答:libsdl2-dev libx11-xcb-dev)**  
 ```

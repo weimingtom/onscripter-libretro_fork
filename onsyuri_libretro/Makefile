@@ -11,9 +11,9 @@ CC  := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnu
 CXX := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
 AR  := /home/wmt/work_a30/gcc-linaro-7.5.0-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ar
 else
-#CC  := gcc
-#CXX := g++
-#AR  := ar
+CC  := gcc 
+CXX := g++ -std=c++11
+AR  := ar
 endif
 
 STATIC_LINKING := 0
@@ -195,8 +195,8 @@ print-%:
 	@echo '$*=$($*)'
 
 install:
-	cp onsyuri_libretro.so /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
-	cp onsyuri_libretro.info /home/wmt/snap/retroarch/3223/.config/retroarch/cores/.
+	cp onsyuri_libretro.so /home/wmt/snap/retroarch/common/.config/retroarch/cores/.
+	cp onsyuri_libretro.info /home/wmt/snap/retroarch/common/.config/retroarch/cores/.
 
 install2:
 	cp onsyuri_libretro.so /home/wmt/.config/retroarch/cores/.

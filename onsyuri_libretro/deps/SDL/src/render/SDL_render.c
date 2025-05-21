@@ -39,7 +39,7 @@ SDL_AddEventWatch to catch SDL_APP_WILLENTERBACKGROUND events and stopped
 drawing themselves. Other platforms still draw, as the compositor can use it,
 and more importantly: drawing to render targets isn't lost. But I still think
 this should probably be removed at some point in the future.  --ryan. */
-#if defined(__IPHONEOS__) || defined(__TVOS__) || defined(__ANDROID__)
+#if defined(__IPHONEOS__) || defined(__TVOS__) || (defined(__ANDROID__) && !BUILD_RETROARCH)
 #define DONT_DRAW_WHILE_HIDDEN 1
 #else
 #define DONT_DRAW_WHILE_HIDDEN 0
@@ -716,7 +716,7 @@ static int SDLCALL SDL_RendererEventWatch(void *userdata, SDL_Event *event)
                 }
 
                 if (renderer->logical_w) {
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !BUILD_RETROARCH
                     /* Don't immediatly flush because the app may be in
                      * background, and the egl context shouldn't be used. */
                     SDL_bool flush_viewport_cmd = SDL_FALSE;
@@ -739,7 +739,7 @@ static int SDLCALL SDL_RendererEventWatch(void *userdata, SDL_Event *event)
                     renderer->viewport.w = (double)w;
                     renderer->viewport.h = (double)h;
                     QueueCmdSetViewport(renderer);
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !BUILD_RETROARCH
                     /* Don't immediatly flush because the app may be in
                      * background, and the egl context shouldn't be used. */
 #else
@@ -963,7 +963,7 @@ SDL_Renderer *SDL_CreateRenderer(SDL_Window *window, int index, Uint32 flags)
     const char *hint;
     int rc = -1;
 
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !BUILD_RETROARCH
     Android_ActivityMutex_Lock_Running();
 #endif
 
@@ -1124,7 +1124,7 @@ SDL_Renderer *SDL_CreateRenderer(SDL_Window *window, int index, Uint32 flags)
     SDL_LogInfo(SDL_LOG_CATEGORY_RENDER,
                 "Created renderer: %s", renderer->info.name);
 
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !BUILD_RETROARCH
     Android_ActivityMutex_Unlock();
 #endif
     return renderer;
@@ -1132,7 +1132,7 @@ SDL_Renderer *SDL_CreateRenderer(SDL_Window *window, int index, Uint32 flags)
 error:
     SDL_free(renderer);
 
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !BUILD_RETROARCH
     Android_ActivityMutex_Unlock();
 #endif
     return NULL;
