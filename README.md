@@ -32,7 +32,8 @@ https://github.com/YuriSizuku/OnscripterYuri/blob/master/src/onsyuri_libretro/on
 
 **Onscripter-yuri build, WIP**  
 Onsyuri Test binary files (not stable very much):  
-https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20250426   
+(All platforms alpha) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20250521  
+(alpha) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20250426   
 (alpha test) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_20241219    
 https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_20241123   
 (old) https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build_yuri_android_20241113   
