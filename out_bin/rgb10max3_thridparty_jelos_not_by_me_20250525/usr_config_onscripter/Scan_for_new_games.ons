@@ -1,0 +1,15 @@
+#!/bin/bash
+
+directory="/storage/roms/onscripter"
+mkdir -p $directory
+for romdir in $directory/*
+do
+  if [ -d "$romdir" ]; then
+    romname=$(basename "$romdir")
+    if [[ ! -f "$romdir/${romname}.ons" ]] && [[ ! -f "$romdir/${romname}.ONS" ]] && [[ ! "$romname" = "image" ]]; then
+      touch "$romdir/${romname}.ons"
+    fi
+  fi
+done
+sync
+systemctl restart emustation

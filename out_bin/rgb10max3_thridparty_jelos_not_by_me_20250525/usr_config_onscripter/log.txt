@@ -1,0 +1,4802 @@
+./onscripter: error while loading shared libraries: libjpeg.so.62: cannot open shared object file: No such file or directory
+./onscripter: error while loading shared libraries: libjpeg.so.62: cannot open shared object file: No such file or directory
+./onscripter: error while loading shared libraries: libogg.so.0: cannot open shared object file: No such file or directory
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+ONScripter-Jh version 0.7.6 (20181218, 2.96)
+Initialize JOYSTICK
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc2.nsa,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc2.nsa
+ *** plugin nscrpng.spi|png is not available, ignored. ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoncur.bmp
+ *** can't find file [uoncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoffcur.bmp
+ *** can't find file [uoffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doncur.bmp
+ *** can't find file [doncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doffcur.bmp
+ *** can't find file [doffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor0.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor0.bmp
+ *** can't find file [cursor0.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor1.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor1.bmp
+ *** can't find file [cursor1.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system.lua,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system.lua
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/bgm/OP.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:bgm/OP.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+arm_release_ver of this libmali is 'g2p0-01eac0', rk_so_ver is '3'.Display: 800 x 600 (32 bpp)
+sdw:800,sdh:600,sw:800,sh:600
+Audio: 44100 Hz 16 bit stereo
+cannot open system.lua
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONDOWN:15
+transTo:47535616
+SDL_JOYBUTTONUP:15
+transTo:47535616
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONUP:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:10
+transTo:11088
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:10
+transTo:11398
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:10
+transTo:12017
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:10
+transTo:12224
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONUP:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:7
+transTo:9788481
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONUP:7
+transTo:9788481
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:7
+transTo:9788481
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONUP:7
+transTo:9788481
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:8
+transTo:9780416
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:7
+transTo:9788481
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONDOWN:10
+transTo:13881
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:7
+transTo:9788481
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:15
+transTo:47535616
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:10
+transTo:14191
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:15
+transTo:47535616
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:7
+transTo:9788481
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONDOWN:15
+transTo:47535616
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONUP:7
+transTo:9788481
+SDL_JOYBUTTONUP:15
+transTo:47535616
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONDOWN:7
+transTo:9788481
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:7
+transTo:9788481
+SDL_JOYBUTTONUP:8
+transTo:9780416
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONUP:14
+transTo:2
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:2
+transTo:6131
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONDOWN:5
+transTo:9788481
+SDL_JOYBUTTONDOWN:6
+transTo:9784212
+SDL_JOYBUTTONDOWN:10
+transTo:15534
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONDOWN:3
+transTo:9777888
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONDOWN:1
+transTo:-7574608
+SDL_JOYBUTTONDOWN:2
+transTo:6131
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONUP:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:6
+transTo:9784212
+SDL_JOYBUTTONUP:10
+transTo:15741
+SDL_JOYBUTTONUP:3
+transTo:9777888
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONUP:1
+transTo:-7574608
+SDL_JOYBUTTONUP:5
+transTo:9788481
+SDL_JOYBUTTONUP:2
+transTo:6131
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+ONScripter-Jh version 0.7.6 (20181218, 2.96)
+Initialize JOYSTICK
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc2.nsa,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc2.nsa
+ *** plugin nscrpng.spi|png is not available, ignored. ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoncur.bmp
+ *** can't find file [uoncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoffcur.bmp
+ *** can't find file [uoffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doncur.bmp
+ *** can't find file [doncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doffcur.bmp
+ *** can't find file [doffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor0.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor0.bmp
+ *** can't find file [cursor0.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor1.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor1.bmp
+ *** can't find file [cursor1.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system.lua,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system.lua
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/bgm/OP.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:bgm/OP.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Water01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Water01.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Water01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Water01.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_EMA_01A.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_EMA_01A.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_EMA_01A.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_EMA_01A.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160001.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160001.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160001.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160001.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160002.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160002.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160002.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160002.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160003.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160003.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160003.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160003.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160004.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160004.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160005.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160005.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160005.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160005.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160006.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160006.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160006.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160006.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+arm_release_ver of this libmali is 'g2p0-01eac0', rk_so_ver is '3'.Display: 800 x 600 (32 bpp)
+sdw:800,sdh:600,sw:800,sh:600
+Audio: 44100 Hz 16 bit stereo
+cannot open system.lua
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+SDL_JOYBUTTONUP:14
+transTo:18200344
+shiftCursorOnButton:399,378,800,800
+warpMouse:399,378
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+shiftCursorOnButton:399,410,800,800
+warpMouse:399,410
+SDL_JOYBUTTONUP:14
+transTo:18200344
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+shiftCursorOnButton:399,570,800,800
+warpMouse:399,570
+SDL_JOYBUTTONUP:14
+transTo:18200344
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+SDL_JOYBUTTONUP:14
+transTo:18200344
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+SDL_JOYBUTTONUP:14
+transTo:18200344
+shiftCursorOnButton:399,378,800,800
+warpMouse:399,378
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+SDL_JOYBUTTONUP:14
+transTo:18200344
+shiftCursorOnButton:399,410,800,800
+warpMouse:399,410
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+shiftCursorOnButton:399,570,800,800
+warpMouse:399,570
+SDL_JOYBUTTONUP:14
+transTo:18200344
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+SDL_JOYBUTTONUP:14
+transTo:18200344
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:1
+transTo:-2860176
+SDL_JOYBUTTONUP:1
+transTo:-261193712
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:14
+transTo:18200344
+shiftCursorOnButton:399,378,800,800
+warpMouse:399,378
+SDL_JOYBUTTONUP:14
+transTo:18200344
+SDL_JOYBUTTONDOWN:13
+transTo:25980608
+SDL_JOYBUTTONUP:13
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+transTo:-138482516
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+transTo:-138482516
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:10
+transTo:24416
+SDL_JOYBUTTONUP:10
+transTo:24623
+SDL_JOYBUTTONDOWN:8
+transTo:6757568
+SDL_JOYBUTTONUP:8
+transTo:6757568
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONDOWN:5
+transTo:6765633
+SDL_JOYBUTTONUP:5
+transTo:6765633
+SDL_JOYBUTTONDOWN:6
+transTo:6761364
+SDL_JOYBUTTONUP:6
+transTo:6761364
+SDL_JOYBUTTONDOWN:7
+transTo:6765633
+SDL_JOYBUTTONUP:7
+transTo:6765633
+SDL_JOYBUTTONDOWN:3
+transTo:6755040
+SDL_JOYBUTTONUP:3
+SDL_JOYBUTTONDOWN:2
+transTo:33946
+SDL_JOYBUTTONUP:2
+transTo:33946
+SDL_JOYBUTTONDOWN:3
+transTo:6755040
+SDL_JOYBUTTONUP:3
+transTo:6755040
+SDL_JOYBUTTONDOWN:2
+transTo:35513
+SDL_JOYBUTTONUP:2
+transTo:35513
+SDL_JOYBUTTONDOWN:1
+transTo:-261193712
+SDL_JOYBUTTONUP:1
+transTo:1
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:1
+transTo:-261193712
+SDL_JOYBUTTONUP:1
+transTo:1
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+transTo:-138482516
+SDL_JOYBUTTONDOWN:12
+transTo:-203226868
+SDL_JOYBUTTONUP:12
+transTo:12
+SDL_JOYBUTTONDOWN:11
+SDL_JOYBUTTONUP:11
+SDL_JOYBUTTONDOWN:10
+transTo:43697
+SDL_JOYBUTTONUP:10
+transTo:43801
+SDL_JOYBUTTONDOWN:16
+SDL_JOYBUTTONUP:16
+SDL_JOYBUTTONDOWN:13
+SDL_JOYBUTTONUP:13
+SDL_JOYBUTTONDOWN:15
+SDL_JOYBUTTONUP:15
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+shiftCursorOnButton:278,585,800,800
+warpMouse:278,585
+SDL_JOYBUTTONDOWN:5
+transTo:6765633
+SDL_JOYBUTTONUP:5
+transTo:6765633
+SDL_JOYBUTTONDOWN:4
+SDL_JOYBUTTONUP:4
+SDL_JOYBUTTONDOWN:7
+transTo:6765633
+SDL_JOYBUTTONUP:7
+transTo:6765633
+SDL_JOYBUTTONDOWN:6
+transTo:6761364
+SDL_JOYBUTTONUP:6
+transTo:6761364
+SDL_JOYBUTTONDOWN:8
+transTo:6757568
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONUP:8
+transTo:6757568
+SDL_JOYBUTTONDOWN:10
+transTo:48987
+SDL_JOYBUTTONDOWN:9
+transTo:768
+SDL_JOYBUTTONUP:9
+transTo:769
+SDL_JOYBUTTONUP:10
+transTo:49607
+SDL_JOYBUTTONDOWN:10
+transTo:50751
+SDL_JOYBUTTONUP:10
+transTo:50964
+SDL_JOYBUTTONDOWN:10
+transTo:51584
+SDL_JOYBUTTONUP:10
+transTo:51688
+SDL_JOYBUTTONDOWN:3
+transTo:6755040
+SDL_JOYBUTTONUP:3
+SDL_JOYBUTTONDOWN:3
+transTo:6755040
+SDL_JOYBUTTONUP:3
+transTo:6755040
+SDL_JOYBUTTONDOWN:2
+transTo:53858
+SDL_JOYBUTTONUP:2
+transTo:53858
+SDL_JOYBUTTONDOWN:1
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160007.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160007.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160008.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160008.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_black.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_black.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_black.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_black.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Hineru01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Hineru01.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Hineru01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Hineru01.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/BG_118.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/BG_118.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/BG_118.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/BG_118.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/bgm/30.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:bgm/30.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160009.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160009.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160009.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160009.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/systembar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/systembar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/systembar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/systembar.png
+transTo:-261193712
+SDL_JOYBUTTONUP:1
+transTo:1
+SDL_JOYBUTTONDOWN:0
+transTo:17093232
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+transTo:17093232
+SDL_JOYBUTTONUP:0
+transTo:17093232
+SDL_JOYBUTTONDOWN:12
+transTo:-203226868
+SDL_JOYBUTTONUP:12
+transTo:12
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+ONScripter-Jh version 0.7.6 (20181218, 2.96)
+Initialize JOYSTICK
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc.sar,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc.sar
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/00.ns2,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:00.ns2
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/arc2.nsa,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:arc2.nsa
+ *** plugin nscrpng.spi|png is not available, ignored. ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoncur.bmp
+ *** can't find file [uoncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/uoffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:uoffcur.bmp
+ *** can't find file [uoffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doncur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doncur.bmp
+ *** can't find file [doncur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/doffcur.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:doffcur.bmp
+ *** can't find file [doffcur.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor0.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor0.bmp
+ *** can't find file [cursor0.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/cursor1.bmp,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:cursor1.bmp
+ *** can't find file [cursor1.bmp] ***
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system.lua,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system.lua
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_BLACK.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_BLACK.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/messagewindow_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/messagewindow_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/bgm/OP.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:bgm/OP.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/visual_giga.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/visual_giga.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleBG02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleBG02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine03.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine03.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine04.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine04.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine05.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine05.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine06.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine06.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLine08.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLine08.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleLogo.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleLogo.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/TitleMenu.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/TitleMenu.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/titlemenub_07.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/titlemenub_07.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Water01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Water01.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/se/L_Water01.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:se/L_Water01.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/visual_white.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/visual_white.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_EMA_01A.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_EMA_01A.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/visual/VISUAL_EMA_01A.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:visual/VISUAL_EMA_01A.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/ControlBar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/ControlBar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160001.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160001.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160001.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160001.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160002.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160002.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160002.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160002.ogg
+ALSA lib /home/uos/UnofficialOS/build.UnofficialOS-RG503.arm/alsa-lib-1.2.6.1/src/pcm/pcm.c:8568:(snd_pcm_recover) underrun occurred
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/fadefilter11.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/fadefilter11.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160003.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160003.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160004.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160004.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/voice/00160004.ogg,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:voice/00160004.ogg
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/namewindow.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/namewindow.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_00.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_00.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_01.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_01.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/controlbarbuttonb_02.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/controlbarbuttonb_02.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/systembar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/systembar.png
+DirectReader.cpp127
+can't open file /storage/roms/onscripter/coffice/system/systembar.png,mode:rb.
+open fail errno = 2 reason =  
+DirectReader.cpp137
+cur_p:system/systembar.png
+arm_release_ver of this libmali is 'g2p0-01eac0', rk_so_ver is '3'.Display: 800 x 600 (32 bpp)
+sdw:800,sdh:600,sw:800,sh:600
+Audio: 44100 Hz 16 bit stereo
+cannot open system.lua
+SDL_JOYBUTTONDOWN:13
+transTo:2
+SDL_JOYBUTTONUP:13
+transTo:2
+SDL_JOYBUTTONDOWN:14
+transTo:2
+SDL_JOYBUTTONUP:14
+transTo:2
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:14
+transTo:38947096
+shiftCursorOnButton:399,378,800,800
+warpMouse:399,378
+SDL_JOYBUTTONUP:14
+transTo:38947096
+SDL_JOYBUTTONDOWN:13
+transTo:47084224
+SDL_JOYBUTTONUP:13
+shiftCursorOnButton:399,345,800,800
+warpMouse:399,345
+SDL_JOYBUTTONDOWN:0
+transTo:-2082531028
+SDL_JOYBUTTONUP:0
+transTo:-135844692
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:1
+transTo:1
+SDL_JOYBUTTONUP:1
+transTo:1
+SDL_JOYBUTTONDOWN:3
+transTo:6984416
+SDL_JOYBUTTONUP:3
+transTo:6984416
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:2
+transTo:25924
+SDL_JOYBUTTONUP:2
+transTo:25924
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
+SDL_JOYBUTTONUP:0
+SDL_JOYBUTTONDOWN:0
