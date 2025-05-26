@@ -1,0 +1,9 @@
+## SYSTEM ONSCRIPTER ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".ons"
+
+For more info: https://wiki.batocera.org/systems:ons
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".ons"
+
+Trouvez la documentation ici: https://wiki.batocera.org/systems:ons
