@@ -141,7 +141,16 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
-* How to cross compile it with mingw toolchain in xubuntu  
+* (done) How to cross compile it with mingw toolchain in xubuntu  
+```
+我测试过用ubuntu 20自带的mingw交叉工具链编译onsyuri_libretro的dll也是可行的。
+测试过运行也是能用的，运行效果一样
+
+我想了一下，还是不能用ubuntu自带的mingw工具链去编译onsyuri_libretro的dll，
+虽然我测试过是没问题的，因为用交叉版的mingw编译会引入C库dll，
+例如libgcc_s_seh-1.dll和libstdc++-6.dll和libwinpthread-1.dll；
+如果用tdm版mingw编译则不会动态链接到这3个dll上 ​​​
+```
 * onsyuri核心会干扰部分掌机的F1上下文菜单，导致MENU键失灵（例如TRIMUI SMART PRO，可以用开机键代替），有时也会导致RetroArch上下文菜单的资源图片失效，字体失效导致中文变成问号    
 * (Done) onscripter-jh_ori编译的核心产生闪退  
 **TODO: 最好能加一下调试输出信息提示ons.getWidth()==0和可能包含了错误的头文件**  
