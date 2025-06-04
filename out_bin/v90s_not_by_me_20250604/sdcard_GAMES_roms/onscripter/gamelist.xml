@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./onscripter_cn_test/onscripter_cn_test.ons</path>
+		<name>onscripter_cn_test</name>
+		<playcount>3</playcount>
+		<lastplayed>20250106T210322</lastplayed>
+		<gametime>103</gametime>
+	</game>
+	<game>
+		<path>./onscripter_jp_test/2.ons</path>
+		<name>2</name>
+		<rating>0</rating>
+		<releasedate>19700101T080000</releasedate>
+		<playcount>1</playcount>
+		<lastplayed>20250106T211423</lastplayed>
+		<gametime>55</gametime>
+	</game>
+	<game>
+		<path>./onscripter_cn_test/1.ons</path>
+		<name>1</name>
+		<playcount>3</playcount>
+		<lastplayed>20250110T201716</lastplayed>
+		<gametime>137</gametime>
+	</game>
+</gameList>

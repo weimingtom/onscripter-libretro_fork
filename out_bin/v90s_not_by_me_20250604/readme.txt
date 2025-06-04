@@ -1,0 +1,1 @@
+stock os is batocera

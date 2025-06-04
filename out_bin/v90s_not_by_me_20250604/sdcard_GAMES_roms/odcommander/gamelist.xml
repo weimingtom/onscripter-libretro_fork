@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./od-commander.odc</path>
+		<name> 文件管理器</name>
+		<desc>两个窗格的文件管理器，类似于Norton/Midnight命令器，可用于管理Batocera系统上的所有/userdata文件。</desc>
+		<image>./images/od-commander.png</image>
+		<releasedate>20220410T000000</releasedate>
+		<developer>glebm</developer>
+		<genre>File manager</genre>
+		<players>1</players>
+		<playcount>10</playcount>
+		<lastplayed>20250110T201946</lastplayed>
+		<gametime>825</gametime>
+		<lang>en</lang>
+	</game>
+</gameList>
