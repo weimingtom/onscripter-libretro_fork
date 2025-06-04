@@ -16,7 +16,17 @@ TINYCO:=0
 #TODO:USE_SDLTHREAD not tested
 #TODO:build with USE_LABEL=1
 
-ifeq ($(MIYOO),2)
+ifeq ($(MIYOO),w32)
+#sudo apt install mingw-w64
+CC  := i686-w64-mingw32-gcc 
+CXX := i686-w64-mingw32-g++ -std=c++11
+AR  := i686-w64-mingw32-ar
+else ifeq ($(MIYOO),w64)
+#sudo apt install mingw-w64
+CC  := x86_64-w64-mingw32-gcc 
+CXX := x86_64-w64-mingw32-g++ -std=c++11
+AR  := x86_64-w64-mingw32-ar
+else ifeq ($(MIYOO),2)
 CC  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-gcc
 CXX := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-g++
 AR  := /home/wmt/work_trimui/aarch64-linux-gnu-7.5.0-linaro/bin/aarch64-linux-gnu-ar
@@ -54,6 +64,12 @@ else ifneq ($(findstring Darwin,$(shell uname -a)),)
 else ifneq ($(findstring win,$(shell uname -a)),)
    platform = win
 endif
+endif
+
+ifeq ($(MIYOO),w32)
+platform = win
+else ifeq ($(MIYOO),w64)
+platform = win
 endif
 
 # system platform
@@ -156,6 +172,14 @@ else ifeq ($(platform), miyoomini)
    SOURCES_C += $(addprefix $(DEPS_DIR)/libpng/arm/,\
       palette_neon_intrinsics.c arm_init.c filter_neon_intrinsics.c \
    )
+else ifeq ($(MIYOO),w32)
+   LDFLAGS += -lwinmm
+   TARGET := $(TARGET_NAME)_libretro.dll
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined
+else ifeq ($(MIYOO),w64)
+   LDFLAGS += -lwinmm
+   TARGET := $(TARGET_NAME)_libretro.dll
+   SHARED := -shared -Wl,--version-script=$(CORE_DIR)/link.T -Wl,--no-undefined	
 else
    #CC = gcc
 CC  = gcc -m64

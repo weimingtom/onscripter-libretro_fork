@@ -2,6 +2,7 @@ JELOS-RGB10MAX3.aarch64-20240811-MOD_kk.img
 JELOS-RGB10MAX3.aarch64-20240811-MOD_kk.zip
 (Official, kk mod and G.R.H mod, these three versions maybe all are from G.R.H version, see usr_bin/start_onscripter.sh)
 (But, kk mod is better than G.R.H mod, use EEROMS as FAT32 partition, easier for copying files)
+（kk魔改版从kk玩寨机公众号下载）
 
 onscripter_libretro.so 64bit version just for Japanese SJIS games
 onscripter_32b_libretro 32bit version is for Chinese GBK games
