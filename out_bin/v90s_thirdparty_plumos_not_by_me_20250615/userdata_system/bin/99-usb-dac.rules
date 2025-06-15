@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEM=="sound", RUN+="/userdata/system/bin/sink-reload.sh add"
+ACTION=="remove", SUBSYSTEM=="sound", RUN+="/userdata/system/bin/sink-reload.sh remove"

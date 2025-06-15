@@ -1,0 +1,33 @@
+# Software Information
+display_name = "ONScripter Yuzi"
+display_version = "Git"
+authors = "YuriSizuku"
+categories = "Game"
+corename = "onsyuri"
+license = "GPLv2"
+permissions = ""
+supported_extensions = ""
+categories = "Emulator"
+
+# Hardware Information
+manufacturer = "N/A"
+systemname = "ONS"
+systemid = "ons"
+
+# Libretro Features
+supports_no_game = "false"
+single_purpose = "true"
+cheats = "false"
+libretro_saves = "false"
+savestate = "false"
+savestate_features = "null"
+needs_fullpath = "true"
+hw_render = "true"
+required_hw_api = "OpenGL >= 3.0 | OpenGL Core >= 3.1 | OpenGL ES >= 2.0 | Vulkan >= 1.0 | Direct3D11 >= 11.0"
+disk_control = "false"
+load_subsystem = "false"
+needs_fullpath = "true"
+disk_control = "false"
+is_experimental = "false"
+
+description = "Libretro port of the ONScripter."

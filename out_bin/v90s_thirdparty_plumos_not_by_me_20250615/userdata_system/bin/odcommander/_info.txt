@@ -1,0 +1,9 @@
+## SYSTEM OD-COMMANDER ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".odc"
+
+A two-pane file manager in the style of Norton/Midnight Commander.
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".odc"
+
+Un gestionnaire de fichiers a deux volets, dans le style Norton/Midnight Commander.
