@@ -1,5 +1,5 @@
 /*
-  Copyright 1997-2024 Sam Lantinga
+  Copyright 1997-2025 Sam Lantinga
   Copyright 2022 Collabora Ltd.
 
   This software is provided 'as-is', without any express or implied
@@ -237,6 +237,7 @@ static const Format formats[] =
         IMG_isJPG,
         IMG_LoadJPG_RW,
     },
+#if 0 /* Different versions of JXL yield different output images */
     {
         "JXL",
         "sample.jxl",
@@ -254,6 +255,7 @@ static const Format formats[] =
         IMG_isJXL,
         IMG_LoadJXL_RW,
     },
+#endif
 #if 0
     {
         "LBM",

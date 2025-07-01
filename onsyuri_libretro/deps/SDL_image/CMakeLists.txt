@@ -248,6 +248,9 @@ if(WIN32 AND SDL2IMAGE_BUILD_SHARED_LIBS)
     target_sources(SDL2_image PRIVATE
         src/version.rc
     )
+    if(MINGW)
+        target_link_options(SDL2_image PRIVATE -static-libgcc)
+    endif()
 endif()
 set_target_properties(SDL2_image PROPERTIES
     DEFINE_SYMBOL DLL_EXPORT
@@ -331,7 +334,9 @@ set(SDL2IMAGE_IMAGEIO_ENABLED FALSE)
 if(APPLE)
     if(SDL2IMAGE_BACKEND_IMAGEIO)
         set(SDL2IMAGE_IMAGEIO_ENABLED TRUE)
-        target_link_libraries(SDL2_image PRIVATE -Wl,-framework,ApplicationServices)
+        if(CMAKE_SYSTEM_NAME MATCHES ".*(Darwin|MacOS).*")
+            target_link_libraries(SDL2_image PRIVATE -Wl,-framework,ApplicationServices)
+        endif()
         target_link_libraries(SDL2_image PRIVATE objc)
         target_sources(SDL2_image PRIVATE
             src/IMG_ImageIO.m
@@ -362,8 +367,7 @@ if(SDL2IMAGE_ZLIB)
         set(ZLIB_BUILD_EXAMPLES OFF CACHE BOOL "zlib examples" FORCE)
         sdl_check_project_in_subfolder(external/zlib zlib SDL2IMAGE_VENDORED)
         add_subdirectory(external/zlib EXCLUDE_FROM_ALL)
-        # PNG_BUILD_ZLIB variable is used by vendored libpng
-        set(PNG_BUILD_ZLIB ON CACHE BOOL "libpng option to tell it should use 'our' vendored ZLIB library" FORCE)
+        set(ZLIB_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/external/zlib;${CMAKE_CURRENT_BINARY_DIR}/external/zlib")
         # ZLIB_INCLUDE_DIR variable is used by vendored libpng
         set(ZLIB_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/external/zlib;${CMAKE_CURRENT_BINARY_DIR}/external/zlib" CACHE STRING "path of zlib, passed to libpng" FORCE)
         # ZLIB_LIBRARY variable is used by vendored libpng
@@ -371,6 +375,7 @@ if(SDL2IMAGE_ZLIB)
             set(ZLIB_LIBRARY zlib)
         else()
             set(ZLIB_LIBRARY zlibstatic)
+            set(SKIP_INSTALL_CONFIG_FILE ON)
         endif()
         if(NOT TARGET ZLIB::ZLIB)
             add_library(ZLIB::ZLIB ALIAS ${ZLIB_LIBRARY})
@@ -417,7 +422,7 @@ if(SDL2IMAGE_AVIF)
         if(NOT SDL2IMAGE_AVIF_SHARED)
             list(APPEND PC_LIBS -l$<TARGET_FILE_BASE_NAME:avif>)
         endif()
-        if(NOT MSVC)
+        if(NOT MSVC AND NOT CMAKE_SYSTEM_NAME MATCHES ".*OpenBSD.*")
           check_linker_flag(C "-Wl,--no-undefined" LINKER_SUPPORTS_WL_NO_UNDEFINED)
           if(LINKER_SUPPORTS_WL_NO_UNDEFINED)
             target_link_options(avif PRIVATE "-Wl,--no-undefined")
@@ -542,6 +547,12 @@ if(SDL2IMAGE_JXL)
         set(BUILD_TESTING OFF CACHE BOOL "build testing" FORCE)
         # JPEGXL_ENABLE_TOOLS variable is used by libjxl
         set(JPEGXL_ENABLE_JNI OFF CACHE BOOL "build jpegxl jni" FORCE)
+        # JPEGXL_ENABLE_SJPEG variable is used by libjxl
+        set(JPEGXL_ENABLE_SJPEG OFF CACHE BOOL "build jpegxl sjpeg" FORCE)
+        # JPEGXL_BUNDLE_SKCMS variable is used by libjxl
+        set(JPEGXL_BUNDLE_SKCMS OFF CACHE BOOL "build jpegxl bundle sjpeg" FORCE)
+        # JPEGXL_ENABLE_OPENEXR variable is used by libjxl
+        set(JPEGXL_ENABLE_OPENEXR OFF CACHE BOOL "build jpegxl openxr" FORCE)
         # JPEGXL_ENABLE_MANPAGES variable is used by libjxl
         set(JPEGXL_ENABLE_MANPAGES OFF CACHE BOOL "libjxl manpage option" FORCE)
         # JPEGXL_ENABLE_PLUGINS variable is used by libjxl
@@ -564,7 +575,7 @@ if(SDL2IMAGE_JXL)
             endif()
         else()
             set(jxl_lib jxl_dec-static)
-            list(APPEND INSTALL_EXTRA_TARGETS brotlidec-static brotlicommon-static hwy ${jxl_lib})
+            list(APPEND INSTALL_EXTRA_TARGETS brotlidec brotlicommon hwy ${jxl_lib})
         endif()
         set_target_properties(${jxl_lib} PROPERTIES EXPORT_NAME external_libjxl)
         add_library(SDL2_image::external_libjxl ALIAS ${jxl_lib})
@@ -810,7 +821,7 @@ if(SDL2IMAGE_WEBP)
             set(SDL2IMAGE_WEBP_ENABLED TRUE)
             message(STATUS "${PROJECT_NAME}: Using system libwebp")
             if(NOT SDL2IMAGE_WEBP_SHARED)
-                list(APPEND PC_REQUIRES libwebp)
+                list(APPEND PC_REQUIRES libwebp libwebpdemux)
             endif()
         else()
             message(${fatal_error} "libwebp NOT found")

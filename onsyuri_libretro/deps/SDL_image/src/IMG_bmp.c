@@ -1,6 +1,6 @@
 /*
   SDL_image:  An example image loading library for use with SDL
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -307,6 +307,11 @@ LoadICOCUR_RW(SDL_RWops * src, int type, int freesrc)
         }
         for (i = 0; i < (int) biClrUsed; ++i) {
             SDL_RWread(src, &palette[i], 4, 1);
+
+            /* Since biSize == 40, we know alpha is reserved and should be zero, meaning opaque */
+            if ((palette[i] & 0xFF000000) == 0) {
+                palette[i] |= 0xFF000000;
+            }
         }
     }
 
@@ -361,7 +366,7 @@ LoadICOCUR_RW(SDL_RWops * src, int type, int freesrc)
                 Uint32 pixel;
                 Uint8 channel;
                 for (i = 0; i < surface->w; ++i) {
-                    pixel = 0;
+                    pixel = 0xFF000000;
                     for (j = 0; j < 3; ++j) {
                         /* Load each color channel into pixel */
                         if (!SDL_RWread(src, &channel, 1, 1)) {
@@ -411,7 +416,7 @@ LoadICOCUR_RW(SDL_RWops * src, int type, int freesrc)
                     goto done;
                 }
             }
-            *((Uint32 *) bits + i) |= ((pixel >> shift) ? 0 : 0xFF000000);
+            *((Uint32 *) bits + i) &= ((pixel >> shift) ? 0 : 0xFFFFFFFF);
             pixel <<= ExpandBMP;
         }
         /* Skip padding bytes, ugh */

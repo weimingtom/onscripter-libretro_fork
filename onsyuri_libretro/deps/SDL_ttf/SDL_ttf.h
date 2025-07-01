@@ -1,6 +1,6 @@
 /*
   SDL_ttf:  A companion library to SDL for working with TrueType (tm) fonts
-  Copyright (C) 2001-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 2001-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -48,7 +48,7 @@ extern "C" {
  * Printable format: "%d.%d.%d", MAJOR, MINOR, PATCHLEVEL
  */
 #define SDL_TTF_MAJOR_VERSION   2
-#define SDL_TTF_MINOR_VERSION   23
+#define SDL_TTF_MINOR_VERSION   25
 #define SDL_TTF_PATCHLEVEL      0
 
 /**
@@ -634,14 +634,24 @@ extern DECLSPEC int SDLCALL TTF_FontAscent(const TTF_Font *font);
 extern DECLSPEC int SDLCALL TTF_FontDescent(const TTF_Font *font);
 
 /**
- * Query the recommended spacing between lines of text for a font.
+ * Query the spacing between lines of text for a font.
  *
  * \param font the font to query.
- * \returns the font's recommended spacing.
+ * \returns the font's line spacing.
  *
  * \since This function is available since SDL_ttf 2.0.12.
  */
 extern DECLSPEC int SDLCALL TTF_FontLineSkip(const TTF_Font *font);
+
+/**
+ * Set the spacing between lines of text for a font.
+ *
+ * \param font the font to modify.
+ * \param lineskip the new line spacing for the font.
+ *
+ * \since This function is available since SDL_ttf 2.22.0.
+ */
+extern DECLSPEC void SDLCALL TTF_SetFontLineSkip(TTF_Font *font, int lineskip);
 
 /**
  * Query whether or not kerning is allowed for a font.
