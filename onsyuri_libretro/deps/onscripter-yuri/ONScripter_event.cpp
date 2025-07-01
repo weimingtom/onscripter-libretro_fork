@@ -143,7 +143,7 @@ ONS_Key transControllerButton(Uint8 button)
         SDLK_RCTRL,             /* X */
         SDLK_SPACE,             /* Y */
         SDLK_0,                 /* BACK */
-        SDLK_UNKNOWN,           /* GUIDE */
+        SDLK_F10,               /* GUIDE */
         SDLK_a,                 /* START */
         SDLK_RCTRL,             /* LEFTSTICK */
         SDLK_RETURN,            /* RIGHTSTICK */
@@ -684,8 +684,10 @@ void ONScripter::shiftCursorOnButton( int diff )
         else if (x >= screen_width) x = screen_width-1;
         if      (y < 0)              y = 0;
         else if (y >= screen_height) y = screen_height-1;
-        x = x * screen_device_width / screen_width;
-        y = y * screen_device_width / screen_width;
+
+        x = x * screen_device_width / screen_width + render_view_rect.x;
+        y = y * screen_device_height / screen_height + render_view_rect.y;
+
         shift_over_button = button->no;
         warpMouse(x, y);
     }
