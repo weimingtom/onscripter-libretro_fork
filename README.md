@@ -45,7 +45,7 @@ https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/build
 我有时间会把目前修改的代码开源到gh上
 2024/11/21:目前上述问题都已修复，未测试
 2025/05/13:可能刷TRIMUI SMART PRO的crossmix os的系统升级包(会顺便升级固件到最新版)
-可以修复这个SDL_HINT_AUDIODRIVER的无声音bug,
+可以修复这个SDL_HINT_AUDIODRIVER的无声音,
 所以暂时不加上这个patch,但安全起见最好封死这个问题
 
 
@@ -115,7 +115,7 @@ You have to install core file, not copy or modify cores' folder
 * Known three versions: rg28xx, crossmixos, and tieba (not include me)    
 ```
 我目前知道有三个onscripter_libretro正式发布版本（不计算我自己在内，
-我自己编译那个有严重bug），
+我自己编译那个有严重），
 第一个是rg28xx和同系列，出厂就有，应该是最古老的版本，字体有问题；
 第二个是crossmix os版，工具链非官方，似乎是debian的gcc。
 第三个版本应该是在tieba上发布的（难道是原作者？），
@@ -141,6 +141,8 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* https://github.com/libretro/libretro-super/issues/1642
+* https://github.com/libretro/libretro-super/pull/1710
 * (done) How to cross compile it with mingw toolchain in xubuntu  
 ```
 我测试过用ubuntu 20自带的mingw交叉工具链编译onsyuri_libretro的dll也是可行的。
