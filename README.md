@@ -141,7 +141,7 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
-* (20250907) Known problems: If the file path contains Chinese, the RetroArch will crash. Make the path all full English.
+* (20250907) Known problems: If the game file path contains Chinese, the RetroArch will crash. Make the path all full English.
 * https://github.com/libretro/libretro-super/issues/1642
 * https://github.com/libretro/libretro-super/pull/1710
 * (done) How to cross compile it with mingw toolchain in xubuntu  
