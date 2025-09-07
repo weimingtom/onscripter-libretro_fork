@@ -141,6 +141,7 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
 * Use depends.exe check the dll, too many export function names except retro_*, need to remove them.     
 * (20250907) Known problems: If the game file path contains Chinese, the RetroArch core will crash. Make the path all full English.
 * https://github.com/libretro/libretro-super/issues/1642
@@ -269,6 +270,11 @@ tsukihime.rar
 * の资源（ons端），有部分文件失效拿不到
 
 ## games test  
+* tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
+```
+Crashing may be caused by ENABLE_1BYTE_CHAR ???, not sure,
+or maybe the upstream source no longer support English 0.txt    
+```
 * 魔女的花园：按Y快进后有时候会出现各种立绘错乱位置叠加（可能没消失，或者可能变得很巨大，难道是显示头像显示到主屏幕上？yuri版也有这个问题）；  
 读取进度菜单最后-号错误折行（yuri版没折行）；  
 yuri版快进到开头某段偶尔可能会闪退；  
