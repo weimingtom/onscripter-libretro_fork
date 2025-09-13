@@ -141,6 +141,7 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* (TODO) macOS version dylib linking is failed
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
 * Use depends.exe check the dll, too many export function names except retro_*, need to remove them.     
 * (20250907) Known problems: If the game file path contains Chinese, the RetroArch core will crash. Make the path all full English.
