@@ -300,6 +300,9 @@ SOURCES_C += $(addprefix $(DEPS_DIR)/freetype/src/,\
 #FIXME:
 CFLAGS += -DSIZEOF_SIZE_T=__SIZEOF_SIZE_T__ 
 CFLAGS += -DUSE_STBIMAGE -DLOAD_PNG -DLOAD_JPG -DLOAD_BMP
+ifneq (,$(findstring osx,$(platform)))
+CFLAGS += -DSDL_IMAGE_USE_COMMON_BACKEND
+endif
 SOURCES_C += $(filter-out %/showimage.c, $(wildcard $(DEPS_DIR)/SDL_image/src/*.c))
 
 # SDL2_mixer

@@ -80,6 +80,10 @@
 
 /* C library functions */
 /* #define HAVE_DLOPEN 1 */
+#ifdef __APPLE__ /*__MACOSX__*/
+#define HAVE_DLOPEN 1
+#endif
+
 #define HAVE_MALLOC 1
 #define HAVE_CALLOC 1
 #define HAVE_REALLOC 1
@@ -309,6 +313,10 @@
 /* #undef SDL_EVENTS_DISABLED */
 /* #undef SDL_FILE_DISABLED */
 /* #undef SDL_JOYSTICK_DISABLED */
+#ifdef __APPLE__
+#define SDL_FILE_DISABLED
+#define SDL_JOYSTICK_DISABLED
+#endif
 /* #undef SDL_HAPTIC_DISABLED */
 /* #undef SDL_HIDAPI_DISABLED */
 /* #undef SDL_SENSOR_DISABLED */
