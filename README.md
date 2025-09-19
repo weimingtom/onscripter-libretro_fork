@@ -270,6 +270,7 @@ tsukihime.rar
 * Binary Pot
 * の资源（ons端），有部分文件失效拿不到
 * 公主恋人ons汉化版
+* ONS_tianshi, 永不落幕的前奏诗.7z
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
