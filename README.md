@@ -141,6 +141,17 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
+* (TODO) VisionFive2
+```
+# How to buiild RetroArch-1.19.1 GLES2 version for VisionFive2, don't miss --disable-opengl  
+./configure --disable-opengl --enable-opengles --enable-opengles3_2 --prefix=/home/user/ra/
+
+# Build onsyuri_libretro
+make -j4
+sudo mkdir /usr/lib/riscv64-linux-gnu/libretro
+sudo cp *.info /usr/share/libretro/info/.
+sudo cp *.so /usr/lib/riscv64-linux-gnu/libretro/.
+```
 * (TODO) macOS version dylib linking is failed
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
 * Use depends.exe check the dll, too many export function names except retro_*, need to remove them.     
