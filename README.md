@@ -156,7 +156,7 @@ sudo cp *.so /usr/lib/riscv64-linux-gnu/libretro/.
 (???) sudo cp *.info /home/wmt/.retroarch/cores/.
 (???) sudo cp *.so /home/wmt/.retroarch/cores/.
 ```
-* (TODO) macOS version dylib linking is failed
+* (done) (TODO) macOS version dylib linking is failed
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
 * Use depends.exe check the dll, too many export function names except retro_*, need to remove them.     
 * (20250907) Known problems: If the game file path contains Chinese, the RetroArch core will crash. Make the path all full English.
