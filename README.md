@@ -141,7 +141,7 @@ see https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/t
 unzip ONSYURI.7z to SDCARD:/Emus/  
 
 ## Bugs or TODO  
-* (TODO) VisionFive2 and BPI-F3
+* (TODO) VisionFive2 (Debian 11 ?) and BPI-F3 (Armbian, apt like ubuntu)
 ```
 # How to buiild RetroArch-1.19.1 GLES2 version for VisionFive2, don't miss --disable-opengl  
 ./configure --disable-opengl --enable-opengles --enable-opengles3_2 --prefix=/home/user/ra/
