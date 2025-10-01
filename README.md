@@ -728,3 +728,17 @@ https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-li
 测试运行的——不会告诉我是凭空做出来的吧，
 或者说是故意这么搞的
 ```
+
+## (TODO) Porting onscripter-plus
+* https://github.com/weimingtom/onscripter-plus_fork
+
+## (TODO) Porting ONScripter-Jh-rg351v without linux/uinput.h
+* https://github.com/guangmingwan/ONScripter-Jh-rg351v
+* https://github.com/weimingtom/onscripter-libretro_fork/tree/master/out_bin/rgb10max3_thridparty_jelos_not_by_me_20250525
+```
+我似乎找到jelos版onscripter的出处，可能是这个：guangmingwan/ONScripter-Jh-rg351v。
+它的摇杆鼠标的原理是通过虚拟鼠标设备DFC Virtual Mouse来把摇杆转成鼠标
+（通过linux/uinput.h），
+不过这代码我觉得移植能力不佳，可能另外想办法重写，因为这些修改依靠uinput.h头文件，
+但无法确保所有平台可以这样做，而实际上应该是可以做到跨平台摇杆转鼠标的
+```
