@@ -743,3 +743,14 @@ https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-li
 不过这代码我觉得移植能力不佳，可能另外想办法重写，因为这些修改依靠uinput.h头文件，
 但无法确保所有平台可以这样做，而实际上应该是可以做到跨平台摇杆转鼠标的
 ```
+
+## (TODO) MINGW build toolchains (for building .dll files for Windows), need to be uploaded  
+* (TODO) upload msys_v11_retroarch_build_64.7z and msys_v11_retroarch_build_32.7z    
+* mingw32 and mingw64 build tool, I use a mod version of msys_v11 (mixing msys_v11 and TDM-GCC)  
+https://code.google.com/archive/p/ossbuild/downloads?page=2  
+https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ossbuild/msys_v11.7z  
+https://jmeubank.github.io/tdm-gcc/  
+see https://github.com/weimingtom/jamvm_mingw  
+see https://www.iteye.com/blog/weimingtom-726247   
+see https://www.iteye.com/category/162578    
+
