@@ -731,6 +731,7 @@ https://github.com/weimingtom/onscripter-libretro_fork/blob/master/onscripter-li
 
 ## (TODO) Porting onscripter-plus
 * https://github.com/weimingtom/onscripter-plus_fork
+* Should first solve the problem about -funsigned-char
 
 ## (TODO) Porting ONScripter-Jh-rg351v without linux/uinput.h
 * https://github.com/guangmingwan/ONScripter-Jh-rg351v
