@@ -194,7 +194,11 @@ char *FuruLayer::message(const char *message, int &ret_int)
   //Image loading
   if (!strncmp(message, "i|", 2)) {
     max_sp_w = 0;
+#if defined(DEBUG)
+    SDL_Surface *ref_surface = AnimationInfo::alloc32bitSurface(1,1, SDL_PIXELFORMAT_ABGR8888);
+#else
     SDL_Surface *ref_surface = AnimationInfo::alloc32bitSurface(1,1, ons.getTextureFormat());
+#endif
     if (tumbling) {
       // "Hana"
       if (sscanf(message, "i|%d,%d,%d,%d,%d,%d",
@@ -223,7 +227,11 @@ char *FuruLayer::message(const char *message, int &ret_int)
             anim->loop_mode = 3; // not animatable
             anim->trans_mode = AnimationInfo::TRANS_TOPLEFT;
             setStr(&anim->file_name, &buf[i][0]);
+#if defined(DEBUG)
+            anim->setImage(anim->setupImageAlpha(img, NULL, has_alpha), SDL_PIXELFORMAT_ABGR8888);
+#else
             anim->setImage(anim->setupImageAlpha(img, NULL, has_alpha), ons.getTextureFormat());
+#endif
             elements[i].setSprite(anim);
             if (anim->pos.w > max_sp_w)
               max_sp_w = anim->pos.w;
@@ -257,7 +265,11 @@ char *FuruLayer::message(const char *message, int &ret_int)
           }
           SDL_UnlockSurface(img);
           setStr(&anim->file_name, &buf[i][0]);
+#if defined(DEBUG)
+          anim->setImage(anim->setupImageAlpha(img, NULL, has_alpha), SDL_PIXELFORMAT_ABGR8888);
+#else
           anim->setImage(anim->setupImageAlpha(img, NULL, has_alpha), ons.getTextureFormat());
+#endif
           elements[i].setSprite(anim);
           if (anim->pos.w > max_sp_w)
             max_sp_w = anim->pos.w;

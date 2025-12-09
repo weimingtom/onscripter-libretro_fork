@@ -183,7 +183,11 @@ void OldMovieLayer::om_init()
 
   // Generate screens of random noise.
   for (int i = 0; i < MAX_NOISE; i++) {
+#if defined(DEBUG)
+    NoiseSurface[i] = AnimationInfo::allocSurface(width, height, SDL_PIXELFORMAT_ABGR8888);
+#else
     NoiseSurface[i] = AnimationInfo::allocSurface(width, height, ons.getTextureFormat());
+#endif
     SDL_LockSurface(NoiseSurface[i]);
     char* px = (char*)NoiseSurface[i]->pixels;
     const int pt = NoiseSurface[i]->pitch;
@@ -198,7 +202,11 @@ void OldMovieLayer::om_init()
   }
 
   // Generate scanlines of solid greyscale, used for the glow effect.
+#if defined(DEBUG)
+  GlowSurface = AnimationInfo::allocSurface(width, MAX_GLOW, SDL_PIXELFORMAT_ABGR8888);
+#else
   GlowSurface = AnimationInfo::allocSurface(width, MAX_GLOW, ons.getTextureFormat());
+#endif
   for (SDL_Rect r = { 0, 0, width, 1 }; r.y < MAX_GLOW; r.y++) {
     const int ry = (r.y * 30 / MAX_GLOW) + 4;
     SDL_FillRect(GlowSurface, &r, SDL_MapRGB(GlowSurface->format, ry, ry, ry));

@@ -380,11 +380,15 @@ SDL_libretro_KeyboardCallback(bool down,
 void
 SDL_libretro_SendMouseMotion(int relative, int x, int y)
 {
+if (_video) {
     SDL_SendMouseMotion(_video->grabbed_window, 0, relative, x, y);
+}
 }
 
 void
 SDL_libretro_SendMouseButton(Uint8 state, Uint8 button)
 {
+if (_video) {
     SDL_SendMouseButton(_video->grabbed_window, 0, state, button);
+}
 }
