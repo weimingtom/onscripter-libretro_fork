@@ -1,3 +1,4 @@
+#define USE_ONS 1
 #include <libgen.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -13,7 +14,9 @@
 #define DEFAULT_MOUSE_MODE "Classical"
 #endif
 
+#if USE_ONS
 #include "ONScripter.h"
+#endif
 #include "SDL_libretro.h"
 #include "gbk2utf16.h"
 #include "sjis2utf16.h"
@@ -31,7 +34,9 @@ static bool classical_mouse = false;
 static int mouse_joybtn = RETRO_DEVICE_ID_JOYPAD_SELECT;
 static double mouse_sensitivity = 1.0;
 
+#if USE_ONS
 ONScripter ons;
+#endif
 Coding2UTF16* coding2utf16 = NULL;
 std::string g_stdoutpath = "stdout.txt";
 std::string g_stderrpath = "stderr.txt";
@@ -39,6 +44,9 @@ std::string g_stderrpath = "stderr.txt";
 static void
 fallback_log(enum retro_log_level level, const char* fmt, ...)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     (void)level;
     va_list va;
     va_start(va, fmt);
@@ -49,6 +57,9 @@ fallback_log(enum retro_log_level level, const char* fmt, ...)
 unsigned
 retro_api_version(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return RETRO_API_VERSION;
 }
 
@@ -96,7 +107,9 @@ retro_set_environment(retro_environment_t cb)
         },
         NULL,
     };
-
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     environ_cb = cb;
     if (environ_cb(RETRO_ENVIRONMENT_GET_LOG_INTERFACE, &log))
         log_cb = log.log;
@@ -111,35 +124,53 @@ retro_set_environment(retro_environment_t cb)
 void
 retro_set_video_refresh(retro_video_refresh_t cb)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     video_cb = cb;
 }
 
 void
 retro_set_audio_sample(retro_audio_sample_t cb)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
 
 void
 retro_set_audio_sample_batch(retro_audio_sample_batch_t cb)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     audio_batch_cb = cb;
 }
 
 void
 retro_set_input_poll(retro_input_poll_t cb)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     input_poll_cb = cb;
 }
 
 void
 retro_set_input_state(retro_input_state_t cb)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     input_state_cb = cb;
 }
 
 void
 retro_get_system_info(struct retro_system_info* info)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     info->need_fullpath = true;
     info->valid_extensions = "txt|dat|___|nt2|nt3|ons|/";
     info->library_version = "0.7.4+2";
@@ -150,8 +181,29 @@ retro_get_system_info(struct retro_system_info* info)
 void
 retro_get_system_av_info(struct retro_system_av_info* info)
 {
-    int width = ons.getWidth();
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
+#if USE_ONS
+    int width = ons.getWidth(); //FIXME:if include incorrect <ONScripter.h> file, this will return 0; and cause crash
     int height = ons.getHeight();
+if (width == 0 || height == 0) {
+//It will cause the retroarch window crash, (run this code before ons_main() and ons.init(), so screen_width == 0)  
+//see this:
+//
+//X Error of failed request:  BadValue (integer parameter out of range for operation)
+//  Major opcode of failed request:  1 (X_CreateWindow)
+//  Value in failed request:  0x0
+//  Serial number of failed request:  33339
+//  Current serial number in output stream:  33347
+//
+	width = 100;
+	height = 100;
+}
+#else
+  int width = 640;
+  int height = 480;
+#endif
     info->geometry.base_width = width;
     info->geometry.base_height = height;
     info->geometry.max_width = width;
@@ -164,6 +216,9 @@ retro_get_system_av_info(struct retro_system_av_info* info)
 void
 retro_init(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     enum retro_pixel_format pixfmt = RETRO_PIXEL_FORMAT_XRGB8888;
     environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &pixfmt);
 
@@ -216,13 +271,21 @@ retro_init(void)
 static int
 game_main(void* data)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
+#if USE_ONS
     ons.executeLabel();
+#endif
     return 0;
 }
 
 bool
 retro_load_game(const struct retro_game_info* game)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     if (!game)
         return false;
 
@@ -242,7 +305,7 @@ retro_load_game(const struct retro_game_info* game)
     // Ignore SDL_AUDIODRIVER and SDL_VIDEODRIVER.
     SDL_SetHintWithPriority(SDL_HINT_AUDIODRIVER, "libretro", SDL_HINT_OVERRIDE);
     SDL_SetHintWithPriority(SDL_HINT_VIDEODRIVER, "libretro", SDL_HINT_OVERRIDE);
-
+#if USE_ONS 
     if (ons.openScript() != 0)
         return false;
 
@@ -250,6 +313,7 @@ retro_load_game(const struct retro_game_info* game)
         log_cb(RETRO_LOG_ERROR, "Failed to initialize ONScripter.\n");
         return false;
     }
+#endif	
 
     SDL_CaptureMouse(SDL_TRUE);
     SDL_ShowCursor(classical_mouse ? SDL_ENABLE : SDL_DISABLE);
@@ -266,21 +330,33 @@ retro_load_game(const struct retro_game_info* game)
 void
 retro_set_controller_port_device(unsigned port, unsigned device)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
 
 void
 retro_deinit(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
 
 void
 retro_reset(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
 
 static void
 PumpJoypadEvents(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     static bool _left = false;
     static bool _right = false;
     static int16_t buttons[16] = { 0 };
@@ -337,7 +413,9 @@ PumpJoypadEvents(void)
                 break;
             case RETRO_DEVICE_ID_JOYPAD_X:
                 buttons[i] = state;
+#if USE_ONS				
                 SDL_libretro_SendMouseMotion(0, ons.getWidth() / 2, ons.getHeight() / 2);
+#endif				
                 break;
             }
         } else {
@@ -364,6 +442,9 @@ PumpJoypadEvents(void)
 static Uint8
 pressed_to_button(int16_t pressed)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     if (pressed == 1)
         return SDL_BUTTON_LEFT;
     if (pressed == 2)
@@ -374,6 +455,9 @@ pressed_to_button(int16_t pressed)
 static void
 PumpMouseEvents(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 #define MOUSE(X) input_state_cb(0, RETRO_DEVICE_MOUSE, 0, RETRO_DEVICE_ID_MOUSE_##X)
 #define POINTER(X) input_state_cb(0, RETRO_DEVICE_POINTER, 0, RETRO_DEVICE_ID_POINTER_##X)
     if (classical_mouse) {
@@ -401,8 +485,13 @@ PumpMouseEvents(void)
         static int16_t _y = 0;
         static int16_t _pressed = 0;
 
+#if USE_ONS
         int width = ons.getWidth();
         int height = ons.getHeight();
+#else
+        int width = 100;
+        int height = 100;
+#endif		
         int16_t x = POINTER(X);
         int16_t y = POINTER(Y);
         int16_t pressed = 0;
@@ -436,6 +525,9 @@ PumpMouseEvents(void)
 static void
 mouse_autohide(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     static int prev_x = 0;
     static int prev_y = 0;
     static uint32_t frames = 0;
@@ -463,6 +555,9 @@ mouse_autohide(void)
 void
 retro_run(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     int x, y;
 
     input_poll_cb();
@@ -482,28 +577,44 @@ retro_run(void)
 size_t
 retro_serialize_size(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return 0;
 }
 
 bool
 retro_serialize(void* data, size_t size)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return false;
 }
 
 bool
 retro_unserialize(const void* data, size_t size)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return false;
 }
 
 void
 retro_cheat_reset(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
+
 void
 retro_cheat_set(unsigned index, bool enabled, const char* code)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
 }
 
 bool
@@ -511,12 +622,18 @@ retro_load_game_special(unsigned game_type,
                         const struct retro_game_info* info,
                         size_t num_info)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return false;
 }
 
 void
 retro_unload_game(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     SDL_Event event = { SDL_QUIT };
     SDL_PushEvent(&event);
     SDL_WaitThread(game_thread, NULL);
@@ -525,17 +642,26 @@ retro_unload_game(void)
 unsigned
 retro_get_region(void)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return RETRO_REGION_NTSC;
 }
 
 void*
 retro_get_memory_data(unsigned id)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return NULL;
 }
 
 size_t
 retro_get_memory_size(unsigned id)
 {
+#if defined(DEBUG)
+     fprintf(stderr, "Debug at function: %s, line: %d\n", __FUNCTION__, __LINE__);
+#endif
     return 0;
 }
