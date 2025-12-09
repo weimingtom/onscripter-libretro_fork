@@ -763,4 +763,21 @@ $ ps aux | grep ra64
 $ gdb attach 2810
 (gdb) set solib-search-path /mnt/SDCARD/RetroArch/.retroarch/cores
 ```
-* ulimit -c unlimited
+* ulimit -c unlimited, see https://github.com/weimingtom/ppsspp-1.18.1_fork
+```
+If you use ulimit -c unlimited, the core dump file may be saved to /tmp folder
+cat /proc/sys/kernel/core_pattern
+ _____  _              __     _
+|_   _||_| ___  _ _   |  |   |_| ___  _ _  _ _
+  | |   _ |   ||   |  |  |__ | ||   || | ||_'_|
+  | |  | || | || _ |  |_____||_||_|_||___||_,_|
+  |_|  |_||_|_||_|_|  Tina is Based on OpenWrt!
+ ----------------------------------------------
+ Tina Linux (Neptune, 5C1C9C53)
+ ----------------------------------------------
+root@TinaLinux:/# cat /proc/sys/kernel/core_pattern
+cat /proc/sys/kernel/core_pattern
+/tmp/%e.%t.%p.%s.core
+
+But core dump file may be too big (about 300 MB)
+```
