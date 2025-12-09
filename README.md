@@ -754,3 +754,13 @@ see https://github.com/weimingtom/jamvm_mingw
 see https://www.iteye.com/blog/weimingtom-726247   
 see https://www.iteye.com/category/162578    
 
+## Debug on Trimui Smart Pro
+* Use gdb attach
+```
+> adb shell
+$ ps aux | grep ra64
+(Get first colume PID, like 2810)
+$ gdb attach 2810
+(gdb) set solib-search-path /mnt/SDCARD/RetroArch/.retroarch/cores
+```
+* ulimit -c unlimited
