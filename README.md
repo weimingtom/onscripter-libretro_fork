@@ -781,3 +781,17 @@ cat /proc/sys/kernel/core_pattern
 
 But core dump file may be too big (about 300 MB)
 ```
+
+## Why onscripter_libretro.so and onsyuri_libretro.so crash in Trimui Smart Pro S ?  
+* Problem: Launching from Apps/BootRetroArch and loading onsyuri_libretro.so core file (or any other core file)  will crash  
+* Solve: Put onsyuri_libretro.so (renamed to onscripter_libretro.so)  to Emus/ONS (see  
+https://github.com/weimingtom/onscripter-libretro_fork/blob/master/out_bin/trimui_bilibili_not_by_me/ONS.7z   
+) to run RetroArch cores, I don't know why.  
+```
+trimui smart pro s研究。ra核心闪退的问题初步解决了。
+我绞尽脑汁用尽一切方法都查不出为什么我编译的onsyuri核心在这台掌机上会闪退，
+然后我发现其他核心也会闪退，只不过如果通过sh文件命令行参数形式加载核心，
+放在Emus子目录下执行（通过trimui系统启动），则不会闪退
+（不能通过Apps中的全能模拟器来加载cores核心文件）
+——至于为什么会这样和怎么解决，暂时还不知道
+```
