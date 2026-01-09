@@ -795,3 +795,14 @@ trimui smart pro s研究。ra核心闪退的问题初步解决了。
 （不能通过Apps中的全能模拟器来加载cores核心文件）
 ——至于为什么会这样和怎么解决，暂时还不知道
 ```
+
+## (TODO) The newest implementation of onscripter_libretro.so, not included in this repo   
+* wuffs_aux::sync_io::FileInput    
+https://github.com/madcock/libretro-onscripter/blob/main/sdl-libretro/SDL_image.cpp  
+Using strings.exe -n 8 onscripter_libretro.so, see https://github.com/christianhaitian/retroarch-cores/blob/master/aarch64/onscripter_libretro.so.zip    
+out_bin/arkos_aarch64_not_by_me/onscripter_libretro_20251208.so  
+
+## The newest implementation of onscripter_libretro.so  
+* ONS_LUA_HANDLER_PTR, onsyuri_mouse_joybtn  
+Using strings.exe -n 8 onsyuri_libretro.so, see https://github.com/christianhaitian/retroarch-cores/blob/master/aarch64/onsyuri_libretro.so.zip    
+out_bin/arkos_aarch64_not_by_me/onsyuri_libretro_20251207.so  
