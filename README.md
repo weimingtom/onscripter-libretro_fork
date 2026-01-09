@@ -802,7 +802,7 @@ https://github.com/madcock/libretro-onscripter/blob/main/sdl-libretro/SDL_image.
 Using strings.exe -n 8 onscripter_libretro.so, see https://github.com/christianhaitian/retroarch-cores/blob/master/aarch64/onscripter_libretro.so.zip    
 out_bin/arkos_aarch64_not_by_me/onscripter_libretro_20251208.so  
 
-## The newest implementation of onscripter_libretro.so  
+## The newest implementation of onsyuri_libretro.so  
 * ONS_LUA_HANDLER_PTR, onsyuri_mouse_joybtn  
 Using strings.exe -n 8 onsyuri_libretro.so, see https://github.com/christianhaitian/retroarch-cores/blob/master/aarch64/onsyuri_libretro.so.zip    
 out_bin/arkos_aarch64_not_by_me/onsyuri_libretro_20251207.so  
