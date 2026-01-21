@@ -782,7 +782,7 @@ cat /proc/sys/kernel/core_pattern
 But core dump file may be too big (about 300 MB)
 ```
 
-## Why onscripter_libretro.so and onsyuri_libretro.so crash in Trimui Smart Pro S ?  
+## Why onscripter_libretro.so and onsyuri_libretro.so crash in Trimui Smart Pro S ? (This issue has been resolved in the version trimui_smartpro_S_tg5050_sd_base_20251222.7z)    
 * Problem: Launching from Apps/BootRetroArch and loading onsyuri_libretro.so core file (or any other core file)  will crash  
 * Solve: Put onsyuri_libretro.so (renamed to onscripter_libretro.so)  to Emus/ONS (see  
 https://github.com/weimingtom/onscripter-libretro_fork/blob/master/out_bin/trimui_bilibili_not_by_me/ONS.7z   
@@ -795,6 +795,8 @@ trimui smart pro s研究。ra核心闪退的问题初步解决了。
 （不能通过Apps中的全能模拟器来加载cores核心文件）
 ——至于为什么会这样和怎么解决，暂时还不知道
 ```
+* This problem is solved in trimui_smartpro_S_tg5050_sd_base_20251222.7z  
+https://github.com/trimui/assets_smartpro_s/releases/tag/20251222  
 
 ## (TODO) The newest implementation of onscripter_libretro.so, not included in this repo   
 * wuffs_aux::sync_io::FileInput    
