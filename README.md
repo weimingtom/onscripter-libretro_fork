@@ -288,7 +288,8 @@ tsukihime.rar
 * ONS_tianshi, 永不落幕的前奏诗.7z
 * 行动派ons, 合集300多个
 * from linuxgame.cn, AIR.Appimage, 我所希冀的未来.tar.xz  
-* lyricallisp_free-1.7.zip, http://lyrical.bugyo.tk/    
+* lyricallisp_free-1.7.zip, http://lyrical.bugyo.tk/, 日文版    
+* A Dream of Summer.7z, 盛夏之梦 A Dream of Summer 中文版    
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
