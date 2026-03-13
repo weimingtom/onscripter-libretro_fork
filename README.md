@@ -288,7 +288,7 @@ tsukihime.rar
 * ONS_tianshi, 永不落幕的前奏诗.7z
 * 行动派ons, 合集300多个
 * from linuxgame.cn, AIR.Appimage, 我所希冀的未来.tar.xz  
-* lyricallisp_free-1.7.zip, http://lyrical.bugyo.tk/, 日文版    
+* lyricallisp_free-1.7.zip, http://lyrical.bugyo.tk/, 日文版, 魔法言語 リリカル☆Lisp Free      
 * A Dream of Summer.7z, 盛夏之梦 A Dream of Summer 中文版    
 
 ## games test  
