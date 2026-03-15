@@ -290,6 +290,7 @@ tsukihime.rar
 * from linuxgame.cn, AIR.Appimage, 我所希冀的未来.tar.xz  
 * lyricallisp_free-1.7.zip, http://lyrical.bugyo.tk/, 日文版, 魔法言語 リリカル☆Lisp Free      
 * A Dream of Summer.7z, 盛夏之梦 A Dream of Summer 中文版    
+* 115, 竜神ナーガ2_体験版_QVGA.rar, 中文版, need use other exe      
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
