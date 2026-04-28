@@ -293,6 +293,7 @@ tsukihime.rar
 * 115, 竜神ナーガ2_体験版_QVGA.rar, 中文版, need use other exe      
 * 115, [sakura]勇者大战魔物娘3章整合1.02版.7z, no exe, encrypted ?  
 * 115, 一生一次的机会, sanarara, (unencrypted) sanarara_chs_v1.0@星空网@幻の空@暗の世界.rar, (unencrypted) SANARARA@星空网@幻の空@暗の世界.ISO  
+* 115, for psp, uminekoep1.zip  
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
