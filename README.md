@@ -294,6 +294,9 @@ tsukihime.rar
 * 115, [sakura]勇者大战魔物娘3章整合1.02版.7z, no exe, encrypted ?  
 * 115, 一生一次的机会, sanarara, (unencrypted) sanarara_chs_v1.0@星空网@幻の空@暗の世界.rar, (unencrypted) SANARARA@星空网@幻の空@暗の世界.ISO  
 * 115, for psp, uminekoep1.zip  
+* 115, (.ns2) Lilitales -リリテイルズ- ver1,00, 莉莉傳說, 莉莉传说  
+* (TO BUY) steam game, Lilitales, 莉莉传说   
+https://store.steampowered.com/app/1141100/_/  
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
