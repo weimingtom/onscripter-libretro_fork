@@ -276,7 +276,7 @@ scenario(只是一些早期取出文件)
 全中文300部，PSP移植游戏，[PSP][PC移植版], [中文版]    
 * See yinxiangbiji, galgame购买, _ons_all_1, _ons_all_2, _ons_1, _ons2, 我的资源  
 某个可能已经挂掉的tieba（参考wmt_vn_study的issue）  
-* Steam, 有些是ponscripter的(utf-8), NOeSIS三作还有水仙1+2, 等等等等    
+* Steam, 有些是ponscripter的(utf-8), NOeSIS三作还有水仙1+2, 海猫(Umineko), 等等等等    
 * 月姬简体中文测试beta  
 tsukihime.rar  
 * for android.rar  
