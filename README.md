@@ -297,6 +297,7 @@ tsukihime.rar
 * 115, (.ns2) Lilitales -リリテイルズ- ver1,00, 莉莉傳說, 莉莉传说  
 * (TO BUY) steam game, Lilitales, 莉莉传说   
 https://store.steampowered.com/app/1141100/_/  
+* projects_20241018.7z  
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
