@@ -299,6 +299,14 @@ tsukihime.rar
 https://store.steampowered.com/app/1141100/_/  
 * projects_20241018.7z
 * (?) 万花镜手机端ons
+* 迷你龙系统, 迷你龙ONS2, 合计6个游戏
+* _ons_all_1, Downloads_index_20211026.rar, krkr游戏目录.xlsx, 约346行, ONS目录.xlsx, 约180行, _ons_all_2  
+万人迷游戏2019整理资源表（请各位同学珍惜，不要到处传播，被封盘就没了）   
+注: 太多了, 不知道是否可用, 只能当作目录来用   
+```
+这一本只不过是绝世武功的目录
+——鹿鼎记
+```
 
 ## games test  
 * tsukihime_en.zip, english 0.txt, If onscripter_libretro.dll load this game, the core will crash. If onsyuri_libretro.dll load this game, some strange characters like '|' will show
